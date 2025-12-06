@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yevhen Berezanskyi - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" 
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+          xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
+          crossorigin="anonymous" 
+          referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">
+            <a href="#hero-section">Yevhen Berezanskyi</a>
+        </div>
+        <button class="hamburger-menu" aria-label="Open Navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero-section" class="js-animate">
+        <div class="hero-content">
+            <h1>Yevhen Berezanskyi</h1>
+            <p class="tagline">I build elegant and efficient web solutions.</p>
+            <a href="#about" class="hero-button">Explore My Work</a>
+        </div>
+    </section>
+
+    <section id="about" class="content-section">
+    <h2>About Me</h2>
+    
+        <div class="about-grid">
+        
+        <div class="about-card education-card">
+            <h3>Education</h3>
+            <p>
+                Odessa Faculty College of Computer Technologies<br>
+                2017 - 2021
+            </p>
+            <p>
+                Odessa State Ecological University<br>
+                2021 - 2023
+            </p>
+            <p>
+                Odessa National University named after I. I. Mechnikov<br>
+                2023 - 2024
+            </p>
+        </div>
+        
+        <div class="about-card summary-card">
+            <h3>Summary</h3>
+            <p>Junior Full Stack Developer with a passion for creating dynamic and responsive web applications. Skilled in both front-end and back-end technologies, focusing on the MERN stack and efficient RESTful APIs. Committed to writing clean, maintainable code and continuous learning.</p>
+        </div>
+        
+        <div class="about-card experience-card">
+            <h3>Experience</h3>
+            <p>
+                **Intern Web Developer**<br>
+                Company Name<br>
+                6 months (2024)
+            </p>
+            <p>
+                **Freelance Projects**<br>
+                E-commerce & CRM Tools<br>
+                2023 - Present
+            </p>
+        </div>
+        
+        </div>
+    
+    </section>
+
+    <section id="skills">
+    <h2>Skills</h2>
+    
+    <div class="skills-container card js-animate"> 
+        <div class="skills-content-grid">
+    
+        <div class="skills-column left-column">
+            
+            <div class="skill-group frontend">
+                <h3>Frontend</h3>
+                <p>HTML5, CSS3, JavaScript (ES6+), React.js, Tailwind CSS</p>
+            </div>
+            
+            <div class="skill-group backend">
+                <h3>Backend</h3>
+                <p>Node.js, Express, REST API, MongoDB/PostgreSQL, JWT</p>
+            </div>
+
+            <div class="skill-group tools">
+                <h3>Tools</h3>
+                <p>Git, GitHub, VS Code, Postman, Docker (Basic)</p>
+            </div>
+            
+        </div>
+        
+        <div class="skills-column right-column">
+            
+            <div class="skill-group other-knowledge">
+                 <h3>Other Knowledge</h3>
+                 <p></p>
+            </div>
+            
+        </div>
+        
+    </div>
+    </div>
+    </section>
+
+    <section id="projects">
+    <h2>My Projects</h2> 
+    
+    <div class="projects-grid card js-animate"> 
+        
+        <div class="project-item"> 
+            <h3>Project One</h3>
+            <p>A web application that allows users to track their tasks...</p>
+            <p class="tech-stack">**Tech:** React, Node.js, Express, MongoDB</p>
+            <a href="#">View Demo</a> | <a href="#">GitHub</a>
+        </div>
+        
+        <hr class="project-separator"> 
+        
+        <div class="project-item"> 
+            <h3>Project Two</h3>
+            <p>An e-commerce platform with a user-friendly interface...</p>
+            <p class="tech-stack">**Tech:** HTML, CSS, Flask (Python), PostgreSQL</p>
+            <a href="#">View Demo</a> | <a href="#">GitHub</a>
+        </div>
+        
+    </div>
+    </section>
+    
+    <!-- ОЧИЩЕННАЯ СЕКЦИЯ КОНТАКТОВ -->
+    <section id="contact" class="content-section">
+    <h2>Contact Me</h2>
+    
+    <div class="contact-grid">
+        <div class="contact-card contact-form-card js-animate">
+            <h3>Send Me an Email</h3>
+            <!-- Обертка формы удалена, так как Flexbox больше не используется для прижатия кнопки -->
+            <form id="contact-form">
+                <!-- Объединены поля ввода в один унифицированный form-group -->
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                </div>
+                <!-- КЛЮЧЕВОЕ ИЗМЕНЕНИЕ: hero-button заменен на submit-button -->
+                <button type="submit" class="submit-button">Send</button>
+            </form>
+        </div>
+        
+        <div class="contact-card messenger-card js-animate">
+            <h3>Connect Directly</h3>
+            <p>I'm available on popular messengers. Feel free to reach out to my phone number for quick questions or discussions.</p>
+            
+            <div class="messenger-links">
+                <a href="https://wa.me/+40750266672" target="_blank" class="messenger-link whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://t.me/eugene_br1zz" target="_blank" class="messenger-link telegram">
+                    <i class="fab fa-telegram-plane"></i> Telegram
+                </a>
+            </div>
+            
+            <p class="phone-number">
+                <i class="fas fa-phone"></i> +40 750 266 672
+            </p>
+        </div>
+        
+    </div>
+    </section>
+    <!-- КОНЕЦ ОЧИЩЕННОЙ СЕКЦИИ КОНТАКТОВ -->
+    
+    <footer>
+        <p>&copy; 2025 Yevhen Berezanskyi. All rights reserved.</p>
+    </footer>
+    
+    <script src="script.js">
+
+    </script>      
+
+</body>
+</html>

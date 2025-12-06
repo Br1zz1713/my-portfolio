@@ -1,0 +1,1515 @@
+/* ========================================================================= */
+/* 0. COLOR PALETTE */
+/* Primary: #250b55 (Dark Purple/Navy) */
+/* Accent: #7F58E8 (Neon/Bright Purple) */
+/* ========================================================================= */
+
+:root {
+    --primary-color: #250b55;
+    --accent-color: #7F58E8;
+    --light-bg-color: #f4f4f4;
+    --card-shadow: 0 0 15px rgba(37, 11, 85, 0.1);
+    --neon-shadow: 0 0 8px rgba(127, 88, 232, 0.8);
+}
+
+/* ---------------------------------------------------- */
+/* KEYFRAMES: Subtle Slide-In Animation (Activated by JS) */
+/* ---------------------------------------------------- */
+
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Keyframes for neon glow pulse on Hero Section */
+@keyframes neonGlowPulse {
+    from {
+        box-shadow: inset 0 0 60px rgba(127, 88, 232, 0.3);
+    }
+    to {
+        box-shadow: inset 0 0 100px rgba(127, 88, 232, 0.6);
+    }
+}
+
+/* ---------------------------------------------------- */
+/* SCROLL ANIMATION BASE STYLES */
+/* ---------------------------------------------------- */
+
+/* 1. INITIAL STATE: Element is invisible and slightly down */
+.js-animate {
+    opacity: 0;
+    transform: translateY(20px);
+    will-change: opacity, transform; 
+    transition: none; /* Crucial: ensures no animation on load */
+}
+
+/* 2. FINAL STATE: Element is visible and animated */
+.js-animate.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeInSlideUp 1s ease-out forwards;
+}
+
+/* ========================================================================= */
+/* 1. BASE STYLES & LAYOUT */
+/* ========================================================================= */
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Inter', 'Arial', sans-serif; 
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-bg-color);
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Typography Styles */
+h1, h2, h3 {
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-weight: 300;
+    margin-top: 0.8em;
+    margin-bottom: 0.5em;
+}
+
+section {
+    padding: 40px 20px;
+    max-width: auto;
+    margin: 0 auto; 
+    text-align: center;
+    position: relative;
+}
+
+/* ========================================================================= */
+/* 1.1 MAIN HEADER & NAVIGATION */
+/* ========================================================================= */
+.main-header {
+    background-color: transparent; /* Initially transparent */
+    position: fixed;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 0 0 10px 10px;
+    /* Centering and reducing width for rounded corners */
+    width: calc(100% - 40px);
+    left: 20px;
+    right: 20px;
+    margin: 0 auto;
+}
+
+/* Header on Scroll Down */
+.main-header.scrolled {
+    background-color: rgba(37, 11, 85, 0.9); 
+    padding: 15px 40px; 
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Logo Text Styles */
+.main-header .logo a {
+    color: white; 
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-shadow: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Logo Hover Effect (Neon) */
+.main-header .logo a:hover,
+.main-header.scrolled .logo a:hover {
+    color: var(--accent-color); 
+    text-shadow: 
+        0 0 5px var(--accent-color), 
+        0 0 15px var(--accent-color);
+}
+
+/* Hamburger Menu Icon */
+.hamburger-menu {
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 101; 
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger-menu .bar {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Main Navigation (Mobile/Tablet - Hidden by default) */
+.main-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(37, 11, 85, 0.95); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(100%); 
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s;
+    z-index: 99;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.main-nav.is-active {
+    transform: translateX(0);
+    visibility: visible;
+    opacity: 1;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.main-nav ul li {
+    margin: 20px 0;
+}
+
+.main-nav ul li a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 2.5em;
+    font-weight: 300;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.main-nav ul li a:hover {
+    color: white;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+
+/* MEDIA QUERY: Desktop Navigation */
+@media (min-width: 768px) {
+    .hamburger-menu {
+        display: none; 
+    }
+    .main-nav {
+        display: block; 
+        position: static;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        transform: translateX(0);
+        visibility: visible;
+        opacity: 1;
+        transition: none;
+    }
+    .main-nav ul {
+        display: flex;
+    }
+    .main-nav ul li {
+        margin: 0 15px;
+    }
+    .main-nav ul li a {
+        font-size: 1.1em;
+        color: white; /* White on transparent header */
+        text-shadow: none;
+        transition: color 0.3s ease;
+    }
+    .main-header.scrolled .main-nav ul li a {
+        color: white; /* White on dark scrolled header */
+    }
+    .main-header.scrolled .main-nav ul li a:hover {
+        color: var(--accent-color);
+    }
+}
+
+/* ========================================================================= */
+/* 1.2 HERO SECTION / INTRO IMAGE */
+/* ========================================================================= */
+#hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+
+    /* Background image and overlay */
+    background: 
+        linear-gradient(rgba(37, 11, 85, 0.6), rgba(37, 11, 85, 0.6)), 
+        url('images/mobius-loop-hero.jpg') center/cover no-repeat;
+    
+    background-attachment: fixed;
+}
+
+/* Neon glow border effect */
+#hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 80px rgba(127, 88, 232, 0.4); 
+    pointer-events: none;
+    animation: neonGlowPulse 3s infinite alternate ease-in-out;
+}
+
+
+.hero-content {
+    z-index: 2;
+    max-width: 900px;
+    padding: 0 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 1s ease-out 0.5s forwards;
+}
+
+#hero-section h1 {
+    font-size: 5em;
+    font-weight: 100;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    color: white;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+}
+
+#hero-section p {
+    font-size: 1.6em;
+    font-weight: 300;
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.hero-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 15px 40px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    border: 2px solid var(--accent-color);
+}
+
+.hero-button:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(127, 88, 232, 0.6);
+    border-color: var(--primary-color);
+}
+
+
+/* ========================================================================= */
+/* 2. CARD & TITLE STYLES */
+/* ========================================================================= */
+section h2 {
+    font-size: 2.8em;
+    font-weight: 200;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+/* Universal Card Style */
+.card {
+    background-color: white; 
+    border-radius: 15px;
+    box-shadow: var(--card-shadow); 
+    padding: 30px; 
+    margin: 30px auto; 
+    position: relative;
+    
+    /* Unified wide width for balance */
+    max-width: 1160px;
+    width: 95%;
+
+    transition: box-shadow 0.4s ease-out, transform 0.3s ease-out;
+}
+
+.card:hover {
+    box-shadow: 0 12px 35px rgba(37, 11, 85, 0.18), 0 0 12px rgba(127, 88, 232, 0.4); 
+    transform: translateY(-8px);
+}
+
+
+/* ========================================================================= */
+/* 3. ABOUT AND SKILLS SECTION GRID */
+/* ========================================================================= */
+
+/* About Section Grid (Narrow | Wide | Narrow) */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; 
+    gap: 30px; 
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 0 20px;
+    
+}
+
+.about-card {
+    background-color: white; /* Фон становится белым */
+    padding: 25px;
+    border-radius: 15px; /* Закругленные углы */
+    box-shadow: var(--card-shadow); /* Добавляем тень из глобальной переменной */
+    text-align: left;
+    height: 100%; /* Обеспечивает одинаковую высоту в сетке */
+    box-sizing: border-box;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+}
+
+.about-card:hover {
+    transform: translateY(-5px); /* Карточка слегка поднимается */
+    box-shadow: 0 10px 20px rgba(37, 11, 85, 0.15); /* Тень становится более выраженной */
+}
+
+.about-card h3 {
+    color: var(--primary-color);
+    font-size: 1.4em;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent-color);
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.about-card p {
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+/* -------------------- */
+/* Skills Section */
+/* -------------------- */
+.skills-container {
+    padding: 40px; 
+    text-align: left; 
+}
+
+/* Two-column layout for skills content */
+.skills-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 30px; 
+    padding: 0 10px; 
+    align-items: start; 
+}
+
+.skills-column {
+    padding: 0;
+}
+
+/* Vertical divider on the left column */
+.skills-column.left-column {
+    border-right: 1px solid #eee; 
+    padding-right: 30px; 
+}
+
+.skills-column.right-column {
+    padding-left: 30px;
+}
+
+/* Style for each skill group (Frontend, Backend, etc.) */
+.skill-group {
+    margin-bottom: 25px;
+}
+
+.skills-column .skill-group:last-child {
+    margin-bottom: 0; 
+}
+
+.skill-group h3 {
+    color: var(--primary-color); 
+    font-size: 1.25em; 
+    font-weight: 600; 
+    border-bottom: 2px solid var(--accent-color); 
+    display: inline-block; 
+    padding-bottom: 5px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* MEDIA QUERY: Tablet/Mobile Adaptability */
+@media (max-width: 900px) {
+    .about-grid {
+        /* Stack columns vertically on smaller screens */
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-content-grid {
+        /* Stack skills columns vertically */
+        grid-template-columns: 1fr; 
+    }
+    
+    /* Remove vertical divider on mobile */
+    .skills-column.left-column {
+        border-right: none; 
+        padding-right: 0;
+        /* Add horizontal divider between stacked columns */
+        border-bottom: 1px solid #eee; 
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+    .skills-column.right-column {
+        padding-left: 0;
+    }
+    
+    .skills-column .skill-group {
+        margin-bottom: 20px;
+    }
+
+    .skills-content-grid > div:last-child .skill-group:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* ========================================================================= */
+/* 4. PROJECTS SECTION */
+/* ========================================================================= */
+.projects-grid {
+    /* Using the unified max-width set in .card, so we can omit it here */
+    margin: 30px auto; 
+    display: block; 
+    padding: 30px;
+    text-align: left; 
+}
+
+.project-item a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 2px;
+}
+
+/* Animated neon underline effect */
+.project-item a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease-out;
+}
+
+.project-item a:hover::after {
+    width: 100%;
+}
+
+
+.project-separator {
+    border: 0;
+    height: 1px;
+    background-color: #e0e0e0; 
+    margin: 10px 0;
+}
+
+
+/* ========================================================================= */
+/* 5. CONTACT ME SECTION */
+/* ========================================================================= */
+
+#contact {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+/* Контейнер для двух колонок */
+.contact-grid {
+    display: grid;
+    /* Две равные колонки */
+    grid-template-columns: 1fr 1fr;
+    gap: 20px; 
+    max-width: 800px; /* Используем общую ширину карточек */
+    margin: 30px auto;
+    padding: 0 20px;
+    align-items: center;
+    grid-auto-rows: 1fr;
+}
+
+/* Универсальная карточка для контактов */
+.contact-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: var(--card-shadow); 
+    text-align: center;
+    height: 100%;
+    box-sizing: border-box;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+}
+
+.contact-card:hover {
+    transform: translateY(-5px); /* Карточка слегка поднимается */
+    box-shadow: 0 10px 20px rgba(37, 11, 85, 0.15); /* Тень становится более выраженной */
+}
+
+.contact-form-card { /* Используем класс формы, но восстанавливаем старые стили контейнера */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрируем содержимое вертикально */
+    padding: 30px;
+    margin: 0;
+    max-width: 350px;  
+    margin-top: 15px; 
+    background-color: white; 
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(37, 11, 85, 0.1); 
+    text-align: center; /* Центрируем содержимое формы */
+    margin-bottom: 40px; /* Отступ от следующего элемента */
+    font-size: 1em;
+}
+
+.messenger-card {
+    max-width: 350px; 
+    margin: 0; 
+    padding: 30px; 
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(37, 11, 85, 0.1); 
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-card h3 {
+    color: var(--primary-color);
+    font-size: 1.5em;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent-color);
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+/* -------------------- */
+/* Form Inputs (Обновленные стили полей ввода) */
+/* -------------------- */
+.form-group {
+    margin-bottom: 15px;
+    display: flex; 
+    gap: 15px; 
+    flex-wrap: wrap;
+    justify-content: center; 
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 10px; 
+    border: 1px solid #ccc; /* Светло-серая рамка, как на картинке */
+    border-radius: 5px; /* Более округлые углы */
+    font-size: 16px;
+    box-sizing: border-box; 
+    text-align: center; /* Центрированный текст/плейсхолдер */
+    /* resize: none; - сохраняем, чтобы не было изменения размера вручную, если это нежелательно */
+    /* overflow-y: hidden; - удалено, чтобы textarea могла прокручиваться, если текст длинный */
+    width: 100%; 
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: white; /* Белый фон для полей */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 8px rgba(127, 88, 232, 0.4); /* Чуть менее интенсивная тень при фокусе */
+    outline: none;
+}
+
+.form-group input {
+    flex: 1; 
+    min-width: 150px; 
+    height: auto; 
+}
+
+.form-group textarea {
+    flex-basis: 100%; 
+    min-height: 80px; 
+}
+/* -------------------- */
+/* Messenger Links (Новые стили) */
+/* -------------------- */
+.messenger-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.messenger-link {
+    border: 2px solid var(--accent-color); 
+    color: var(--primary-color); 
+    background-color: transparent;
+    padding: 10px 15px; 
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1em;
+    display: inline-flex;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.messenger-link i {
+    color: var(--accent-color);
+    margin-right: 8px;
+    font-size: 1.2em;
+}
+
+/* Messenger colors */
+.whatsapp {
+    background-color: #250b55;
+    color: white;
+}
+.whatsapp:hover {
+    background-color: #7F58E8;
+    transform: translateY(-2px);
+}
+
+.telegram {
+    background-color: #250b55;
+    color: white;
+}
+.telegram:hover {
+    background-color: #7F58E8;
+    transform: translateY(-2px);
+}
+
+.phone-number {
+    font-size: 1.1em;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+.phone-number i {
+    color: var(--accent-color);
+    margin-right: 8px;
+}
+
+
+/* -------------------- */
+/* Адаптивность для мобильных устройств */
+/* -------------------- */
+@media (max-width: 900px) {
+    .contact-grid {
+        /* На планшетах и мобильных: две карточки выстраиваются вертикально */
+        grid-template-columns: 1fr; 
+        gap: 40px;
+        grid-auto-rows: auto;
+    }
+    .contact-form-card {
+        padding: 30px; /* Уменьшаем вертикальный padding на мобильных */
+    }
+    .contact-card {
+        margin: 0 auto; 
+        max-width: 350px;
+        height: auto;
+    }
+}
+
+/* ========================================================================= */
+/* 6. FOOTER */
+/* ========================================================================= */
+footer {
+    background-color: rgba(37, 11, 85, 0.95); /* Primary color with slight transparency */
+    color: rgba(255, 255, 255, 0.85); /* Off-white text */
+    padding: 15px 0;
+    text-align: center;
+    font-size: 0.9em;
+    
+    /* Rounded top corners and shadow */
+    border-radius: 10px 10px 0 0; 
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+    
+    margin-top: 40px; 
+}
+
+footer p {
+    margin: 0;
+}/* ========================================================================= */
+/* 0. COLOR PALETTE */
+/* Primary: #250b55 (Dark Purple/Navy) */
+/* Accent: #7F58E8 (Neon/Bright Purple) */
+/* ========================================================================= */
+
+:root {
+    --primary-color: #250b55;
+    --accent-color: #7F58E8;
+    --light-bg-color: #f4f4f4;
+    --card-shadow: 0 0 15px rgba(37, 11, 85, 0.1);
+    --neon-shadow: 0 0 8px rgba(127, 88, 232, 0.8);
+}
+
+/* ---------------------------------------------------- */
+/* KEYFRAMES */
+/* ---------------------------------------------------- */
+
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes neonGlowPulse {
+    from {
+        box-shadow: inset 0 0 60px rgba(127, 88, 232, 0.3);
+    }
+    to {
+        box-shadow: inset 0 0 100px rgba(127, 88, 232, 0.6);
+    }
+}
+
+/* ---------------------------------------------------- */
+/* SCROLL ANIMATION BASE STYLES */
+/* ---------------------------------------------------- */
+
+.js-animate {
+    opacity: 0;
+    transform: translateY(20px);
+    will-change: opacity, transform; 
+    transition: none; 
+}
+
+.js-animate.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeInSlideUp 1s ease-out forwards;
+}
+
+/* ========================================================================= */
+/* 1. BASE STYLES & LAYOUT */
+/* ========================================================================= */
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Inter', 'Arial', sans-serif; 
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-bg-color);
+    color: #333;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-weight: 300;
+    margin-top: 0.8em;
+    margin-bottom: 0.5em;
+}
+
+section {
+    padding: 40px 20px;
+    margin: 0 auto; 
+    text-align: center;
+    position: relative;
+}
+
+/* ========================================================================= */
+/* 1.1 MAIN HEADER & NAVIGATION */
+/* ========================================================================= */
+.main-header {
+    background-color: transparent; 
+    position: fixed;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 0 0 10px 10px;
+    width: calc(100% - 40px);
+    left: 20px;
+    right: 20px;
+    margin: 0 auto;
+}
+
+.main-header.scrolled {
+    background-color: rgba(37, 11, 85, 0.9); 
+    padding: 15px 40px; 
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.main-header .logo a {
+    color: white; 
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-shadow: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.main-header .logo a:hover,
+.main-header.scrolled .logo a:hover {
+    color: var(--accent-color); 
+    text-shadow: 
+        0 0 5px var(--accent-color), 
+        0 0 15px var(--accent-color);
+}
+
+.hamburger-menu {
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 101; 
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger-menu .bar {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.main-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(37, 11, 85, 0.95); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(100%); 
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s;
+    z-index: 99;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.main-nav.is-active {
+    transform: translateX(0);
+    visibility: visible;
+    opacity: 1;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.main-nav ul li {
+    margin: 20px 0;
+}
+
+.main-nav ul li a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 2.5em;
+    font-weight: 300;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.main-nav ul li a:hover {
+    color: white;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+
+/* MEDIA QUERY: Desktop Navigation */
+@media (min-width: 768px) {
+    .hamburger-menu {
+        display: none; 
+    }
+    .main-nav {
+        display: block; 
+        position: static;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        transform: translateX(0);
+        visibility: visible;
+        opacity: 1;
+        transition: none;
+    }
+    .main-nav ul {
+        display: flex;
+    }
+    .main-nav ul li {
+        margin: 0 15px;
+    }
+    .main-nav ul li a {
+        font-size: 1.1em;
+        color: white; 
+        text-shadow: none;
+        transition: color 0.3s ease;
+    }
+    .main-header.scrolled .main-nav ul li a {
+        color: white; 
+    }
+    .main-header.scrolled .main-nav ul li a:hover {
+        color: var(--accent-color);
+    }
+}
+
+/* ========================================================================= */
+/* 1.2 HERO SECTION / INTRO IMAGE */
+/* ========================================================================= */
+#hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+
+    background: 
+        linear-gradient(rgba(37, 11, 85, 0.6), rgba(37, 11, 85, 0.6)), 
+        url('images/mobius-loop-hero.jpg') center/cover no-repeat;
+    
+    background-attachment: fixed;
+}
+
+#hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 80px rgba(127, 88, 232, 0.4); 
+    pointer-events: none;
+    animation: neonGlowPulse 3s infinite alternate ease-in-out;
+}
+
+
+.hero-content {
+    z-index: 2;
+    max-width: 900px;
+    padding: 0 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 1s ease-out 0.5s forwards;
+}
+
+#hero-section h1 {
+    font-size: 5em;
+    font-weight: 100;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    color: white;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+}
+
+#hero-section p {
+    font-size: 1.6em;
+    font-weight: 300;
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.hero-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 15px 40px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    border: 2px solid var(--accent-color);
+}
+
+.hero-button:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(127, 88, 232, 0.6);
+    border-color: var(--primary-color);
+}
+
+
+/* ========================================================================= */
+/* 2. CARD & TITLE STYLES */
+/* ========================================================================= */
+section h2 {
+    font-size: 2.8em;
+    font-weight: 200;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    /* Добавляем декоративную линию под заголовком секции */
+    position: relative;
+    display: inline-block;
+}
+
+section h2::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 4px;
+    background-color: var(--accent-color);
+    margin: 8px auto 0;
+    border-radius: 2px;
+}
+
+/* ГЛАВНАЯ КАРТОЧКА */
+.card {
+    background-color: white; 
+    border-radius: 15px;
+    box-shadow: var(--card-shadow); 
+    padding: 30px; 
+    margin: 30px auto; 
+    position: relative;
+    
+    max-width: 1160px;
+    width: 95%;
+
+    /* ✅ Убеждаемся, что transition есть на основном классе */
+    transition: box-shadow 0.4s ease-out, transform 0.3s ease-out;
+}
+
+/* ✅ УНИФИЦИРОВАННЫЙ МОЩНЫЙ HOVER ДЛЯ ВСЕХ .card */
+.card:hover {
+    box-shadow: 
+        0 12px 35px rgba(37, 11, 85, 0.18), 
+        0 0 12px rgba(127, 88, 232, 0.4), 
+        0 0 15px rgba(127, 88, 232, 0.2); 
+    transform: translateY(-8px);
+}
+
+
+/* ========================================================================= */
+/* 3. ABOUT AND SKILLS SECTION GRID */
+/* ========================================================================= */
+
+/* About Section Grid (Narrow | Wide | Narrow) */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; 
+    gap: 30px; 
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* КАРТОЧКА ОБО МНЕ */
+.about-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    /* ✅ Убеждаемся, что transition есть и здесь, хотя он наследуется от .card */
+    transition: box-shadow 0.4s ease-out, transform 0.3s ease-out; 
+}
+
+/* ✅ Применяем МОЩНЫЙ HOVER к карточкам "Обо мне" */
+.about-card:hover {
+    box-shadow: 
+        0 12px 35px rgba(37, 11, 85, 0.18), 
+        0 0 12px rgba(127, 88, 232, 0.4), 
+        0 0 15px rgba(127, 88, 232, 0.2);
+    transform: translateY(-8px);
+}
+
+.about-card h3 {
+    color: var(--primary-color);
+    font-size: 1.3em;
+    margin-top: 0;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--accent-color); 
+    margin-bottom: 15px;
+}
+
+.about-card p {
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+/* -------------------- */
+/* Skills Section (Использует .card) */
+/* -------------------- */
+.skills-container {
+    padding: 40px; 
+    text-align: left; 
+}
+
+.skills-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 30px; 
+    padding: 0 10px; 
+    align-items: start; 
+}
+
+.skills-column {
+    padding: 0;
+}
+
+.skills-column.left-column {
+    border-right: 1px solid #eee; 
+    padding-right: 30px; 
+}
+
+.skills-column.right-column {
+    padding-left: 30px;
+}
+
+.skill-group {
+    margin-bottom: 25px;
+}
+
+.skills-column .skill-group:last-child {
+    margin-bottom: 0; 
+}
+
+.skill-group h3 {
+    color: var(--primary-color); 
+    font-size: 1.25em; 
+    font-weight: 600; 
+    border-bottom: 2px solid var(--accent-color); 
+    display: inline-block; 
+    padding-bottom: 5px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+
+/* MEDIA QUERY: Tablet/Mobile Adaptability */
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-content-grid {
+        grid-template-columns: 1fr; 
+    }
+    
+    .skills-column.left-column {
+        border-right: none; 
+        padding-right: 0;
+        border-bottom: 1px solid #eee; 
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+    .skills-column.right-column {
+        padding-left: 0;
+    }
+    
+    .skills-column .skill-group {
+        margin-bottom: 20px;
+    }
+
+    .skills-content-grid > div:last-child .skill-group:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* ========================================================================= */
+/* 4. PROJECTS SECTION (Использует .card) */
+/* ========================================================================= */
+.projects-grid {
+    margin: 30px auto; 
+    display: block; 
+    padding: 30px;
+    text-align: left; 
+}
+
+.project-item a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 2px;
+}
+
+.project-item a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease-out;
+}
+
+.project-item a:hover::after {
+    width: 100%;
+}
+
+
+.project-separator {
+    border: 0;
+    height: 1px;
+    background-color: #e0e0e0; 
+    margin: 10px 0;
+}
+
+
+/* ========================================================================= */
+/* 5. CONTACT ME SECTION */
+/* ========================================================================= */
+
+#contact {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+/* 💡 Контейнер для двух колонок */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 50px; 
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 20px;
+    
+    align-items: stretch; 
+    grid-auto-rows: 1fr; 
+}
+
+/* Универсальная карточка для контактов */
+.contact-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(37, 11, 85, 0.1); 
+    
+    text-align: left; 
+    
+    height: 100%; 
+    box-sizing: border-box; 
+    
+    display: block; 
+    /* ✅ Убеждаемся, что transition есть и здесь */
+    transition: box-shadow 0.4s ease-out, transform 0.3s ease-out; 
+}
+
+
+
+/* Левая Карточка (Email Form) и Правая (Messenger) */
+.contact-form-card,
+.messenger-card { 
+    margin: 0;
+    width: 100%; 
+}
+
+.contact-card h3 {
+    color: var(--primary-color);
+    font-size: 1.5em;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent-color);
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.contact-form-card:hover,
+.messenger-card:hover {
+    box-shadow: 
+        0 12px 35px rgba(37, 11, 85, 0.18), 
+        0 0 12px rgba(127, 88, 232, 0.4), 
+        0 0 15px rgba(127, 88, 232, 0.2);
+    transform: translateY(-8px);
+}
+
+/* -------------------- */
+/* Form Inputs (Стили для полей ввода) */
+/* -------------------- */
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex; 
+    gap: 15px; 
+    flex-wrap: wrap; 
+    justify-content: flex-start; 
+    width: 100%;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    font-size: 16px;
+    box-sizing: border-box; 
+    
+    text-align: left; 
+    
+    width: 100%;
+    
+    background-color: white;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 8px rgba(127, 88, 232, 0.4); 
+    outline: none;
+}
+
+.form-group input {
+    flex: 1; 
+    height: auto; 
+}
+
+.form-group textarea {
+    flex-basis: 100%; 
+    min-height: 80px; 
+}
+
+/* -------------------- */
+/* Messenger Links (Фиолетовые кнопки) */
+/* -------------------- */
+.messenger-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    justify-content: flex-start; 
+}
+
+.messenger-link {
+    background-color: var(--primary-color); 
+    color: white; 
+    padding: 10px 15px; 
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1em;
+    display: inline-flex;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s, border-color 0.3s;
+    border: 2px solid var(--primary-color); 
+}
+
+.messenger-link i {
+    color: white; 
+    margin-right: 8px;
+    font-size: 1.2em;
+}
+
+.messenger-link:hover {
+    background-color: var(--accent-color); 
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(127, 88, 232, 0.4);
+}
+.messenger-link:hover i {
+    color: white;
+}
+
+.phone-number {
+    font-size: 1.1em;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+.phone-number i {
+    color: var(--accent-color);
+    margin-right: 8px;
+}
+
+/* -------------------- */
+/* Submit Button (Кнопка формы) */
+/* -------------------- */
+.submit-button {
+    max-width: 250px; 
+    margin: 20px auto 0 auto; 
+    
+    background-color: var(--primary-color); 
+    border: 2px solid var(--primary-color); 
+    
+    display: block;
+    padding: 12px 20px;
+    color: white;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(127, 88, 232, 0.4);
+}
+
+
+/* -------------------- */
+/* Адаптивность для мобильных устройств */
+/* -------------------- */
+@media (max-width: 900px) {
+    .contact-grid {
+        grid-template-columns: 1fr; 
+        gap: 40px; 
+        grid-auto-rows: auto; 
+    }
+    .contact-card {
+        margin: 0 auto; 
+        max-width: 350px;
+        height: auto;
+    }
+}
+/* ========================================================================= */
+/* 6. FOOTER */
+/* ========================================================================= */
+footer {
+    background-color: rgba(37, 11, 85, 0.95); 
+    color: rgba(255, 255, 255, 0.85); 
+    padding: 15px 0;
+    text-align: center;
+    font-size: 0.9em;
+    
+    border-radius: 10px 10px 0 0; 
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+    
+    margin-top: 40px; 
+}
+
+footer p {
+    margin: 0;
+}
