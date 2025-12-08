@@ -538,7 +538,7 @@ section h2::after {
 .projects-grid {
     margin: 30px auto; 
     display: block; 
-    padding: 0;
+    padding: 40px;
     text-align: left; 
 }
 
@@ -801,6 +801,10 @@ section h2::after {
         padding-left: 0;
     }
     
+    .projects-grid {
+        padding: 10px; /* Коррекция отступа на мобильных */
+    }
+
     /* CONTACT */
     .contact-grid {
         grid-template-columns: 1fr; 
