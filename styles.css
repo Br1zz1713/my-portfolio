@@ -287,10 +287,9 @@ section {
     overflow: hidden;
 
     /* Фоновое изображение и градиент */
-    background: 
-        linear-gradient(rgba(37, 11, 85, 0.6), rgba(37, 11, 85, 0.6)), 
-        /* Замените на URL своего изображения */
-        url('https://placehold.co/1920x1080/250b55/7F58E8?text=Background') center/cover no-repeat;
+   background: 
+    linear-gradient(rgba(37, 11, 85, 0.6), rgba(37, 11, 85, 0.6)), 
+    url('../images/mobius-loop-hero.jpg') center/cover no-repeat;
     
     background-attachment: fixed;
     /* Увеличиваем верхний padding для учета фиксированного хедера */
