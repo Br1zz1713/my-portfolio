@@ -105,6 +105,9 @@ section {
     left: 0;
     top: 0; 
     /* Use padding here to define space from screen edges */
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
     padding: 20px 20px; 
     box-sizing: border-box;
     transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
@@ -321,7 +324,7 @@ section {
     
     /* === FIX: IMAGE DISPLAY. The previous URL was incorrect (GitHub page). === */
     /* IMPORTANT: Replace the placeholder below with the RAW link to your image (e.g., from a CDN or a raw file host). */
-    background-image: url('my-portfolio/images/mobius-loop-hero.jpg');
+    background-image: url('D:/MyPortfolio/images/mobius-loop-hero.jpg');
     background-size: cover; /* CRITICAL! Scales the image to cover the entire container */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Removes repetition */
