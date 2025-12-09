@@ -321,7 +321,7 @@ section {
     
     /* === FIX: IMAGE DISPLAY. The previous URL was incorrect (GitHub page). === */
     /* IMPORTANT: Replace the placeholder below with the RAW link to your image (e.g., from a CDN or a raw file host). */
-    background-image: url('../images/mobius-loop-hero.jpg');
+    background-image: url('images/mobius-loop-hero.jpg');
     background-size: cover; /* CRITICAL! Scales the image to cover the entire container */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Removes repetition */
@@ -337,7 +337,7 @@ section {
     z-index: 2;
     /* ИСПРАВЛЕНИЕ: Даем контенту максимальную ширину и добавляем отступы */
     width: 100%;
-    max-width: 1200px; /* Ограничиваем контент до 1200px, но не секцию */
+    max-width: 100%; /* Ограничиваем контент до 1200px, но не секцию */
     padding: 0 20px; /* Добавляем горизонтальные отступы для мобильных устройств */
     margin: 0 auto; /* Центрируем контент */
     
