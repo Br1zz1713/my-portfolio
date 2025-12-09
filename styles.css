@@ -302,11 +302,10 @@ section {
     color: white;
     overflow: hidden;
 
-    /* Background image and gradient (moved to ::before for easier layering) */
-    /* background: 
+   background: 
     linear-gradient(rgba(37, 11, 85, 0.6), rgba(37, 11, 85, 0.6)), 
     url('../images/mobius-loop-hero.jpg') center/cover no-repeat;
-    */
+
     
     background-attachment: fixed;
     /* Increasing top padding to account for fixed header */
@@ -323,7 +322,7 @@ section {
     
     /* === FIX: IMAGE DISPLAY. The previous URL was incorrect (GitHub page). === */
     /* IMPORTANT: Replace the placeholder below with the RAW link to your image (e.g., from a CDN or a raw file host). */
-    background-image: url('images/mobius-loop-hero.jpg');
+    /*background-image: url('images/mobius-loop-hero.jpg');*/
     background-size: cover; /* CRITICAL! Scales the image to cover the entire container */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Removes repetition */
