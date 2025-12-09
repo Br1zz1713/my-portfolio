@@ -152,8 +152,8 @@ section {
     left: 0;
     top: 0;
     display: flex;
-    justify-content: space-between;
-    /* Растягивает логотип влево, меню вправо */
+    justify-content: flex-start;
+    /* Changed from space-between to allow grouping logo + controls */
     align-items: center;
     padding: 20px 20px;
     box-sizing: border-box;
@@ -161,13 +161,17 @@ section {
 
 }
 
-.header-controls {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    z-index: 1002;
-    position: absolute;
-    right: 20px;
+/* Ensure Logo has some space */
+.main-header .logo {
+    margin-right: 15px;
+}
+
+display: flex;
+align-items: center;
+gap: 15px;
+z-index: 1002;
+/* Push controls to the right on mobile */
+margin-left: auto;
 }
 
 #theme-toggle {
@@ -268,10 +272,8 @@ section {
     z-index: 1001;
     /* Убеждаемся, что он поверх всего в хедере */
     transition: all 0.3s ease-in-out;
-    right: 0;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    /* Removed absolute positioning to Work with Flexbox in .header-controls */
+    position: relative;
 }
 
 .hamburger-menu .bar {
@@ -362,6 +364,14 @@ section {
         /* Inner padding for desktop */
     }
 
+    /* Desktop Controls Positioning */
+    .header-controls {
+        position: static;
+        margin-right: 0;
+        margin-left: 10px;
+        /* Keeps it near the logo */
+    }
+
     .hamburger-menu {
         display: none;
     }
@@ -377,6 +387,9 @@ section {
         opacity: 1;
         transition: none;
         z-index: auto;
+
+        /* Push Nav to the far right */
+        margin-left: auto;
     }
 
     .main-nav ul {
