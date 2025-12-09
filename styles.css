@@ -1,5 +1,5 @@
 /* ========================================================================= */
-/* 0. ЦВЕТОВАЯ ПАЛИТРА И ПЕРЕМЕННЫЕ */
+/* 0. COLOR PALETTE AND VARIABLES */
 /* Primary: #250b55 (Dark Purple/Navy) */
 /* Accent: #7F58E8 (Neon/Bright Purple) */
 /* ========================================================================= */
@@ -13,7 +13,7 @@
 }
 
 /* ---------------------------------------------------- */
-/* KEYFRAMES: АНИМАЦИИ */
+/* KEYFRAMES: ANIMATIONS */
 /* ---------------------------------------------------- */
 
 @keyframes fadeInSlideUp {
@@ -38,7 +38,7 @@
 }
 
 /* ---------------------------------------------------- */
-/* SCROLL ANIMATION BASE STYLES (для JS) */
+/* SCROLL ANIMATION BASE STYLES (for JS) */
 /* ---------------------------------------------------- */
 
 .js-animate {
@@ -55,7 +55,7 @@
 }
 
 /* ========================================================================= */
-/* 1. БАЗОВЫЕ СТИЛИ И ЛЕЙАУТ */
+/* 1. BASE STYLES AND LAYOUT */
 /* ========================================================================= */
 html {
     scroll-behavior: smooth;
@@ -63,8 +63,8 @@ html {
 
 body {
     font-family: 'Inter', 'Arial', sans-serif; 
-    margin: 0;
-    padding: 0;
+    margin: 0; /* Removed default browser margin */
+    padding: 0; /* Removed default browser padding */
     background-color: var(--light-bg-color);
     color: #333;
     line-height: 1.6;
@@ -79,47 +79,53 @@ h1, h2, h3 {
 }
 
 section {
-    padding: 60px 20px; /* Немного увеличил вертикальный отступ для лучшего разделения */
+    padding: 60px 20px; /* Slightly increased vertical padding for better separation */
     margin: 0 auto; 
     text-align: center;
     position: relative;
-    max-width: 1200px; /* Ограничиваем контент секций */
+    max-width: 1200px; /* Limiting the content of sections */
+}
+
+/* ИСПРАВЛЕНИЕ: Переопределяем стили для Hero Section, чтобы он не был ограничен */
+#hero-section {
+    max-width: none; 
+    width: 100%;     
+    padding: 0;      
 }
 
 /* ========================================================================= */
-/* 1.1 ГЛАВНЫЙ HEADER И НАВИГАЦИЯ */
+/* 1.1 MAIN HEADER AND NAVIGATION */
 /* ========================================================================= */
 .main-header {
     background-color: transparent; 
     position: fixed;
     z-index: 1000;
-    /* Обеспечиваем фиксацию по всей ширине */
+    /* Ensuring full-width fixation */
     width: 100%; 
     left: 0;
     top: 0; 
-    
-    display: flex;
-    justify-content: center; /* Центрируем содержимое */
-    align-items: center;
-    padding: 20px 20px; /* Отступы для мобильных */
+    /* Use padding here to define space from screen edges */
+    padding: 20px 20px; 
     box-sizing: border-box;
     transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+    
 }
 
-/* Внутренний контейнер для содержимого хедера */
+/* Inner container for header content */
 .header-content-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 1200px; /* Ограничение максимальной ширины содержимого */
+    max-width: 1200px; /* Maximum content width limit */
+    margin: 0 auto; 
 }
 
 .main-header.scrolled {
-    background-color: rgba(37, 11, 85, 0.98); /* Почти непрозрачный фон при прокрутке */
+    background-color: rgba(37, 11, 85, 0.98); /* Almost opaque background on scroll */
     padding: 15px 20px; 
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-    /* Удаляем border-radius, так как header теперь full-width */
+    /* Removing border-radius since header is now full-width */
     border-radius: 0; 
 }
 
@@ -130,6 +136,8 @@ section {
     font-weight: bold;
     text-shadow: none;
     transition: color 0.3s ease, text-shadow 0.3s ease;
+    /* This is a flex container CSS property. Not needed here */
+
 }
 
 /* Logo Hover Effect (Neon) */
@@ -152,8 +160,12 @@ section {
     border: none;
     cursor: pointer;
     padding: 0;
-    z-index: 1010;
+    z-index: 1001; 
     transition: all 0.3s ease-in-out;
+    right: 0; 
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .hamburger-menu .bar {
@@ -164,7 +176,7 @@ section {
     transition: all 0.3s ease-in-out;
 }
 
-/* Анимация гамбургера в "X" */
+/* Hamburger to "X" animation */
 .hamburger-menu.is-active .bar:nth-child(2) {
     opacity: 0;
 }
@@ -175,7 +187,7 @@ section {
     transform: translateY(-11px) rotate(-45deg);
 }
 
-/* Смена цвета бургера при скролле */
+/* Burger color change on scroll */
 .main-header.scrolled .hamburger-menu .bar {
     background-color: white;
 }
@@ -230,12 +242,14 @@ section {
 
 /* MEDIA QUERY: Desktop Navigation */
 @media (min-width: 768px) {
+    /* На десктопе основной заголовок центрируется вокруг header-content-wrapper,
+       поэтому нет необходимости в сложных фиксациях */
     .main-header {
-        padding: 0 40px; /* Убираем лишний padding на хедере */
+        padding: 0 40px; 
     }
     
     .header-content-wrapper {
-        padding: 20px 0; /* Padding внутри для десктопа */
+        padding: 20px 0; /* Inner padding for desktop */
     }
 
     .hamburger-menu {
@@ -286,13 +300,14 @@ section {
     color: white;
     overflow: hidden;
 
-    /* Фоновое изображение и градиент */
-   background: 
+    /* Background image and gradient (moved to ::before for easier layering) */
+    /* background: 
     linear-gradient(rgba(37, 11, 85, 0.6), rgba(37, 11, 85, 0.6)), 
     url('../images/mobius-loop-hero.jpg') center/cover no-repeat;
+    */
     
     background-attachment: fixed;
-    /* Увеличиваем верхний padding для учета фиксированного хедера */
+    /* Increasing top padding to account for fixed header */
     padding-top: 80px; 
 }
 
@@ -303,7 +318,15 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Эффект свечения */
+    
+    /* === FIX: IMAGE DISPLAY. The previous URL was incorrect (GitHub page). === */
+    /* IMPORTANT: Replace the placeholder below with the RAW link to your image (e.g., from a CDN or a raw file host). */
+    background-image: url('https://github.com/Br1zz1713/my-portfolio/blob/d405693a5ac19e8d25e0043968e043bff8eee8f3/images/mobius-loop-hero.jpg');
+    background-size: cover; /* CRITICAL! Scales the image to cover the entire container */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Removes repetition */
+    
+    /* Glow effect */
     box-shadow: inset 0 0 80px rgba(127, 88, 232, 0.4); 
     pointer-events: none;
     animation: neonGlowPulse 3s infinite alternate ease-in-out;
@@ -312,8 +335,12 @@ section {
 
 .hero-content {
     z-index: 2;
-    max-width: 900px;
-    padding: 0 20px;
+    /* ИСПРАВЛЕНИЕ: Даем контенту максимальную ширину и добавляем отступы */
+    width: 100%;
+    max-width: 1200px; /* Ограничиваем контент до 1200px, но не секцию */
+    padding: 0 20px; /* Добавляем горизонтальные отступы для мобильных устройств */
+    margin: 0 auto; /* Центрируем контент */
+    
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInSlideUp 1s ease-out 0.5s forwards;
@@ -378,7 +405,7 @@ section h2::after {
     border-radius: 2px;
 }
 
-/* ГЛАВНАЯ КАРТОЧКА */
+/* MAIN CARD */
 .card {
     background-color: white; 
     border-radius: 15px;
@@ -393,7 +420,7 @@ section h2::after {
     transition: box-shadow 0.4s ease-out, transform 0.3s ease-out;
 }
 
-/* УНИФИЦИРОВАННЫЙ МОЩНЫЙ HOVER ДЛЯ ВСЕХ .card */
+/* UNIFIED POWERFUL HOVER FOR ALL .card elements */
 .card:hover {
     box-shadow: 
         0 12px 35px rgba(37, 11, 85, 0.18), 
@@ -417,7 +444,7 @@ section h2::after {
     padding: 0 20px;
 }
 
-/* КАРТОЧКА ОБО МНЕ */
+/* ABOUT ME CARD */
 .about-card {
     background-color: white;
     padding: 25px;
@@ -426,7 +453,7 @@ section h2::after {
     transition: box-shadow 0.4s ease-out, transform 0.3s ease-out; 
 }
 
-/* Применяем МОЩНЫЙ HOVER к карточкам "Обо мне" */
+/* Applying POWERFUL HOVER to "About Me" cards */
 .about-card:hover {
     box-shadow: 
         0 12px 35px rgba(37, 11, 85, 0.18), 
@@ -450,7 +477,7 @@ section h2::after {
 }
 
 /* -------------------- */
-/* Skills Section (Использует .card) */
+/* Skills Section (Uses .card) */
 /* -------------------- */
 .skills-container {
     padding: 0; 
@@ -470,7 +497,7 @@ section h2::after {
 }
 
 .skills-column.left-column {
-    /* Вертикальная линия */
+    /* Vertical line */
     border-right: 1px solid #eee; 
     padding-right: 30px; 
 }
@@ -511,7 +538,7 @@ section h2::after {
     }
     
     .skills-column.left-column {
-        /* Убираем вертикальную линию и добавляем горизонтальную */
+        /* Removing vertical line and adding a horizontal one */
         border-right: none; 
         padding-right: 0;
         border-bottom: 1px solid #eee; 
@@ -532,7 +559,7 @@ section h2::after {
 }
 
 /* ========================================================================= */
-/* 4. PROJECTS SECTION (Использует .card) */
+/* 4. PROJECTS SECTION (Uses .card) */
 /* ========================================================================= */
 .projects-grid {
     margin: 30px auto; 
@@ -583,7 +610,7 @@ section h2::after {
     text-align: center;
 }
 
-/* 💡 Контейнер для двух колонок */
+/* 💡 Two-column container */
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr; 
@@ -596,7 +623,7 @@ section h2::after {
     grid-auto-rows: 1fr; 
 }
 
-/* Универсальная карточка для контактов */
+/* Universal card for contacts */
 .contact-card {
     background-color: white;
     padding: 30px;
@@ -613,7 +640,7 @@ section h2::after {
 }
 
 
-/* Левая Карточка (Email Form) и Правая (Messenger) */
+/* Left Card (Email Form) and Right (Messenger) */
 .contact-form-card,
 .messenger-card { 
     margin: 0;
@@ -639,7 +666,7 @@ section h2::after {
 }
 
 /* -------------------- */
-/* Form Inputs (Стили для полей ввода) */
+/* Form Inputs (Input field styles) */
 /* -------------------- */
 
 .form-group {
@@ -649,7 +676,7 @@ section h2::after {
 }
 
 .form-group.input-row {
-    /* Если нужно два инпута в ряд (Имя и Email, например) */
+    /* If two inputs are needed in a row (Name and Email, for example) */
     display: flex;
     gap: 15px;
 }
@@ -682,7 +709,7 @@ section h2::after {
 }
 
 /* -------------------- */
-/* Messenger Links (Фиолетовые кнопки) */
+/* Messenger Links (Purple buttons) */
 /* -------------------- */
 .messenger-links {
     display: flex;
@@ -734,7 +761,7 @@ section h2::after {
 }
 
 /* -------------------- */
-/* Submit Button (Кнопка формы) */
+/* Submit Button (Form Button) */
 /* -------------------- */
 .submit-button {
     max-width: 250px; 
@@ -763,7 +790,7 @@ section h2::after {
 
 
 /* -------------------- */
-/* Адаптивность для мобильных устройств */
+/* Mobile Responsiveness */
 /* -------------------- */
 @media (max-width: 900px) {
     /* HERO */
@@ -790,6 +817,7 @@ section h2::after {
     
     /* SKILLS COLUMN FIX */
     .skills-column.left-column {
+        /* Removing vertical line and adding a horizontal one */
         border-right: none; 
         padding-right: 0;
         border-bottom: 1px solid #eee; 
@@ -801,7 +829,7 @@ section h2::after {
     }
     
     .projects-grid {
-        padding: 10px; /* Коррекция отступа на мобильных */
+        padding: 10px; /* Adjusting padding on mobile */
     }
 
     /* CONTACT */
@@ -812,13 +840,13 @@ section h2::after {
     }
     .contact-card {
         margin: 0 auto; 
-        max-width: none; /* Убираем лишнее ограничение, чтобы занимало 100% контейнера */
+        max-width: none; /* Removing unnecessary restriction to fill 100% of container */
         height: auto;
     }
 
     /* FORM INPUTS */
     .form-group.input-row {
-        /* В мобильном режиме инпуты снова идут в столбик */
+        /* In mobile mode, inputs stack again */
         flex-direction: column;
         gap: 0;
     }
