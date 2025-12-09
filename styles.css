@@ -459,9 +459,9 @@ section {
     width: 100%;
     height: 100%;
 
-    /* === FIX: IMAGE DISPLAY. The previous URL was incorrect (GitHub page). === */
-    /* IMPORTANT: Replace the placeholder below with the RAW link to your image (e.g., from a CDN or a raw file host). */
-    background-image: url('D:/MyPortfolio/images/mobius-loop-hero.jpg');
+    /* === FIX: IMAGE DISPLAY. === */
+    /* Using relative path for GitHub Pages compatibility */
+    background-image: url('images/mobius-loop-hero.jpg');
     background-size: cover;
     /* CRITICAL! Scales the image to cover the entire container */
     background-position: center;
