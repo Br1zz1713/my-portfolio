@@ -321,7 +321,7 @@ section {
     
     /* === FIX: IMAGE DISPLAY. The previous URL was incorrect (GitHub page). === */
     /* IMPORTANT: Replace the placeholder below with the RAW link to your image (e.g., from a CDN or a raw file host). */
-    background-image: url('https://github.com/Br1zz1713/my-portfolio/blob/d405693a5ac19e8d25e0043968e043bff8eee8f3/images/mobius-loop-hero.jpg');
+    background-image: url('../images/mobius-loop-hero.jpg');
     background-size: cover; /* CRITICAL! Scales the image to cover the entire container */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Removes repetition */
