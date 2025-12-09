@@ -88,9 +88,9 @@ section {
 
 /* ИСПРАВЛЕНИЕ: Переопределяем стили для Hero Section, чтобы он не был ограничен */
 #hero-section {
-    max-width: none; 
-    width: 100%;     
-    padding: 0;      
+    max-width: none; /* УДАЛИТЬ ограничение ширины, установленное для общего тега <section> */
+    width: 100%;     /* Убедиться, что он занимает всю ширину */
+    padding: 0;      /* Убрать горизонтальные отступы, если они были унаследованы */
 }
 
 /* ========================================================================= */
@@ -104,9 +104,8 @@ section {
     width: 100%; 
     left: 0;
     top: 0; 
-    /* Use padding here to define space from screen edges */
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between; /* Растягивает логотип влево, меню вправо */
     align-items: center;
     padding: 20px 20px; 
     box-sizing: border-box;
@@ -121,7 +120,7 @@ section {
     align-items: center;
     width: 100%;
     max-width: 1200px; /* Maximum content width limit */
-    margin: 0 auto; 
+    margin: 0 auto; /* Центрируем контент внутри фиксированного заголовка */
 }
 
 .main-header.scrolled {
@@ -163,7 +162,7 @@ section {
     border: none;
     cursor: pointer;
     padding: 0;
-    z-index: 1001; 
+    z-index: 1001; /* Убеждаемся, что он поверх всего в хедере */
     transition: all 0.3s ease-in-out;
     right: 0; 
     position: absolute;
@@ -340,7 +339,7 @@ section {
     z-index: 2;
     /* ИСПРАВЛЕНИЕ: Даем контенту максимальную ширину и добавляем отступы */
     width: 100%;
-    max-width: 100%; /* Ограничиваем контент до 1200px, но не секцию */
+    max-width: 1200px; /* Ограничиваем контент до 1200px, но не секцию */
     padding: 0 20px; /* Добавляем горизонтальные отступы для мобильных устройств */
     margin: 0 auto; /* Центрируем контент */
     
