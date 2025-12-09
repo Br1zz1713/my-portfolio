@@ -166,12 +166,13 @@ section {
     margin-right: 15px;
 }
 
-display: flex;
-align-items: center;
-gap: 15px;
-z-index: 1002;
-/* Push controls to the right on mobile */
-margin-left: auto;
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 1002;
+    /* Push controls to the right on mobile */
+    margin-left: auto;
 }
 
 #theme-toggle {

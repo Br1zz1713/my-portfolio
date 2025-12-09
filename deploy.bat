@@ -12,8 +12,8 @@ git commit -m "feat: Upgrade portfolio to v2.0 (Dark Mode, Interactive Hero, Tim
 REM 3. Fix Branch Name (Master -> Main)
 git branch -M main
 
-REM 4. Push
-git push -u origin main
+REM 4. Push (Force to overwrite remote)
+git push -u origin main --force
 
 echo.
 echo Deployment command finished.
