@@ -1,20 +1,38 @@
 @echo off
-echo Deploying to GitHub...
+Title GitHub Deployment
+echo ==========================================
+echo    GitHub Deployment Automator
+echo ==========================================
+echo.
 
-REM 1. Set Remote
-git remote remove origin
-git remote add origin https://github.com/Br1zz1713/my-portfolio.git
-
-REM 2. Add and Commit
+echo [Step 1] Adding all changes to staging...
 git add .
-git commit -m "feat: Upgrade portfolio to v2.0 (Dark Mode, Interactive Hero, Timeline)"
+if %errorlevel% neq 0 (
+    echo [ERROR] Failed to add files.
+    pause
+    exit /b %errorlevel%
+)
+echo Done.
+echo.
 
-REM 3. Fix Branch Name (Master -> Main)
-git branch -M main
+echo [Step 2] Committing changes...
+set /p CommitMessage="Enter commit message (Press Enter for 'Update portfolio'): "
+if "%CommitMessage%"=="" set CommitMessage=Update portfolio
 
-REM 4. Push (Force to overwrite remote)
-git push -u origin main --force
+git commit -m "%CommitMessage%"
+echo.
+
+echo [Step 3] Pushing to GitHub (origin main)...
+git push origin main
+if %errorlevel% neq 0 (
+    echo [ERROR] Push failed. Please check your internet connection or credentials.
+    pause
+    exit /b %errorlevel%
+)
 
 echo.
-echo Deployment command finished.
+echo ==========================================
+echo    SUCCESS! Changes deployed to GitHub.
+echo ==========================================
+echo.
 pause
