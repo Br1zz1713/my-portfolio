@@ -1,38 +1,44 @@
 @echo off
-Title GitHub Deployment
+Title GitHub Deployment Manager
 echo ==========================================
 echo    GitHub Deployment Automator
 echo ==========================================
 echo.
 
-echo [Step 1] Adding all changes to staging...
-git add .
+echo [Step 1] Syncing with Remote Repository...
+git pull origin main
 if %errorlevel% neq 0 (
-    echo [ERROR] Failed to add files.
+    echo [WARNING] Git pull failed or encountered conflicts.
+    echo check manually if you are worried about remote changes.
     pause
-    exit /b %errorlevel%
+) else (
+    echo System synchronized.
 )
-echo Done.
 echo.
 
-echo [Step 2] Committing changes...
-set /p CommitMessage="Enter commit message (Press Enter for 'Update portfolio'): "
-if "%CommitMessage%"=="" set CommitMessage=Update portfolio
+echo [Step 2] Adding changes...
+git add .
+echo Files added.
+echo.
+
+echo [Step 3] Committing...
+set /p CommitMessage="Enter commit message (Default: 'Update portfolio projects'): "
+if "%CommitMessage%"=="" set CommitMessage=Update portfolio projects
 
 git commit -m "%CommitMessage%"
 echo.
 
-echo [Step 3] Pushing to GitHub (origin main)...
+echo [Step 4] Pushing to GitHub...
 git push origin main
 if %errorlevel% neq 0 (
-    echo [ERROR] Push failed. Please check your internet connection or credentials.
+    echo [ERROR] Push failed.
     pause
     exit /b %errorlevel%
 )
 
 echo.
 echo ==========================================
-echo    SUCCESS! Changes deployed to GitHub.
+echo    SUCCESS! Deployment Complete.
 echo ==========================================
 echo.
 pause
