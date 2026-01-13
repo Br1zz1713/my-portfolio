@@ -6,7 +6,7 @@ echo ==========================================
 echo.
 
 echo [Step 1] Syncing with Remote Repository...
-git pull origin main
+git pull origin master
 if %errorlevel% neq 0 (
     echo [WARNING] Git pull failed or encountered conflicts.
     echo check manually if you are worried about remote changes.
@@ -29,7 +29,7 @@ git commit -m "%CommitMessage%"
 echo.
 
 echo [Step 4] Pushing to GitHub...
-git push origin main
+git push origin master
 if %errorlevel% neq 0 (
     echo [ERROR] Push failed.
     pause
