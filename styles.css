@@ -678,6 +678,9 @@ section h2::after {
 /* -------------------- */
 /* Skills Section (Uses .card) */
 /* -------------------- */
+/* -------------------- */
+/* Skills Section (Uses .card) */
+/* -------------------- */
 .skills-container {
     padding: 0;
     text-align: left;
@@ -686,31 +689,17 @@ section h2::after {
 .skills-content-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    padding: 0 10px;
-    align-items: stretch;
+    gap: 40px;
+    /* Increased gap for better organic spacing */
+    padding: 10px;
+    align-items: start;
 }
 
-.skills-column {
-    padding: 0;
-}
-
-.skills-column.left-column {
-    /* Vertical line */
-    border-right: 1px solid #eee;
-    padding-right: 30px;
-}
-
-.skills-column.right-column {
-    padding-left: 30px;
-}
-
+/* Remove old column styles */
 .skill-group {
-    margin-bottom: 25px;
-}
-
-.skills-column .skill-group:last-child {
     margin-bottom: 0;
+    /* Let grid gap handle spacing */
+    padding: 10px;
 }
 
 .skill-group h3 {
@@ -721,7 +710,11 @@ section h2::after {
     display: inline-block;
     padding-bottom: 5px;
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+}
+
+.skill-group p {
+    margin: 0;
 }
 
 
@@ -734,27 +727,18 @@ section h2::after {
 
     .skills-content-grid {
         grid-template-columns: 1fr;
+        gap: 30px;
     }
 
-    .skills-column.left-column {
-        /* Removing vertical line and adding a horizontal one */
-        border-right: none;
-        padding-right: 0;
+    /* Add separators between groups on mobile for clarity */
+    .skill-group {
         border-bottom: 1px solid #eee;
         padding-bottom: 20px;
-        margin-bottom: 20px;
     }
 
-    .skills-column.right-column {
-        padding-left: 0;
-    }
-
-    .skills-column .skill-group {
-        margin-bottom: 20px;
-    }
-
-    .skills-content-grid>div:last-child .skill-group:last-child {
-        margin-bottom: 0;
+    .skill-group:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
     }
 }
 
