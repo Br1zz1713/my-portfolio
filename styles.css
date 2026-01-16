@@ -683,22 +683,20 @@ section h2::after {
 /* -------------------- */
 .skills-container {
     padding: 0;
-    text-align: left;
+    text-align: center;
 }
 
 .skills-content-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    /* Increased gap for better organic spacing */
-    padding: 10px;
+    gap: 60px;
+    padding: 50px;
     align-items: start;
 }
 
 /* Remove old column styles */
 .skill-group {
     margin-bottom: 0;
-    /* Let grid gap handle spacing */
     padding: 10px;
 }
 
