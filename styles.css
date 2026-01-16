@@ -414,6 +414,17 @@ section {
 
     .main-header.scrolled .main-nav ul li a:hover {
         color: var(--accent-color);
+        text-shadow:
+            0 0 5px var(--accent-color),
+            0 0 15px var(--accent-color);
+    }
+
+    /* Initial state hover effect (white text -> neon) */
+    .main-nav ul li a:hover {
+        color: var(--accent-color);
+        text-shadow:
+            0 0 5px var(--accent-color),
+            0 0 15px var(--accent-color);
     }
 }
 
