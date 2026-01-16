@@ -403,7 +403,7 @@ section {
 
     .main-nav ul li a {
         font-size: 1.1em;
-        color: var(--text-color);
+        color: white;
         text-shadow: none;
         transition: color 0.3s ease;
     }
