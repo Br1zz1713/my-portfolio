@@ -11,8 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.main-nav ul li a');
     const header = document.querySelector('.main-header');
     const heroSection = document.getElementById('hero-section');
-    const textarea = document.querySelector('.form-group textarea');
-    const contactForm = document.getElementById('contact-form');
+
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
 
@@ -141,73 +140,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // ======================================================
-    // 4. UI/UX IMPROVEMENT: AUTO-RESIZE TEXTAREA
-    // ======================================================
-    if (textarea) {
-        // Function to handle auto-resizing
-        const autoResize = (element) => {
-            element.style.height = 'auto';
-            element.style.height = (element.scrollHeight) + 'px';
-        };
-
-        textarea.addEventListener('input', () => {
-            autoResize(textarea);
-        });
-
-        // Initial height setting
-        autoResize(textarea);
-    }
 
 
-    // ======================================================
-    // 5. CONTACT FORM SUBMISSION HANDLING
-    // ======================================================
-    if (contactForm) {
-        contactForm.addEventListener('submit', async function (event) {
-            event.preventDefault();
 
-            const form = event.target;
-            const formData = new FormData(form);
 
-            const data = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                message: formData.get('message')
-            };
-
-            // NOTE: Use a service like Formspree or EmailJS for static hosting
-            // Replaced custom node backend with Formspree for demonstration/compatibility
-            const API_URL = 'https://formspree.io/f/YOUR_FORM_ID';
-
-            try {
-                const response = await fetch(API_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'application/json'
-                    },
-                    body: formData // Formspree accepts FormData directly
-                });
-
-                if (response.ok) {
-                    alert('Thank you for reaching out! I will get back to you soon.');
-                    form.reset();
-
-                    if (textarea) {
-                        textarea.style.height = 'auto';
-                        // We must call autoResize again to set the minimum height if it was reset
-                        const resizeElement = document.querySelector('.form-group textarea');
-                        if (resizeElement) autoResize(resizeElement);
-                    }
-
-                } else {
-                    alert('Failed to send message: ' + result.message);
-                }
-            } catch (error) {
-                console.error('Error submitting form:', error);
-                alert('An error occurred while sending your message. Please try again later.');
-            }
-        });
-    }
 
 });

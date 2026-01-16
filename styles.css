@@ -848,15 +848,11 @@ section h2::after {
 
 /* 💡 Two-column container */
 .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    max-width: 800px;
+    display: flex;
+    justify-content: center;
+    max-width: 600px;
     margin: 30px auto;
     padding: 0 20px;
-
-    align-items: stretch;
-    grid-auto-rows: 1fr;
 }
 
 /* Universal card for contacts */
@@ -877,7 +873,6 @@ section h2::after {
 
 
 /* Left Card (Email Form) and Right (Messenger) */
-.contact-form-card,
 .messenger-card {
     margin: 0;
     width: 100%;
@@ -892,7 +887,6 @@ section h2::after {
     display: inline-block;
 }
 
-.contact-form-card:hover,
 .messenger-card:hover {
     box-shadow:
         0 12px 35px rgba(37, 11, 85, 0.18),
@@ -901,48 +895,7 @@ section h2::after {
     transform: translateY(-8px);
 }
 
-/* -------------------- */
-/* Form Inputs (Input field styles) */
-/* -------------------- */
 
-.form-group {
-    margin-bottom: 15px;
-    display: block;
-    width: 100%;
-}
-
-.form-group.input-row {
-    /* If two inputs are needed in a row (Name and Email, for example) */
-    display: flex;
-    gap: 15px;
-}
-
-.form-group input,
-.form-group textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box;
-
-    text-align: left;
-
-    width: 100%;
-
-    background-color: var(--card-bg);
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: var(--accent-color);
-    box-shadow: 0 0 8px rgba(127, 88, 232, 0.4);
-    outline: none;
-}
-
-.form-group textarea {
-    min-height: 120px;
-}
 
 /* -------------------- */
 /* Messenger Links (Purple buttons) */
@@ -998,33 +951,7 @@ section h2::after {
     margin-right: 8px;
 }
 
-/* -------------------- */
-/* Submit Button (Form Button) */
-/* -------------------- */
-.submit-button {
-    max-width: 250px;
-    margin: 20px auto 0 auto;
 
-    background-color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-
-    display: block;
-    padding: 12px 20px;
-    color: white;
-    border-radius: 5px;
-    font-size: 1.1em;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s, border-color 0.3s;
-}
-
-.submit-button:hover {
-    background-color: var(--accent-color);
-    border-color: var(--accent-color);
-
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(127, 88, 232, 0.4);
-}
 
 
 /* -------------------- */
@@ -1076,11 +1003,7 @@ section h2::after {
     }
 
     /* CONTACT */
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        grid-auto-rows: auto;
-    }
+
 
     .contact-card {
         margin: 0 auto;
@@ -1090,16 +1013,7 @@ section h2::after {
     }
 
     /* FORM INPUTS */
-    .form-group.input-row {
-        /* In mobile mode, inputs stack again */
-        flex-direction: column;
-        gap: 0;
-    }
 
-    .submit-button {
-        width: 100%;
-        max-width: none;
-    }
 
     .messenger-link {
         width: 100%;
