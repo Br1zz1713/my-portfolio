@@ -472,7 +472,7 @@ section {
 
     /* === FIX: IMAGE DISPLAY. === */
     /* Using relative path for GitHub Pages compatibility */
-    background-image: url('images/mobius-loop-hero.jpg');
+    background-image: url('images/mobius-loop-hero.webp');
     background-size: cover;
     /* CRITICAL! Scales the image to cover the entire container */
     background-position: center;
