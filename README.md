@@ -32,7 +32,12 @@ An AI-powered SaaS platform for generating real estate listing descriptions.
 A full-stack e-commerce application with secure authentication and payment integration.
 *   **Tech**: React, Django REST Framework, PostgreSQL.
 
-### 3. Personal Portfolio
+### 3. [Car Dealer Inventory System](https://mycardealer.great-site.net)
+A comprehensive inventory management system for car dealerships with admin dashboard and public vehicle showcase.
+*   **Tech**: PHP, MySQL, Bootstrap, JavaScript.
+*   **GitHub**: [Br1zz1713/car-dealer-system](https://github.com/Br1zz1713/car-dealer-system)
+
+### 4. Personal Portfolio
 This website itself, demonstrating core web fundamentals.
 
 ## 📬 Contact
