@@ -1,6 +1,8 @@
 # Personal Portfolio - Yevhen Berezanskyi
 
-Welcome to my personal portfolio website! This project showcases my skills, experience, and projects as a Full Stack Developer. It is built with a focus on clean code, performance, and a premium user experience.
+I am a results-driven **Full Stack Developer** with a specialized focus on building high-performance SaaS products and AI-powered web applications. Leveraging deep expertise in the **React/Next.js** ecosystem alongside a versatile backend background in **Node.js, Django, and PHP**, I bridge the gap between creative UI design and scalable system architecture.
+
+My experience spans the complete product lifecycle, from engineering complex credit-based billing systems with **Stripe** to implementing advanced AI features using the **Gemini API**. I have a proven track record of delivering production-ready platforms, such as PropText.ai, where I integrated secure multi-provider authentication and automated subscription workflows. Beyond feature development, I am passionate about engineering excellence, regularly implementing **CI/CD pipelines via GitHub Actions** and optimizing web performance through custom scripting. I focus on writing clean, maintainable code that delivers a premium, seamless user experience.
 
 ## 🌟 Features
 
@@ -15,10 +17,12 @@ Welcome to my personal portfolio website! This project showcases my skills, expe
 
 ## 🛠️ Tech Stack
 
-*   **HTML5**: Semantic structure and accessibility.
-*   **CSS3**: Custom styles (Variables, Flexbox, Grid) with a focus on maintainability.
-*   **JavaScript (Vanilla)**: Core logic for animations, filtering, and interactivity without heavy frameworks (for the portfolio itself).
-*   **Font Awesome**: scalable vector icons.
+*   **Languages**: JavaScript (ES6+), TypeScript, Python, PHP, HTML5, CSS3
+*   **Frontend**: React, Next.js, Redux Toolkit, TanStack Query, Tailwind CSS, Bootstrap, Canvas API, Glassmorphism
+*   **Backend**: Node.js (Express), Django REST Framework, PHP, RESTful APIs, Nodemailer
+*   **Databases**: PostgreSQL (Prisma/Supabase), MySQL, MongoDB
+*   **Auth & Security**: JWT, Supabase Auth, OAuth, Bcrypt
+*   **Infrastructure & Tools**: Git, GitHub Actions (CI/CD), Docker, Vercel, Postman, Python Scripting (Automation)
 
 ## 🚀 Projects Showcased
 
