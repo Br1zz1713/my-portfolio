@@ -687,16 +687,23 @@ section h2::after {
 }
 
 /* Sub-list for experience details */
-.detail-list {
+.detail-list, .detail-text {
     list-style: none;
     padding: 0;
     margin: 4px 0 0 0;
 }
 
+.detail-text {
+    font-size: 0.8rem;
+    line-height: 1.3;
+    color: var(--text-muted);
+    text-align: left;
+}
+
 .detail-list li {
     font-size: 0.8rem;
     margin-bottom: 2px;
-    padding-left: 12px;
+    padding-left: 0;
     position: relative;
     line-height: 1.3;
     color: var(--text-muted);
@@ -705,17 +712,7 @@ section h2::after {
 
 /* Custom bullet for detail list (overriding timeline dot if nested) */
 .detail-list li::before {
-    content: '•' !important;
-    position: absolute !important;
-    left: 0 !important;
-    top: 0 !important;
-    width: auto !important;
-    height: auto !important;
-    background-color: transparent !important;
-    border: none !important;
-    border-radius: 0 !important;
-    color: var(--text-muted) !important;
-    font-size: 1em !important;
+    content: none !important;
 }
 
 /* -------------------- */
