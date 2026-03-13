@@ -686,6 +686,38 @@ section h2::after {
     font-weight: 600;
 }
 
+/* Sub-list for experience details */
+.detail-list {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0 0;
+}
+
+.detail-list li {
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+    padding-left: 15px;
+    position: relative;
+    line-height: 1.4;
+    color: var(--text-muted);
+    text-align: left;
+}
+
+/* Custom bullet for detail list (overriding timeline dot if nested) */
+.detail-list li::before {
+    content: '▹' !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    color: var(--accent-color) !important;
+    font-size: 1.1em !important;
+}
+
 /* -------------------- */
 /* Skills Section (Uses .card) */
 /* -------------------- */
