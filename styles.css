@@ -594,7 +594,7 @@ section h2::after {
 /* About Section Grid (Narrow | Wide | Narrow) */
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 1.4fr 1.6fr;
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
