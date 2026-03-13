@@ -643,7 +643,7 @@ section h2::after {
 }
 
 .timeline-list li {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     position: relative;
     padding-left: 15px;
 }
@@ -668,22 +668,32 @@ section h2::after {
     box-shadow: 0 0 10px var(--accent-color);
 }
 
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 2px;
+}
+
 .timeline-date {
     display: inline-block;
-    padding: 2px 8px;
-    background-color: var(--secondary-color);
-    color: white;
+    padding: 1px 5px;
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
     border-radius: 4px;
-    font-size: 0.8em;
+    font-size: 0.7em;
     font-weight: 500;
-    margin-bottom: 5px;
+    white-space: nowrap;
 }
 
 .timeline-list h4 {
-    margin: 2px 0;
-    font-size: 0.95em;
+    margin: 0;
+    font-size: 0.85em;
     color: var(--text-color);
     font-weight: 600;
+    flex: 1;
 }
 
 /* Sub-list for experience details */
