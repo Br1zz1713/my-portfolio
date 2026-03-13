@@ -669,31 +669,23 @@ section h2::after {
 }
 
 .timeline-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
+    display: block;
     margin-bottom: 2px;
 }
 
 .timeline-date {
-    display: inline-block;
-    padding: 1px 5px;
-    background-color: transparent;
-    border: 1px solid var(--border-color);
+    display: block;
     color: var(--text-muted);
-    border-radius: 4px;
     font-size: 0.7em;
     font-weight: 500;
-    white-space: nowrap;
+    margin-bottom: 2px;
 }
 
 .timeline-list h4 {
     margin: 0;
-    font-size: 0.85em;
-    color: var(--text-color);
+    font-size: 0.9em;
+    color: var(--accent-color); /* Highlighted main point */
     font-weight: 600;
-    flex: 1;
 }
 
 /* Sub-list for experience details */
