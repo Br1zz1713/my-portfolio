@@ -51,4 +51,4 @@ Feel free to reach out to me for collaborations or just to say hi!
 *   **WhatsApp**: [+40 750 266 672](https://wa.me/+40750266672)
 
 ---
-&copy; 2025 Yevhen Berezanskyi. All rights reserved.
+&copy; 2026 Yevhen Berezanskyi. All rights reserved.
