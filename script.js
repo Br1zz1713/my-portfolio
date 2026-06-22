@@ -62,7 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const filterValue = button.getAttribute('data-filter');
 
             projectItems.forEach(item => {
-                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                const categories = (item.getAttribute('data-category') || '').split(' ');
+                if (filterValue === 'all' || categories.includes(filterValue)) {
                     item.classList.remove('hidden');
                     // Simple fade in effect
                     item.style.opacity = '0';
@@ -123,8 +124,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // ======================================================
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('is-active');
+            const isActive = hamburger.classList.toggle('is-active');
             navMenu.classList.toggle('is-active');
+            if (isActive) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
         });
 
         // Close menu when a link is clicked
@@ -134,6 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (window.innerWidth < 768) {
                     hamburger.classList.remove('is-active');
                     navMenu.classList.remove('is-active');
+                    document.body.style.overflow = '';
                 }
             });
         });

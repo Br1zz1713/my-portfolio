@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.min.css">
+    <link rel="stylesheet" href="styles.min.css?v=1.0.2">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -45,7 +45,7 @@
         <canvas id="hero-canvas"></canvas>
         <div class="hero-content">
             <h1>Yevhen Berezanskyi</h1>
-            <p class="tagline">I build elegant and efficient web solutions.</p>
+            <p class="tagline">I build production-ready SaaS platforms and autonomous AI agent integrations.</p>
             <a href="#about" class="hero-button">Explore My Work</a>
         </div>
     </section>
@@ -54,6 +54,11 @@
         <h2>About Me</h2>
 
         <div class="about-grid">
+
+            <div class="about-card summary-card">
+                <h3>Summary</h3>
+                <p>I am a results-driven Full Stack JavaScript Developer dedicated to building modern web applications and production-ready SaaS products. With deep expertise in React, Next.js, and Node.js, I bridge the gap between intuitive UI design and robust backend architecture. My experience spans the entire development lifecycle, from designing complex PostgreSQL schemas with Prisma to styling responsive interfaces with Tailwind CSS. I specialize in the critical features that power modern businesses, including secure JWT authentication, Stripe payment integrations for subscription models, and the implementation of AI-powered features using the Gemini API. Most recently, I engineered PropText.ai, a comprehensive SaaS platform featuring a credit-based user system and automated billing, fully deployed on Vercel. Whether I am refining a database query or integrating a new AI model, I focus on writing clean, scalable code that delivers a seamless user experience. Currently available for remote full-time or contract roles, I bring a full-time commitment to building innovative, high-impact digital solutions.</p>
+            </div>
 
             <div class="about-card education-card">
                 <h3>Education</h3>
@@ -71,11 +76,6 @@
                         <h4>Odessa Faculty College of Computer Technologies</h4>
                     </li>
                 </ul>
-            </div>
-
-            <div class="about-card summary-card">
-                <h3>Summary</h3>
-                <p>I am a results-driven Full Stack JavaScript Developer dedicated to building modern web applications and production-ready SaaS products. With deep expertise in React, Next.js, and Node.js, I bridge the gap between intuitive UI design and robust backend architecture. My experience spans the entire development lifecycle, from designing complex PostgreSQL schemas with Prisma to styling responsive interfaces with Tailwind CSS. I specialize in the critical features that power modern businesses, including secure JWT authentication, Stripe payment integrations for subscription models, and the implementation of AI-powered features using the Gemini API. Most recently, I engineered PropText.ai, a comprehensive SaaS platform featuring a credit-based user system and automated billing, fully deployed on Vercel. Whether I am refining a database query or integrating a new AI model, I focus on writing clean, scalable code that delivers a seamless user experience. Currently available for remote full-time or contract roles, I bring a full-time commitment to building innovative, high-impact digital solutions.</p>
             </div>
 
             <div class="about-card experience-card">
@@ -120,31 +120,86 @@
             <div class="skills-content-grid">
                 <div class="skill-group frontend">
                     <h3>Frontend</h3>
-                    <p>React, Next.js, Redux Toolkit, TanStack Query, Tailwind CSS, Bootstrap, TypeScript, HTML5, CSS3, JavaScript (ES6+), Canvas API, Glassmorphism UI</p>
+                    <div class="skills-tags">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Next.js</span>
+                        <span class="skill-tag">Redux Toolkit</span>
+                        <span class="skill-tag">TanStack Query</span>
+                        <span class="skill-tag">Tailwind CSS</span>
+                        <span class="skill-tag">Bootstrap</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript (ES6+)</span>
+                        <span class="skill-tag">Canvas API</span>
+                        <span class="skill-tag">Glassmorphism UI</span>
+                    </div>
                 </div>
 
                 <div class="skill-group backend">
                     <h3>Backend</h3>
-                    <p>Node.js (Express), Django REST Framework, PHP, REST API, Nodemailer, PostgreSQL (Prisma/Supabase), MySQL, MongoDB</p>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Node.js (Express)</span>
+                        <span class="skill-tag">Django REST Framework</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">REST API</span>
+                        <span class="skill-tag">Nodemailer</span>
+                        <span class="skill-tag">PostgreSQL (Prisma/Supabase)</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                    </div>
                 </div>
 
                 <div class="skill-group tools">
                     <h3>Infrastructure & Tools</h3>
-                    <p>Git, GitHub Actions (CI/CD), Docker, Vercel, Postman, Stripe, Google Gemini API, Python Scripting (Automation)</p>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub Actions (CI/CD)</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Vercel</span>
+                        <span class="skill-tag">Postman</span>
+                        <span class="skill-tag">Stripe</span>
+                        <span class="skill-tag">Google Gemini API</span>
+                        <span class="skill-tag">Python Automation</span>
+                    </div>
                 </div>
 
                 <div class="skill-group auth">
                     <h3>Auth & Security</h3>
-                    <p>JWT, Supabase Auth, OAuth, Bcrypt</p>
+                    <div class="skills-tags">
+                        <span class="skill-tag">JWT</span>
+                        <span class="skill-tag">Supabase Auth</span>
+                        <span class="skill-tag">OAuth</span>
+                        <span class="skill-tag">Bcrypt</span>
+                    </div>
                 </div>
 
                 <div class="skill-group other-knowledge">
                     <h3>Core Competencies</h3>
-                    <p>System Architecture, Automated Subscriptions, Credit-based Billing, OOP, Agile/Scrum, English (B1/B2)</p>
+                    <div class="skills-tags">
+                        <span class="skill-tag">System Architecture</span>
+                        <span class="skill-tag">Automated Subscriptions</span>
+                        <span class="skill-tag">Credit-based Billing</span>
+                        <span class="skill-tag">OOP</span>
+                        <span class="skill-tag">Agile/Scrum</span>
+                        <span class="skill-tag">English (B1/B2)</span>
+                    </div>
+                </div>
+
+                <div class="skill-group ai-automation">
+                    <h3>AI & Automation</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">LLM API (Claude, Gemini, GPT)</span>
+                        <span class="skill-tag">Model Context Protocol (MCP)</span>
+                        <span class="skill-tag">Autonomous Agents</span>
+                        <span class="skill-tag">Puppeteer (Web Scraping)</span>
+                        <span class="skill-tag">Prompt Engineering</span>
+                        <span class="skill-tag">JSON Schema Validation</span>
+                        <span class="skill-tag">RAG Architecture</span>
+                    </div>
                 </div>
 
             </div>
-        </div>
         </div>
     </section>
 
@@ -156,52 +211,60 @@
             <button class="filter-btn" data-filter="frontend">Frontend</button>
             <button class="filter-btn" data-filter="backend">Backend</button>
             <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+            <button class="filter-btn" data-filter="ai-automation">AI & Automation</button>
         </div>
 
         <div class="projects-grid card js-animate">
 
-            <div class="project-item" data-category="fullstack">
+            <div class="project-item" data-category="fullstack ai-automation">
                 <h3>PropText.ai</h3>
                 <p>An AI-powered SaaS platform for generating professional real estate listing descriptions.
                     Features include user authentication, credit-based billing system, Stripe payment integration,
                     and AI-generated content using Google Gemini API.</p>
-                <p class="tech-stack">**Tech:** Next.js, TypeScript, Supabase, Stripe, Google Gemini API, Tailwind CSS
-                </p>
+                <p class="tech-stack"><strong>Tech:</strong> Next.js, TypeScript, Supabase, Stripe, Google Gemini API, Tailwind CSS</p>
                 <a href="https://prop-text-ai.vercel.app" target="_blank">View Demo</a>
             </div>
 
-            <hr class="project-separator">
+            <div class="project-item" data-category="fullstack ai-automation">
+                <h3>Invoice Processing System</h3>
+                <p>An AI-powered document intelligence application. Automatically extracts invoice fields from PDFs and images using Gemini API, featuring an interactive chat assistant to query document data in real-time.</p>
+                <p class="tech-stack"><strong>Tech:</strong> Next.js, React, Google Gemini API, Tailwind CSS, Zod Validation</p>
+                <a href="https://github.com/Br1zz1713" target="_blank">View Demo</a>
+            </div>
+
+            <div class="project-item" data-category="backend ai-automation">
+                <h3>OpenClaw Framework</h3>
+                <p>An open-source developer tool for orchestrating autonomous AI agents. Features structured logging, model rotation (Gemini/GPT/Claude), Google Drive/Trello tool integrations, and Model Context Protocol (MCP) support.</p>
+                <p class="tech-stack"><strong>Tech:</strong> Node.js, Puppeteer, Model Context Protocol (MCP), Winston, Telegram API</p>
+                <a href="https://github.com/Br1zz1713/OpenClaw" target="_blank">GitHub</a>
+            </div>
 
             <div class="project-item" data-category="fullstack">
                 <h3>Commercial E-Shop</h3>
                 <p>A comprehensive full-stack e-commerce application built with a separate frontend and backend.
                     Features include secure user authentication (JWT), complex product filtering, cart management, and
                     payment integration.</p>
-                <p class="tech-stack">**Tech:** React (Vite), Django REST Framework, PostgreSQL, Tailwind CSS</p>
+                <p class="tech-stack"><strong>Tech:</strong> React (Vite), Django REST Framework, PostgreSQL, Tailwind CSS</p>
                 <a href="https://ecoshop-alpha.vercel.app" target="_blank">View Demo</a>
             </div>
-
-            <hr class="project-separator">
 
             <div class="project-item" data-category="fullstack">
                 <h3>Car Dealer Inventory System</h3>
                 <p>A comprehensive inventory management system for car dealerships with admin dashboard and public
                     vehicle showcase. Features include vehicle CRUD operations, image uploads, advanced filtering,
                     view tracking, and responsive design with glassmorphism UI.</p>
-                <p class="tech-stack">**Tech:** PHP, MySQL, Bootstrap, JavaScript, InfinityFree Hosting</p>
+                <p class="tech-stack"><strong>Tech:</strong> PHP, MySQL, Bootstrap, JavaScript, InfinityFree Hosting</p>
                 <a href="https://mycardealer.great-site.net" target="_blank">View Demo</a>
                 <a href="https://github.com/Br1zz1713/car-dealer-system" target="_blank"
                     style="margin-left: 10px;">GitHub</a>
             </div>
-
-            <hr class="project-separator">
 
             <div class="project-item" data-category="frontend">
                 <h3>Personal Portfolio</h3>
                 <p>A responsive personal portfolio website featuring dark mode, interactive animations
                     (Canvas/IntersectionObserver), and a dynamic project gallery. Built without frameworks to
                     demonstrate core web fundamentals.</p>
-                <p class="tech-stack">**Tech:** HTML5, CSS3 (Variables & Flexbox), Vanilla JavaScript</p>
+                <p class="tech-stack"><strong>Tech:</strong> HTML5, CSS3 (Variables & Flexbox), Vanilla JavaScript</p>
                 <a href="#" class="no-click">View Demo</a>
             </div>
 
@@ -253,6 +316,6 @@
     </footer>
 
     <script src="hero-animation.min.js" defer></script>
-    <script src="script.min.js" defer></script>
+    <script src="script.min.js?v=1.0.2" defer></script>
 
 </body>

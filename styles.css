@@ -10,30 +10,26 @@
     --secondary-color: #6c63ff;
     --accent-color: #7F58E8;
     --bg-color: #f4f4f4;
-    --card-bg: #ffffff;
+    --card-bg: rgba(255, 255, 255, 0.85); /* Semi-transparent for glassmorphism */
     --text-color: #333333;
     --text-muted: #666666;
-    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    --nav-bg: rgba(255, 255, 255, 0.95);
-    --border-color: #e0e0e0;
+    --card-shadow: 0 10px 30px rgba(37, 11, 85, 0.06);
+    --nav-bg: rgba(255, 255, 255, 0.9);
+    --border-color: rgba(37, 11, 85, 0.1);
 }
 
 [data-theme="dark"] {
     /* Dark Theme (Cyber/Neon) */
     --primary-color: #bfaee3;
-    /* Soft purple for headers in dark mode */
     --secondary-color: #bb86fc;
     --accent-color: #00e5ff;
-    /* Cyan for energetic accents */
     --bg-color: #0a0a12;
-    /* Very dark blue/black */
-    --card-bg: #161625;
+    --card-bg: rgba(22, 22, 37, 0.7); /* Semi-transparent for glassmorphism */
     --text-color: #e0e0e0;
     --text-muted: #a0a0a0;
-    --card-shadow: 0 10px 30px rgba(0, 229, 255, 0.1);
-    /* Cyan glow */
-    --nav-bg: rgba(22, 22, 37, 0.95);
-    --border-color: #2d2d44;
+    --card-shadow: 0 10px 30px rgba(0, 229, 255, 0.05);
+    --nav-bg: rgba(22, 22, 37, 0.85);
+    --border-color: rgba(255, 255, 255, 0.08);
 }
 
 /* Global Transition for Theme Switch */
@@ -309,7 +305,8 @@ section {
     right: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(37, 11, 85, 0.98);
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(10px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -545,8 +542,10 @@ section {
 /* ========================================================================= */
 section h2 {
     font-size: 2.8em;
-    font-weight: 200;
-    color: var(--primary-color);
+    font-weight: 300;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 30px;
     position: relative;
     display: inline-block;
@@ -555,9 +554,9 @@ section h2 {
 section h2::after {
     content: '';
     display: block;
-    width: 50%;
+    width: 60%;
     height: 4px;
-    background-color: var(--accent-color);
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
     margin: 8px auto 0;
     border-radius: 2px;
 }
@@ -565,6 +564,9 @@ section h2::after {
 /* MAIN CARD */
 .card {
     background-color: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
     border-radius: 15px;
     box-shadow: var(--card-shadow);
     padding: 30px;
@@ -574,16 +576,21 @@ section h2::after {
     max-width: 1160px;
     width: 95%;
 
-    transition: box-shadow 0.4s ease-out, transform 0.3s ease-out;
+    transition: box-shadow 0.4s ease-out, transform 0.3s ease-out, border-color 0.4s ease-out;
 }
 
-/* UNIFIED POWERFUL HOVER FOR ALL .card elements */
 .card:hover {
+    border-color: var(--accent-color);
     box-shadow:
-        0 12px 35px rgba(37, 11, 85, 0.18),
-        0 0 12px rgba(127, 88, 232, 0.4),
-        0 0 15px rgba(127, 88, 232, 0.2);
+        0 12px 35px rgba(37, 11, 85, 0.15),
+        0 0 15px rgba(127, 88, 232, 0.3);
     transform: translateY(-8px);
+}
+
+[data-theme="dark"] .card:hover {
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(0, 229, 255, 0.3);
 }
 
 
@@ -591,32 +598,57 @@ section h2::after {
 /* 3. ABOUT AND SKILLS SECTION GRID */
 /* ========================================================================= */
 
-/* About Section Grid (Narrow | Wide | Narrow) */
+/* About Section Grid */
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1.4fr 1.6fr;
+    grid-template-columns: 1.2fr 1fr;
+    grid-template-rows: auto auto;
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
+.summary-card {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.education-card {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.experience-card {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+}
+
 /* ABOUT ME CARD */
 .about-card {
     background-color: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
     padding: 25px;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-    transition: box-shadow 0.4s ease-out, transform 0.3s ease-out;
+    transition: box-shadow 0.4s ease-out, transform 0.3s ease-out, border-color 0.4s ease-out;
+    text-align: left;
 }
 
-/* Applying POWERFUL HOVER to "About Me" cards */
 .about-card:hover {
+    border-color: var(--accent-color);
     box-shadow:
-        0 12px 35px rgba(37, 11, 85, 0.18),
-        0 0 12px rgba(127, 88, 232, 0.4),
-        0 0 15px rgba(127, 88, 232, 0.2);
+        0 12px 35px rgba(37, 11, 85, 0.15),
+        0 0 15px rgba(127, 88, 232, 0.3);
     transform: translateY(-8px);
+}
+
+[data-theme="dark"] .about-card:hover {
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(0, 229, 255, 0.3);
 }
 
 .about-card h3 {
@@ -643,7 +675,7 @@ section h2::after {
 }
 
 .timeline-list li {
-    margin-bottom: 12px;
+    margin-bottom: 25px;
     position: relative;
     padding-left: 15px;
 }
@@ -652,20 +684,20 @@ section h2::after {
     content: '';
     position: absolute;
     left: -26px;
-    /* Adjust according to padding + border width */
     top: 5px;
     width: 10px;
     height: 10px;
-    background-color: var(--bg-color);
+    background-color: var(--card-bg);
     border: 2px solid var(--accent-color);
     border-radius: 50%;
     z-index: 1;
-    transition: background-color 0.3s, border-color 0.3s;
+    transition: all 0.3s ease;
 }
 
 .timeline-list li:hover::before {
     background-color: var(--accent-color);
     box-shadow: 0 0 10px var(--accent-color);
+    transform: scale(1.2);
 }
 
 .timeline-header {
@@ -674,18 +706,28 @@ section h2::after {
 }
 
 .timeline-date {
-    display: block;
-    color: var(--text-muted);
-    font-size: 0.7em;
-    font-weight: 500;
-    margin-bottom: 2px;
+    display: inline-block;
+    color: var(--accent-color);
+    font-size: 0.75em;
+    font-weight: 600;
+    margin-bottom: 6px;
+    background: rgba(127, 88, 232, 0.08);
+    padding: 3px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(127, 88, 232, 0.15);
+}
+
+[data-theme="dark"] .timeline-date {
+    background: rgba(0, 229, 255, 0.08);
+    border-color: rgba(0, 229, 255, 0.15);
 }
 
 .timeline-list h4 {
-    margin: 0;
-    font-size: 0.9em;
-    color: var(--accent-color); /* Highlighted main point */
+    margin: 0 0 6px 0;
+    font-size: 1.05em;
+    color: var(--text-color);
     font-weight: 600;
+    line-height: 1.4;
 }
 
 /* Sub-list for experience details */
@@ -696,7 +738,7 @@ section h2::after {
 }
 
 .detail-text {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     line-height: 1.3;
     color: var(--text-muted);
     text-align: left;
@@ -753,8 +795,36 @@ section h2::after {
     margin-bottom: 15px;
 }
 
-.skill-group p {
-    margin: 0;
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.skill-tag {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skill-tag:hover {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(127, 88, 232, 0.25);
+}
+
+[data-theme="dark"] .skill-tag:hover {
+    box-shadow: 0 4px 12px rgba(0, 229, 255, 0.3);
 }
 
 
@@ -828,6 +898,19 @@ section h2::after {
     display: none;
 }
 
+/* First visible project item gets no top spacing */
+.project-item:not(.hidden) {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+/* Subsequent visible project items get a top border and top spacing */
+.project-item:not(.hidden) ~ .project-item:not(.hidden) {
+    border-top: 1px solid var(--border-color);
+    padding-top: 30px;
+    margin-top: 30px;
+}
+
 .project-item a {
     color: var(--accent-color);
     text-decoration: none;
@@ -853,14 +936,6 @@ section h2::after {
 }
 
 
-.project-separator {
-    border: 0;
-    height: 1px;
-    background-color: #e0e0e0;
-    margin: 10px 0;
-}
-
-
 /* ========================================================================= */
 /* 5. CONTACT ME SECTION */
 /* ========================================================================= */
@@ -882,6 +957,9 @@ section h2::after {
 /* Universal card for contacts */
 .contact-card {
     background-color: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 0 15px rgba(37, 11, 85, 0.1);
@@ -892,7 +970,7 @@ section h2::after {
     box-sizing: border-box;
 
     display: block;
-    transition: box-shadow 0.4s ease-out, transform 0.3s ease-out;
+    transition: box-shadow 0.4s ease-out, transform 0.3s ease-out, border-color 0.4s ease-out;
 }
 
 
@@ -911,12 +989,18 @@ section h2::after {
     display: inline-block;
 }
 
-.messenger-card:hover {
+.contact-card:hover {
+    border-color: var(--accent-color);
     box-shadow:
-        0 12px 35px rgba(37, 11, 85, 0.18),
-        0 0 12px rgba(127, 88, 232, 0.4),
-        0 0 15px rgba(127, 88, 232, 0.2);
+        0 12px 35px rgba(37, 11, 85, 0.15),
+        0 0 15px rgba(127, 88, 232, 0.3);
     transform: translateY(-8px);
+}
+
+[data-theme="dark"] .contact-card:hover {
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(0, 229, 255, 0.3);
 }
 
 
@@ -1000,7 +1084,15 @@ section h2::after {
     /* GRIDS */
     .about-grid {
         grid-template-columns: 1fr;
+        grid-template-rows: auto;
         gap: 20px;
+    }
+
+    .summary-card,
+    .education-card,
+    .experience-card {
+        grid-column: auto;
+        grid-row: auto;
     }
 
     .skills-content-grid {
