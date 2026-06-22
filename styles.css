@@ -5,31 +5,31 @@
 /* ========================================================================= */
 
 :root {
-    /* Light Theme (Default) */
-    --primary-color: #250b55;
-    --secondary-color: #6c63ff;
-    --accent-color: #7F58E8;
-    --bg-color: #f4f4f4;
-    --card-bg: rgba(255, 255, 255, 0.85); /* Semi-transparent for glassmorphism */
-    --text-color: #333333;
-    --text-muted: #666666;
-    --card-shadow: 0 10px 30px rgba(37, 11, 85, 0.06);
-    --nav-bg: rgba(255, 255, 255, 0.9);
-    --border-color: rgba(37, 11, 85, 0.1);
+    /* Light Theme (Juicy/Vibrant) */
+    --primary-color: #2b0066;      /* Rich dark violet-indigo */
+    --secondary-color: #5c4dff;    /* Saturated indigo-blue */
+    --accent-color: #703bf7;       /* Saturated neon purple */
+    --bg-color: #f3f4f6;           /* Clean cool light grey */
+    --card-bg: rgba(255, 255, 255, 0.9); /* Semi-transparent for glassmorphism */
+    --text-color: #1e1e24;         /* High-contrast dark text */
+    --text-muted: #5e5e6e;         /* Legible muted gray */
+    --card-shadow: 0 10px 30px rgba(112, 59, 247, 0.06);
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --border-color: rgba(112, 59, 247, 0.1);
 }
 
 [data-theme="dark"] {
-    /* Dark Theme (Cyber/Neon) */
-    --primary-color: #bfaee3;
-    --secondary-color: #bb86fc;
-    --accent-color: #00e5ff;
-    --bg-color: #0a0a12;
-    --card-bg: rgba(22, 22, 37, 0.7); /* Semi-transparent for glassmorphism */
-    --text-color: #e0e0e0;
-    --text-muted: #a0a0a0;
-    --card-shadow: 0 10px 30px rgba(0, 229, 255, 0.05);
-    --nav-bg: rgba(22, 22, 37, 0.85);
-    --border-color: rgba(255, 255, 255, 0.08);
+    /* Dark Theme (Juicy/Original Neon) */
+    --primary-color: #c3b4fc;      /* Vibrant glowing lavender */
+    --secondary-color: #b55fe6;    /* Vibrant neon violet */
+    --accent-color: #00f0ff;       /* Pure electric cyan */
+    --bg-color: #08080f;           /* Deep space-black background */
+    --card-bg: rgba(15, 15, 28, 0.78); /* Deep dark glass card */
+    --text-color: #f1f1f6;         /* Clear high-contrast off-white */
+    --text-muted: #a2a2b3;         /* Legible slate-gray secondary text */
+    --card-shadow: 0 12px 40px rgba(0, 240, 255, 0.06), 0 0 25px rgba(112, 59, 247, 0.04);
+    --nav-bg: rgba(8, 8, 15, 0.97); /* Matching deep space-black overlay */
+    --border-color: rgba(112, 59, 247, 0.15); /* Subtly glowing violet-purple border */
 }
 
 /* Global Transition for Theme Switch */
@@ -304,12 +304,16 @@ section {
     top: 0;
     right: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-color: var(--nav-bg);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
+    padding-top: 120px; /* Push menu down to prevent overlapping header logo and close button */
+    box-sizing: border-box;
     transform: translateX(100%);
     transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s;
     z-index: 999;
@@ -331,13 +335,13 @@ section {
 }
 
 .main-nav ul li {
-    margin: 20px 0;
+    margin: 24px 0;
 }
 
 .main-nav ul li a {
     color: var(--accent-color);
     text-decoration: none;
-    font-size: 2.5em;
+    font-size: 2.2em; /* Slightly smaller size to fit mobile displays nicely */
     font-weight: 300;
     transition: color 0.3s, text-shadow 0.3s;
 }
@@ -385,6 +389,7 @@ section {
         opacity: 1;
         transition: none;
         z-index: auto;
+        padding-top: 0; /* Reset mobile top padding */
 
         /* Push Nav to the far right */
         margin-left: auto;
@@ -842,7 +847,7 @@ section h2::after {
 
     /* Add separators between groups on mobile for clarity */
     .skill-group {
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid var(--border-color);
         padding-bottom: 20px;
     }
 
@@ -1067,18 +1072,46 @@ section h2::after {
 /* -------------------- */
 @media (max-width: 900px) {
 
+    /* HEADER MOBILITY ADJUSTMENTS */
+    .main-header {
+        padding: 15px 15px;
+    }
+    
+    .main-header.scrolled {
+        padding: 12px 15px;
+    }
+
+    .main-header .logo a {
+        font-size: 1.2em;
+    }
+
     /* HERO */
     #hero-section h1 {
-        font-size: 3em;
+        font-size: 2.8em;
     }
 
     #hero-section p {
-        font-size: 1.3em;
+        font-size: 1.25em;
     }
 
     /* GENERAL */
     section h2 {
         font-size: 2.2em;
+    }
+
+    /* HEADER CONTROLS ACCESS MOBILITY */
+    .header-controls {
+        gap: 20px;
+    }
+
+    #theme-toggle {
+        padding: 8px;
+        font-size: 1.3rem;
+    }
+
+    .hamburger-menu {
+        width: 32px;
+        height: 24px;
     }
 
     /* GRIDS */
@@ -1099,37 +1132,18 @@ section h2::after {
         grid-template-columns: 1fr;
     }
 
-    /* SKILLS COLUMN FIX */
-    .skills-column.left-column {
-        /* Removing vertical line and adding a horizontal one */
-        border-right: none;
-        padding-right: 0;
-        border-bottom: 1px solid #eee;
-        padding-bottom: 20px;
-        margin-bottom: 20px;
-    }
-
-    .skills-column.right-column {
-        padding-left: 0;
-    }
-
     .projects-grid {
         padding: 10px;
         /* Adjusting padding on mobile */
     }
 
     /* CONTACT */
-
-
     .contact-card {
         margin: 0 auto;
         max-width: none;
         /* Removing unnecessary restriction to fill 100% of container */
         height: auto;
     }
-
-    /* FORM INPUTS */
-
 
     .messenger-link {
         width: 100%;
