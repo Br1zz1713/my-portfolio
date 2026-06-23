@@ -1177,16 +1177,14 @@ section h2::after {
 /* 6. FOOTER */
 /* ========================================================================= */
 footer {
-    background-color: rgba(37, 11, 85, 0.95);
-    color: rgba(255, 255, 255, 0.85);
-    padding: 15px 0;
+    background-color: var(--bg-color);
+    color: var(--text-muted);
+    padding: 30px 0;
     text-align: center;
     font-size: 0.9em;
 
-    border-radius: 10px 10px 0 0;
-    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
-
-    margin-top: 40px;
+    border-top: 1px solid var(--border-color);
+    margin-top: 60px;
 }
 
 footer p {
