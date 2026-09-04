@@ -4,374 +4,529 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yevhen Berezanskyi - Portfolio</title>
+    <meta name="description" content="Yevhen Berezanskyi — Systems & Full-Stack Engineer. Building high-throughput backend services, autonomous agent infrastructure, and production SaaS architectures.">
+    <meta name="author" content="Yevhen Berezanskyi">
+    <title>Yevhen Berezanskyi — Systems & Full-Stack Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.min.css?v=1.0.3">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.min.css?v=2.0.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preload" as="image" href="images/mobius-loop-hero.webp">
 </head>
 
 <body>
     <header class="main-header">
-        <div class="logo">
-            <a href="#hero-section">Yevhen Berezanskyi</a>
-        </div>
+        <div class="header-content-wrapper">
+            <div class="logo">
+                <a href="#hero-section">
+                    <span class="logo-name">Yevhen Berezanskyi</span>
+                    <span class="logo-tag">Systems & Full-Stack</span>
+                </a>
+            </div>
 
-        <div class="header-controls">
-            <button id="theme-toggle" aria-label="Toggle Dark Mode">
-                <i class="fas fa-sun"></i>
-            </button>
-            <button class="hamburger-menu" aria-label="Open Navigation">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
+            <div class="header-controls">
+                <button id="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-sun"></i>
+                </button>
+                <button class="hamburger-menu" aria-label="Open Navigation">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
     </header>
 
-    <section id="hero-section" class="js-animate">
-        <canvas id="hero-canvas"></canvas>
+    <section id="hero-section">
+        <div class="hero-grid-overlay"></div>
         <div class="hero-content">
+            <div class="hero-status-pill">
+                <span class="status-pulse-dot"></span>
+                <span>Available for Contract & Full-Time Roles</span>
+            </div>
             <h1>Yevhen Berezanskyi</h1>
-            <p class="tagline">I build production-ready SaaS platforms and autonomous AI agent integrations.</p>
-            <a href="#about" class="hero-button">Explore My Work</a>
+            <p class="hero-role-title">Systems & Full-Stack Engineer</p>
+            <p class="tagline">
+                Architecting high-throughput backend services, autonomous agent pipelines, and production SaaS platforms. Specialized in Rust, Node.js/TypeScript, Next.js, and low-level system integrations.
+            </p>
+            <div class="hero-quick-stack">
+                <span class="stack-chip">Rust &bull; Tokio</span>
+                <span class="stack-chip">TypeScript &bull; Next.js</span>
+                <span class="stack-chip">Node.js &bull; Express</span>
+                <span class="stack-chip">PostgreSQL &bull; Prisma</span>
+                <span class="stack-chip">Docker &bull; Linux Systemd</span>
+                <span class="stack-chip">Reverse Engineering</span>
+            </div>
+            <div class="hero-cta-group">
+                <a href="#projects" class="btn btn-primary">Explore Selected Systems</a>
+                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+            </div>
         </div>
     </section>
 
     <section id="about" class="content-section">
-        <h2>About Me</h2>
+        <div class="section-header">
+            <h2>About & Experience</h2>
+            <p class="section-subtitle">Engineering background, system philosophy, and track record.</p>
+        </div>
 
         <div class="about-grid">
-
             <div class="about-card summary-card">
-                <h3>Summary</h3>
-                <p>I am a results-driven Full Stack JavaScript Developer dedicated to building modern web applications and production-ready SaaS products. With deep expertise in React, Next.js, and Node.js, I bridge the gap between intuitive UI design and robust backend architecture. My experience spans the entire development lifecycle, from designing complex PostgreSQL schemas with Prisma to styling responsive interfaces with Tailwind CSS. I specialize in the critical features that power modern businesses, including secure JWT authentication, Stripe payment integrations for subscription models, and the implementation of AI-powered features using the Gemini API. Most recently, I engineered PropText.ai, a comprehensive SaaS platform featuring a credit-based user system and automated billing, fully deployed on Vercel. Whether I am refining a database query or integrating a new AI model, I focus on writing clean, scalable code that delivers a seamless user experience. Currently available for remote full-time or contract roles, I bring a full-time commitment to building innovative, high-impact digital solutions.</p>
+                <h3>Engineering Profile</h3>
+                <p>
+                    I build reliable, production-grade software across the full technical stack. My core focus lies at the intersection of low-latency backend engines, complex web application architectures, and robust automation infrastructure.
+                </p>
+                <p>
+                    From writing microsecond-sensitive cross-DEX arbitrage pipelines in Rust with local Arbitrum Nitro node synchronization, to reverse-engineering protected web portals and delivering turnkey SaaS products with metered Stripe billing — I concentrate on clean architecture, deterministic error handling, and high-concurrency performance.
+                </p>
+                <p>
+                    I prefer concrete metrics over buzzwords: sub-millisecond execution times, resilient auto-restarting daemons, and zero-maintenance automation pipelines.
+                </p>
+                <div class="summary-highlights">
+                    <div class="highlight-item">
+                        <span class="highlight-label">Primary Stack</span>
+                        <span class="highlight-value">Rust, TypeScript, Next.js, Node.js, PostgreSQL</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-label">Location</span>
+                        <span class="highlight-value">Odesa, Ukraine (UTC+2 / UTC+3) &bull; Remote</span>
+                    </div>
+                </div>
             </div>
 
             <div class="about-card education-card">
                 <h3>Education</h3>
                 <ul class="timeline-list">
                     <li>
-                        <span class="timeline-date">2023 - 2024</span>
+                        <span class="timeline-date">2023 &mdash; 2024</span>
                         <h4>Odessa National University named after I. I. Mechnikov</h4>
+                        <p class="detail-text">Information Technologies & Software Systems</p>
                     </li>
                     <li>
-                        <span class="timeline-date">2021 - 2023</span>
+                        <span class="timeline-date">2021 &mdash; 2023</span>
                         <h4>Odessa State Ecological University</h4>
+                        <p class="detail-text">Computer Science & Information Technology</p>
                     </li>
                     <li>
-                        <span class="timeline-date">2017 - 2021</span>
+                        <span class="timeline-date">2017 &mdash; 2021</span>
                         <h4>Odessa Faculty College of Computer Technologies</h4>
+                        <p class="detail-text">Computer Engineering, Networks & Hardware Architecture</p>
                     </li>
                 </ul>
             </div>
 
             <div class="about-card experience-card">
-                <h3>Experience</h3>
+                <h3>Experience & Milestones</h3>
                 <ul class="timeline-list">
                     <li>
-                        <span class="timeline-date">2023 - Present</span>
-                        <h4>Freelance Full Stack Developer</h4>
-                        <p class="detail-text">Building SaaS & CRM tools with Stripe and Gemini AI.</p>
+                        <span class="timeline-date">2023 &mdash; Present</span>
+                        <h4>Freelance Systems & Full-Stack Engineer</h4>
+                        <p class="detail-text">
+                            <strong>Key achievements:</strong>
+                        </p>
+                        <ul class="bullet-list">
+                            <li>Designed and delivered a Rust high-frequency cross-DEX arbitrage engine on Arbitrum One (Uniswap V3 / Camelot V3) with local Nitro node sync and microsecond tick decoding.</li>
+                            <li>Engineered an enterprise session-sharing reverse proxy on Node.js/Windows Server with bidirectional storage synchronization and auto-healing daemons.</li>
+                            <li>Shipped PropText.ai — a production real estate SaaS with automated Stripe billing and Google Gemini API integration.</li>
+                        </ul>
                     </li>
                     <li>
-                        <span class="timeline-date">Jun 2024 - Sep 2024</span>
+                        <span class="timeline-date">Jun 2024 &mdash; Sep 2024</span>
                         <h4>Web Systems Intern | ME "Marine Plast Center"</h4>
-                        <p class="detail-text">Automation of IT systems and process management.</p>
+                        <p class="detail-text">Automation of IT systems, internal business tools, and network infrastructure management.</p>
                     </li>
                     <li>
-                        <span class="timeline-date">Jan 2024 - Jun 2024</span>
-                        <h4>Intern Web Developer</h4>
-                        <p class="detail-text">Frontend development and Agile teamwork.</p>
+                        <span class="timeline-date">Jan 2024 &mdash; Jun 2024</span>
+                        <h4>Full-Stack Intern</h4>
+                        <p class="detail-text">Frontend development, REST API integration, and Agile/Scrum cross-functional team delivery.</p>
                     </li>
                     <li>
-                        <span class="timeline-date">Feb 2023 - Apr 2023</span>
+                        <span class="timeline-date">Feb 2023 &mdash; Apr 2023</span>
                         <h4>Full-Stack Intern | Time Pro</h4>
-                        <p class="detail-text">API integration and codebase optimization.</p>
+                        <p class="detail-text">Backend API endpoint optimization and client-side performance tuning.</p>
                     </li>
                     <li>
-                        <span class="timeline-date">Jan 2021 - May 2021</span>
+                        <span class="timeline-date">Jan 2021 &mdash; May 2021</span>
                         <h4>Junior Technician | Odesa College</h4>
-                        <p class="detail-text">LAN networking and IT hardware support.</p>
+                        <p class="detail-text">LAN administration, routing, Linux/Windows maintenance, and hardware diagnostics.</p>
                     </li>
                 </ul>
             </div>
-
         </div>
-
     </section>
 
-    <section id="skills">
-        <h2>Skills</h2>
+    <section id="skills" class="content-section">
+        <div class="section-header">
+            <h2>Technical Skills</h2>
+            <p class="section-subtitle">Core technologies, libraries, and tools applied in production.</p>
+        </div>
 
-        <div class="skills-container card js-animate">
-            <div class="skills-content-grid">
-                <div class="skill-group frontend">
-                    <h3>Frontend</h3>
-                    <div class="skills-tags">
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">Next.js</span>
-                        <span class="skill-tag">Redux Toolkit</span>
-                        <span class="skill-tag">TanStack Query</span>
-                        <span class="skill-tag">Tailwind CSS</span>
-                        <span class="skill-tag">Bootstrap</span>
-                        <span class="skill-tag">TypeScript</span>
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">CSS3</span>
-                        <span class="skill-tag">JavaScript (ES6+)</span>
-                        <span class="skill-tag">Canvas API</span>
-                        <span class="skill-tag">Glassmorphism UI</span>
-                    </div>
+        <div class="skills-grid">
+            <div class="skill-group-card">
+                <div class="skill-group-header">
+                    <i class="fas fa-microchip"></i>
+                    <h3>Systems & High-Performance</h3>
                 </div>
-
-                <div class="skill-group backend">
-                    <h3>Backend</h3>
-                    <div class="skills-tags">
-                        <span class="skill-tag">Node.js (Express)</span>
-                        <span class="skill-tag">Django REST Framework</span>
-                        <span class="skill-tag">PHP</span>
-                        <span class="skill-tag">REST API</span>
-                        <span class="skill-tag">Nodemailer</span>
-                        <span class="skill-tag">PostgreSQL (Prisma/Supabase)</span>
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">MongoDB</span>
-                    </div>
+                <div class="skills-tags">
+                    <span class="skill-tag">Rust (2021)</span>
+                    <span class="skill-tag">Tokio Async</span>
+                    <span class="skill-tag">Alloy Primitives</span>
+                    <span class="skill-tag">Linux / Ubuntu</span>
+                    <span class="skill-tag">Systemd Supervision</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Reverse Engineering</span>
+                    <span class="skill-tag">WebSocket Streams</span>
+                    <span class="skill-tag">Concurrency</span>
                 </div>
+            </div>
 
-                <div class="skill-group tools">
-                    <h3>Infrastructure & Tools</h3>
-                    <div class="skills-tags">
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">GitHub Actions (CI/CD)</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Vercel</span>
-                        <span class="skill-tag">Postman</span>
-                        <span class="skill-tag">Stripe</span>
-                        <span class="skill-tag">Google Gemini API</span>
-                        <span class="skill-tag">Python Automation</span>
-                    </div>
+            <div class="skill-group-card">
+                <div class="skill-group-header">
+                    <i class="fas fa-layer-group"></i>
+                    <h3>Full-Stack & Cloud Architecture</h3>
                 </div>
-
-                <div class="skill-group auth">
-                    <h3>Auth & Security</h3>
-                    <div class="skills-tags">
-                        <span class="skill-tag">JWT</span>
-                        <span class="skill-tag">Supabase Auth</span>
-                        <span class="skill-tag">OAuth</span>
-                        <span class="skill-tag">Bcrypt</span>
-                    </div>
+                <div class="skills-tags">
+                    <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">Next.js (App Router)</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Node.js (Express)</span>
+                    <span class="skill-tag">Django REST</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">Prisma ORM</span>
+                    <span class="skill-tag">Supabase</span>
+                    <span class="skill-tag">Tailwind CSS</span>
+                    <span class="skill-tag">Vercel</span>
                 </div>
+            </div>
 
-                <div class="skill-group other-knowledge">
-                    <h3>Core Competencies</h3>
-                    <div class="skills-tags">
-                        <span class="skill-tag">System Architecture</span>
-                        <span class="skill-tag">Automated Subscriptions</span>
-                        <span class="skill-tag">Credit-based Billing</span>
-                        <span class="skill-tag">OOP</span>
-                        <span class="skill-tag">Agile/Scrum</span>
-                        <span class="skill-tag">English (B1/B2)</span>
-                    </div>
+            <div class="skill-group-card">
+                <div class="skill-group-header">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI & Automation Infrastructure</h3>
                 </div>
-
-                <div class="skill-group ai-automation">
-                    <h3>AI & Automation</h3>
-                    <div class="skills-tags">
-                        <span class="skill-tag">LLM API (Claude, Gemini, GPT)</span>
-                        <span class="skill-tag">Model Context Protocol (MCP)</span>
-                        <span class="skill-tag">Autonomous Agents</span>
-                        <span class="skill-tag">Puppeteer (Web Scraping)</span>
-                        <span class="skill-tag">Prompt Engineering</span>
-                        <span class="skill-tag">JSON Schema Validation</span>
-                        <span class="skill-tag">RAG Architecture</span>
-                    </div>
+                <div class="skills-tags">
+                    <span class="skill-tag">Autonomous Agents</span>
+                    <span class="skill-tag">VM Sandbox Isolation</span>
+                    <span class="skill-tag">Puppeteer / Scraping</span>
+                    <span class="skill-tag">Anti-Bot Persistence</span>
+                    <span class="skill-tag">Gemini / Claude API</span>
+                    <span class="skill-tag">API Key Pool Rotation</span>
+                    <span class="skill-tag">Prompt Engineering</span>
+                    <span class="skill-tag">RAG Architecture</span>
+                    <span class="skill-tag">Telegram Bot API</span>
                 </div>
+            </div>
 
+            <div class="skill-group-card">
+                <div class="skill-group-header">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Security, Billing & Operations</h3>
+                </div>
+                <div class="skills-tags">
+                    <span class="skill-tag">JWT Authentication</span>
+                    <span class="skill-tag">Session Sync & Conflict Res.</span>
+                    <span class="skill-tag">Stripe Subscriptions</span>
+                    <span class="skill-tag">Metered Billing</span>
+                    <span class="skill-tag">Zod Validation</span>
+                    <span class="skill-tag">GitHub Actions CI/CD</span>
+                    <span class="skill-tag">Nginx & SSL</span>
+                    <span class="skill-tag">Git</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="projects">
-        <h2>My Projects</h2>
+    <section id="projects" class="content-section">
+        <div class="section-header">
+            <h2>Featured Projects</h2>
+            <p class="section-subtitle">Real-world production systems, client deliverables, and architectural implementations.</p>
+        </div>
 
         <div class="project-filters">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="frontend">Frontend</button>
-            <button class="filter-btn" data-filter="backend">Backend</button>
-            <button class="filter-btn" data-filter="fullstack">Full Stack</button>
-            <button class="filter-btn" data-filter="ai-automation">AI & Automation</button>
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="systems">Systems & High-Load</button>
+            <button class="filter-btn" data-filter="saas">SaaS & Products</button>
+            <button class="filter-btn" data-filter="automation">Automation & AI</button>
         </div>
 
-        <div class="projects-grid card js-animate">
+        <!-- TIER 1: FLAGSHIP SHOWCASE -->
+        <div class="featured-projects-grid">
 
-            <div class="project-item" data-category="frontend fullstack">
-                <h3>Subwerk CRM — UI/UX Design Concept</h3>
-                <p>A premium interactive UI/UX web prototype and branding concept for a Swedish CRM platform serving moving & cleaning companies. Features a live CRM dashboard demo with tab switching, RUT-avdrag tax calculations, Bankgiro invoicing, animated hero section, and full mobile responsiveness.</p>
-                <p class="tech-stack"><strong>Tech:</strong> HTML5, CSS3 (Custom Design System), Vanilla JavaScript, Lucide Icons, Canvas API, Vercel</p>
-                <a href="https://subwerk-landing.vercel.app" target="_blank">View Demo</a>
-            </div>
+            <!-- PROJECT 1: Arbitrum DEX Engine -->
+            <article class="project-card featured" data-category="systems">
+                <div class="project-card-header">
+                    <div class="project-badge system-badge">
+                        <i class="fas fa-bolt"></i> High-Frequency Trading &bull; Rust
+                    </div>
+                    <span class="project-status-tag">Delivered & Paid</span>
+                </div>
+                <h3>Arbitrum DEX Arbitrage & Nitro Node Engine</h3>
+                <p class="project-description">
+                    High-performance cross-DEX arbitrage execution system designed for Uniswap V3 and Camelot V3 (Algebra) on Arbitrum One L2. Decodes live pool tick events over WebSocket streams with microsecond latency, tracks tick-level liquidity in an in-memory state machine, and evaluates round-trip arbitrage paths factoring L2 gas costs and fixed-point U256 math. Deployed alongside an Arbitrum Nitro full node on dedicated Hetzner Linux with systemd supervision.
+                </p>
+                <div class="project-metrics-row">
+                    <div class="metric-pill"><i class="fas fa-clock"></i> Microsecond Tick Decoder</div>
+                    <div class="metric-pill"><i class="fas fa-server"></i> Arbitrum Nitro Full Node</div>
+                    <div class="metric-pill"><i class="fas fa-calculator"></i> U256 Fixed-Point Math</div>
+                </div>
+                <div class="project-tech-tags">
+                    <span>Rust (2021)</span>
+                    <span>Alloy Primitives</span>
+                    <span>Tokio</span>
+                    <span>Docker</span>
+                    <span>Systemd</span>
+                    <span>Uniswap V3</span>
+                    <span>Camelot V3</span>
+                </div>
+                <div class="project-footer">
+                    <span class="note-pill">5/5 Milestones Completed (48,000 UAH)</span>
+                </div>
+            </article>
 
-            <div class="project-item" data-category="fullstack ai-automation">
-                <h3>PropText.ai</h3>
-                <p>An AI-powered SaaS platform for generating professional real estate listing descriptions.
-                    Features include user authentication, credit-based billing system, Stripe payment integration,
-                    and AI-generated content using Google Gemini API.</p>
-                <p class="tech-stack"><strong>Tech:</strong> Next.js, TypeScript, Supabase, Stripe, Google Gemini API, Tailwind CSS</p>
-                <a href="https://proptext.online" target="_blank">View Demo</a>
-            </div>
+            <!-- PROJECT 2: PropText.ai -->
+            <article class="project-card featured" data-category="saas automation">
+                <div class="project-card-header">
+                    <div class="project-badge saas-badge">
+                        <i class="fas fa-cube"></i> Production SaaS &bull; Live
+                    </div>
+                    <span class="project-status-tag live-tag">Live in Production</span>
+                </div>
+                <h3>PropText.ai &mdash; Real Estate Listing Generator</h3>
+                <p class="project-description">
+                    Commercial SaaS application for generating structured, high-converting real estate listing descriptions. Built with Next.js App Router and deployed on Vercel. Features Supabase authentication, automated credit-based metered billing with Stripe checkout and webhook processing, and Google Gemini API integration for localized text generation.
+                </p>
+                <div class="project-metrics-row">
+                    <div class="metric-pill"><i class="fas fa-credit-card"></i> Metered Stripe Billing</div>
+                    <div class="metric-pill"><i class="fas fa-user-shield"></i> Supabase Auth & DB</div>
+                    <div class="metric-pill"><i class="fas fa-globe"></i> Active Vercel Deployment</div>
+                </div>
+                <div class="project-tech-tags">
+                    <span>Next.js</span>
+                    <span>TypeScript</span>
+                    <span>Stripe API</span>
+                    <span>Google Gemini API</span>
+                    <span>Supabase</span>
+                    <span>Tailwind CSS</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://proptext.online" target="_blank" rel="noopener noreferrer" class="link-btn">
+                        <span>View Live Platform</span> <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </article>
 
-            <div class="project-item" data-category="fullstack ai-automation">
-                <h3>HuntFlow.ai</h3>
-                <p>An AI-powered SaaS platform for recruitment automation and candidate scoring. Features automated resume parsing, compatibility scoring on a 100-point scale with detailed AI justifications, and outreach generation.</p>
-                <p class="tech-stack"><strong>Tech:</strong> Next.js 15, Tailwind CSS, Framer Motion, Vercel AI SDK, Supabase JS, PostgreSQL</p>
-                <a href="https://github.com/Br1zz1713/HuntFlow.ai" target="_blank">GitHub</a>
-            </div>
+            <!-- PROJECT 3: Subwerk CRM -->
+            <article class="project-card featured" data-category="saas systems">
+                <div class="project-card-header">
+                    <div class="project-badge client-badge">
+                        <i class="fas fa-briefcase"></i> Client Prototype &bull; Sweden
+                    </div>
+                    <span class="project-status-tag">Contract Deliverable</span>
+                </div>
+                <h3>Subwerk CRM &mdash; Prototype & Custom Design System</h3>
+                <p class="project-description">
+                    Interactive web prototype and custom design system engineered for a Swedish CRM platform serving moving and cleaning enterprises. Built with zero runtime frameworks for 60 FPS performance. Implements live CRM dashboards, Stockholm market RUT-avdrag tax deduction calculations, Bankgiro invoicing simulation, and full responsive mobile adaptation.
+                </p>
+                <div class="project-metrics-row">
+                    <div class="metric-pill"><i class="fas fa-receipt"></i> Swedish RUT Tax Engine</div>
+                    <div class="metric-pill"><i class="fas fa-tachometer-alt"></i> 60 FPS Zero-Framework</div>
+                    <div class="metric-pill"><i class="fas fa-mobile-alt"></i> 5 Responsive Breakpoints</div>
+                </div>
+                <div class="project-tech-tags">
+                    <span>HTML5</span>
+                    <span>Custom CSS Design System</span>
+                    <span>Vanilla JavaScript</span>
+                    <span>Lucide Icons</span>
+                    <span>Vercel</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://subwerk-landing.vercel.app" target="_blank" rel="noopener noreferrer" class="link-btn">
+                        <span>View Live Prototype</span> <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </article>
 
-            <div class="project-item" data-category="fullstack ai-automation">
-                <h3>SOW Proposal Creation Agent</h3>
-                <p>A multi-agent AI system that parses unstructured client RFPs and meeting notes, automatically designs technical solutions, designs contest timelines, and exports structured SOWs to Word (.docx) and PDF.</p>
-                <p class="tech-stack"><strong>Tech:</strong> Next.js, Node.js, pdf-parse, docx, @react-pdf/renderer, Tailwind CSS</p>
-                <a href="https://github.com/Br1zz1713/sow-proposal-creation-agent" target="_blank">GitHub</a>
-            </div>
+            <!-- PROJECT 4: Partslink24 Proxy -->
+            <article class="project-card featured" data-category="systems automation">
+                <div class="project-card-header">
+                    <div class="project-badge system-badge">
+                        <i class="fas fa-network-wired"></i> Reverse Engineering &bull; Enterprise
+                    </div>
+                    <span class="project-status-tag">Production Deployed</span>
+                </div>
+                <h3>Partslink24 Multi-User Session Sharing Reverse Proxy</h3>
+                <p class="project-description">
+                    A specialized Node.js reverse proxy engine designed to bypass single-session restrictions on protected enterprise web portals with Envoy proxy and React JWT auth. Features real-time bidirectional cookie & LocalStorage state synchronization (<code class="inline-code">/__sync_storage</code>), millisecond timestamp conflict resolution to prevent race conditions, header sanitization, and automated Windows Server daemon self-healing via scheduled tasks.
+                </p>
+                <div class="project-metrics-row">
+                    <div class="metric-pill"><i class="fas fa-sync"></i> Bidirectional Storage Sync</div>
+                    <div class="metric-pill"><i class="fas fa-hourglass-half"></i> Conflict Resolution</div>
+                    <div class="metric-pill"><i class="fas fa-shield-alt"></i> Windows Server Self-Healing</div>
+                </div>
+                <div class="project-tech-tags">
+                    <span>Node.js</span>
+                    <span>Express</span>
+                    <span>Http-Proxy-Middleware</span>
+                    <span>Windows Server</span>
+                    <span>PowerShell</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/Br1zz1713/partslink-proxy" target="_blank" rel="noopener noreferrer" class="link-btn">
+                        <span>View Repository</span> <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </article>
 
-            <div class="project-item" data-category="fullstack ai-automation">
-                <h3>Invoice Processing System</h3>
-                <p>An AI-powered Full-Stack document intelligence application. Extracts invoice data from PDFs and receipts using Gemini API in a background worker, and features an interactive context-aware chat assistant.</p>
-                <p class="tech-stack"><strong>Tech:</strong> React, Express.js, Prisma ORM, SQLite, Google Gemini API, Tailwind CSS</p>
-                <a href="https://github.com/Br1zz1713/invoice-processing-system" target="_blank">GitHub</a>
-            </div>
+            <!-- PROJECT 5: OpenClaw Framework -->
+            <article class="project-card featured" data-category="automation systems">
+                <div class="project-card-header">
+                    <div class="project-badge ai-badge">
+                        <i class="fas fa-brain"></i> Agent Infrastructure &bull; Node.js
+                    </div>
+                    <span class="project-status-tag">Active Development</span>
+                </div>
+                <h3>OpenClaw &mdash; Autonomous AI Agent Orchestrator</h3>
+                <p class="project-description">
+                    An automation infrastructure framework for running autonomous AI agent sessions in isolated VM sandboxes. Implements automated pooling and rotation across 5 Google Gemini API keys to bypass rate limits, persistent anti-detection browser profile binding, structured Winston logging, and a standalone React/TypeScript telemetry dashboard with live tool execution tracking.
+                </p>
+                <div class="project-metrics-row">
+                    <div class="metric-pill"><i class="fas fa-key"></i> 5-Key API Rotation Pool</div>
+                    <div class="metric-pill"><i class="fas fa-box"></i> VM Sandbox Isolation</div>
+                    <div class="metric-pill"><i class="fas fa-chart-line"></i> React Telemetry Dashboard</div>
+                </div>
+                <div class="project-tech-tags">
+                    <span>Node.js</span>
+                    <span>TypeScript</span>
+                    <span>Puppeteer Core</span>
+                    <span>React (Vite)</span>
+                    <span>Winston</span>
+                    <span>Gemini API</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/Br1zz1713/openclaw" target="_blank" rel="noopener noreferrer" class="link-btn">
+                        <span>View Repository</span> <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </article>
 
-            <div class="project-item" data-category="backend ai-automation">
-                <h3>OpenClaw Framework</h3>
-                <p>An advanced developer tool for orchestrating autonomous AI agents in isolated VM sandboxes. Features Google Gemini API key rotation to bypass rate limits, anti-bot obfuscation, and active Trello monitoring.</p>
-                <p class="tech-stack"><strong>Tech:</strong> Node.js, Puppeteer Core, Yaml, Winston, Node-cron, Google Gemini API</p>
-                <a href="https://github.com/Br1zz1713/openclaw" target="_blank">GitHub</a>
-            </div>
+        </div>
 
-            <div class="project-item" data-category="backend fullstack">
-                <h3>Enterprise Session Sharing Reverse Proxy</h3>
-                <p>A specialized Node.js reverse proxy engine designed to bypass single-session restrictions on protected web portals. Features real-time bidirectional cookie & LocalStorage state synchronization, timestamp conflict resolution, header sanitization, and automated Windows Server daemon self-healing.</p>
-                <p class="tech-stack"><strong>Tech:</strong> Node.js, Express, Http-Proxy-Middleware, Task Scheduler, Windows Server 2019</p>
-                <a href="https://github.com/Br1zz1713/partslink-proxy" target="_blank">GitHub</a>
-            </div>
+        <!-- TIER 2: SECONDARY & APPLIED TOOLS -->
+        <h3 class="secondary-projects-heading">Tools, Scrapers & Web Applications</h3>
 
-            <div class="project-item" data-category="backend ai-automation">
-                <h3>Freelance Scrapers</h3>
-                <p>A suite of automated scraper scripts that monitor job boards (Freelancehunt, Djinni). Integrates Google Gemini API to analyze project details, score suitability, draft outreach letters, and send instant Telegram alerts.</p>
-                <p class="tech-stack"><strong>Tech:</strong> Node.js, Puppeteer, Cheerio, Axios, Telegram Bot API, Google Gemini API</p>
-                <a href="https://github.com/Br1zz1713/freelance-scrapers" target="_blank">GitHub</a>
-            </div>
+        <div class="secondary-projects-grid">
 
-            <div class="project-item" data-category="fullstack ai-automation">
-                <h3>AI Arena CE Orchestration</h3>
-                <p>A web platform and management scripts for orchestrating neural-network agents in AI Arena matches. Renders combat telemetry graphs via ApexCharts, logs data in real-time, and integrates a CodeMirror viewer.</p>
-                <p class="tech-stack"><strong>Tech:</strong> React, Axios, Tailwind CSS, ApexCharts, CodeMirror, Python, Docker</p>
-                <a href="https://github.com/Br1zz1713" target="_blank">GitHub</a>
-            </div>
+            <article class="project-card compact" data-category="automation">
+                <h4>Freelance Intelligence Scrapers</h4>
+                <p>Automated scraping suite monitoring Freelancehunt and Djinni job boards with Puppeteer and Cheerio. Evaluates project match scores, generates tailored outreach proposals via Gemini API, and sends real-time Telegram push alerts.</p>
+                <div class="compact-tech">Node.js &bull; Puppeteer &bull; Cheerio &bull; Telegram API &bull; Gemini API</div>
+                <div class="compact-link">
+                    <a href="https://github.com/Br1zz1713/freelance-scrapers" target="_blank" rel="noopener noreferrer">
+                        <span>GitHub</span> <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
 
-            <div class="project-item" data-category="fullstack">
-                <h3>Bank Statement Analyzer</h3>
-                <p>An interactive web tool for analyzing CSV financial statements. Features drag-and-drop uploading, transaction search and sorting, Zod-based data validation, math calculations, and full unit test coverage.</p>
-                <p class="tech-stack"><strong>Tech:</strong> Next.js, PapaParse, Zod Validation, Vitest, Tailwind CSS</p>
-                <a href="https://github.com/Br1zz1713/Junior-Fullstack-2-" target="_blank">GitHub</a>
-            </div>
+            <article class="project-card compact" data-category="saas">
+                <h4>Commercial E-Shop Platform</h4>
+                <p>Full-stack e-commerce system with decoupled React frontend and Django REST backend. Features secure JWT authentication, relational product filtering, shopping cart state management, and PostgreSQL persistence.</p>
+                <div class="compact-tech">React &bull; Django REST &bull; PostgreSQL &bull; Tailwind CSS</div>
+                <div class="compact-link">
+                    <a href="https://ecoshop-alpha.vercel.app" target="_blank" rel="noopener noreferrer">
+                        <span>Live Demo</span> <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
 
-            <div class="project-item" data-category="fullstack">
-                <h3>QuizMaster</h3>
-                <p>An interactive full-stack quiz builder platform. It allows users to build and run quizzes with dynamic question types (boolean, inputs, checkboxes) and strict client-side and server-side Zod data validations.</p>
-                <p class="tech-stack"><strong>Tech:</strong> Next.js, Express.js, Prisma ORM, PostgreSQL, Zod, Framer Motion, Tailwind CSS</p>
-                <a href="https://github.com/Br1zz1713/Full-Stack-JS-engineer-test-assessment---the-Quiz-Builder" target="_blank">GitHub</a>
-            </div>
+            <article class="project-card compact" data-category="automation saas">
+                <h4>Invoice Processing System</h4>
+                <p>Document intelligence application extracting structured financial data from PDF invoices and receipts via Google Gemini API in background workers, featuring a context-aware document chat assistant.</p>
+                <div class="compact-tech">React &bull; Express.js &bull; Prisma ORM &bull; SQLite &bull; Gemini API</div>
+                <div class="compact-link">
+                    <a href="https://github.com/Br1zz1713/invoice-processing-system" target="_blank" rel="noopener noreferrer">
+                        <span>GitHub</span> <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
 
-            <div class="project-item" data-category="fullstack">
-                <h3>Commercial E-Shop</h3>
-                <p>A comprehensive full-stack e-commerce application built with a separate frontend and backend.
-                    Features include secure user authentication (JWT), complex product filtering, cart management, and
-                    payment integration.</p>
-                <p class="tech-stack"><strong>Tech:</strong> React (Vite), Django REST Framework, PostgreSQL, Tailwind CSS</p>
-                <a href="https://ecoshop-alpha.vercel.app" target="_blank">View Demo</a>
-            </div>
-
-            <div class="project-item" data-category="fullstack">
-                <h3>Car Dealer Inventory System</h3>
-                <p>A comprehensive inventory management system for car dealerships with admin dashboard and public
-                    vehicle showcase. Features include vehicle CRUD operations, image uploads, advanced filtering,
-                    view tracking, and responsive design with glassmorphism UI.</p>
-                <p class="tech-stack"><strong>Tech:</strong> PHP, MySQL, Bootstrap, JavaScript, InfinityFree Hosting</p>
-                <a href="https://mycardealer.great-site.net" target="_blank">View Demo</a>
-                <a href="https://github.com/Br1zz1713/car-dealer-system" target="_blank"
-                    style="margin-left: 10px;">GitHub</a>
-            </div>
-
-            <div class="project-item" data-category="frontend">
-                <h3>Personal Portfolio</h3>
-                <p>A responsive personal portfolio website featuring dark mode, interactive animations
-                    (Canvas/IntersectionObserver), and a dynamic project gallery. Built without frameworks to
-                    demonstrate core web fundamentals.</p>
-                <p class="tech-stack"><strong>Tech:</strong> HTML5, CSS3 (Variables & Flexbox), Vanilla JavaScript</p>
-                <a href="#" class="no-click">View Demo</a>
-            </div>
+            <article class="project-card compact" data-category="systems saas">
+                <h4>Bank Statement Analyzer</h4>
+                <p>Interactive web application for parsing and auditing CSV bank statements. Features drag-and-drop ingestion, transaction search, strict Zod schema validation, balance calculations, and Vitest unit testing.</p>
+                <div class="compact-tech">Next.js &bull; PapaParse &bull; Zod &bull; Vitest &bull; Tailwind CSS</div>
+                <div class="compact-link">
+                    <a href="https://github.com/Br1zz1713/Junior-Fullstack-2-" target="_blank" rel="noopener noreferrer">
+                        <span>GitHub</span> <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
 
         </div>
     </section>
 
-    <!-- ОЧИЩЕННАЯ СЕКЦИЯ КОНТАКТОВ -->
     <section id="contact" class="content-section">
-        <h2>Contact Me</h2>
+        <div class="section-header">
+            <h2>Get in Touch</h2>
+            <p class="section-subtitle">Let's discuss architecture, contract roles, or technical engineering collaborations.</p>
+        </div>
 
-        <div class="contact-grid">
-
-
-            <div class="contact-card messenger-card js-animate">
-                <h3>Connect Directly</h3>
-                <p>I'm available on popular messengers. Feel free to reach out to my phone number for quick questions or
-                    discussions.</p>
+        <div class="contact-container">
+            <div class="contact-card">
+                <div class="contact-status-header">
+                    <span class="status-pulse-dot"></span>
+                    <span>Currently Available &bull; Remote Worldwide</span>
+                </div>
+                <p class="contact-lead-text">
+                    Whether you need a high-throughput backend service, a turnkey SaaS built with precision, or resilient automation systems, feel free to reach out directly:
+                </p>
 
                 <div class="messenger-links">
-                    <a href="https://wa.me/+40750266672" target="_blank" class="messenger-link whatsapp">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    <a href="https://t.me/eugene_br1zz" target="_blank" rel="noopener noreferrer" class="contact-link telegram">
+                        <i class="fab fa-telegram-plane"></i>
+                        <span>Telegram (@eugene_br1zz)</span>
                     </a>
-                    <a href="https://t.me/eugene_br1zz" target="_blank" class="messenger-link telegram">
-                        <i class="fab fa-telegram-plane"></i> Telegram
+                    <a href="https://wa.me/+40750266672" target="_blank" rel="noopener noreferrer" class="contact-link whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp (+40 750 266 672)</span>
                     </a>
-                    <a href="https://github.com/Br1zz1713" target="_blank" class="messenger-link github">
-                        <i class="fab fa-github"></i> GitHub
+                    <a href="mailto:berezanskyi09@gmail.com" class="contact-link email">
+                        <i class="fas fa-envelope"></i>
+                        <span>berezanskyi09@gmail.com</span>
                     </a>
-                    <a href="https://drive.google.com/file/d/1ucYkB-VF-C2wUDWjBWDvbDlmye6TOCa0/view?usp=sharing" target="_blank" class="messenger-link resume">
-                        <i class="fas fa-file-pdf"></i> Resume
+                    <a href="https://github.com/Br1zz1713" target="_blank" rel="noopener noreferrer" class="contact-link github">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub (Br1zz1713)</span>
                     </a>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=berezanskyi09@gmail.com" target="_blank"
-                        class="messenger-link email">
-                        <i class="fas fa-envelope"></i> Email
+                    <a href="https://drive.google.com/file/d/1ucYkB-VF-C2wUDWjBWDvbDlmye6TOCa0/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="contact-link resume">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>Download Resume (PDF)</span>
                     </a>
                 </div>
 
-                <p class="phone-number">
-                    <i class="fas fa-phone"></i> +40 750 266 672
-                </p>
+                <div class="contact-meta-info">
+                    <span><i class="fas fa-map-marker-alt"></i> Odesa, Ukraine (UTC+2 / UTC+3)</span>
+                    <span><i class="fas fa-phone-alt"></i> +40 750 266 672</span>
+                </div>
             </div>
-
         </div>
     </section>
-    <!-- КОНЕЦ ОЧИЩЕННОЙ СЕКЦИИ КОНТАКТОВ -->
 
-    <footer>
-        <p>&copy; 2026 Yevhen Berezanskyi. All rights reserved.</p>
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Yevhen Berezanskyi. Engineered for reliability and performance.</p>
+            <p class="footer-subtext">Clean architecture &bull; Zero AI tropes &bull; Native web performance</p>
+        </div>
     </footer>
 
-    <script src="hero-animation.min.js" defer></script>
-    <script src="script.min.js?v=1.0.2" defer></script>
-
+    <script src="script.min.js?v=2.0.0" defer></script>
 </body>
+
+</html>

@@ -1,155 +1,108 @@
-// script.js
+// =========================================================================
+// YEVHEN BEREZANSKYI - PORTFOLIO INTERACTION ENGINE
+// Clean Vanilla JS • High Performance • Zero Bloat
+// =========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ======================================================
-    // 0. GLOBAL ELEMENT SELECTION
-    // ======================================================
-    const animatedElements = document.querySelectorAll('.js-animate');
-    const hamburger = document.querySelector('.hamburger-menu');
-    const navMenu = document.querySelector('.main-nav');
-    const navLinks = document.querySelectorAll('.main-nav ul li a');
-    const header = document.querySelector('.main-header');
-    const heroSection = document.getElementById('hero-section');
-
+    // ---------------------------------------------------------------------
+    // 1. THEME TOGGLE (DARK / LIGHT MODE)
+    // ---------------------------------------------------------------------
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
 
-    // ======================================================
-    // 0.1 THEME TOGGLE LOGIC
-    // ======================================================
+    // Check system or stored theme preference
+    const storedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initialTheme = storedTheme || (prefersDark ? 'dark' : 'light');
+
+    document.documentElement.setAttribute('data-theme', initialTheme);
+    updateThemeIcon(initialTheme);
+
     if (themeToggle) {
-        // Check for saved user preference, if any, on load of the website
-        const currentTheme = localStorage.getItem('theme');
-        if (currentTheme) {
-            document.documentElement.setAttribute('data-theme', currentTheme);
-            if (currentTheme === 'dark') {
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-            }
-        }
-
         themeToggle.addEventListener('click', () => {
-            let theme = document.documentElement.getAttribute('data-theme');
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
-            if (theme === 'dark') {
-                document.documentElement.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light');
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-            } else {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-            }
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
         });
     }
 
+    function updateThemeIcon(theme) {
+        if (!themeIcon) return;
+        if (theme === 'dark') {
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        } else {
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+        }
+    }
 
-    // ======================================================
-    // 0.2 PROJECT FILTERING
-    // ======================================================
+    // ---------------------------------------------------------------------
+    // 2. PROJECT CATEGORY FILTERING
+    // ---------------------------------------------------------------------
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectItems = document.querySelectorAll('.project-item');
+    const projectCards = document.querySelectorAll('.project-card');
 
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Remove active class from all
             filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
 
             const filterValue = button.getAttribute('data-filter');
 
-            projectItems.forEach(item => {
-                const categories = (item.getAttribute('data-category') || '').split(' ');
+            projectCards.forEach(card => {
+                const categories = (card.getAttribute('data-category') || '').split(' ');
                 if (filterValue === 'all' || categories.includes(filterValue)) {
-                    item.classList.remove('hidden');
-                    // Simple fade in effect
-                    item.style.opacity = '0';
-                    setTimeout(() => item.style.opacity = '1', 50);
+                    card.classList.remove('hidden');
                 } else {
-                    item.classList.add('hidden');
+                    card.classList.add('hidden');
                 }
             });
         });
     });
 
+    // ---------------------------------------------------------------------
+    // 3. STICKY HEADER ON SCROLL
+    // ---------------------------------------------------------------------
+    const header = document.querySelector('.main-header');
 
-    // ======================================================
-    // 1. SCROLL ANIMATION: Intersection Observer API
-    // ======================================================
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    animatedElements.forEach(element => {
-        observer.observe(element);
-    });
-
-
-    // ======================================================
-    // 2. DYNAMIC HEADER BACKGROUND ON SCROLL
-    // ======================================================
-    if (header && heroSection) {
-        // Определяем точку, когда хедер должен измениться (за 100px до конца hero-секции)
-        const scrollTrigger = heroSection.offsetHeight - 100;
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY >= scrollTrigger) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Initial check in case page loads already scrolled
-        window.dispatchEvent(new Event('scroll'));
+    function handleScroll() {
+        if (!header) return;
+        if (window.scrollY > 40) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
     }
 
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
 
-    // ======================================================
-    // 3. HAMBURGER MENU FUNCTIONALITY
-    // ======================================================
+    // ---------------------------------------------------------------------
+    // 4. MOBILE HAMBURGER NAVIGATION
+    // ---------------------------------------------------------------------
+    const hamburger = document.querySelector('.hamburger-menu');
+    const navMenu = document.querySelector('.main-nav');
+    const navLinks = document.querySelectorAll('.main-nav ul li a');
+
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', () => {
             const isActive = hamburger.classList.toggle('is-active');
             navMenu.classList.toggle('is-active');
-            if (isActive) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
+            document.body.style.overflow = isActive ? 'hidden' : '';
         });
 
-        // Close menu when a link is clicked
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                // Только на мобильных/планшетах закрываем
-                if (window.innerWidth < 768) {
-                    hamburger.classList.remove('is-active');
-                    navMenu.classList.remove('is-active');
-                    document.body.style.overflow = '';
-                }
+                hamburger.classList.remove('is-active');
+                navMenu.classList.remove('is-active');
+                document.body.style.overflow = '';
             });
         });
     }
-
-
-
-
-
-
 
 });
