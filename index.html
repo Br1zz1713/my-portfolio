@@ -4,24 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Yevhen Berezanskyi — Systems & Full-Stack Engineer. Building high-throughput backend services, autonomous agent infrastructure, and production SaaS architectures.">
+    <meta name="description" content="Yevhen Berezanskyi — Systems Architect & Full-Stack Engineer. High-throughput backend services, Arbitrum L2 DEX engines, reverse engineering, and production SaaS platforms.">
     <meta name="author" content="Yevhen Berezanskyi">
-    <title>Yevhen Berezanskyi — Systems & Full-Stack Engineer</title>
+    <title>Yevhen Berezanskyi // 0xSYS — Systems & Full-Stack Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.min.css?v=2.0.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.min.css?v=2.1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
+    <!-- HEADER -->
     <header class="main-header">
         <div class="header-content-wrapper">
             <div class="logo">
                 <a href="#hero-section">
-                    <span class="logo-name">Yevhen Berezanskyi</span>
-                    <span class="logo-tag">Systems & Full-Stack</span>
+                    <img src="images/yevhen-character.jpg" alt="Yevhen Avatar" class="logo-avatar">
+                    <div class="logo-text-group">
+                        <span class="logo-name">BEREZANSKYI</span>
+                        <span class="logo-tag">// 0xSYS_DEV</span>
+                    </div>
                 </a>
             </div>
 
@@ -35,164 +39,239 @@
                     <span class="bar"></span>
                 </button>
             </div>
+
             <nav class="main-nav">
                 <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#about"><span class="nav-idx">[01]</span> ABOUT</a></li>
+                    <li><a href="#skills"><span class="nav-idx">[02]</span> STACK</a></li>
+                    <li><a href="#projects"><span class="nav-idx">[03]</span> DOSSIER</a></li>
+                    <li><a href="#contact"><span class="nav-idx">[04]</span> COMMS</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
+    <!-- HERO SECTION -->
     <section id="hero-section">
         <div class="hero-grid-overlay"></div>
-        <div class="hero-content">
-            <div class="hero-status-pill">
-                <span class="status-pulse-dot"></span>
-                <span>Available for Contract & Full-Time Roles</span>
+        
+        <div class="hero-editorial-container">
+            <!-- LEFT COLUMN: EDITORIAL CONTENT -->
+            <div class="hero-editorial-content">
+                <div class="hero-top-status-bar">
+                    <span class="pulse-dot"></span>
+                    <span class="status-code">[STATUS: AVAILABLE FOR CONTRACTS & FULL-TIME]</span>
+                </div>
+
+                <h1 class="hero-glitch-title">
+                    <span class="title-first">YEVHEN</span>
+                    <span class="title-last">BEREZANSKYI</span>
+                </h1>
+
+                <div class="hero-badge-tagline">
+                    <span class="hud-slash">//</span> SYSTEMS ARCHITECT &bull; FULL-STACK ENGINEER
+                </div>
+
+                <p class="hero-manifesto-text">
+                    Engineering microsecond-sensitive cross-DEX arbitrage pipelines in Rust, reverse-engineering protected enterprise web portals, and shipping commercial SaaS architectures with metered Stripe billing. Zero corporate bloat. Pure engineering.
+                </p>
+
+                <!-- SPECS HUD TABLE -->
+                <div class="hero-specs-dossier">
+                    <div class="spec-row">
+                        <span class="spec-key">CORE_RUNTIME</span>
+                        <span class="spec-val">Rust (Tokio / Alloy) &bull; Node.js &bull; TypeScript &bull; Next.js</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-key">SYSTEMS_INFRA</span>
+                        <span class="spec-val">Arbitrum Nitro L2 &bull; Docker &bull; Linux Systemd &bull; Windows Svc</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-key">SPECIALTIES</span>
+                        <span class="spec-val">High-Frequency Web3 &bull; Reverse Engineering &bull; Metered SaaS</span>
+                    </div>
+                </div>
+
+                <!-- CTA GROUP -->
+                <div class="hero-actions-group">
+                    <a href="#projects" class="btn btn-tactical-primary">
+                        <span>[EXPLORE DOSSIER // CASES]</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-tactical-secondary">
+                        <span>[INITIATE COMMS]</span>
+                    </a>
+                </div>
             </div>
-            <h1>Yevhen Berezanskyi</h1>
-            <p class="hero-role-title">Systems & Full-Stack Engineer</p>
-            <p class="tagline">
-                Architecting high-throughput backend services, autonomous agent pipelines, and production SaaS platforms. Specialized in Rust, Node.js/TypeScript, Next.js, and low-level system integrations.
-            </p>
-            <div class="hero-quick-stack">
-                <span class="stack-chip">Rust &bull; Tokio</span>
-                <span class="stack-chip">TypeScript &bull; Next.js</span>
-                <span class="stack-chip">Node.js &bull; Express</span>
-                <span class="stack-chip">PostgreSQL &bull; Prisma</span>
-                <span class="stack-chip">Docker &bull; Linux Systemd</span>
-                <span class="stack-chip">Reverse Engineering</span>
-            </div>
-            <div class="hero-cta-group">
-                <a href="#projects" class="btn btn-primary">Explore Selected Systems</a>
-                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+
+            <!-- RIGHT COLUMN: CHARACTER POSTER -->
+            <div class="hero-poster-frame">
+                <div class="hud-corner top-left">+</div>
+                <div class="hud-corner top-right">+</div>
+                <div class="hud-corner bottom-left">+</div>
+                <div class="hud-corner bottom-right">+</div>
+                
+                <div class="hud-meta-header">
+                    <span class="meta-stamp">SYS_ID: 0xBR1ZZ</span>
+                    <span class="meta-coords">46.4825° N, 30.7233° E // ODESA</span>
+                </div>
+
+                <div class="poster-image-wrapper">
+                    <img src="images/yevhen-character.jpg" alt="Yevhen Berezanskyi Streetwear Anime Character" class="poster-character-img">
+                    <div class="poster-gradient-fade"></div>
+                    <div class="poster-tag-sticker">
+                        <span class="sticker-dot"></span>
+                        <span class="sticker-text">UNDERGROUND TECH // COMBAT READY</span>
+                    </div>
+                </div>
+
+                <div class="hud-meta-footer">
+                    <span>CLEARANCE: LEVEL_4</span>
+                    <span>ENV: BARE_METAL &bull; CLOUD</span>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- ABOUT SECTION -->
     <section id="about" class="content-section">
-        <div class="section-header">
-            <h2>About & Experience</h2>
-            <p class="section-subtitle">Engineering background, system philosophy, and track record.</p>
+        <div class="tactical-section-header">
+            <span class="section-tag">[01] // DOSSIER & RECORD</span>
+            <h2>BACKGROUND & OPERATIONAL PROFILE</h2>
+            <div class="tactical-line"></div>
         </div>
 
         <div class="about-grid">
-            <div class="about-card summary-card">
-                <h3>Engineering Profile</h3>
+            <div class="about-card summary-card tactical-box">
+                <div class="box-header">
+                    <span class="box-title"><i class="fas fa-terminal"></i> OPERATIONAL PHILOSOPHY</span>
+                    <span class="box-badge">VERIFIED</span>
+                </div>
                 <p>
-                    I build reliable, production-grade software across the full technical stack. My core focus lies at the intersection of low-latency backend engines, complex web application architectures, and robust automation infrastructure.
+                    I build reliable, high-performance software across the technical spectrum. My core focus sits where low-latency backend engines meet resilient web architectures and automated infrastructure.
                 </p>
                 <p>
-                    From writing microsecond-sensitive cross-DEX arbitrage pipelines in Rust with local Arbitrum Nitro node synchronization, to reverse-engineering protected web portals and delivering turnkey SaaS products with metered Stripe billing — I concentrate on clean architecture, deterministic error handling, and high-concurrency performance.
+                    From writing microsecond-sensitive cross-DEX arbitrage pipelines in Rust with local Arbitrum Nitro full node synchronization, to reverse-engineering protected enterprise web portals and shipping turnkey SaaS platforms with automated Stripe billing — I engineer systems for determinism, high concurrency, and zero downtime.
                 </p>
                 <p>
-                    I prefer concrete metrics over buzzwords: sub-millisecond execution times, resilient auto-restarting daemons, and zero-maintenance automation pipelines.
+                    I value verifiable metrics: sub-millisecond execution times, resilient auto-restarting daemons under systemd, and zero-maintenance automation pipelines.
                 </p>
-                <div class="summary-highlights">
-                    <div class="highlight-item">
-                        <span class="highlight-label">Primary Stack</span>
-                        <span class="highlight-value">Rust, TypeScript, Next.js, Node.js, PostgreSQL</span>
+
+                <div class="summary-specs-grid">
+                    <div class="spec-chip">
+                        <span class="chip-label">BASE_LOCATION</span>
+                        <span class="chip-value">Odesa, Ukraine (UTC+2/UTC+3)</span>
                     </div>
-                    <div class="highlight-item">
-                        <span class="highlight-label">Location</span>
-                        <span class="highlight-value">Odesa, Ukraine (UTC+2 / UTC+3) &bull; Remote</span>
+                    <div class="spec-chip">
+                        <span class="chip-label">ENGAGEMENT</span>
+                        <span class="chip-value">Remote &bull; Contract &bull; Full-Time</span>
+                    </div>
+                    <div class="spec-chip">
+                        <span class="chip-label">SYSTEM_PHILOSOPHY</span>
+                        <span class="chip-value">Zero Bloat &bull; Hardened Code &bull; Speed</span>
                     </div>
                 </div>
             </div>
 
-            <div class="about-card education-card">
-                <h3>Education</h3>
+            <div class="about-card experience-card tactical-box">
+                <div class="box-header">
+                    <span class="box-title"><i class="fas fa-code-branch"></i> FIELD DEPLOYMENTS & MILESTONES</span>
+                    <span class="box-badge">2021 &mdash; 2026</span>
+                </div>
                 <ul class="timeline-list">
                     <li>
-                        <span class="timeline-date">2023 &mdash; 2024</span>
+                        <span class="timeline-date">[2023 &mdash; PRESENT]</span>
+                        <h4>Systems & Full-Stack Engineer // Freelance & Contract</h4>
+                        <p class="detail-text">
+                            <strong>Key deliverables:</strong>
+                        </p>
+                        <ul class="tactical-bullets">
+                            <li>Designed and delivered a Rust high-frequency cross-DEX arbitrage engine on Arbitrum One (Uniswap V3 / Camelot V3) with local Nitro node sync and microsecond tick decoding.</li>
+                            <li>Engineered an enterprise session-sharing reverse proxy on Node.js/Windows Server with real-time bidirectional storage synchronization and auto-healing daemons.</li>
+                            <li>Shipped PropText.ai — a production real estate SaaS with automated Stripe billing and Google Gemini API integration.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="timeline-date">[JUN 2024 &mdash; SEP 2024]</span>
+                        <h4>Web Systems Intern // ME "Marine Plast Center"</h4>
+                        <p class="detail-text">Automation of IT systems, internal tools, and enterprise network infrastructure.</p>
+                    </li>
+                    <li>
+                        <span class="timeline-date">[JAN 2024 &mdash; JUN 2024]</span>
+                        <h4>Full-Stack Intern // Web Developer</h4>
+                        <p class="detail-text">Frontend interfaces, REST API integration, and Agile/Scrum cross-functional delivery.</p>
+                    </li>
+                    <li>
+                        <span class="timeline-date">[FEB 2023 &mdash; APR 2023]</span>
+                        <h4>Full-Stack Intern // Time Pro</h4>
+                        <p class="detail-text">API endpoints development, database querying, and client-side optimization.</p>
+                    </li>
+                    <li>
+                        <span class="timeline-date">[JAN 2021 &mdash; MAY 2021]</span>
+                        <h4>Junior Technician // Odesa College</h4>
+                        <p class="detail-text">LAN administration, hardware diagnostics, and Linux/Windows maintenance.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="about-card education-card tactical-box">
+                <div class="box-header">
+                    <span class="box-title"><i class="fas fa-graduation-cap"></i> ACADEMIC BACKGROUND</span>
+                    <span class="box-badge">CS & IT</span>
+                </div>
+                <ul class="timeline-list">
+                    <li>
+                        <span class="timeline-date">[2023 &mdash; 2024]</span>
                         <h4>Odessa National University named after I. I. Mechnikov</h4>
                         <p class="detail-text">Information Technologies & Software Systems</p>
                     </li>
                     <li>
-                        <span class="timeline-date">2021 &mdash; 2023</span>
+                        <span class="timeline-date">[2021 &mdash; 2023]</span>
                         <h4>Odessa State Ecological University</h4>
                         <p class="detail-text">Computer Science & Information Technology</p>
                     </li>
                     <li>
-                        <span class="timeline-date">2017 &mdash; 2021</span>
+                        <span class="timeline-date">[2017 &mdash; 2021]</span>
                         <h4>Odessa Faculty College of Computer Technologies</h4>
                         <p class="detail-text">Computer Engineering, Networks & Hardware Architecture</p>
                     </li>
                 </ul>
             </div>
-
-            <div class="about-card experience-card">
-                <h3>Experience & Milestones</h3>
-                <ul class="timeline-list">
-                    <li>
-                        <span class="timeline-date">2023 &mdash; Present</span>
-                        <h4>Freelance Systems & Full-Stack Engineer</h4>
-                        <p class="detail-text">
-                            <strong>Key achievements:</strong>
-                        </p>
-                        <ul class="bullet-list">
-                            <li>Designed and delivered a Rust high-frequency cross-DEX arbitrage engine on Arbitrum One (Uniswap V3 / Camelot V3) with local Nitro node sync and microsecond tick decoding.</li>
-                            <li>Engineered an enterprise session-sharing reverse proxy on Node.js/Windows Server with bidirectional storage synchronization and auto-healing daemons.</li>
-                            <li>Shipped PropText.ai — a production real estate SaaS with automated Stripe billing and Google Gemini API integration.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="timeline-date">Jun 2024 &mdash; Sep 2024</span>
-                        <h4>Web Systems Intern | ME "Marine Plast Center"</h4>
-                        <p class="detail-text">Automation of IT systems, internal business tools, and network infrastructure management.</p>
-                    </li>
-                    <li>
-                        <span class="timeline-date">Jan 2024 &mdash; Jun 2024</span>
-                        <h4>Full-Stack Intern</h4>
-                        <p class="detail-text">Frontend development, REST API integration, and Agile/Scrum cross-functional team delivery.</p>
-                    </li>
-                    <li>
-                        <span class="timeline-date">Feb 2023 &mdash; Apr 2023</span>
-                        <h4>Full-Stack Intern | Time Pro</h4>
-                        <p class="detail-text">Backend API endpoint optimization and client-side performance tuning.</p>
-                    </li>
-                    <li>
-                        <span class="timeline-date">Jan 2021 &mdash; May 2021</span>
-                        <h4>Junior Technician | Odesa College</h4>
-                        <p class="detail-text">LAN administration, routing, Linux/Windows maintenance, and hardware diagnostics.</p>
-                    </li>
-                </ul>
-            </div>
         </div>
     </section>
 
+    <!-- SKILLS SECTION -->
     <section id="skills" class="content-section">
-        <div class="section-header">
-            <h2>Technical Skills</h2>
-            <p class="section-subtitle">Core technologies, libraries, and tools applied in production.</p>
+        <div class="tactical-section-header">
+            <span class="section-tag">[02] // ARSENAL & TOOLCHAIN</span>
+            <h2>TECHNICAL STACK & CAPABILITIES</h2>
+            <div class="tactical-line"></div>
         </div>
 
         <div class="skills-grid">
-            <div class="skill-group-card">
-                <div class="skill-group-header">
-                    <i class="fas fa-microchip"></i>
-                    <h3>Systems & High-Performance</h3>
+            <div class="skill-group-card tactical-box">
+                <div class="box-header">
+                    <span class="box-title"><i class="fas fa-microchip"></i> 01 // HIGH-PERFORMANCE & SYSTEMS</span>
+                    <span class="tech-tag-status">HARDCORE</span>
                 </div>
                 <div class="skills-tags">
                     <span class="skill-tag">Rust (2021)</span>
                     <span class="skill-tag">Tokio Async</span>
                     <span class="skill-tag">Alloy Primitives</span>
-                    <span class="skill-tag">Linux / Ubuntu</span>
+                    <span class="skill-tag">Arbitrum Nitro Node</span>
+                    <span class="skill-tag">Linux / Ubuntu 24.04</span>
                     <span class="skill-tag">Systemd Supervision</span>
                     <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Socket Programming</span>
                     <span class="skill-tag">Reverse Engineering</span>
-                    <span class="skill-tag">WebSocket Streams</span>
-                    <span class="skill-tag">Concurrency</span>
+                    <span class="skill-tag">U256 Fixed-Point Math</span>
                 </div>
             </div>
 
-            <div class="skill-group-card">
-                <div class="skill-group-header">
-                    <i class="fas fa-layer-group"></i>
-                    <h3>Full-Stack & Cloud Architecture</h3>
+            <div class="skill-group-card tactical-box">
+                <div class="box-header">
+                    <span class="box-title"><i class="fas fa-layer-group"></i> 02 // FULL-STACK & WEB ENGINES</span>
+                    <span class="tech-tag-status">PRODUCTION</span>
                 </div>
                 <div class="skills-tags">
                     <span class="skill-tag">TypeScript</span>
@@ -208,28 +287,28 @@
                 </div>
             </div>
 
-            <div class="skill-group-card">
-                <div class="skill-group-header">
-                    <i class="fas fa-robot"></i>
-                    <h3>AI & Automation Infrastructure</h3>
+            <div class="skill-group-card tactical-box">
+                <div class="box-header">
+                    <span class="box-title"><i class="fas fa-brain"></i> 03 // REVERSE ENGINEERING & AI AGENTS</span>
+                    <span class="tech-tag-status">INFRA</span>
                 </div>
                 <div class="skills-tags">
                     <span class="skill-tag">Autonomous Agents</span>
                     <span class="skill-tag">VM Sandbox Isolation</span>
-                    <span class="skill-tag">Puppeteer / Scraping</span>
+                    <span class="skill-tag">Puppeteer Core</span>
                     <span class="skill-tag">Anti-Bot Persistence</span>
                     <span class="skill-tag">Gemini / Claude API</span>
-                    <span class="skill-tag">API Key Pool Rotation</span>
+                    <span class="skill-tag">5-Key Rotation Pool</span>
                     <span class="skill-tag">Prompt Engineering</span>
                     <span class="skill-tag">RAG Architecture</span>
                     <span class="skill-tag">Telegram Bot API</span>
                 </div>
             </div>
 
-            <div class="skill-group-card">
-                <div class="skill-group-header">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Security, Billing & Operations</h3>
+            <div class="skill-group-card tactical-box">
+                <div class="box-header">
+                    <span class="box-title"><i class="fas fa-shield-alt"></i> 04 // SECURITY, BILLING & OPERATIONS</span>
+                    <span class="tech-tag-status">DEPLOY</span>
                 </div>
                 <div class="skills-tags">
                     <span class="skill-tag">JWT Authentication</span>
@@ -245,39 +324,58 @@
         </div>
     </section>
 
+    <!-- PROJECTS SECTION -->
     <section id="projects" class="content-section">
-        <div class="section-header">
-            <h2>Featured Projects</h2>
-            <p class="section-subtitle">Real-world production systems, client deliverables, and architectural implementations.</p>
+        <div class="tactical-section-header">
+            <span class="section-tag">[03] // PRODUCTION CASES</span>
+            <h2>SYSTEMS DOSSIER & DELIVERABLES</h2>
+            <div class="tactical-line"></div>
         </div>
 
         <div class="project-filters">
-            <button class="filter-btn active" data-filter="all">All Projects</button>
-            <button class="filter-btn" data-filter="systems">Systems & High-Load</button>
-            <button class="filter-btn" data-filter="saas">SaaS & Products</button>
-            <button class="filter-btn" data-filter="automation">Automation & AI</button>
+            <button class="filter-btn active" data-filter="all">[ALL CASES]</button>
+            <button class="filter-btn" data-filter="systems">[SYSTEMS & HIGH-LOAD]</button>
+            <button class="filter-btn" data-filter="saas">[SAAS & PLATFORMS]</button>
+            <button class="filter-btn" data-filter="automation">[AUTOMATION & REVERSE]</button>
         </div>
 
-        <!-- TIER 1: FLAGSHIP SHOWCASE -->
+        <!-- TIER 1: FLAGSHIP DOSSIER -->
         <div class="featured-projects-grid">
 
             <!-- PROJECT 1: Arbitrum DEX Engine -->
-            <article class="project-card featured" data-category="systems">
+            <article class="project-card featured tactical-box" data-category="systems">
+                <div class="project-dossier-top">
+                    <div class="dossier-case-number">CASE // 01</div>
+                    <div class="dossier-stamp stamp-green">[DELIVERED & PAID // 48,000 UAH]</div>
+                </div>
+
                 <div class="project-card-header">
                     <div class="project-badge system-badge">
-                        <i class="fas fa-bolt"></i> High-Frequency Trading &bull; Rust
+                        <i class="fas fa-bolt"></i> HIGH-FREQUENCY TRADING &bull; RUST L2
                     </div>
-                    <span class="project-status-tag">Delivered & Paid</span>
                 </div>
+
                 <h3>Arbitrum DEX Arbitrage & Nitro Node Engine</h3>
+                
                 <p class="project-description">
-                    High-performance cross-DEX arbitrage execution system designed for Uniswap V3 and Camelot V3 (Algebra) on Arbitrum One L2. Decodes live pool tick events over WebSocket streams with microsecond latency, tracks tick-level liquidity in an in-memory state machine, and evaluates round-trip arbitrage paths factoring L2 gas costs and fixed-point U256 math. Deployed alongside an Arbitrum Nitro full node on dedicated Hetzner Linux with systemd supervision.
+                    High-performance cross-DEX arbitrage execution system designed for Uniswap V3 and Camelot V3 (Algebra) on Arbitrum One L2. Decodes live pool tick events over WebSocket streams with microsecond latency, tracks tick-level liquidity in an in-memory state machine, and evaluates round-trip arbitrage paths factoring L2 gas costs and fixed-point U256 math. Deployed alongside a dedicated Arbitrum Nitro full node on Hetzner Linux with systemd supervision.
                 </p>
-                <div class="project-metrics-row">
-                    <div class="metric-pill"><i class="fas fa-clock"></i> Microsecond Tick Decoder</div>
-                    <div class="metric-pill"><i class="fas fa-server"></i> Arbitrum Nitro Full Node</div>
-                    <div class="metric-pill"><i class="fas fa-calculator"></i> U256 Fixed-Point Math</div>
+
+                <div class="dossier-telemetry-grid">
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">TICK_DECODER</span>
+                        <span class="telemetry-val">Microsecond WebSocket Stream</span>
+                    </div>
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">NODE_SYNC</span>
+                        <span class="telemetry-val">Arbitrum Nitro Dedicated Node</span>
+                    </div>
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">ARITHMETIC</span>
+                        <span class="telemetry-val">U256 Fixed-Point (Alloy)</span>
+                    </div>
                 </div>
+
                 <div class="project-tech-tags">
                     <span>Rust (2021)</span>
                     <span>Alloy Primitives</span>
@@ -287,28 +385,46 @@
                     <span>Uniswap V3</span>
                     <span>Camelot V3</span>
                 </div>
+
                 <div class="project-footer">
-                    <span class="note-pill">5/5 Milestones Completed (48,000 UAH)</span>
+                    <span class="dossier-signoff">// 5/5 STAGES COMPLETED & VERIFIED</span>
                 </div>
             </article>
 
             <!-- PROJECT 2: PropText.ai -->
-            <article class="project-card featured" data-category="saas automation">
+            <article class="project-card featured tactical-box" data-category="saas automation">
+                <div class="project-dossier-top">
+                    <div class="dossier-case-number">CASE // 02</div>
+                    <div class="dossier-stamp stamp-cyan">[STATUS: LIVE IN PRODUCTION]</div>
+                </div>
+
                 <div class="project-card-header">
                     <div class="project-badge saas-badge">
-                        <i class="fas fa-cube"></i> Production SaaS &bull; Live
+                        <i class="fas fa-cube"></i> PRODUCTION SAAS &bull; ACTIVE USERS
                     </div>
-                    <span class="project-status-tag live-tag">Live in Production</span>
                 </div>
+
                 <h3>PropText.ai &mdash; Real Estate Listing Generator</h3>
+
                 <p class="project-description">
                     Commercial SaaS application for generating structured, high-converting real estate listing descriptions. Built with Next.js App Router and deployed on Vercel. Features Supabase authentication, automated credit-based metered billing with Stripe checkout and webhook processing, and Google Gemini API integration for localized text generation.
                 </p>
-                <div class="project-metrics-row">
-                    <div class="metric-pill"><i class="fas fa-credit-card"></i> Metered Stripe Billing</div>
-                    <div class="metric-pill"><i class="fas fa-user-shield"></i> Supabase Auth & DB</div>
-                    <div class="metric-pill"><i class="fas fa-globe"></i> Active Vercel Deployment</div>
+
+                <div class="dossier-telemetry-grid">
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">BILLING_MODEL</span>
+                        <span class="telemetry-val">Credit-Based Metered Stripe</span>
+                    </div>
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">AUTH_STORAGE</span>
+                        <span class="telemetry-val">Supabase Auth & PostgreSQL</span>
+                    </div>
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">DEPLOYMENT</span>
+                        <span class="telemetry-val">Production Vercel Cloud</span>
+                    </div>
                 </div>
+
                 <div class="project-tech-tags">
                     <span>Next.js</span>
                     <span>TypeScript</span>
@@ -317,30 +433,48 @@
                     <span>Supabase</span>
                     <span>Tailwind CSS</span>
                 </div>
+
                 <div class="project-links">
-                    <a href="https://proptext.online" target="_blank" rel="noopener noreferrer" class="link-btn">
-                        <span>View Live Platform</span> <i class="fas fa-external-link-alt"></i>
+                    <a href="https://proptext.online" target="_blank" rel="noopener noreferrer" class="btn btn-dossier-action">
+                        <span>VIEW LIVE PLATFORM</span> <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </article>
 
             <!-- PROJECT 3: Subwerk CRM -->
-            <article class="project-card featured" data-category="saas systems">
+            <article class="project-card featured tactical-box" data-category="saas systems">
+                <div class="project-dossier-top">
+                    <div class="dossier-case-number">CASE // 03</div>
+                    <div class="dossier-stamp stamp-amber">[CLIENT SHOWCASE // SWEDEN]</div>
+                </div>
+
                 <div class="project-card-header">
                     <div class="project-badge client-badge">
-                        <i class="fas fa-briefcase"></i> Client Prototype &bull; Sweden
+                        <i class="fas fa-briefcase"></i> ENTERPRISE PROTOTYPE &bull; SWEDISH ECOSYSTEM
                     </div>
-                    <span class="project-status-tag">Contract Deliverable</span>
                 </div>
+
                 <h3>Subwerk CRM &mdash; Prototype & Custom Design System</h3>
+
                 <p class="project-description">
                     Interactive web prototype and custom design system engineered for a Swedish CRM platform serving moving and cleaning enterprises. Built with zero runtime frameworks for 60 FPS performance. Implements live CRM dashboards, Stockholm market RUT-avdrag tax deduction calculations, Bankgiro invoicing simulation, and full responsive mobile adaptation.
                 </p>
-                <div class="project-metrics-row">
-                    <div class="metric-pill"><i class="fas fa-receipt"></i> Swedish RUT Tax Engine</div>
-                    <div class="metric-pill"><i class="fas fa-tachometer-alt"></i> 60 FPS Zero-Framework</div>
-                    <div class="metric-pill"><i class="fas fa-mobile-alt"></i> 5 Responsive Breakpoints</div>
+
+                <div class="dossier-telemetry-grid">
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">TAX_CALCULATION</span>
+                        <span class="telemetry-val">Swedish RUT-avdrag Engine</span>
+                    </div>
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">RUNTIME_OVERHEAD</span>
+                        <span class="telemetry-val">Zero Framework &bull; 60 FPS</span>
+                    </div>
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">RESPONSIVE_BREAKS</span>
+                        <span class="telemetry-val">5 Distinct Breakpoints</span>
+                    </div>
                 </div>
+
                 <div class="project-tech-tags">
                     <span>HTML5</span>
                     <span>Custom CSS Design System</span>
@@ -348,61 +482,97 @@
                     <span>Lucide Icons</span>
                     <span>Vercel</span>
                 </div>
+
                 <div class="project-links">
-                    <a href="https://subwerk-landing.vercel.app" target="_blank" rel="noopener noreferrer" class="link-btn">
-                        <span>View Live Prototype</span> <i class="fas fa-external-link-alt"></i>
+                    <a href="https://subwerk-landing.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-dossier-action">
+                        <span>VIEW LIVE PROTOTYPE</span> <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </article>
 
             <!-- PROJECT 4: Partslink24 Proxy -->
-            <article class="project-card featured" data-category="systems automation">
+            <article class="project-card featured tactical-box" data-category="systems automation">
+                <div class="project-dossier-top">
+                    <div class="dossier-case-number">CASE // 04</div>
+                    <div class="dossier-stamp stamp-green">[REVERSE ENGINEERED // DEPLOYED]</div>
+                </div>
+
                 <div class="project-card-header">
                     <div class="project-badge system-badge">
-                        <i class="fas fa-network-wired"></i> Reverse Engineering &bull; Enterprise
+                        <i class="fas fa-network-wired"></i> REVERSE PROXY &bull; ENTERPRISE PORTAL
                     </div>
-                    <span class="project-status-tag">Production Deployed</span>
                 </div>
+
                 <h3>Partslink24 Multi-User Session Sharing Reverse Proxy</h3>
+
                 <p class="project-description">
-                    A specialized Node.js reverse proxy engine designed to bypass single-session restrictions on protected enterprise web portals with Envoy proxy and React JWT auth. Features real-time bidirectional cookie & LocalStorage state synchronization (<code class="inline-code">/__sync_storage</code>), millisecond timestamp conflict resolution to prevent race conditions, header sanitization, and automated Windows Server daemon self-healing via scheduled tasks.
+                    Specialized Node.js reverse proxy engine designed to bypass single-session restrictions on protected enterprise web portals with Envoy proxy and React JWT auth. Features real-time bidirectional cookie & LocalStorage state synchronization (<code class="inline-code">/__sync_storage</code>), millisecond timestamp conflict resolution to prevent race conditions, header sanitization, and automated Windows Server daemon self-healing via scheduled tasks.
                 </p>
-                <div class="project-metrics-row">
-                    <div class="metric-pill"><i class="fas fa-sync"></i> Bidirectional Storage Sync</div>
-                    <div class="metric-pill"><i class="fas fa-hourglass-half"></i> Conflict Resolution</div>
-                    <div class="metric-pill"><i class="fas fa-shield-alt"></i> Windows Server Self-Healing</div>
+
+                <div class="dossier-telemetry-grid">
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">STATE_SYNC</span>
+                        <span class="telemetry-val">Bidirectional Cookie / LocalStorage</span>
+                    </div>
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">RACE_CONDITION_FIX</span>
+                        <span class="telemetry-val">Timestamp Conflict Resolution</span>
+                    </div>
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">HEADLESS_DAEMON</span>
+                        <span class="telemetry-val">Windows Server Self-Healing</span>
+                    </div>
                 </div>
+
                 <div class="project-tech-tags">
                     <span>Node.js</span>
                     <span>Express</span>
                     <span>Http-Proxy-Middleware</span>
-                    <span>Windows Server</span>
+                    <span>Windows Server 2019</span>
                     <span>PowerShell</span>
                 </div>
+
                 <div class="project-links">
-                    <a href="https://github.com/Br1zz1713/partslink-proxy" target="_blank" rel="noopener noreferrer" class="link-btn">
-                        <span>View Repository</span> <i class="fab fa-github"></i>
+                    <a href="https://github.com/Br1zz1713/partslink-proxy" target="_blank" rel="noopener noreferrer" class="btn btn-dossier-action">
+                        <span>VIEW REPOSITORY</span> <i class="fab fa-github"></i>
                     </a>
                 </div>
             </article>
 
             <!-- PROJECT 5: OpenClaw Framework -->
-            <article class="project-card featured" data-category="automation systems">
+            <article class="project-card featured tactical-box" data-category="automation systems">
+                <div class="project-dossier-top">
+                    <div class="dossier-case-number">CASE // 05</div>
+                    <div class="dossier-stamp stamp-cyan">[INFRASTRUCTURE // ACTIVE ORCHESTRATION]</div>
+                </div>
+
                 <div class="project-card-header">
                     <div class="project-badge ai-badge">
-                        <i class="fas fa-brain"></i> Agent Infrastructure &bull; Node.js
+                        <i class="fas fa-shield-virus"></i> AGENT INFRASTRUCTURE &bull; VM SANDBOX
                     </div>
-                    <span class="project-status-tag">Active Development</span>
                 </div>
+
                 <h3>OpenClaw &mdash; Autonomous AI Agent Orchestrator</h3>
+
                 <p class="project-description">
-                    An automation infrastructure framework for running autonomous AI agent sessions in isolated VM sandboxes. Implements automated pooling and rotation across 5 Google Gemini API keys to bypass rate limits, persistent anti-detection browser profile binding, structured Winston logging, and a standalone React/TypeScript telemetry dashboard with live tool execution tracking.
+                    Automation infrastructure framework for running autonomous AI agent sessions in isolated VM sandboxes. Implements automated pooling and rotation across 5 Google Gemini API keys to bypass rate limits, persistent anti-detection browser profile binding, structured Winston logging, and a standalone React/TypeScript telemetry dashboard with live tool execution tracking.
                 </p>
-                <div class="project-metrics-row">
-                    <div class="metric-pill"><i class="fas fa-key"></i> 5-Key API Rotation Pool</div>
-                    <div class="metric-pill"><i class="fas fa-box"></i> VM Sandbox Isolation</div>
-                    <div class="metric-pill"><i class="fas fa-chart-line"></i> React Telemetry Dashboard</div>
+
+                <div class="dossier-telemetry-grid">
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">KEY_ROTATION</span>
+                        <span class="telemetry-val">5-Key Gemini API Pool</span>
+                    </div>
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">SECURITY_MODEL</span>
+                        <span class="telemetry-val">Isolated VM Sandbox</span>
+                    </div>
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">OBSERVABILITY</span>
+                        <span class="telemetry-val">React Telemetry Dashboard</span>
+                    </div>
                 </div>
+
                 <div class="project-tech-tags">
                     <span>Node.js</span>
                     <span>TypeScript</span>
@@ -411,60 +581,67 @@
                     <span>Winston</span>
                     <span>Gemini API</span>
                 </div>
+
                 <div class="project-links">
-                    <a href="https://github.com/Br1zz1713/openclaw" target="_blank" rel="noopener noreferrer" class="link-btn">
-                        <span>View Repository</span> <i class="fab fa-github"></i>
+                    <a href="https://github.com/Br1zz1713/openclaw" target="_blank" rel="noopener noreferrer" class="btn btn-dossier-action">
+                        <span>VIEW REPOSITORY</span> <i class="fab fa-github"></i>
                     </a>
                 </div>
             </article>
 
         </div>
 
-        <!-- TIER 2: SECONDARY & APPLIED TOOLS -->
-        <h3 class="secondary-projects-heading">Tools, Scrapers & Web Applications</h3>
+        <!-- TIER 2: SECONDARY SYSTEMS GRID -->
+        <div class="secondary-dossier-header">
+            <span class="hud-slash">//</span> COMPACT SYSTEMS, SCRAPERS & UTILITIES
+        </div>
 
         <div class="secondary-projects-grid">
 
-            <article class="project-card compact" data-category="automation">
+            <article class="project-card compact tactical-box" data-category="automation">
+                <div class="compact-case-num">CASE // 06</div>
                 <h4>Freelance Intelligence Scrapers</h4>
-                <p>Automated scraping suite monitoring Freelancehunt and Djinni job boards with Puppeteer and Cheerio. Evaluates project match scores, generates tailored outreach proposals via Gemini API, and sends real-time Telegram push alerts.</p>
+                <p>Automated scraping suite monitoring Freelancehunt and Djinni job boards with Puppeteer and Cheerio. Evaluates project match scores, drafts customized outreach proposals via Gemini API, and dispatches real-time Telegram push alerts.</p>
                 <div class="compact-tech">Node.js &bull; Puppeteer &bull; Cheerio &bull; Telegram API &bull; Gemini API</div>
                 <div class="compact-link">
                     <a href="https://github.com/Br1zz1713/freelance-scrapers" target="_blank" rel="noopener noreferrer">
-                        <span>GitHub</span> <i class="fas fa-arrow-right"></i>
+                        <span>[VIEW REPOSITORY]</span> <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </article>
 
-            <article class="project-card compact" data-category="saas">
+            <article class="project-card compact tactical-box" data-category="saas">
+                <div class="compact-case-num">CASE // 07</div>
                 <h4>Commercial E-Shop Platform</h4>
                 <p>Full-stack e-commerce system with decoupled React frontend and Django REST backend. Features secure JWT authentication, relational product filtering, shopping cart state management, and PostgreSQL persistence.</p>
                 <div class="compact-tech">React &bull; Django REST &bull; PostgreSQL &bull; Tailwind CSS</div>
                 <div class="compact-link">
                     <a href="https://ecoshop-alpha.vercel.app" target="_blank" rel="noopener noreferrer">
-                        <span>Live Demo</span> <i class="fas fa-arrow-right"></i>
+                        <span>[VIEW LIVE DEMO]</span> <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </article>
 
-            <article class="project-card compact" data-category="automation saas">
+            <article class="project-card compact tactical-box" data-category="automation saas">
+                <div class="compact-case-num">CASE // 08</div>
                 <h4>Invoice Processing System</h4>
                 <p>Document intelligence application extracting structured financial data from PDF invoices and receipts via Google Gemini API in background workers, featuring a context-aware document chat assistant.</p>
                 <div class="compact-tech">React &bull; Express.js &bull; Prisma ORM &bull; SQLite &bull; Gemini API</div>
                 <div class="compact-link">
                     <a href="https://github.com/Br1zz1713/invoice-processing-system" target="_blank" rel="noopener noreferrer">
-                        <span>GitHub</span> <i class="fas fa-arrow-right"></i>
+                        <span>[VIEW REPOSITORY]</span> <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </article>
 
-            <article class="project-card compact" data-category="systems saas">
+            <article class="project-card compact tactical-box" data-category="systems saas">
+                <div class="compact-case-num">CASE // 09</div>
                 <h4>Bank Statement Analyzer</h4>
                 <p>Interactive web application for parsing and auditing CSV bank statements. Features drag-and-drop ingestion, transaction search, strict Zod schema validation, balance calculations, and Vitest unit testing.</p>
                 <div class="compact-tech">Next.js &bull; PapaParse &bull; Zod &bull; Vitest &bull; Tailwind CSS</div>
                 <div class="compact-link">
                     <a href="https://github.com/Br1zz1713/Junior-Fullstack-2-" target="_blank" rel="noopener noreferrer">
-                        <span>GitHub</span> <i class="fas fa-arrow-right"></i>
+                        <span>[VIEW REPOSITORY]</span> <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </article>
@@ -472,61 +649,81 @@
         </div>
     </section>
 
+    <!-- CONTACT SECTION -->
     <section id="contact" class="content-section">
-        <div class="section-header">
-            <h2>Get in Touch</h2>
-            <p class="section-subtitle">Let's discuss architecture, contract roles, or technical engineering collaborations.</p>
+        <div class="tactical-section-header">
+            <span class="section-tag">[04] // DIRECT COMMS CHANNEL</span>
+            <h2>INITIATE TECHNICAL COMMS</h2>
+            <div class="tactical-line"></div>
         </div>
 
         <div class="contact-container">
-            <div class="contact-card">
-                <div class="contact-status-header">
-                    <span class="status-pulse-dot"></span>
-                    <span>Currently Available &bull; Remote Worldwide</span>
+            <div class="contact-card tactical-box">
+                <div class="box-header">
+                    <span class="box-title"><i class="fas fa-satellite-dish"></i> SECURE COMMS RELAY</span>
+                    <span class="box-badge status-open">CHANNEL: OPEN</span>
                 </div>
+
                 <p class="contact-lead-text">
-                    Whether you need a high-throughput backend service, a turnkey SaaS built with precision, or resilient automation systems, feel free to reach out directly:
+                    Available for high-throughput backend architecture, high-frequency Web3/DEX engines, turnkey SaaS platforms, and resilient automation infrastructure. Reach out directly:
                 </p>
 
                 <div class="messenger-links">
                     <a href="https://t.me/eugene_br1zz" target="_blank" rel="noopener noreferrer" class="contact-link telegram">
                         <i class="fab fa-telegram-plane"></i>
-                        <span>Telegram (@eugene_br1zz)</span>
+                        <div class="link-label-group">
+                            <span class="link-protocol">TELEGRAM</span>
+                            <span class="link-handle">@eugene_br1zz</span>
+                        </div>
                     </a>
                     <a href="https://wa.me/+40750266672" target="_blank" rel="noopener noreferrer" class="contact-link whatsapp">
                         <i class="fab fa-whatsapp"></i>
-                        <span>WhatsApp (+40 750 266 672)</span>
+                        <div class="link-label-group">
+                            <span class="link-protocol">WHATSAPP</span>
+                            <span class="link-handle">+40 750 266 672</span>
+                        </div>
                     </a>
                     <a href="mailto:berezanskyi09@gmail.com" class="contact-link email">
                         <i class="fas fa-envelope"></i>
-                        <span>berezanskyi09@gmail.com</span>
+                        <div class="link-label-group">
+                            <span class="link-protocol">DIRECT_MAIL</span>
+                            <span class="link-handle">berezanskyi09@gmail.com</span>
+                        </div>
                     </a>
                     <a href="https://github.com/Br1zz1713" target="_blank" rel="noopener noreferrer" class="contact-link github">
                         <i class="fab fa-github"></i>
-                        <span>GitHub (Br1zz1713)</span>
+                        <div class="link-label-group">
+                            <span class="link-protocol">GITHUB</span>
+                            <span class="link-handle">github.com/Br1zz1713</span>
+                        </div>
                     </a>
                     <a href="https://drive.google.com/file/d/1ucYkB-VF-C2wUDWjBWDvbDlmye6TOCa0/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="contact-link resume">
                         <i class="fas fa-file-pdf"></i>
-                        <span>Download Resume (PDF)</span>
+                        <div class="link-label-group">
+                            <span class="link-protocol">CURRICULUM_VITAE</span>
+                            <span class="link-handle">Download PDF Dossier</span>
+                        </div>
                     </a>
                 </div>
 
                 <div class="contact-meta-info">
-                    <span><i class="fas fa-map-marker-alt"></i> Odesa, Ukraine (UTC+2 / UTC+3)</span>
+                    <span><i class="fas fa-crosshairs"></i> ODESA, UKRAINE [UTC+2 / UTC+3]</span>
                     <span><i class="fas fa-phone-alt"></i> +40 750 266 672</span>
+                    <span><i class="fas fa-globe"></i> REMOTE WORLDWIDE</span>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="main-footer">
         <div class="footer-content">
-            <p>&copy; 2026 Yevhen Berezanskyi. Engineered for reliability and performance.</p>
-            <p class="footer-subtext">Clean architecture &bull; Zero AI tropes &bull; Native web performance</p>
+            <p>&copy; 2026 Yevhen Berezanskyi // 0xSYS &bull; Engineered for performance and reliability.</p>
+            <p class="footer-subtext">STREETWEAR TECH &bull; ZERO CORPORATE BLOAT &bull; BRUTALIST PRECISION</p>
         </div>
     </footer>
 
-    <script src="script.min.js?v=2.0.0" defer></script>
+    <script src="script.min.js?v=2.1.0" defer></script>
 </body>
 
 </html>
