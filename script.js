@@ -105,4 +105,51 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+
+    // ---------------------------------------------------------------------
+    // 5. BLACK CAT SENTINEL EASTER EGG
+    // ---------------------------------------------------------------------
+    const catTrigger = document.getElementById('cat-avatar-trigger');
+    const catBubble = document.getElementById('cat-speech-bubble');
+    const catQuote = document.getElementById('cat-quote-text');
+    const catCounter = document.getElementById('cat-quote-counter');
+
+    const catQuotes = [
+        "All comms encrypted. Leave your coordinates below. Meow.",
+        "Arbitrum Nitro full node is fully synced. 0 lost ticks in mempool.",
+        "Reverse proxy handles all session conflicts. Your cookies are safe with me.",
+        "48,000 UAH earned on Rust DEX engine... all allocated for premium salmon treats.",
+        "I personally code-review every git commit before Yevhen pushes to master.",
+        "Zero corporate AI bloat detected. Pure engineering and street style verified.",
+        "Purr... You unlocked the Sentinel Cat buff: +10 luck on your next production deploy."
+    ];
+
+    let currentQuoteIndex = 0;
+
+    function triggerCatPurr() {
+        if (!catTrigger || !catQuote) return;
+        
+        currentQuoteIndex = (currentQuoteIndex + 1) % catQuotes.length;
+        
+        // Visual purr animation
+        catTrigger.classList.add('purring');
+        setTimeout(() => catTrigger.classList.remove('purring'), 600);
+
+        // Text fade transition
+        catQuote.style.opacity = '0';
+        setTimeout(() => {
+            catQuote.textContent = `"${catQuotes[currentQuoteIndex]}"`;
+            if (catCounter) {
+                catCounter.textContent = `[0${currentQuoteIndex + 1}/0${catQuotes.length}]`;
+            }
+            catQuote.style.opacity = '1';
+        }, 150);
+    }
+
+    if (catTrigger) {
+        catTrigger.addEventListener('click', triggerCatPurr);
+    }
+    if (catBubble) {
+        catBubble.addEventListener('click', triggerCatPurr);
+    }
 });

@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.min.css?v=2.1.0">
+    <link rel="stylesheet" href="styles.min.css?v=2.2.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -657,7 +657,26 @@
             <div class="tactical-line"></div>
         </div>
 
-        <div class="contact-container">
+                <div class="contact-container">
+            <!-- CAT SENTINEL EASTER EGG -->
+            <div class="cat-sentinel-wrapper" id="cat-sentinel">
+                <div class="cat-speech-bubble" id="cat-speech-bubble">
+                    <div class="bubble-header">
+                        <span class="bubble-tag">// SYS_FAMILIAR [DEFENSE_UNIT]</span>
+                        <span class="bubble-counter" id="cat-quote-counter">[01/07]</span>
+                    </div>
+                    <p class="bubble-quote" id="cat-quote-text">"All comms encrypted. Leave your coordinates below. Meow."</p>
+                    <span class="bubble-click-hint">[CLICK CAT TO INTERROGATE] &bull; 🐾</span>
+                </div>
+                <div class="cat-avatar-frame" id="cat-avatar-trigger" title="🐾 Sentinel Familiar: Click to interrogate">
+                    <img src="images/black-cat.png" alt="Black Cat Sentinel Easter Egg" class="cat-sticker-img">
+                    <div class="cat-status-badge">
+                        <span class="pulse-dot"></span>
+                        <span>WATCHING</span>
+                    </div>
+                </div>
+            </div>
+
             <div class="contact-card tactical-box">
                 <div class="box-header">
                     <span class="box-title"><i class="fas fa-satellite-dish"></i> SECURE COMMS RELAY</span>
@@ -723,7 +742,7 @@
         </div>
     </footer>
 
-    <script src="script.min.js?v=2.1.0" defer></script>
+    <script src="script.min.js?v=2.2.0" defer></script>
 </body>
 
 </html>
