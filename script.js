@@ -1,9 +1,41 @@
 // =========================================================================
-// YEVHEN BEREZANSKYI - PORTFOLIO INTERACTION ENGINE
-// Clean Vanilla JS • High Performance • Zero Bloat
+// YEVHEN BEREZANSKYI // 0xCLEANER - CANVAS TOWN INTERACTION ENGINE
+// Clean Vanilla JS • Web Audio Synthesis • High Performance • Zero Bloat
 // =========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    // ---------------------------------------------------------------------
+    // 0. WEB AUDIO API SYNTHESIZER: SPRAY CAN HISS & CLICK
+    // ---------------------------------------------------------------------
+    function playSpraySound() {
+        try {
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            if (!AudioCtx) return;
+            const ctx = new AudioCtx();
+            const bufferSize = ctx.sampleRate * 0.12; // 120ms burst
+            const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+            const data = buffer.getChannelData(0);
+            for (let i = 0; i < bufferSize; i++) {
+                data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (bufferSize * 0.35));
+            }
+            const noise = ctx.createBufferSource();
+            noise.buffer = buffer;
+            const filter = ctx.createBiquadFilter();
+            filter.type = 'bandpass';
+            filter.frequency.value = 3400;
+            filter.Q.value = 1.4;
+            const gain = ctx.createGain();
+            gain.gain.setValueAtTime(0.18, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
+            noise.connect(filter);
+            filter.connect(gain);
+            gain.connect(ctx.destination);
+            noise.start();
+        } catch (e) {
+            // AudioContext autoplay restrictions or disabled
+        }
+    }
 
     // ---------------------------------------------------------------------
     // 1. THEME TOGGLE (DARK / LIGHT MODE)
@@ -11,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('theme-toggle');
     const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
 
-    // Check system or stored theme preference
     const storedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const initialTheme = storedTheme || (prefersDark ? 'dark' : 'light');
@@ -27,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
             updateThemeIcon(newTheme);
+            playSpraySound();
         });
     }
 
@@ -42,7 +74,45 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ---------------------------------------------------------------------
-    // 2. PROJECT CATEGORY FILTERING
+    // 2. HERO POSTER MODE SWITCHER (GACHIAKUTA / SHADES / IRL)
+    // ---------------------------------------------------------------------
+    const posterImg = document.getElementById('hero-poster-img');
+    const posterTag = document.getElementById('hero-poster-tag');
+    const modeBtns = document.querySelectorAll('.poster-mode-switcher .mode-btn');
+
+    modeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            if (btn.classList.contains('active')) return;
+
+            modeBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const targetImg = btn.getAttribute('data-img');
+            const targetTag = btn.getAttribute('data-tag');
+
+            playSpraySound();
+
+            if (posterImg && targetImg) {
+                posterImg.style.opacity = '0.2';
+                posterImg.style.transform = 'scale(0.97)';
+                setTimeout(() => {
+                    posterImg.src = targetImg;
+                    posterImg.style.opacity = '1';
+                    posterImg.style.transform = 'scale(1)';
+                }, 130);
+            }
+
+            if (posterTag && targetTag) {
+                const textSpan = posterTag.querySelector('.sticker-text');
+                if (textSpan) {
+                    textSpan.textContent = targetTag;
+                }
+            }
+        });
+    });
+
+    // ---------------------------------------------------------------------
+    // 3. PROJECT CATEGORY FILTERING
     // ---------------------------------------------------------------------
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
@@ -53,6 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
             button.classList.add('active');
 
             const filterValue = button.getAttribute('data-filter');
+            playSpraySound();
 
             projectCards.forEach(card => {
                 const categories = (card.getAttribute('data-category') || '').split(' ');
@@ -66,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ---------------------------------------------------------------------
-    // 3. STICKY HEADER ON SCROLL
+    // 4. STICKY HEADER ON SCROLL
     // ---------------------------------------------------------------------
     const header = document.querySelector('.main-header');
 
@@ -83,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
     handleScroll();
 
     // ---------------------------------------------------------------------
-    // 4. MOBILE HAMBURGER NAVIGATION
+    // 5. MOBILE HAMBURGER NAVIGATION
     // ---------------------------------------------------------------------
     const hamburger = document.querySelector('.hamburger-menu');
     const navMenu = document.querySelector('.main-nav');
@@ -105,9 +176,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
     // ---------------------------------------------------------------------
-    // 5. BLACK CAT SENTINEL EASTER EGG
+    // 6. NYAVOCHKA SENTINEL EASTER EGG (CHIEF CODE REVIEWER)
     // ---------------------------------------------------------------------
     const catTrigger = document.getElementById('cat-avatar-trigger');
     const catBubble = document.getElementById('cat-speech-bubble');
@@ -115,13 +185,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const catCounter = document.getElementById('cat-quote-counter');
 
     const catQuotes = [
-        "All comms encrypted. Leave your coordinates below. Meow.",
-        "Arbitrum Nitro full node is fully synced. 0 lost ticks in mempool.",
-        "Reverse proxy handles all session conflicts. Your cookies are safe with me.",
-        "48,000 UAH earned on Rust DEX engine... all allocated for premium salmon treats.",
-        "I personally code-review every git commit before Yevhen pushes to master.",
-        "Zero corporate AI bloat detected. Pure engineering and street style verified.",
-        "Purr... You unlocked the Sentinel Cat buff: +10 luck on your next production deploy."
+        "Meow! I'm Nyavochka — Chief Code Reviewer. No push to production without chin scratches.",
+        "If this 0xDEV box fits into stack memory, there are zero leaks. Purr...",
+        "48,000 UAH earned on Rust DEX engine? Yevhen already converted it to premium salmon treats.",
+        "Arbitrum Nitro node synced. 0 lost ticks in mempool, 0 uncaught flies in Canvas Town.",
+        "Server shipping box is my personal Jinki weapon. Don't even think about taking it.",
+        "Reverse proxy inspected: unauthorized cats cannot hijack our enterprise sessions.",
+        "Purr... You unlocked the Nyavochka Buff: +20% zero-downtime luck on Friday deploys!"
     ];
 
     let currentQuoteIndex = 0;
@@ -129,9 +199,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function triggerCatPurr() {
         if (!catTrigger || !catQuote) return;
         
+        playSpraySound();
         currentQuoteIndex = (currentQuoteIndex + 1) % catQuotes.length;
         
-        // Visual purr animation
+        // Visual purr / bounce animation
         catTrigger.classList.add('purring');
         setTimeout(() => catTrigger.classList.remove('purring'), 600);
 
@@ -143,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 catCounter.textContent = `[0${currentQuoteIndex + 1}/0${catQuotes.length}]`;
             }
             catQuote.style.opacity = '1';
-        }, 150);
+        }, 140);
     }
 
     if (catTrigger) {

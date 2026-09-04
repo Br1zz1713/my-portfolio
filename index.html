@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Yevhen Berezanskyi — Systems Architect & Full-Stack Engineer. High-throughput backend services, Arbitrum L2 DEX engines, reverse engineering, and production SaaS platforms.">
+    <meta name="description" content="Yevhen Berezanskyi // 0xCLEANER — Systems Architect from Canvas Town. High-throughput Rust Arbitrum Nitro engines, reverse engineering, session proxies, and production SaaS platforms.">
     <meta name="author" content="Yevhen Berezanskyi">
-    <title>Yevhen Berezanskyi // 0xSYS — Systems & Full-Stack Engineer</title>
+    <title>Yevhen Berezanskyi // 0xCLEANER — Canvas Town Systems Architect</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.min.css?v=2.2.0">
+    <link rel="stylesheet" href="styles.min.css?v=3.0.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -21,10 +21,10 @@
         <div class="header-content-wrapper">
             <div class="logo">
                 <a href="#hero-section">
-                    <img src="images/yevhen-character.jpg" alt="Yevhen Avatar" class="logo-avatar">
+                    <img src="images/yevhen-gachiakuta.jpg" alt="Yevhen Avatar" class="logo-avatar">
                     <div class="logo-text-group">
                         <span class="logo-name">BEREZANSKYI</span>
-                        <span class="logo-tag">// 0xSYS_DEV</span>
+                        <span class="logo-tag">// 0xCLEANER</span>
                     </div>
                 </a>
             </div>
@@ -60,7 +60,7 @@
             <div class="hero-editorial-content">
                 <div class="hero-top-status-bar">
                     <span class="pulse-dot"></span>
-                    <span class="status-code">[STATUS: AVAILABLE FOR CONTRACTS & FULL-TIME]</span>
+                    <span class="status-code">[SECTOR: CANVAS_TOWN // 0xODESA] &bull; [STATUS: DEPLOYING JINKI]</span>
                 </div>
 
                 <h1 class="hero-glitch-title">
@@ -69,11 +69,11 @@
                 </h1>
 
                 <div class="hero-badge-tagline">
-                    <span class="hud-slash">//</span> SYSTEMS ARCHITECT &bull; FULL-STACK ENGINEER
+                    <span class="hud-slash">//</span> SYSTEMS ARCHITECT &bull; 0xCLEANER &bull; LOW-LEVEL RUST DEV
                 </div>
 
                 <p class="hero-manifesto-text">
-                    Engineering microsecond-sensitive cross-DEX arbitrage pipelines in Rust, reverse-engineering protected enterprise web portals, and shipping commercial SaaS architectures with metered Stripe billing. Zero corporate bloat. Pure engineering.
+                    Transforming chaotic mempools, raw byte streams, and reverse-engineered protocols into lethal, microsecond-fast Rust engines and hardened SaaS architectures. Direct from Canvas Town. Zero corporate bloat.
                 </p>
 
                 <!-- SPECS HUD TABLE -->
@@ -87,7 +87,7 @@
                         <span class="spec-val">Arbitrum Nitro L2 &bull; Docker &bull; Linux Systemd &bull; Windows Svc</span>
                     </div>
                     <div class="spec-row">
-                        <span class="spec-key">SPECIALTIES</span>
+                        <span class="spec-key">JINKI_ARSENAL</span>
                         <span class="spec-val">High-Frequency Web3 &bull; Reverse Engineering &bull; Metered SaaS</span>
                     </div>
                 </div>
@@ -104,30 +104,39 @@
                 </div>
             </div>
 
-            <!-- RIGHT COLUMN: CHARACTER POSTER -->
+            <!-- RIGHT COLUMN: CHARACTER POSTER (CANVAS TOWN) -->
             <div class="hero-poster-frame">
                 <div class="hud-corner top-left">+</div>
                 <div class="hud-corner top-right">+</div>
                 <div class="hud-corner bottom-left">+</div>
                 <div class="hud-corner bottom-right">+</div>
+                <div class="duct-tape-corner tape-top-right"></div>
+                <div class="duct-tape-corner tape-bottom-left"></div>
                 
                 <div class="hud-meta-header">
-                    <span class="meta-stamp">SYS_ID: 0xBR1ZZ</span>
+                    <span class="meta-stamp">CANVAS_TOWN // 0xCLEANER</span>
                     <span class="meta-coords">46.4825° N, 30.7233° E // ODESA</span>
                 </div>
 
                 <div class="poster-image-wrapper">
-                    <img src="images/yevhen-character.jpg" alt="Yevhen Berezanskyi Streetwear Anime Character" class="poster-character-img">
+                    <img src="images/yevhen-gachiakuta.jpg" alt="Yevhen Berezanskyi 0xCleaner Gachiakuta Art" class="poster-character-img" id="hero-poster-img" width="560" height="560">
                     <div class="poster-gradient-fade"></div>
-                    <div class="poster-tag-sticker">
+                    <div class="poster-tag-sticker" id="hero-poster-tag">
                         <span class="sticker-dot"></span>
-                        <span class="sticker-text">UNDERGROUND TECH // COMBAT READY</span>
+                        <span class="sticker-text">CANVAS TOWN // 0xJINKI DEPLOYED</span>
                     </div>
                 </div>
 
+                <!-- POSTER MODE SWITCHER -->
+                <div class="poster-mode-switcher" id="poster-mode-switcher">
+                    <button type="button" class="mode-btn active" data-img="images/yevhen-gachiakuta.jpg" data-tag="CANVAS TOWN // 0xJINKI DEPLOYED">[01: 0xCLEANER]</button>
+                    <button type="button" class="mode-btn" data-img="images/yevhen-character.jpg" data-tag="STREETWEAR TECH // COMBAT READY">[02: SHADES]</button>
+                    <button type="button" class="mode-btn" data-img="images/yevhen-irl-vape.jpg" data-tag="VERIFIED HUMAN // ODESA 2026">[03: IRL]</button>
+                </div>
+
                 <div class="hud-meta-footer">
-                    <span>CLEARANCE: LEVEL_4</span>
-                    <span>ENV: BARE_METAL &bull; CLOUD</span>
+                    <span>CLEARANCE: LEVEL_4 // JINKI READY</span>
+                    <span>ENV: BARE_METAL &bull; NITRO L2</span>
                 </div>
             </div>
         </div>
@@ -169,6 +178,44 @@
                     <div class="spec-chip">
                         <span class="chip-label">SYSTEM_PHILOSOPHY</span>
                         <span class="chip-value">Zero Bloat &bull; Hardened Code &bull; Speed</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- IDENTITY CARD // VERIFIED IRL DOSSIER -->
+            <div class="about-card identity-card tactical-box">
+                <div class="duct-tape-corner tape-top-right"></div>
+                <div class="box-header">
+                    <span class="box-title"><i class="fas fa-id-badge"></i> FIELD IDENTITY // VERIFIED HUMAN</span>
+                    <span class="box-badge status-open">0xVERIFIED</span>
+                </div>
+                <div class="identity-content-wrapper">
+                    <div class="identity-photo-frame">
+                        <img src="images/yevhen-irl-vape.jpg" alt="Yevhen Berezanskyi Authentic Photoshoot" class="identity-irl-photo">
+                        <div class="identity-photo-stamp">[ODESA // 2026]</div>
+                    </div>
+                    <div class="identity-details">
+                        <div class="identity-row">
+                            <span class="id-key">CALLSIGN</span>
+                            <span class="id-val">0xBR1ZZ // Yevhen</span>
+                        </div>
+                        <div class="identity-row">
+                            <span class="id-key">SECTOR</span>
+                            <span class="id-val">Odesa, UA [46.48° N, 30.72° E]</span>
+                        </div>
+                        <div class="identity-row">
+                            <span class="id-key">CLEARANCE</span>
+                            <span class="id-val">Level 4 // Root Access</span>
+                        </div>
+                        <div class="identity-row">
+                            <span class="id-key">CHIEF_INSPECTOR</span>
+                            <span class="id-val">Nyavochka 🐾 (0xDEV Sentinel)</span>
+                        </div>
+                        <div class="identity-badges">
+                            <span class="tape-badge">[NO_AI_SLOP]</span>
+                            <span class="tape-badge">[PURE_RUST]</span>
+                            <span class="tape-badge">[CANVAS_TOWN]</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -347,6 +394,7 @@
                 <div class="project-dossier-top">
                     <div class="dossier-case-number">CASE // 01</div>
                     <div class="dossier-stamp stamp-green">[DELIVERED & PAID // 48,000 UAH]</div>
+                    <span class="nyavochka-stamp-badge"><i class="fas fa-paw"></i> INSPECTED BY NYAVOCHKA</span>
                 </div>
 
                 <div class="project-card-header">
@@ -658,21 +706,21 @@
         </div>
 
                 <div class="contact-container">
-            <!-- CAT SENTINEL EASTER EGG -->
+            <!-- NYAVOCHKA IN 0xDEV BOX (EASTER EGG) -->
             <div class="cat-sentinel-wrapper" id="cat-sentinel">
                 <div class="cat-speech-bubble" id="cat-speech-bubble">
                     <div class="bubble-header">
-                        <span class="bubble-tag">// SYS_FAMILIAR [DEFENSE_UNIT]</span>
+                        <span class="bubble-tag">// NYAVOCHKA [CHIEF CODE REVIEWER]</span>
                         <span class="bubble-counter" id="cat-quote-counter">[01/07]</span>
                     </div>
-                    <p class="bubble-quote" id="cat-quote-text">"All comms encrypted. Leave your coordinates below. Meow."</p>
-                    <span class="bubble-click-hint">[CLICK CAT TO INTERROGATE] &bull; 🐾</span>
+                    <p class="bubble-quote" id="cat-quote-text">"Meow! I'm Nyavochka — Chief Code Reviewer. No push to production without chin scratches."</p>
+                    <span class="bubble-click-hint">[CLICK NYAVOCHKA TO INTERROGATE] &bull; 🐾</span>
                 </div>
-                <div class="cat-avatar-frame" id="cat-avatar-trigger" title="🐾 Sentinel Familiar: Click to interrogate">
-                    <img src="images/black-cat.png" alt="Black Cat Sentinel Easter Egg" class="cat-sticker-img">
+                <div class="cat-avatar-frame" id="cat-avatar-trigger" title="🐾 Nyavochka in 0xDEV Box: Click to interrogate">
+                    <img src="images/nyavochka-box-sticker.png" alt="Nyavochka in 0xDEV Box" class="cat-sticker-img nyavochka-box-img">
                     <div class="cat-status-badge">
                         <span class="pulse-dot"></span>
-                        <span>WATCHING</span>
+                        <span>REVIEWING</span>
                     </div>
                 </div>
             </div>
@@ -742,7 +790,7 @@
         </div>
     </footer>
 
-    <script src="script.min.js?v=2.2.0" defer></script>
+    <script src="script.min.js?v=3.0.0" defer></script>
 </body>
 
 </html>
