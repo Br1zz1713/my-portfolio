@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Резюме - Євген Березанський | Systems Architect & Full-Stack Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f172a;
+      --accent: #2563eb;
+      --accent-dark: #1d4ed8;
+      --text: #1e293b;
+      --text-light: #475569;
+      --muted: #64748b;
+      --border: #cbd5e1;
+      --bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text);
+      background-color: #f1f5f9;
+      font-size: 9.4pt;
+      line-height: 1.36;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Screen Controls */
+    .controls {
+      background: #0f172a;
+      color: #fff;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .controls .title {
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .controls .btn-group {
+      display: flex;
+      gap: 12px;
+    }
+    .btn {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 7px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.15s ease;
+    }
+    .btn:hover {
+      background: #1d4ed8;
+    }
+    .btn-secondary {
+      background: #334155;
+      color: #f1f5f9;
+    }
+    .btn-secondary:hover {
+      background: #475569;
+    }
+
+    /* Document Sheet */
+    .sheet {
+      max-width: 820px;
+      margin: 24px auto;
+      background: var(--bg);
+      padding: 34px 44px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border-radius: 4px;
+    }
+
+    /* Header */
+    header {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+    }
+    h1.name {
+      font-size: 20pt;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--primary);
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+    .target-title {
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 3px;
+    }
+    .contacts-bar {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px 12px;
+      font-size: 8.6pt;
+      color: var(--text-light);
+    }
+    .contacts-bar a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .contacts-bar a:hover {
+      text-decoration: underline;
+    }
+
+    /* Section styling */
+    section {
+      margin-bottom: 12px;
+    }
+    h2.section-title {
+      font-size: 10.2pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--primary);
+      border-bottom: 1.5px solid var(--border);
+      padding-bottom: 3px;
+      margin-bottom: 7px;
+    }
+
+    .summary-text {
+      color: var(--text);
+      text-align: justify;
+      font-size: 9.1pt;
+      line-height: 1.4;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 4.5px;
+      font-size: 8.8pt;
+    }
+    .skill-row {
+      display: flex;
+      gap: 8px;
+      line-height: 1.34;
+    }
+    .skill-label {
+      font-weight: 700;
+      color: var(--primary);
+      min-width: 175px;
+      flex-shrink: 0;
+    }
+    .skill-content {
+      color: var(--text);
+    }
+
+    /* Projects */
+    .project-card {
+      margin-bottom: 10px;
+      break-inside: avoid;
+    }
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+    .project-title {
+      font-size: 9.6pt;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .project-meta {
+      font-size: 8.3pt;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .project-meta a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .project-meta a:hover {
+      text-decoration: underline;
+    }
+    .project-tech {
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: var(--text-light);
+      margin-bottom: 3px;
+    }
+    .project-bullets {
+      list-style: none;
+      padding-left: 0;
+    }
+    .project-bullets li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 2px;
+      font-size: 8.8pt;
+      color: var(--text);
+      line-height: 1.34;
+    }
+    .project-bullets li::before {
+      content: "•";
+      position: absolute;
+      left: 2px;
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 11pt;
+      line-height: 1;
+      top: 0;
+    }
+    .project-bullets li strong {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Experience */
+    .exp-item {
+      margin-bottom: 7px;
+      break-inside: avoid;
+    }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 9.3pt;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .exp-sub {
+      display: flex;
+      justify-content: space-between;
+      font-size: 8.5pt;
+      color: var(--muted);
+      margin-bottom: 2px;
+      font-weight: 500;
+    }
+    .exp-bullets {
+      list-style: none;
+      padding-left: 0;
+    }
+    .exp-bullets li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 2px;
+      font-size: 8.8pt;
+      color: var(--text);
+      line-height: 1.34;
+    }
+    .exp-bullets li::before {
+      content: "•";
+      position: absolute;
+      left: 2px;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* Education */
+    .edu-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 4.5px;
+    }
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 8.9pt;
+      line-height: 1.32;
+    }
+    .edu-title {
+      font-weight: 600;
+      color: var(--primary);
+    }
+    .edu-inst {
+      color: var(--text-light);
+    }
+    .edu-year {
+      font-weight: 600;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    /* Languages */
+    .lang-row {
+      display: flex;
+      gap: 16px;
+      font-size: 8.8pt;
+      flex-wrap: wrap;
+    }
+    .lang-item {
+      color: var(--text);
+    }
+    .lang-item strong {
+      color: var(--primary);
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 10mm 12mm;
+      }
+      body {
+        background: white;
+        font-size: 8.9pt;
+        line-height: 1.32;
+      }
+      .controls {
+        display: none !important;
+      }
+      .sheet {
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+        max-width: 100%;
+      }
+      .page-break {
+        page-break-before: always;
+        break-before: page;
+        padding-top: 10px;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .contacts-bar a {
+        color: var(--primary);
+        font-weight: 600;
+      }
+      h1.name {
+        font-size: 19pt;
+      }
+      h2.section-title {
+        margin-top: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="controls">
+    <div class="title">
+      <span>📄 Євген Березанський — Резюме (UA)</span>
+      <span style="font-size: 11px; opacity: 0.75; font-weight: normal;">Готовий до друку 2-сторінковий формат А4</span>
+    </div>
+    <div class="btn-group">
+      <a href="Resume_Yevhen_Berezanskyi_EN.html" class="btn btn-secondary">🇬🇧 English Version</a>
+      <button onclick="window.print()" class="btn">🖨️ Друк / Зберегти як PDF (Ctrl + P)</button>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <!-- PAGE 1 -->
+    <header>
+      <h1 class="name">ЄВГЕН БЕРЕЗАНСЬКИЙ</h1>
+      <div class="target-title">Systems Architect & Full-Stack Engineer (Rust / TypeScript / Web3)</div>
+      <div class="contacts-bar">
+        <span>📍 Одеса, Україна (Віддалена робота / Релокація)</span>
+        <span>📧 <a href="mailto:berezanskyi09@gmail.com">berezanskyi09@gmail.com</a></span>
+        <span>📱 <a href="https://wa.me/+40750266672">+40 750 266 672</a></span>
+        <span>💬 Telegram: <a href="https://t.me/eugene_br1zz" target="_blank">@eugene_br1zz</a></span>
+        <span>🌐 <a href="https://br1zz1713.github.io/my-portfolio/" target="_blank">Портфоліо</a></span>
+        <span>🔗 <a href="https://github.com/Br1zz1713" target="_blank">GitHub</a></span>
+        <span>💼 <a href="https://freelancehunt.com/freelancer/berezanskyi09.html" target="_blank">Freelancehunt (100% 5.0★)</a></span>
+      </div>
+    </header>
+
+    <section>
+      <h2 class="section-title">Професійний Профіль (Summary)</h2>
+      <p class="summary-text">Архітектор високопродуктивних систем і Full-Stack інженер із практичним досвідом проектування низьколатентних розподілених систем на <strong>Rust</strong>, комерційних SaaS-платформ на <strong>TypeScript / Next.js</strong>, а також реверс-інжинірингу корпоративної мережевої інфраструктури. Доведений успішний досвід розробки критично важливих рішень: від ончейн <strong>DEX-арбітражного ядра для Arbitrum One</strong> з мікросекундним часом обробки тіків (<code>0–1 мкс</code>), до високонавантажених <strong>зворотних проксі-серверів мультисесійного доступу</strong> та масштабованих веб-сервісів. Прихильник архітектур із нульовим виділенням динамічної пам'яті (zero-allocation), детермінованих кінцевих автоматів, ізоляції процесів на рівні ядра ОС Linux та надійності, підтвердженої юніт-тестами.</p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Технічні Навички (Tech Stack)</h2>
+      <div class="skills-grid">
+        
+      <div class="skill-row">
+        <div class="skill-label">Мови програмування:</div>
+        <div class="skill-content">Rust (Edition 2021), TypeScript, JavaScript (ES6+), Solidity (0.8.24), Python, SQL, HTML5, CSS3</div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label">Системне програмування:</div>
+        <div class="skill-content">Tokio (Async Runtime), примітиви Alloy (U256, Address, B256), потокове декодування WebSocket, Zero-Heap Allocation гарячого циклу (hot path), арифметика з фіксованою комою (Q96), мікросекундна телеметрія (tracing)</div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label">Web3 & Blockchain:</div>
+        <div class="skill-content">Arbitrum One (L2), синхронізація локальної ноди Arbitrum Nitro, Uniswap V3, Camelot V3 (Algebra), Flash Swaps, On-Chain Revert Guards, оптимізація пріоритетних комісій секвенсера (MEV), EVM, смарт-контракти</div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label">Full-Stack & Backend:</div>
+        <div class="skill-content">Node.js (Express, Fastify), Next.js (App Router), React, Django REST Framework, PostgreSQL, Supabase (Auth, RLS), Prisma ORM, RESTful APIs</div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label">DevOps, Безпека & ОС:</div>
+        <div class="skill-content">Linux (Ubuntu Server, сендбоксинг служб Systemd, захист UFW, Hetzner Bare-Metal), Docker / Docker Compose, Windows Server 2019, зворотні проксі (http-proxy-middleware), Git, GitHub Actions (CI/CD), Vercel</div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label">Інтеграції та API:</div>
+        <div class="skill-content">Stripe API (білінг за використанням і вебхуки), Google Gemini API (інтеграція LLM), WebSockets, JWT-аутентифікація (HttpOnly Cookies)</div>
+      </div>
+    
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Ключові Комерційні Проєкти</h2>
+      
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-title">Arbitrum One Cross-DEX Arbitrage Engine & Nitro Node</span>
+          <span class="project-meta">Комерційний проєкт | Контракт 48 000 грн (Freelancehunt)</span>
+        </div>
+        <div class="project-tech">Стек: Rust (Tokio, Alloy), Solidity, Docker, Systemd, Arbitrum Nitro, Hetzner Dedicated (Ubuntu 24.04)</div>
+        <ul class="project-bullets">
+          <li><strong>Високочастотне ядро:</strong> Спроектував систему міжбіржового арбітражу з ультранизькою затримкою в мережі Arbitrum One, що відстежує пули концентрованої ліквідності <strong>Uniswap V3</strong> та <strong>Camelot V3</strong> (Algebra) для пар USDT/USDC.</li>
+          <li><strong>Мікросекундна продуктивність (0–1 мкс):</strong> Реалізував гарячий цикл (hot path) із нульовими аллокаціями в купі на базі стекових структур <code>alloy::primitives</code> (U256, Address, B256) та кільцевих буферів Tokio (mpsc), досягнувши детермінованого розрахунку прибутковості за <strong>0–1 мікросекунду</strong>.</li>
+          <li><strong>Математична точність (Fixed-Point):</strong> Усунув похибку чисел із плаваючою крапкою (~0.4%) шляхом переходу на точну 256-бітну цілочисельну арифметику з фіксованою комою Q96 (<code>quote_zero_for_one_u256</code>, <code>sqrt_price_u256</code>).</li>
+          <li><strong>Ончейн-виконання на Solidity:</strong> Розробив смарт-контракт <code>ArbitrageExecutor.sol</code> із механізмом Flash Swaps, динамічним розрахунком Priority Fee для секвенсера Arbitrum та атомарним <strong>On-Chain Revert Guard</strong>, що запобігає збиткам від прослизання при падінні спреду нижче вартості газу.</li>
+          <li><strong>Відмовостійкість та інфраструктура:</strong> Впровадив механізм безперервного дочитування пропущених блоків (<code>StreamCursor</code>) з експоненціальним реконнектом, розгорнув локальну ноду Arbitrum Nitro в Docker на NVMe RAID0, ізолював службу в Systemd на рівні ядра Linux (<code>ProtectSystem=full</code>, <code>PrivateTmp</code>, <code>NoNewPrivileges</code>, UFW-файрвол).</li>
+          <li><strong>Верифікація:</strong> 100% проходження 38 юніт- та інтеграційних тестів (<code>cargo test 38 passed, 0 failed</code>). Здано 5 етапів Safe-Escrow на Freelancehunt із найвищим балом 10/10.</li>
+        </ul>
+      </div>
+    
+      
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-title">Корпоративний реверс-проксі мультисесійного доступу</span>
+          <span class="project-meta">Enterprise Infrastructure Solution</span>
+        </div>
+        <div class="project-tech">Стек: Node.js, Express, http-proxy-middleware, Windows Server 2019, PowerShell</div>
+        <ul class="project-bullets">
+          <li><strong>Архітектура зворотного проксі:</strong> Створив внутрішній проксі-сервер для тунелювання запитів до зовнішнього захищеного SPA-каталогу з автоматичною нормалізацією кукі, User-Agent і заголовків через локальний HTTP для одночасної багатокористувацької роботи.</li>
+          <li><strong>Двостороння синхронізація сховища:</strong> Реалізував синхронізацію <code>localStorage</code>, <code>sessionStorage</code> браузера та токенів сесії Envoy у реальному часі між клієнтськими ПК локальної мережі за допомогою динамічної ін'єкції скриптів.</li>
+          <li><strong>Вирішення конфліктів на базі міток часу:</strong> Ліквідував проблему стану гонитви (race condition) та нескінченних циклічних редиректів (<code>/portal-ui</code>) завдяки атомарному порівнянню міток часу (<code>serverTimestamp</code> vs <code>clientTimestamp</code>), що унеможливило затирання свіжих токенів застарілими даними.</li>
+          <li><strong>Висока надійність і автооновлення:</strong> Розгорнув рішення як автоматично відновлювану службу Windows Server з дебаунсингом дискового запису (1000 мс), перехопленням розривів сокетів та автоматичним скиданням кешу сесії при отриманні кодів 401/403.</li>
+        </ul>
+      </div>
+    
+    </section>
+
+    <!-- STRICT 2-PAGE BREAK -->
+    <div class="page-break"></div>
+
+    <section>
+      
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-title">PropText.ai — Мультиорендна AI SaaS-платформа для нерухомості</span>
+          <span class="project-meta"><a href="https://prop-text-ai.vercel.app" target="_blank">prop-text-ai.vercel.app</a></span>
+        </div>
+        <div class="project-tech">Стек: Next.js (App Router), TypeScript, Supabase (PostgreSQL, Auth, RLS), Stripe API, Google Gemini API, Tailwind CSS</div>
+        <ul class="project-bullets">
+          <li><strong>Архітектура SaaS-рішення:</strong> Спроєктував та розгорнув хмарну платформу для агентств нерухомості, що автоматизує генерацію висококонверсійних описів об'єктів за допомогою штучного інтелекту.</li>
+          <li><strong>Білінгова інфраструктура:</strong> Інтегрував платежі Stripe та обробку вебхуків для гібридної моделі монетизації (підписки + поштучна покупка кредитів) з атомарним перерахунком балансу та захистом від шахрайства.</li>
+          <li><strong>Конвеєр взаємодії з LLM:</strong> Налаштував роботу з Google Gemini API з динамічною ротацією ключів, захистом від лімітів частоти запитів (rate-limiting) та контекстно оптимізованими промптами.</li>
+          <li><strong>Генератор документації:</strong> Створив клієнтський механізм експорту презентацій у PDF із повною підтримкою Unicode, брендуванням та адаптивною версткою.</li>
+          <li><strong>Безпека та база даних:</strong> Налаштував Supabase Auth із політиками безпеки на рівні рядків PostgreSQL (Row-Level Security, RLS) та наскрізною валідацією схем через Zod.</li>
+        </ul>
+      </div>
+    
+      
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-title">Commercial E-Shop — Високопродуктивний інтернет-магазин</span>
+          <span class="project-meta"><a href="https://ecoshop-alpha.vercel.app" target="_blank">ecoshop-alpha.vercel.app</a></span>
+        </div>
+        <div class="project-tech">Стек: React (Vite), Django REST Framework, PostgreSQL, Tailwind CSS, JWT</div>
+        <ul class="project-bullets">
+          <li><strong>Full-Stack реалізація:</strong> Розробив комерційну платформу електронної комерції з динамічною фільтрацією товарів (за категоріями, ціною, наявністю), кошиком покупок у реальному часі та оформленням замовлень.</li>
+          <li><strong>Захищена автентифікація:</strong> Впровадив авторизацію на базі JWT із використанням HttpOnly, SameSite-strict cookies для надійного захисту від атак XSS та CSRF.</li>
+          <li><strong>Оптимізація бази даних:</strong> Спроєктував реляційну схему PostgreSQL з оптимізованими Django querysets, індексами та серіалізацією REST, досягнувши часу відповіді API до 50 мс.</li>
+        </ul>
+      </div>
+    
+    </section>
+
+    <section>
+      <h2 class="section-title">Професійний Досвід</h2>
+      
+      <div class="exp-item">
+        <div class="exp-header">
+          <span>Systems & Full-Stack Freelance Engineer</span>
+          <span>2023 — Теперішній час</span>
+        </div>
+        <div class="exp-sub">
+          <span>Freelancehunt / Прямі комерційні контракти</span>
+          <span>Віддалено / Контракт</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Проєктування та розгортання високопродуктивних бекенд-демонів, Web3-арбітражних систем із низькою затримкою та корпоративних проксі-серверів для клієнтів в Україні та Європі.</li>
+          <li>Досяг <strong>100% 5-зіркового рейтингу</strong> за всіма безпечними угодами на Freelancehunt, включаючи багатоетапні проєкти із загальним бюджетом понад 48 000 грн.</li>
+          <li>Тісна співпраця із замовниками щодо формування детальних технічних завдань (ТЗ), впровадження детермінованих тестів та адміністрування виділених серверів (Ubuntu 24.04, Hetzner, Windows Server).</li>
+        </ul>
+      </div>
+      <div class="exp-item">
+        <div class="exp-header">
+          <span>Web Developer (Стажування)</span>
+          <span>2024 (6 місяців)</span>
+        </div>
+        <div class="exp-sub">
+          <span>Marine Plast Center / IT-стажування</span>
+          <span>Одеса, Україна</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Розробка реактивних компонентів інтерфейсу на React, Tailwind CSS та сучасному JavaScript, оптимізація швидкості завантаження сторінок та чуйності UI.</li>
+          <li>Участь у щоденних мітингах за методологією Agile/Scrum, автоматизованому регресійному тестуванні, код-рев'ю та Git flow.</li>
+        </ul>
+      </div>
+    
+    </section>
+
+    <section>
+      <h2 class="section-title">Освіта</h2>
+      <div class="edu-grid">
+        
+      <div class="edu-item">
+        <div>
+          <span class="edu-title">Магістр комп'ютерних наук / Інформаційні технології</span> — 
+          <span class="edu-inst">Одеський національний університет імені І. І. Мечникова</span>
+        </div>
+        <div class="edu-year">2023 — 2024</div>
+      </div>
+      <div class="edu-item">
+        <div>
+          <span class="edu-title">Бакалавр прикладної комп'ютеризованої екології та ІТ</span> — 
+          <span class="edu-inst">Одеський державний екологічний університет</span>
+        </div>
+        <div class="edu-year">2021 — 2023</div>
+      </div>
+      <div class="edu-item">
+        <div>
+          <span class="edu-title">Молодший спеціаліст з інженерії програмного забезпечення (Технік-програміст)</span> — 
+          <span class="edu-inst">Фаховий коледж комп'ютерних технологій ОДЕКУ</span>
+        </div>
+        <div class="edu-year">2017 — 2021</div>
+      </div>
+    
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Мови</h2>
+      <div class="lang-row">
+        
+      <div class="lang-item"><strong>Українська:</strong> Рідна (Native).</div>
+      <div class="lang-item"><strong>Англійська:</strong> Upper-Intermediate / Technical (B1/B2) — вільне читання документації, рев'ю коду, ділове листування та спілкування.</div>
+      <div class="lang-item"><strong>Російська:</strong> Вільно.</div>
+    
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>

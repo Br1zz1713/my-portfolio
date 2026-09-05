@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume - Yevhen Berezanskyi | Systems Architect & Full-Stack Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f172a;
+      --accent: #2563eb;
+      --accent-dark: #1d4ed8;
+      --text: #1e293b;
+      --text-light: #475569;
+      --muted: #64748b;
+      --border: #cbd5e1;
+      --bg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: var(--text);
+      background-color: #f1f5f9;
+      font-size: 9.4pt;
+      line-height: 1.36;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Screen Controls */
+    .controls {
+      background: #0f172a;
+      color: #fff;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .controls .title {
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .controls .btn-group {
+      display: flex;
+      gap: 12px;
+    }
+    .btn {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 7px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.15s ease;
+    }
+    .btn:hover {
+      background: #1d4ed8;
+    }
+    .btn-secondary {
+      background: #334155;
+      color: #f1f5f9;
+    }
+    .btn-secondary:hover {
+      background: #475569;
+    }
+
+    /* Document Sheet */
+    .sheet {
+      max-width: 820px;
+      margin: 24px auto;
+      background: var(--bg);
+      padding: 34px 44px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border-radius: 4px;
+    }
+
+    /* Header */
+    header {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+    }
+    h1.name {
+      font-size: 20pt;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--primary);
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+    .target-title {
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 3px;
+    }
+    .contacts-bar {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px 12px;
+      font-size: 8.6pt;
+      color: var(--text-light);
+    }
+    .contacts-bar a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .contacts-bar a:hover {
+      text-decoration: underline;
+    }
+
+    /* Section styling */
+    section {
+      margin-bottom: 12px;
+    }
+    h2.section-title {
+      font-size: 10.2pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--primary);
+      border-bottom: 1.5px solid var(--border);
+      padding-bottom: 3px;
+      margin-bottom: 7px;
+    }
+
+    .summary-text {
+      color: var(--text);
+      text-align: justify;
+      font-size: 9.1pt;
+      line-height: 1.4;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 4.5px;
+      font-size: 8.8pt;
+    }
+    .skill-row {
+      display: flex;
+      gap: 8px;
+      line-height: 1.34;
+    }
+    .skill-label {
+      font-weight: 700;
+      color: var(--primary);
+      min-width: 175px;
+      flex-shrink: 0;
+    }
+    .skill-content {
+      color: var(--text);
+    }
+
+    /* Projects */
+    .project-card {
+      margin-bottom: 10px;
+      break-inside: avoid;
+    }
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+    .project-title {
+      font-size: 9.6pt;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .project-meta {
+      font-size: 8.3pt;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .project-meta a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .project-meta a:hover {
+      text-decoration: underline;
+    }
+    .project-tech {
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: var(--text-light);
+      margin-bottom: 3px;
+    }
+    .project-bullets {
+      list-style: none;
+      padding-left: 0;
+    }
+    .project-bullets li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 2px;
+      font-size: 8.8pt;
+      color: var(--text);
+      line-height: 1.34;
+    }
+    .project-bullets li::before {
+      content: "•";
+      position: absolute;
+      left: 2px;
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 11pt;
+      line-height: 1;
+      top: 0;
+    }
+    .project-bullets li strong {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Experience */
+    .exp-item {
+      margin-bottom: 7px;
+      break-inside: avoid;
+    }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 9.3pt;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .exp-sub {
+      display: flex;
+      justify-content: space-between;
+      font-size: 8.5pt;
+      color: var(--muted);
+      margin-bottom: 2px;
+      font-weight: 500;
+    }
+    .exp-bullets {
+      list-style: none;
+      padding-left: 0;
+    }
+    .exp-bullets li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 2px;
+      font-size: 8.8pt;
+      color: var(--text);
+      line-height: 1.34;
+    }
+    .exp-bullets li::before {
+      content: "•";
+      position: absolute;
+      left: 2px;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* Education */
+    .edu-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 4.5px;
+    }
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 8.9pt;
+      line-height: 1.32;
+    }
+    .edu-title {
+      font-weight: 600;
+      color: var(--primary);
+    }
+    .edu-inst {
+      color: var(--text-light);
+    }
+    .edu-year {
+      font-weight: 600;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    /* Languages */
+    .lang-row {
+      display: flex;
+      gap: 16px;
+      font-size: 8.8pt;
+      flex-wrap: wrap;
+    }
+    .lang-item {
+      color: var(--text);
+    }
+    .lang-item strong {
+      color: var(--primary);
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 10mm 12mm;
+      }
+      body {
+        background: white;
+        font-size: 8.9pt;
+        line-height: 1.32;
+      }
+      .controls {
+        display: none !important;
+      }
+      .sheet {
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+        max-width: 100%;
+      }
+      .page-break {
+        page-break-before: always;
+        break-before: page;
+        padding-top: 10px;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .contacts-bar a {
+        color: var(--primary);
+        font-weight: 600;
+      }
+      h1.name {
+        font-size: 19pt;
+      }
+      h2.section-title {
+        margin-top: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="controls">
+    <div class="title">
+      <span>📄 Yevhen Berezanskyi — Resume (EN)</span>
+      <span style="font-size: 11px; opacity: 0.75; font-weight: normal;">Print-ready 2-page A4 format</span>
+    </div>
+    <div class="btn-group">
+      <a href="Resume_Yevhen_Berezanskyi_UA.html" class="btn btn-secondary">🇺🇦 Українська версія</a>
+      <button onclick="window.print()" class="btn">🖨️ Print / Save as PDF (Ctrl + P)</button>
+    </div>
+  </div>
+
+  <div class="sheet">
+    <!-- PAGE 1 -->
+    <header>
+      <h1 class="name">YEVHEN BEREZANSKYI</h1>
+      <div class="target-title">Systems Architect & Full-Stack Engineer (Rust / TypeScript / Web3)</div>
+      <div class="contacts-bar">
+        <span>📍 Odessa, Ukraine (Remote / Relocation)</span>
+        <span>📧 <a href="mailto:berezanskyi09@gmail.com">berezanskyi09@gmail.com</a></span>
+        <span>📱 <a href="https://wa.me/+40750266672">+40 750 266 672</a></span>
+        <span>💬 Telegram: <a href="https://t.me/eugene_br1zz" target="_blank">@eugene_br1zz</a></span>
+        <span>🌐 <a href="https://br1zz1713.github.io/my-portfolio/" target="_blank">Portfolio</a></span>
+        <span>🔗 <a href="https://github.com/Br1zz1713" target="_blank">GitHub</a></span>
+        <span>💼 <a href="https://freelancehunt.com/freelancer/berezanskyi09.html" target="_blank">Freelancehunt (100% 5.0★)</a></span>
+      </div>
+    </header>
+
+    <section>
+      <h2 class="section-title">Professional Summary</h2>
+      <p class="summary-text">High-performance Systems Architect and Full-Stack Engineer with proven expertise in building low-latency distributed systems in <strong>Rust</strong>, production <strong>TypeScript / Next.js</strong> SaaS platforms, and reverse-engineered enterprise networking infrastructure. Proven track record of delivering mission-critical commercial solutions: from an on-chain <strong>Arbitrum One cross-DEX arbitrage engine</strong> processing market ticks in sub-microsecond latency (<code>0–1 µs</code>), to high-concurrency <strong>session-sharing reverse proxies</strong> and scalable full-stack applications. Strong advocate of zero-allocation architectures, deterministic state machines, kernel-level sandboxing, and test-driven reliability.</p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-grid">
+        
+      <div class="skill-row">
+        <div class="skill-label">Languages:</div>
+        <div class="skill-content">Rust (Edition 2021), TypeScript, JavaScript (ES6+), Solidity (0.8.24), Python, SQL, HTML5, CSS3</div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label">Systems & Low-Latency:</div>
+        <div class="skill-content">Tokio (Async Runtime), Alloy Primitives (U256, Address, B256), WebSocket Stream Decoding, Zero-Heap Allocation Hot Paths, Fixed-Point Arithmetic (Q96), Microsecond Telemetry (tracing)</div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label">Web3 & Blockchain:</div>
+        <div class="skill-content">Arbitrum One (L2), Arbitrum Nitro Node Synchronization, Uniswap V3, Camelot V3 (Algebra), Flash Swaps, On-Chain Revert Guards, MEV Sequencer Optimization, EVM, Smart Contracts</div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label">Full-Stack & Backend:</div>
+        <div class="skill-content">Node.js (Express, Fastify), Next.js (App Router), React, Django REST Framework, PostgreSQL, Supabase (Auth, RLS), Prisma ORM, RESTful APIs</div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label">DevOps & Security:</div>
+        <div class="skill-content">Linux (Ubuntu Server, Systemd Sandboxing, UFW Hardening, Hetzner Bare-Metal), Docker / Docker Compose, Windows Server 2019, Reverse Proxies (http-proxy-middleware), Git, GitHub Actions (CI/CD), Vercel</div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label">Integrations & APIs:</div>
+        <div class="skill-content">Stripe API (Metered Billing & Webhooks), Google Gemini API (LLM Integration), WebSockets, JWT Authentication (HttpOnly Cookies)</div>
+      </div>
+    
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Key Featured Projects</h2>
+      
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-title">Arbitrum One Cross-DEX Arbitrage Engine & Nitro Node</span>
+          <span class="project-meta">Commercial Project | 48,000 UAH Verified Safe Contract</span>
+        </div>
+        <div class="project-tech">Tech Stack: Rust (Tokio, Alloy), Solidity, Docker, Systemd, Arbitrum Nitro, Hetzner Dedicated (Ubuntu 24.04)</div>
+        <ul class="project-bullets">
+          <li><strong>High-Frequency Engine:</strong> Architected an ultra-low latency cross-DEX arbitrage system monitoring concentrated liquidity pools on <strong>Uniswap V3</strong> and <strong>Camelot V3</strong> (Algebra) for USDT/USDC pairs on Arbitrum One (L2).</li>
+          <li><strong>Microsecond Execution (0–1 µs):</strong> Engineered a zero-heap-allocation hot path using stack-allocated <code>alloy::primitives</code> (U256, Address, B256) and Tokio ring buffers (mpsc), achieving deterministic evaluation within <strong>0 to 1 microsecond</strong>.</li>
+          <li><strong>Fixed-Point Mathematical Precision:</strong> Eliminated 0.4% floating-point drift by replacing float calculations with exact 256-bit integer fixed-point Q96 arithmetic (<code>quote_zero_for_one_u256</code>, <code>sqrt_price_u256</code>).</li>
+          <li><strong>On-Chain Solidity Execution:</strong> Developed <code>ArbitrageExecutor.sol</code> with Flash Swaps, dynamic priority fee estimation for the Arbitrum Sequencer, and an atomic <strong>On-Chain Revert Guard</strong> preventing slippage loss when dynamic net profit drops below gas thresholds.</li>
+          <li><strong>Resilience & Node Infrastructure:</strong> Implemented lossless stream cursor replay (<code>StreamCursor</code>) with exponential backoff reconnects, synchronized a local Arbitrum Nitro node via Docker on NVMe RAID0, and isolated the daemon via Linux kernel sandboxing (<code>ProtectSystem=full</code>, <code>PrivateTmp</code>, <code>NoNewPrivileges</code>, UFW firewall).</li>
+          <li><strong>Verification:</strong> 100% test pass rate across 38 unit and integration tests (<code>cargo test 38 passed, 0 failed</code>). Delivered in 5 consecutive Safe-Escrow stages on Freelancehunt with 10/10 reviews.</li>
+        </ul>
+      </div>
+    
+      
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-title">Enterprise Multi-User Session Reverse Proxy</span>
+          <span class="project-meta">Commercial Infrastructure Solution</span>
+        </div>
+        <div class="project-tech">Tech Stack: Node.js, Express, http-proxy-middleware, Windows Server 2019, PowerShell</div>
+        <ul class="project-bullets">
+          <li><strong>Reverse Proxy Architecture:</strong> Built a specialized internal proxy tunneling requests to an external protected SPA catalog, normalizing cookies, User-Agents, and headers over local HTTP to allow simultaneous multi-user LAN access to a single-seat catalog.</li>
+          <li><strong>Bidirectional Storage Synchronization:</strong> Engineered real-time bidirectional syncing of browser <code>localStorage</code>, <code>sessionStorage</code>, and Envoy session tokens across multiple LAN workstations using dynamic script injection.</li>
+          <li><strong>Timestamp Conflict Resolution:</strong> Solved complex race conditions and infinite auth redirect loops (<code>/portal-ui</code>) by introducing atomic client-server timestamp comparison (<code>serverTimestamp</code> vs <code>clientTimestamp</code>), preventing fresh login tokens from being overwritten by stale server states.</li>
+          <li><strong>High Availability & Fault Recovery:</strong> Deployed as an auto-recovering Windows Server service with debounced disk persistence (1,000 ms debounce), error socket trap handlers, and automatic session cache purge on remote 401/403 events.</li>
+        </ul>
+      </div>
+    
+    </section>
+
+    <!-- STRICT 2-PAGE BREAK -->
+    <div class="page-break"></div>
+
+    <section>
+      
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-title">PropText.ai — AI-Powered Real Estate SaaS Platform</span>
+          <span class="project-meta"><a href="https://prop-text-ai.vercel.app" target="_blank">prop-text-ai.vercel.app</a></span>
+        </div>
+        <div class="project-tech">Tech Stack: Next.js (App Router), TypeScript, Supabase (PostgreSQL, Auth, RLS), Stripe API, Google Gemini API, Tailwind CSS</div>
+        <ul class="project-bullets">
+          <li><strong>Production SaaS Architecture:</strong> Designed and deployed a multi-tenant web platform generating automated, high-converting property descriptions for real estate agencies.</li>
+          <li><strong>Metered Billing Infrastructure:</strong> Integrated Stripe checkout and webhooks to manage a hybrid subscription and credit-consumption model, featuring atomic balance reconciliation and fraud prevention.</li>
+          <li><strong>AI Model Pipeline:</strong> Integrated Google Gemini API with automated key rotation, dynamic rate-limiting, and context-engineered prompt templates.</li>
+          <li><strong>Document Generation Engine:</strong> Built a client-side Unicode-compliant PDF export engine rendering branded, print-ready property flyers with responsive layouts.</li>
+          <li><strong>Security & Database:</strong> Configured Supabase Auth with granular PostgreSQL Row-Level Security (RLS) policies and Zod schema validation across all API boundaries.</li>
+        </ul>
+      </div>
+    
+      
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-title">Commercial E-Shop — High-Performance E-Commerce</span>
+          <span class="project-meta"><a href="https://ecoshop-alpha.vercel.app" target="_blank">ecoshop-alpha.vercel.app</a></span>
+        </div>
+        <div class="project-tech">Tech Stack: React (Vite), Django REST Framework, PostgreSQL, Tailwind CSS, JWT</div>
+        <ul class="project-bullets">
+          <li><strong>Full-Stack Implementation:</strong> Engineered an end-to-end e-commerce store with dynamic catalog filtering (category, price range, stock availability), real-time cart state management, and an integrated checkout pipeline.</li>
+          <li><strong>Secure Session Handling:</strong> Implemented JWT authentication using HttpOnly, SameSite-strict cookies to mitigate XSS and CSRF attack vectors.</li>
+          <li><strong>Database & Query Optimization:</strong> Structured relational PostgreSQL schemas with optimized Django querysets, indexing, and REST serialization to achieve sub-50ms API response times.</li>
+        </ul>
+      </div>
+    
+    </section>
+
+    <section>
+      <h2 class="section-title">Professional Experience</h2>
+      
+      <div class="exp-item">
+        <div class="exp-header">
+          <span>Systems & Full-Stack Freelance Engineer</span>
+          <span>2023 — Present</span>
+        </div>
+        <div class="exp-sub">
+          <span>Freelancehunt / Direct Commercial Contracts</span>
+          <span>Remote / Contract</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Architected and deployed high-performance backend daemons, low-latency Web3 arbitrage engines, and enterprise networking proxies for commercial clients across Europe and Ukraine.</li>
+          <li>Achieved <strong>100% 5-star customer rating</strong> across all completed safe-escrow contracts on Freelancehunt, including multi-stage milestone deliveries totaling over 48,000 UAH.</li>
+          <li>Collaborated closely with clients to formulate precise technical specifications, establish deterministic testing pipelines, and configure production bare-metal servers (Ubuntu 24.04, Hetzner, Windows Server).</li>
+        </ul>
+      </div>
+      <div class="exp-item">
+        <div class="exp-header">
+          <span>Web Developer (Internship)</span>
+          <span>2024 (6 months)</span>
+        </div>
+        <div class="exp-sub">
+          <span>Marine Plast Center / IT Internships</span>
+          <span>Odessa, Ukraine</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Developed reactive UI modules using React, Tailwind CSS, and modern JavaScript, improving page load speeds and interface responsiveness.</li>
+          <li>Participated in daily Agile/Scrum ceremonies, automated regression testing, code reviews, and Git feature-branch workflows.</li>
+        </ul>
+      </div>
+    
+    </section>
+
+    <section>
+      <h2 class="section-title">Education</h2>
+      <div class="edu-grid">
+        
+      <div class="edu-item">
+        <div>
+          <span class="edu-title">Master of Science (M.S.) in Computer Science / Information Systems</span> — 
+          <span class="edu-inst">Odessa National University named after I. I. Mechnikov</span>
+        </div>
+        <div class="edu-year">2023 — 2024</div>
+      </div>
+      <div class="edu-item">
+        <div>
+          <span class="edu-title">Bachelor of Science (B.S.) in Applied Information Technology</span> — 
+          <span class="edu-inst">Odessa State Ecological University</span>
+        </div>
+        <div class="edu-year">2021 — 2023</div>
+      </div>
+      <div class="edu-item">
+        <div>
+          <span class="edu-title">Associate Degree in Software Engineering (Junior Specialist)</span> — 
+          <span class="edu-inst">Odessa College of Computer Technologies</span>
+        </div>
+        <div class="edu-year">2017 — 2021</div>
+      </div>
+    
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Languages</h2>
+      <div class="lang-row">
+        
+      <div class="lang-item"><strong>English:</strong> Upper-Intermediate / Technical (B1/B2) — Professional proficiency in technical documentation, code reviews & architecture discussion.</div>
+      <div class="lang-item"><strong>Ukrainian:</strong> Native (Рідна мова).</div>
+      <div class="lang-item"><strong>Russian:</strong> Fluent.</div>
+    
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>
