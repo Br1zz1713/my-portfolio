@@ -38,43 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ---------------------------------------------------------------------
-    // 1. THEME TOGGLE (DARK / LIGHT MODE)
-    // ---------------------------------------------------------------------
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
-
-    const storedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const initialTheme = storedTheme || (prefersDark ? 'dark' : 'light');
-
-    document.documentElement.setAttribute('data-theme', initialTheme);
-    updateThemeIcon(initialTheme);
-
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-            playSpraySound();
-        });
-    }
-
-    function updateThemeIcon(theme) {
-        if (!themeIcon) return;
-        if (theme === 'dark') {
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
-        } else {
-            themeIcon.classList.remove('fa-sun');
-            themeIcon.classList.add('fa-moon');
-        }
-    }
-
-    // ---------------------------------------------------------------------
-    // 2. HERO POSTER MODE SWITCHER (GACHIAKUTA / SHADES / IRL)
+    // 1. HERO POSTER MODE SWITCHER (GACHIAKUTA / SHADES / IRL)
     // ---------------------------------------------------------------------
     const posterImg = document.getElementById('hero-poster-img');
     const posterTag = document.getElementById('hero-poster-tag');
