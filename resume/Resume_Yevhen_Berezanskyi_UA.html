@@ -29,12 +29,12 @@
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       color: var(--text);
       background-color: #f1f5f9;
-      font-size: 9.4pt;
-      line-height: 1.36;
+      font-size: 9.3pt;
+      line-height: 1.34;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Screen Controls */
+    /* Screen-only Controls */
     .controls {
       background: #0f172a;
       color: #fff;
@@ -89,7 +89,7 @@
       max-width: 820px;
       margin: 24px auto;
       background: var(--bg);
-      padding: 34px 44px;
+      padding: 32px 42px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.08);
       border-radius: 4px;
     }
@@ -98,7 +98,7 @@
     header {
       border-bottom: 2px solid var(--primary);
       padding-bottom: 10px;
-      margin-bottom: 12px;
+      margin-bottom: 11px;
     }
     h1.name {
       font-size: 20pt;
@@ -109,7 +109,7 @@
       line-height: 1.1;
     }
     .target-title {
-      font-size: 11pt;
+      font-size: 10.8pt;
       font-weight: 700;
       color: var(--accent);
       margin-top: 3px;
@@ -119,7 +119,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 5px 12px;
-      font-size: 8.6pt;
+      font-size: 8.5pt;
       color: var(--text-light);
     }
     .contacts-bar a {
@@ -133,42 +133,42 @@
 
     /* Section styling */
     section {
-      margin-bottom: 12px;
+      margin-bottom: 11px;
     }
     h2.section-title {
-      font-size: 10.2pt;
+      font-size: 10pt;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.6px;
       color: var(--primary);
       border-bottom: 1.5px solid var(--border);
       padding-bottom: 3px;
-      margin-bottom: 7px;
+      margin-bottom: 6px;
     }
 
     .summary-text {
       color: var(--text);
       text-align: justify;
-      font-size: 9.1pt;
-      line-height: 1.4;
+      font-size: 9pt;
+      line-height: 1.38;
     }
 
     /* Skills */
     .skills-grid {
       display: flex;
       flex-direction: column;
-      gap: 4.5px;
+      gap: 4px;
       font-size: 8.8pt;
     }
     .skill-row {
       display: flex;
       gap: 8px;
-      line-height: 1.34;
+      line-height: 1.32;
     }
     .skill-label {
       font-weight: 700;
       color: var(--primary);
-      min-width: 175px;
+      min-width: 170px;
       flex-shrink: 0;
     }
     .skill-content {
@@ -177,7 +177,7 @@
 
     /* Projects */
     .project-card {
-      margin-bottom: 10px;
+      margin-bottom: 9px;
       break-inside: avoid;
     }
     .project-header {
@@ -187,7 +187,7 @@
       margin-bottom: 2px;
     }
     .project-title {
-      font-size: 9.6pt;
+      font-size: 9.5pt;
       font-weight: 700;
       color: var(--primary);
     }
@@ -204,7 +204,7 @@
       text-decoration: underline;
     }
     .project-tech {
-      font-size: 8.5pt;
+      font-size: 8.4pt;
       font-weight: 600;
       color: var(--text-light);
       margin-bottom: 3px;
@@ -217,9 +217,9 @@
       position: relative;
       padding-left: 14px;
       margin-bottom: 2px;
-      font-size: 8.8pt;
+      font-size: 8.7pt;
       color: var(--text);
-      line-height: 1.34;
+      line-height: 1.32;
     }
     .project-bullets li::before {
       content: "•";
@@ -244,14 +244,14 @@
     .exp-header {
       display: flex;
       justify-content: space-between;
-      font-size: 9.3pt;
+      font-size: 9.2pt;
       font-weight: 700;
       color: var(--primary);
     }
     .exp-sub {
       display: flex;
       justify-content: space-between;
-      font-size: 8.5pt;
+      font-size: 8.4pt;
       color: var(--muted);
       margin-bottom: 2px;
       font-weight: 500;
@@ -264,9 +264,9 @@
       position: relative;
       padding-left: 14px;
       margin-bottom: 2px;
-      font-size: 8.8pt;
+      font-size: 8.7pt;
       color: var(--text);
-      line-height: 1.34;
+      line-height: 1.32;
     }
     .exp-bullets li::before {
       content: "•";
@@ -280,13 +280,13 @@
     .edu-grid {
       display: flex;
       flex-direction: column;
-      gap: 4.5px;
+      gap: 4px;
     }
     .edu-item {
       display: flex;
       justify-content: space-between;
-      font-size: 8.9pt;
-      line-height: 1.32;
+      font-size: 8.8pt;
+      line-height: 1.3;
     }
     .edu-title {
       font-weight: 600;
@@ -305,7 +305,7 @@
     .lang-row {
       display: flex;
       gap: 16px;
-      font-size: 8.8pt;
+      font-size: 8.7pt;
       flex-wrap: wrap;
     }
     .lang-item {
@@ -315,15 +315,16 @@
       color: var(--primary);
     }
 
+    /* STRICT PRINT MEDIA FOR 2-PAGE FIT */
     @media print {
       @page {
         size: A4;
-        margin: 10mm 12mm;
+        margin: 8mm 12mm 7mm 12mm;
       }
       body {
         background: white;
-        font-size: 8.9pt;
-        line-height: 1.32;
+        font-size: 8.2pt;
+        line-height: 1.25;
       }
       .controls {
         display: none !important;
@@ -334,10 +335,94 @@
         margin: 0;
         max-width: 100%;
       }
+      header {
+        margin-bottom: 7px;
+        padding-bottom: 5px;
+      }
+      h1.name {
+        font-size: 16.5pt;
+      }
+      .target-title {
+        font-size: 9.3pt;
+        margin-top: 1px;
+      }
+      .contacts-bar {
+        margin-top: 4px;
+        font-size: 7.7pt;
+        gap: 3px 8px;
+      }
+      section {
+        margin-bottom: 6px;
+      }
+      h2.section-title {
+        font-size: 8.8pt;
+        padding-bottom: 2px;
+        margin-bottom: 3.5px;
+        margin-top: 0;
+      }
+      .summary-text {
+        font-size: 8pt;
+        line-height: 1.26;
+      }
+      .skills-grid {
+        gap: 2.2px;
+        font-size: 7.8pt;
+      }
+      .skill-row {
+        gap: 5px;
+        line-height: 1.2;
+      }
+      .skill-label {
+        min-width: 145px;
+      }
+      .project-card {
+        margin-bottom: 5.5px;
+      }
+      .project-title {
+        font-size: 8.6pt;
+      }
+      .project-meta {
+        font-size: 7.6pt;
+      }
+      .project-tech {
+        font-size: 7.7pt;
+        margin-bottom: 1.5px;
+      }
+      .project-bullets li {
+        font-size: 7.8pt;
+        line-height: 1.22;
+        margin-bottom: 1px;
+      }
+      .exp-item {
+        margin-bottom: 4.5px;
+      }
+      .exp-header {
+        font-size: 8.4pt;
+      }
+      .exp-sub {
+        font-size: 7.6pt;
+        margin-bottom: 1px;
+      }
+      .exp-bullets li {
+        font-size: 7.8pt;
+        line-height: 1.2;
+        margin-bottom: 1px;
+      }
+      .edu-grid {
+        gap: 2px;
+      }
+      .edu-item {
+        font-size: 7.8pt;
+        line-height: 1.2;
+      }
+      .lang-row {
+        font-size: 7.9pt;
+        gap: 10px;
+      }
       .page-break {
         page-break-before: always;
         break-before: page;
-        padding-top: 10px;
+        padding-top: 2px;
       }
       a {
         text-decoration: none;
@@ -346,12 +431,6 @@
       .contacts-bar a {
         color: var(--primary);
         font-weight: 600;
-      }
-      h1.name {
-        font-size: 19pt;
-      }
-      h2.section-title {
-        margin-top: 0;
       }
     }
   </style>
@@ -428,16 +507,14 @@
       <div class="project-card">
         <div class="project-header">
           <span class="project-title">Arbitrum One Cross-DEX Arbitrage Engine & Nitro Node</span>
-          <span class="project-meta">Комерційний проєкт | Контракт 48 000 грн (Freelancehunt)</span>
+          <span class="project-meta">Комерційний контракт | 48 000 грн (Freelancehunt)</span>
         </div>
         <div class="project-tech">Стек: Rust (Tokio, Alloy), Solidity, Docker, Systemd, Arbitrum Nitro, Hetzner Dedicated (Ubuntu 24.04)</div>
         <ul class="project-bullets">
           <li><strong>Високочастотне ядро:</strong> Спроектував систему міжбіржового арбітражу з ультранизькою затримкою в мережі Arbitrum One, що відстежує пули концентрованої ліквідності <strong>Uniswap V3</strong> та <strong>Camelot V3</strong> (Algebra) для пар USDT/USDC.</li>
-          <li><strong>Мікросекундна продуктивність (0–1 мкс):</strong> Реалізував гарячий цикл (hot path) із нульовими аллокаціями в купі на базі стекових структур <code>alloy::primitives</code> (U256, Address, B256) та кільцевих буферів Tokio (mpsc), досягнувши детермінованого розрахунку прибутковості за <strong>0–1 мікросекунду</strong>.</li>
-          <li><strong>Математична точність (Fixed-Point):</strong> Усунув похибку чисел із плаваючою крапкою (~0.4%) шляхом переходу на точну 256-бітну цілочисельну арифметику з фіксованою комою Q96 (<code>quote_zero_for_one_u256</code>, <code>sqrt_price_u256</code>).</li>
-          <li><strong>Ончейн-виконання на Solidity:</strong> Розробив смарт-контракт <code>ArbitrageExecutor.sol</code> із механізмом Flash Swaps, динамічним розрахунком Priority Fee для секвенсера Arbitrum та атомарним <strong>On-Chain Revert Guard</strong>, що запобігає збиткам від прослизання при падінні спреду нижче вартості газу.</li>
-          <li><strong>Відмовостійкість та інфраструктура:</strong> Впровадив механізм безперервного дочитування пропущених блоків (<code>StreamCursor</code>) з експоненціальним реконнектом, розгорнув локальну ноду Arbitrum Nitro в Docker на NVMe RAID0, ізолював службу в Systemd на рівні ядра Linux (<code>ProtectSystem=full</code>, <code>PrivateTmp</code>, <code>NoNewPrivileges</code>, UFW-файрвол).</li>
-          <li><strong>Верифікація:</strong> 100% проходження 38 юніт- та інтеграційних тестів (<code>cargo test 38 passed, 0 failed</code>). Здано 5 етапів Safe-Escrow на Freelancehunt із найвищим балом 10/10.</li>
+          <li><strong>Мікросекундна Latency (0–1 мкс):</strong> Реалізував гарячий цикл із нульовими аллокаціями в купі на базі стекових структур <code>alloy::primitives</code> (U256, Address, B256) та кільцевих буферів Tokio (mpsc), забезпечивши обробку за <strong>0–1 мікросекунду</strong>.</li>
+          <li><strong>Fixed-Point точність та смарт-контракт:</strong> Задіяв цілочисельну Q96 арифметику (0% похибки). Розробив контракт <code>ArbitrageExecutor.sol</code> (Flash Swaps, Sequencer Priority Fee, атомарний <strong>On-Chain Revert Guard</strong> від збитків при прослизанні).</li>
+          <li><strong>Інфраструктура ноди та ізоляція:</strong> Синхронізував ноду Arbitrum Nitro в Docker на NVMe RAID0. Ізолював службу в Systemd на рівні ядра Linux (<code>ProtectSystem=full</code>, <code>PrivateTmp</code>, <code>NoNewPrivileges</code>, UFW). Здано 5 етапів (10/10), 38/38 тестів.</li>
         </ul>
       </div>
     
@@ -449,10 +526,9 @@
         </div>
         <div class="project-tech">Стек: Node.js, Express, http-proxy-middleware, Windows Server 2019, PowerShell</div>
         <ul class="project-bullets">
-          <li><strong>Архітектура зворотного проксі:</strong> Створив внутрішній проксі-сервер для тунелювання запитів до зовнішнього захищеного SPA-каталогу з автоматичною нормалізацією кукі, User-Agent і заголовків через локальний HTTP для одночасної багатокористувацької роботи.</li>
-          <li><strong>Двостороння синхронізація сховища:</strong> Реалізував синхронізацію <code>localStorage</code>, <code>sessionStorage</code> браузера та токенів сесії Envoy у реальному часі між клієнтськими ПК локальної мережі за допомогою динамічної ін'єкції скриптів.</li>
-          <li><strong>Вирішення конфліктів на базі міток часу:</strong> Ліквідував проблему стану гонитви (race condition) та нескінченних циклічних редиректів (<code>/portal-ui</code>) завдяки атомарному порівнянню міток часу (<code>serverTimestamp</code> vs <code>clientTimestamp</code>), що унеможливило затирання свіжих токенів застарілими даними.</li>
-          <li><strong>Висока надійність і автооновлення:</strong> Розгорнув рішення як автоматично відновлювану службу Windows Server з дебаунсингом дискового запису (1000 мс), перехопленням розривів сокетів та автоматичним скиданням кешу сесії при отриманні кодів 401/403.</li>
+          <li><strong>Архітектура зворотного проксі:</strong> Створив внутрішній тунелюючий проксі для одночасної багатокористувацької роботи з захищеним односесійним SPA-каталогом з нормалізацією кукі, User-Agent і заголовків через локальний HTTP.</li>
+          <li><strong>Двостороння синхронізація та вирішення конфліктів:</strong> Забезпечив синхронізацію <code>localStorage</code>, <code>sessionStorage</code> та Envoy-токенів у реальному часі. Усунув безкінечні редиректи (<code>/portal-ui</code>) через звірку timestamp.</li>
+          <li><strong>Відмовостійкість:</strong> Розгорнув як авто-відновлювану службу Windows Server 2019 з дебаунсингом запису на диск (1000 мс), перехопленням помилок сокетів та самовідновленням при кодах 401/403.</li>
         </ul>
       </div>
     
@@ -473,8 +549,7 @@
           <li><strong>Архітектура SaaS-рішення:</strong> Спроєктував та розгорнув хмарну платформу для агентств нерухомості, що автоматизує генерацію висококонверсійних описів об'єктів за допомогою штучного інтелекту.</li>
           <li><strong>Білінгова інфраструктура:</strong> Інтегрував платежі Stripe та обробку вебхуків для гібридної моделі монетизації (підписки + поштучна покупка кредитів) з атомарним перерахунком балансу та захистом від шахрайства.</li>
           <li><strong>Конвеєр взаємодії з LLM:</strong> Налаштував роботу з Google Gemini API з динамічною ротацією ключів, захистом від лімітів частоти запитів (rate-limiting) та контекстно оптимізованими промптами.</li>
-          <li><strong>Генератор документації:</strong> Створив клієнтський механізм експорту презентацій у PDF із повною підтримкою Unicode, брендуванням та адаптивною версткою.</li>
-          <li><strong>Безпека та база даних:</strong> Налаштував Supabase Auth із політиками безпеки на рівні рядків PostgreSQL (Row-Level Security, RLS) та наскрізною валідацією схем через Zod.</li>
+          <li><strong>Генерація документів & Безпека:</strong> Розробив клієнтський генератор PDF-презентацій з підтримкою Unicode. Захистив доступ через Supabase Auth з політиками PostgreSQL RLS та валідацією Zod.</li>
         </ul>
       </div>
     
