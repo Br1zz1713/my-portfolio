@@ -198,7 +198,7 @@ body {
     height: 36px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid var(--accent-green);
+    border: 1px solid var(--border-medium);
 }
 
 .logo-text-group {
@@ -662,7 +662,7 @@ body {
     width: 9px;
     height: 9px;
     background-color: var(--bg-black);
-    border: 2px solid var(--accent-green);
+    border: 1px solid var(--border-medium);
 }
 
 .timeline-date {
@@ -1844,4 +1844,202 @@ body {
 .identity-specs-grid {
     margin-top: 16px;
     padding-top: 16px;
+}
+
+
+/* ========================================================================= */
+/* BULLETPROOF MOBILE RESPONSIVE ENGINE (320px - 1024px)                     */
+/* ========================================================================= */
+
+@media (max-width: 768px) {
+    /* Safe section spacing */
+    .content-section {
+        padding: 60px 16px;
+    }
+
+    /* Section Headers */
+    .tactical-section-header {
+        margin-bottom: 32px;
+    }
+
+    .tactical-section-header h2 {
+        font-size: 1.75rem;
+        line-height: 1.2;
+    }
+
+    .section-tag {
+        font-size: 0.76rem;
+    }
+
+    /* Cards padding */
+    .tactical-box {
+        padding: 22px 18px;
+    }
+
+    .box-header {
+        padding-bottom: 12px;
+        margin-bottom: 16px;
+    }
+
+    .box-title {
+        font-size: 0.85rem;
+    }
+
+    /* Identity Card on Mobile */
+    .identity-content-wrapper {
+        grid-template-columns: 130px 1fr;
+        gap: 16px;
+    }
+
+    .identity-photo-frame {
+        width: 130px;
+        height: 130px;
+    }
+
+    /* Hero section adjustments */
+    #hero-section {
+        padding: 100px 16px 50px;
+        min-height: auto;
+    }
+
+    .hero-badge-tagline {
+        font-size: 0.88rem;
+        flex-wrap: wrap;
+    }
+
+    .hero-manifesto-text {
+        font-size: 1rem;
+        margin-bottom: 24px;
+    }
+
+    .hero-specs-dossier {
+        padding: 14px 16px;
+        margin-bottom: 28px;
+    }
+
+    .spec-row {
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .spec-key {
+        min-width: unset;
+        font-size: 0.68rem;
+    }
+
+    .spec-val {
+        font-size: 0.8rem;
+    }
+
+    /* Hero Actions */
+    .hero-actions-group {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .btn-tactical-primary,
+    .btn-tactical-secondary {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        padding: 13px 20px;
+    }
+
+    /* Project Cards */
+    .project-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .project-dossier-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    /* Footer */
+    .main-footer {
+        padding: 35px 16px;
+        font-size: 0.78rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Extreme Small Screens (iPhone SE, Galaxy A, 320px-375px) */
+    .hero-glitch-title {
+        font-size: 2.1rem;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+    }
+
+    .hero-top-status-bar {
+        padding: 5px 10px;
+        font-size: 0.7rem;
+    }
+
+    .status-code {
+        font-size: 0.68rem;
+        word-break: break-word;
+    }
+
+    .tactical-section-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .tactical-box {
+        padding: 18px 14px;
+    }
+
+    /* Identity Card Stack on Smallest Screens */
+    .identity-content-wrapper {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+        gap: 14px;
+    }
+
+    .identity-photo-frame {
+        width: 140px;
+        height: 140px;
+        margin: 0 auto;
+    }
+
+    .identity-details {
+        align-items: center;
+        width: 100%;
+    }
+
+    .identity-row {
+        align-items: center;
+    }
+
+    .identity-badges {
+        justify-content: center;
+    }
+
+    /* Contact Links */
+    .contact-link {
+        padding: 12px 14px;
+    }
+
+    .link-handle {
+        font-size: 0.82rem;
+    }
+
+    .contact-meta-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 8px;
+    }
+
+    /* Filter buttons on mobile */
+    .project-filters {
+        gap: 6px;
+    }
+
+    .filter-btn {
+        padding: 6px 10px;
+        font-size: 0.72rem;
+    }
 }
