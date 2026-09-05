@@ -1688,3 +1688,78 @@ body {
         text-align: left;
     }
 }
+
+/* Center Contact Section Header & Align with Card */
+#contact .tactical-section-header {
+    text-align: center;
+    max-width: 860px;
+    margin: 0 auto 45px;
+}
+
+#contact .tactical-line {
+    margin: 12px auto 0;
+}
+
+/* Subtle Nyavochka Easter Egg Pill (Concise & Minimalist) */
+.nyavochka-subtle-pill {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-subtle);
+    border-radius: 3px;
+    padding: 8px 14px;
+    margin: 22px 0 20px;
+    font-family: var(--font-mono);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.nyavochka-subtle-pill:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-medium);
+    transform: translateY(-1px);
+}
+
+.pill-daemon-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-weight: 700;
+    font-size: 0.74rem;
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+}
+
+.pill-quote {
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+    font-style: italic;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: opacity 0.15s ease;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.pill-badge {
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .nyavochka-subtle-pill {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+    .pill-quote {
+        white-space: normal;
+        text-align: left;
+    }
+}
