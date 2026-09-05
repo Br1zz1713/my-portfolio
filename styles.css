@@ -1763,3 +1763,85 @@ body {
         text-align: left;
     }
 }
+
+/* Freelancehunt Link Styling */
+.contact-link.freelancehunt:hover i { 
+    color: #0088cc; 
+}
+
+/* Equal Height Flex Distribution for About Cards */
+.about-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Academic Foundations Block */
+.academic-foundations-block {
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.foundations-title {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: var(--text-pure);
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.foundations-title i {
+    color: var(--accent-green);
+}
+
+.foundations-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.foundation-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.84rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
+.foundation-item strong {
+    color: var(--text-pure);
+}
+
+.f-bullet {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    color: var(--accent-green);
+    font-size: 0.78rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* Enlarge Identity Photo Frame */
+.identity-content-wrapper {
+    display: grid;
+    grid-template-columns: 155px 1fr;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.identity-photo-frame {
+    width: 155px;
+    height: 155px;
+}
+
+.identity-specs-grid {
+    margin-top: 16px;
+    padding-top: 16px;
+}
