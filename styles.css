@@ -340,7 +340,7 @@ body {
     background-color: var(--bg-black);
     background-image: 
         linear-gradient(180deg, rgba(6, 7, 10, 0.82) 0%, rgba(6, 7, 10, 0.88) 50%, rgba(6, 7, 10, 0.98) 100%),
-        url('images/gachiakuta-canvas-town.jpg');
+        url('images/industrial-hero-bg.jpg');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -1633,5 +1633,84 @@ body {
     }
     .identity-content-wrapper {
         grid-template-columns: 110px 1fr;
+    }
+}
+
+/* ========================================================================= */
+/* SERIOUS INDUSTRIAL TECHWEAR STYLES (v3.1)                                 */
+/* ========================================================================= */
+
+.sentinel-terminal-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background-color: var(--bg-surface-elevated);
+    border: 1px solid var(--border-medium);
+    border-left: 3px solid var(--accent-green);
+    border-radius: 3px;
+    padding: 12px 20px;
+    margin-bottom: 24px;
+    font-family: var(--font-mono);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.sentinel-terminal-bar:hover {
+    border-color: var(--accent-green);
+    background-color: var(--bg-surface-hover);
+    box-shadow: 0 4px 20px rgba(34, 197, 94, 0.12);
+}
+
+.terminal-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.terminal-prompt {
+    color: var(--accent-green);
+    font-weight: 800;
+}
+
+.terminal-cmd {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+}
+
+.terminal-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--accent-green);
+    background-color: var(--accent-green-bg);
+    padding: 2px 8px;
+    border-radius: 2px;
+}
+
+.terminal-bar-quote {
+    font-size: 0.84rem;
+    color: var(--text-pure);
+    flex-grow: 1;
+    text-align: center;
+    transition: opacity 0.15s ease;
+}
+
+.terminal-counter {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+    .sentinel-terminal-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .terminal-bar-quote {
+        text-align: left;
     }
 }

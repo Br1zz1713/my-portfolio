@@ -184,14 +184,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const catQuote = document.getElementById('cat-quote-text');
     const catCounter = document.getElementById('cat-quote-counter');
 
-    const catQuotes = [
-        "Meow! I'm Nyavochka — Chief Code Reviewer. No push to production without chin scratches.",
-        "If this 0xDEV box fits into stack memory, there are zero leaks. Purr...",
-        "48,000 UAH earned on Rust DEX engine? Yevhen already converted it to premium salmon treats.",
-        "Arbitrum Nitro node synced. 0 lost ticks in mempool, 0 uncaught flies in Canvas Town.",
-        "Server shipping box is my personal Jinki weapon. Don't even think about taking it.",
-        "Reverse proxy inspected: unauthorized cats cannot hijack our enterprise sessions.",
-        "Purr... You unlocked the Nyavochka Buff: +20% zero-downtime luck on Friday deploys!"
+        const catQuotes = [
+        "All systems nominal. 0 lost ticks in mempool. Ready for production deploys.",
+        "Arbitrum Nitro full node verified. Microsecond latency maintained.",
+        "Reverse proxy handling sessions cleanly. 0 security leaks detected.",
+        "48,000 UAH earned on Rust DEX engine... all allocated for premium salmon treats.",
+        "Code review completed: zero corporate bloat, pure low-level engineering.",
+        "If it compiles in release mode with zero warnings, you have my blessing.",
+        "Purr... Nyavochka daemon active: +20% uptime luck on your next deploy."
     ];
 
     let currentQuoteIndex = 0;
