@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.min.css?v=3.5.0">
+    <link rel="stylesheet" href="styles.min.css?v=3.6.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -411,16 +411,16 @@
 
         <div class="project-filters">
             <button class="filter-btn active" data-filter="all">[ALL CASES]</button>
-            <button class="filter-btn" data-filter="systems">[SYSTEMS & HIGH-LOAD]</button>
+            <button class="filter-btn" data-filter="web3">[WEB3 & LOW-LATENCY]</button>
             <button class="filter-btn" data-filter="saas">[SAAS & PLATFORMS]</button>
-            <button class="filter-btn" data-filter="automation">[AUTOMATION & REVERSE]</button>
+            <button class="filter-btn" data-filter="systems">[SYSTEMS & REVERSE]</button>
         </div>
 
         <!-- TIER 1: FLAGSHIP DOSSIER -->
         <div class="featured-projects-grid">
 
             <!-- PROJECT 1: Arbitrum DEX Engine -->
-            <article class="project-card featured tactical-box" data-category="systems">
+            <article class="project-card featured tactical-box" data-category="systems web3">
                 <div class="project-dossier-top">
                     <div class="dossier-case-number">CASE // 01</div>
                     <div class="dossier-stamp stamp-green">[STATUS: DELIVERED &amp; PAID]</div>
@@ -430,6 +430,10 @@
                     <div class="project-badge system-badge">
                         <i class="fas fa-bolt"></i> HIGH-FREQUENCY TRADING &bull; RUST L2
                     </div>
+                </div>
+
+                <div class="project-cover-wrap">
+                    <img src="images/rust_hft_engine_cover.jpg" alt="Arbitrum DEX Arbitrage & Nitro Node Engine" loading="lazy" class="project-cover-img">
                 </div>
 
                 <h3>Arbitrum DEX Arbitrage & Nitro Node Engine</h3>
@@ -464,14 +468,120 @@
                 </div>
 
                 <div class="project-footer">
-                    <span class="dossier-signoff">// 5/5 STAGES COMPLETED & VERIFIED</span>
+                    <span class="dossier-signoff">// 48 000 UAH MILESTONE &bull; 5/5 STAGES VERIFIED</span>
                 </div>
             </article>
 
-            <!-- PROJECT 2: PropText.ai -->
-            <article class="project-card featured tactical-box" data-category="saas automation">
+            <!-- PROJECT 2: Atomic Solidity Contract & Revert Guard -->
+            <article class="project-card featured tactical-box" data-category="systems web3">
                 <div class="project-dossier-top">
                     <div class="dossier-case-number">CASE // 02</div>
+                    <div class="dossier-stamp stamp-cyan">[STATUS: AUDITED &amp; DEPLOYED]</div>
+                </div>
+
+                <div class="project-card-header">
+                    <div class="project-badge system-badge">
+                        <i class="fas fa-shield-halved"></i> DEFI SECURITY &bull; SOLIDITY ARBITRUM L2
+                    </div>
+                </div>
+
+                <div class="project-cover-wrap">
+                    <img src="images/solidity_revert_guard_cover.jpg" alt="Atomic Solidity Arbitrage Contract with Revert Guard" loading="lazy" class="project-cover-img">
+                </div>
+
+                <h3>Atomic Solidity Arbitrage &amp; On-Chain Revert Guard</h3>
+                
+                <p class="project-description">
+                    Production-grade direct execution smart contract engineered for atomic multi-DEX arbitrage between Uniswap V3 and Camelot V3 (Algebra) on Arbitrum One. Implements flash swap callbacks with zero locked collateral requirements and guarantees <strong>Zero Capital Loss</strong> through strict on-chain validation: <code class="inline-code">require(finalBalance &gt;= initialBalance + minProfit)</code>. Any slippage inversion or frontrunning MEV attempts trigger an instantaneous atomic revert.
+                </p>
+
+                <div class="dossier-telemetry-grid">
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">CAPITAL_GUARD</span>
+                        <span class="telemetry-val">Zero Capital Loss (Revert Guard)</span>
+                    </div>
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">EXECUTION_MODEL</span>
+                        <span class="telemetry-val">Atomic Flash Swaps (Uni V3 + Cam)</span>
+                    </div>
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">ASSET_MATRIX</span>
+                        <span class="telemetry-val">USDC (6d), WETH (18d), WBTC (8d)</span>
+                    </div>
+                </div>
+
+                <div class="project-tech-tags">
+                    <span>Solidity 0.8.24</span>
+                    <span>Arbitrum One</span>
+                    <span>Uniswap V3</span>
+                    <span>Camelot V3</span>
+                    <span>Flash Callbacks</span>
+                    <span>MEV Defense</span>
+                    <span>Custom Errors</span>
+                </div>
+
+                <div class="project-footer">
+                    <span class="dossier-signoff">// 35 000 UAH MILESTONE &bull; 100% REVERT GUARANTEE</span>
+                </div>
+            </article>
+
+            <!-- PROJECT 3: DevSecOps Linux Hardening -->
+            <article class="project-card featured tactical-box" data-category="systems web3">
+                <div class="project-dossier-top">
+                    <div class="dossier-case-number">CASE // 03</div>
+                    <div class="dossier-stamp stamp-purple">[STATUS: 22+ DAYS ZERO-INCIDENT UPTIME]</div>
+                </div>
+
+                <div class="project-card-header">
+                    <div class="project-badge security-badge">
+                        <i class="fas fa-lock"></i> DEVSECOPS &bull; HETZNER BARE-METAL HARDENING
+                    </div>
+                </div>
+
+                <div class="project-cover-wrap">
+                    <img src="images/linux_hardening_cover.jpg" alt="Linux Hardening and Systemd Sandbox" loading="lazy" class="project-cover-img">
+                </div>
+
+                <h3>DevSecOps Linux Hardening &amp; Systemd Sandbox</h3>
+                
+                <p class="project-description">
+                    Comprehensive bare-metal infrastructure hardening for a dedicated Hetzner server hosting an Arbitrum Nitro full node and high-frequency trading engine. Features emergency Hetzner Rescue recovery (RAID md2 remount, unauthorized SSH key purge, macOS ssh.socket configuration), 8-tier kernel-level Systemd daemon sandboxing (ProtectSystem=full, PrivateTmp=true), and a zero-trust UFW firewall eliminating WAN exposure to internal RPC ports.
+                </p>
+
+                <div class="dossier-telemetry-grid">
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">KERNEL_SANDBOX</span>
+                        <span class="telemetry-val">8 Systemd Flags (ProtectSystem=full)</span>
+                    </div>
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">PERIMETER_DEFENSE</span>
+                        <span class="telemetry-val">UFW Default Deny &bull; Zero WAN RPC</span>
+                    </div>
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">UPTIME_STABILITY</span>
+                        <span class="telemetry-val">22+ Days Live Without Memory Leaks</span>
+                    </div>
+                </div>
+
+                <div class="project-tech-tags">
+                    <span>Linux / Ubuntu 24.04</span>
+                    <span>Hetzner Dedicated</span>
+                    <span>Systemd Sandbox</span>
+                    <span>UFW Firewall</span>
+                    <span>RAID mdadm</span>
+                    <span>Ed25519 Crypto</span>
+                    <span>Nitro Node</span>
+                </div>
+
+                <div class="project-footer">
+                    <span class="dossier-signoff">// 20 000 UAH MILESTONE &bull; ZERO EXPLOIT EXPOSURE</span>
+                </div>
+            </article>
+
+            <!-- PROJECT 4: PropText.ai -->
+            <article class="project-card featured tactical-box" data-category="saas automation">
+                <div class="project-dossier-top">
+                    <div class="dossier-case-number">CASE // 04</div>
                     <div class="dossier-stamp stamp-cyan">[STATUS: LIVE IN PRODUCTION]</div>
                 </div>
 
@@ -518,10 +628,10 @@
                 </div>
             </article>
 
-            <!-- PROJECT 3: Subwerk CRM -->
+            <!-- PROJECT 5: Subwerk CRM -->
             <article class="project-card featured tactical-box" data-category="saas systems">
                 <div class="project-dossier-top">
-                    <div class="dossier-case-number">CASE // 03</div>
+                    <div class="dossier-case-number">CASE // 05</div>
                     <div class="dossier-stamp stamp-amber">[CLIENT SHOWCASE // SWEDEN]</div>
                 </div>
 
@@ -567,10 +677,10 @@
                 </div>
             </article>
 
-            <!-- PROJECT 4: Partslink24 Proxy -->
+            <!-- PROJECT 6: Partslink24 Proxy -->
             <article class="project-card featured tactical-box" data-category="systems automation">
                 <div class="project-dossier-top">
-                    <div class="dossier-case-number">CASE // 04</div>
+                    <div class="dossier-case-number">CASE // 06</div>
                     <div class="dossier-stamp stamp-green">[REVERSE ENGINEERED // DEPLOYED]</div>
                 </div>
 
@@ -616,10 +726,10 @@
                 </div>
             </article>
 
-            <!-- PROJECT 5: OpenClaw Framework -->
+            <!-- PROJECT 7: OpenClaw Framework -->
             <article class="project-card featured tactical-box" data-category="automation systems">
                 <div class="project-dossier-top">
-                    <div class="dossier-case-number">CASE // 05</div>
+                    <div class="dossier-case-number">CASE // 07</div>
                     <div class="dossier-stamp stamp-cyan">[INFRASTRUCTURE // ACTIVE ORCHESTRATION]</div>
                 </div>
 
@@ -666,6 +776,102 @@
                 </div>
             </article>
 
+            <!-- PROJECT 8: RSA Driving Test Auto-Booker & Session Keepalive Engine -->
+            <article class="project-card featured tactical-box" data-category="systems">
+                <div class="project-dossier-top">
+                    <div class="dossier-case-number">CASE // 08</div>
+                    <div class="dossier-stamp stamp-green">[STATUS: DELIVERED &amp; PAID &bull; 10/10]</div>
+                </div>
+
+                <div class="project-card-header">
+                    <div class="project-badge system-badge">
+                        <i class="fas fa-gauge-high"></i> HIGH-CONCURRENCY BOT &bull; IRELAND MYGOVID
+                    </div>
+                </div>
+
+                <h3>RSA Driving Test Auto-Booker &amp; Session Keepalive Engine</h3>
+
+                <p class="project-description">
+                    Autonomous high-speed slot reservation daemon for the Irish Road Safety Authority (RSA) driving test booking portal through MyGovID authentication. Resolves strict 2-hour session timeouts with an automated Safety Fuse keepalive loop, integrates TOTP authenticator key generation for 100% headless re-authentication, continuously monitors appointment availability across national test centers, and executes instant sub-second slot reservation with multi-channel Telegram alerts.
+                </p>
+
+                <div class="dossier-telemetry-grid">
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">SESSION_FUSE</span>
+                        <span class="telemetry-val">2-Hour Keepalive &amp; TOTP Re-Auth</span>
+                    </div>
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">SLOT_LATENCY</span>
+                        <span class="telemetry-val">Sub-Second Detection Loop</span>
+                    </div>
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">DEPLOYMENT</span>
+                        <span class="telemetry-val">Ubuntu 24.04 VPS &bull; Systemd Daemon</span>
+                    </div>
+                </div>
+
+                <div class="project-tech-tags">
+                    <span>Python 3.12</span>
+                    <span>Playwright Async</span>
+                    <span>TOTP 2FA</span>
+                    <span>Telegram API</span>
+                    <span>Linux VPS</span>
+                    <span>Systemd</span>
+                </div>
+
+                <div class="project-footer">
+                    <span class="dossier-signoff">// 7 000 UAH SAFE &bull; 10/10 VERIFIED CLIENT RATING</span>
+                </div>
+            </article>
+
+            <!-- PROJECT 9: Horoshop & Monobank Market Automated Catalog & Feed Engine -->
+            <article class="project-card featured tactical-box" data-category="systems saas">
+                <div class="project-dossier-top">
+                    <div class="dossier-case-number">CASE // 09</div>
+                    <div class="dossier-stamp stamp-cyan">[STATUS: PRODUCTION RETAINER &bull; 5.0★]</div>
+                </div>
+
+                <div class="project-card-header">
+                    <div class="project-badge client-badge">
+                        <i class="fas fa-boxes-packing"></i> E-COMMERCE SYNC &bull; HOROSHOP &amp; MONOBANK
+                    </div>
+                </div>
+
+                <h3>Horoshop &amp; Monobank Market Automated Feed &amp; Catalog Engine</h3>
+
+                <p class="project-description">
+                    Production e-commerce data pipeline bridging Horoshop retail infrastructure with Monobank Market (<code class="inline-code">seller.monomarket.ua</code>). Overcomes platform limitations by dynamically generating compliant XML product feeds with over 620 technical parameters extracted directly from store catalogs, along with strict JSON price/stock lists supporting Pay-in-Parts (<code class="inline-code">max_pay_in_parts</code>) and multi-warehouse routing. Powered by automated scrapers and deployed on Vercel CDN.
+                </p>
+
+                <div class="dossier-telemetry-grid">
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">FEED_FORMATS</span>
+                        <span class="telemetry-val">Compliant XML &amp; Monomarket JSON</span>
+                    </div>
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">SYNC_VOLUME</span>
+                        <span class="telemetry-val">Automated Daily Catalog &amp; Pricing</span>
+                    </div>
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">INFRASTRUCTURE</span>
+                        <span class="telemetry-val">Vercel CDN Edge &bull; Instant Cache Flush</span>
+                    </div>
+                </div>
+
+                <div class="project-tech-tags">
+                    <span>Python</span>
+                    <span>Horoshop Platform</span>
+                    <span>XML / JSON ETL</span>
+                    <span>Vercel Edge</span>
+                    <span>BeautifulSoup4</span>
+                    <span>E-Commerce API</span>
+                </div>
+
+                <div class="project-footer">
+                    <span class="dossier-signoff">// 6 500 UAH/MO ACTIVE RETAINER &bull; 5.0★ VERIFIED</span>
+                </div>
+            </article>
+
         </div>
 
         <!-- TIER 2: SECONDARY SYSTEMS GRID -->
@@ -675,8 +881,8 @@
 
         <div class="secondary-projects-grid">
 
-            <article class="project-card compact tactical-box" data-category="automation">
-                <div class="compact-case-num">CASE // 06</div>
+            <article class="project-card compact tactical-box" data-category="automation systems">
+                <div class="compact-case-num">CASE // 12</div>
                 <h4>Freelance Intelligence Scrapers</h4>
                 <p>Automated scraping suite monitoring Freelancehunt and Djinni job boards with Puppeteer and Cheerio. Evaluates project match scores, drafts customized outreach proposals via Gemini API, and dispatches real-time Telegram push alerts.</p>
                 <div class="compact-tech">Node.js &bull; Puppeteer &bull; Cheerio &bull; Telegram API &bull; Gemini API</div>
@@ -688,7 +894,7 @@
             </article>
 
             <article class="project-card compact tactical-box" data-category="saas">
-                <div class="compact-case-num">CASE // 07</div>
+                <div class="compact-case-num">CASE // 13</div>
                 <h4>Commercial E-Shop Platform</h4>
                 <p>Full-stack e-commerce system with decoupled React frontend and Django REST backend. Features secure JWT authentication, relational product filtering, shopping cart state management, and PostgreSQL persistence.</p>
                 <div class="compact-tech">React &bull; Django REST &bull; PostgreSQL &bull; Tailwind CSS</div>
@@ -700,7 +906,7 @@
             </article>
 
             <article class="project-card compact tactical-box" data-category="automation saas">
-                <div class="compact-case-num">CASE // 08</div>
+                <div class="compact-case-num">CASE // 10</div>
                 <h4>Invoice Processing System</h4>
                 <p>Document intelligence application extracting structured financial data from PDF invoices and receipts via Google Gemini API in background workers, featuring a context-aware document chat assistant.</p>
                 <div class="compact-tech">React &bull; Express.js &bull; Prisma ORM &bull; SQLite &bull; Gemini API</div>
@@ -712,7 +918,7 @@
             </article>
 
             <article class="project-card compact tactical-box" data-category="systems saas">
-                <div class="compact-case-num">CASE // 09</div>
+                <div class="compact-case-num">CASE // 11</div>
                 <h4>Bank Statement Analyzer</h4>
                 <p>Interactive web application for parsing and auditing CSV bank statements. Features drag-and-drop ingestion, transaction search, strict Zod schema validation, balance calculations, and Vitest unit testing.</p>
                 <div class="compact-tech">Next.js &bull; PapaParse &bull; Zod &bull; Vitest &bull; Tailwind CSS</div>

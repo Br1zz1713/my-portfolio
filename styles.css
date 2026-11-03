@@ -853,6 +853,38 @@ body {
     color: var(--accent-amber);
 }
 
+.stamp-purple {
+    background-color: rgba(168, 85, 247, 0.12);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    color: #c084fc;
+}
+
+.project-cover-wrap {
+    margin-bottom: 20px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--border-subtle);
+    background-color: #040508;
+    max-height: 320px;
+}
+
+.project-cover-img {
+    width: 100%;
+    height: 100%;
+    max-height: 320px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.project-card.featured:hover .project-cover-img {
+    transform: scale(1.02);
+}
+
+.security-badge {
+    color: #c084fc !important;
+}
+
 .project-badge {
     font-family: var(--font-mono);
     font-size: 0.76rem;
