@@ -201,7 +201,7 @@
                         </div>
                         <div class="identity-row">
                             <span class="id-key">DELIVERY_TRACK</span>
-                            <span class="id-val">Arbitrum DEX (48k UAH) &bull; Reverse Proxies &bull; SaaS</span>
+                            <span class="id-val">Arbitrum DEX (48k UAH) &bull; TON Jettons (8.9k UAH) &bull; Reverse Proxies</span>
                         </div>
                         <div class="identity-row">
                             <span class="id-key">VERIFIED_CHANNELS</span>
@@ -333,6 +333,9 @@
                 </div>
                 <div class="skills-tags">
                     <span class="skill-tag">Rust (2021)</span>
+                    <span class="skill-tag">TON / Tact 1.6+</span>
+                    <span class="skill-tag">@ton/blueprint</span>
+                    <span class="skill-tag">TVM Contracts</span>
                     <span class="skill-tag">Tokio Async</span>
                     <span class="skill-tag">Alloy Primitives</span>
                     <span class="skill-tag">Arbitrum Nitro Node</span>
@@ -860,6 +863,56 @@
                 </div>
             </article>
 
+            <!-- PROJECT 10: TON Jetton Protocol & Anti-Whale Engine -->
+            <article class="project-card featured tactical-box" data-category="web3 systems">
+                <div class="project-dossier-top">
+                    <div class="dossier-case-number">CASE // 10</div>
+                    <div class="dossier-stamp stamp-green">[STATUS: MAINNET LIVE &bull; 5.0★]</div>
+                </div>
+
+                <div class="project-card-header">
+                    <div class="project-badge system-badge">
+                        <i class="fas fa-coins"></i> TON BLOCKCHAIN &bull; TACT 1.6+ &bull; TVM
+                    </div>
+                </div>
+
+                <h3>TON Jetton Protocol with 5-Tier Anti-Whale, Burn &amp; Time-Lock</h3>
+
+                <p class="project-description">
+                    Production-grade decentralized Jetton protocol (TEP-74 / TEP-64) deployed to TON Mainnet (<code class="inline-code">VOLYAUA</code>). Features an immutable 30M hard-cap with an immediate <code class="inline-code">revoke_mint</code> call, an atomic 50/25/25 tokenomics split, an autonomous monthly burn contract (cliff 2027, 36 epochs), and an immutable TVM time-lock vault securing team tokens until 2030. Built-in dynamic 5-tier cascading Anti-Whale state machine enforces max-holding limits (0.3% &rarr; 1.0% &rarr; 3.0% &rarr; 5.0% &rarr; off) calibrated from transaction timestamp <code class="inline-code">T₀</code> to mitigate DEX liquidity snipers.
+                </p>
+
+                <div class="dossier-telemetry-grid">
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">TOKEN_STANDARD</span>
+                        <span class="telemetry-val">TEP-74 / TEP-64 Off-Chain Meta</span>
+                    </div>
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">ANTI_WHALE_FSM</span>
+                        <span class="telemetry-val">5 Cascading Tiers from T₀</span>
+                    </div>
+                    <div class="telemetry-item">
+                        <span class="telemetry-label">TVM_VERIFICATION</span>
+                        <span class="telemetry-val">7/7 Jest Sandbox &bull; 100% Mainnet Clean</span>
+                    </div>
+                </div>
+
+                <div class="project-tech-tags">
+                    <span>Tact 1.6+</span>
+                    <span>TON Blueprint</span>
+                    <span>@ton/sandbox</span>
+                    <span>TypeScript</span>
+                    <span>TVM Bytecode</span>
+                    <span>TonAPI</span>
+                    <span>TEP-74</span>
+                </div>
+
+                <div class="project-footer">
+                    <span class="dossier-signoff">// 8 900 UAH SAFE &bull; 5.0★ VERIFIED &bull; EXPERT BADGE</span>
+                </div>
+            </article>
+
+
         </div>
 
         <!-- TIER 2: SECONDARY SYSTEMS GRID -->
@@ -894,7 +947,7 @@
             </article>
 
             <article class="project-card compact tactical-box" data-category="automation saas">
-                <div class="compact-case-num">CASE // 10</div>
+                <div class="compact-case-num">CASE // 14</div>
                 <h4>Invoice Processing System</h4>
                 <p>Document intelligence application extracting structured financial data from PDF invoices and receipts via Google Gemini API in background workers, featuring a context-aware document chat assistant.</p>
                 <div class="compact-tech">React &bull; Express.js &bull; Prisma ORM &bull; SQLite &bull; Gemini API</div>
@@ -906,7 +959,7 @@
             </article>
 
             <article class="project-card compact tactical-box" data-category="systems saas">
-                <div class="compact-case-num">CASE // 11</div>
+                <div class="compact-case-num">CASE // 15</div>
                 <h4>Bank Statement Analyzer</h4>
                 <p>Interactive web application for parsing and auditing CSV bank statements. Features drag-and-drop ingestion, transaction search, strict Zod schema validation, balance calculations, and Vitest unit testing.</p>
                 <div class="compact-tech">Next.js &bull; PapaParse &bull; Zod &bull; Vitest &bull; Tailwind CSS</div>
