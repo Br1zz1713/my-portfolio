@@ -945,7 +945,36 @@
       transform: translateX(-50%) translateY(0);
     }
 
+    .mobile-footer {
+      display: none;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 48px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    .mobile-footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .mobile-footer-links a {
+      flex: 1 1 auto;
+      justify-content: center;
+    }
+
     @media (max-width: 1024px) {
+      .sidebar-footer {
+        display: none;
+      }
+      .mobile-footer {
+        display: flex;
+      }
+      .hero-actions {
+        margin-bottom: 0;
+      }
       .shell {
         grid-template-columns: 1fr;
         gap: 32px;
@@ -1184,6 +1213,24 @@
           </div>
         </div>
       </section>
+      <footer class="mobile-footer">
+        <div class="mobile-footer-links">
+          <a class="btn-primary" href="https://t.me/eugene_br1zz" target="_blank" rel="noopener" data-i18n="cta_tg">Telegram</a>
+          <a class="btn-secondary" href="https://github.com/Br1zz1713" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn-secondary" href="https://freelancehunt.com/freelancer/berezanskyi09.html" target="_blank" rel="noopener">Freelancehunt &nearr;</a>
+        </div>
+        <button class="footer-email copy-email" type="button" data-email="berezanskyi09@gmail.com">
+          <span>berezanskyi09@gmail.com</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+        </button>
+        <div class="footer-meta">
+          <span>&copy; 2026 Yevhen Berezanskyi</span>
+          <span>Europe &bull; UTC+2</span>
+        </div>
+      </footer>
     </main>
   </div>
 
@@ -1259,8 +1306,8 @@
         review: {
           author: { en: 'Yehor Samoilov • Client', ua: 'Єгор Самойлов • Замовник' },
           text: {
-            en: '“A pleasure to collaborate with. Everything was delivered quickly and with high quality.”',
-            ua: '«Было очень приятно сотрудничать. Все сделано быстро и качественно.»'
+            en: '“A true master of his craft who is always a pleasure to work with. Every single project he took on was delivered professionally, with high quality and speed.”',
+            ua: '«Этот человек настоящий мастер своего дела, с которым всегда приятно сотрудничать! Каждый проект, за который он брался, был выполнен профессионально, качественно и быстро!»'
           }
         },
         tags: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'aiogram 3'],
