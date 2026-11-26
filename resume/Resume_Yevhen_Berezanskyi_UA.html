@@ -1,649 +1,443 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Резюме - Євген Березанський | Systems Architect & Full-Stack Engineer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Євген Березанський · CV</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='1' y='1' width='30' height='30' rx='8' fill='%23111318' stroke='%23ffffff' stroke-opacity='0.18' stroke-width='1.5'/%3E%3Cpath d='M10 9.5L16 17.5L22 9.5M16 17.5V23.5' fill='none' stroke='%23F3F4F6' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --primary: #0f172a;
-      --accent: #2563eb;
-      --accent-dark: #1d4ed8;
-      --text: #1e293b;
-      --text-light: #475569;
-      --muted: #64748b;
-      --border: #cbd5e1;
-      --bg: #ffffff;
+      --bg-page: #F2F1ED;
+      --surface: #FFFFFF;
+      --ink: #111318;
+      --ink-secondary: #374151;
+      --ink-muted: #6B7280;
+      --border: #E5E7EB;
+      --border-strong: #111318;
+      --tag-bg: #F6F6F4;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      color: var(--text);
-      background-color: #f1f5f9;
-      font-size: 9.3pt;
-      line-height: 1.34;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-page);
+      color: var(--ink);
+      font-size: 9.5pt;
+      line-height: 1.48;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Screen-only Controls */
-    .controls {
-      background: #0f172a;
-      color: #fff;
-      padding: 12px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .toolbar {
       position: sticky;
       top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-    .controls .title {
-      font-weight: 600;
-      font-size: 14px;
+      z-index: 100;
+      background: rgba(17, 19, 24, 0.94);
+      backdrop-filter: blur(10px);
+      color: #F3F4F6;
+      padding: 10px 24px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
-    .controls .btn-group {
+
+    .toolbar-left {
       display: flex;
-      gap: 12px;
+      align-items: center;
+      gap: 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #9CA3AF;
     }
-    .btn {
-      background: #2563eb;
-      color: white;
-      border: none;
-      padding: 7px 16px;
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: 600;
+
+    .toolbar-left a {
+      color: #F3F4F6;
+      text-decoration: none;
+      transition: opacity 0.2s var(--ease);
+    }
+    .toolbar-left a:hover { opacity: 0.75; }
+
+    .toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tb-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 12.5px;
+      font-weight: 500;
+      padding: 6px 13px;
+      border-radius: 7px;
       cursor: pointer;
       text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: background 0.15s ease;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: transparent;
+      color: #F3F4F6;
+      transition: all 0.25s var(--ease);
     }
-    .btn:hover {
-      background: #1d4ed8;
+    .tb-btn:hover { background: rgba(255, 255, 255, 0.1); }
+    .tb-btn-primary {
+      background: #F3F4F6;
+      color: #111318;
+      border-color: #F3F4F6;
     }
-    .btn-secondary {
-      background: #334155;
-      color: #f1f5f9;
-    }
-    .btn-secondary:hover {
-      background: #475569;
-    }
+    .tb-btn-primary:hover { background: #E5E7EB; }
 
-    /* Document Sheet */
     .sheet {
       max-width: 820px;
-      margin: 24px auto;
-      background: var(--bg);
-      padding: 32px 42px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      border-radius: 4px;
+      margin: 28px auto 48px;
+      background: var(--surface);
+      padding: 40px 46px;
+      border-radius: 10px;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      box-shadow: 0 18px 48px -24px rgba(15, 23, 42, 0.18);
     }
 
-    /* Header */
-    header {
-      border-bottom: 2px solid var(--primary);
-      padding-bottom: 10px;
-      margin-bottom: 11px;
-    }
-    h1.name {
-      font-size: 20pt;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      color: var(--primary);
-      text-transform: uppercase;
-      line-height: 1.1;
-    }
-    .target-title {
-      font-size: 10.8pt;
-      font-weight: 700;
-      color: var(--accent);
-      margin-top: 3px;
-    }
-    .contacts-bar {
-      margin-top: 8px;
+    .cv-header {
       display: flex;
-      flex-wrap: wrap;
-      gap: 5px 12px;
-      font-size: 8.5pt;
-      color: var(--text-light);
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      padding-bottom: 18px;
+      border-bottom: 1.5px solid var(--border-strong);
+      margin-bottom: 18px;
     }
-    .contacts-bar a {
-      color: var(--accent);
+
+    .cv-name {
+      font-size: 22pt;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+      color: var(--ink);
+    }
+
+    .cv-role {
+      font-size: 10.5pt;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      margin-top: 4px;
+    }
+
+    .cv-meta {
+      text-align: right;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8.3pt;
+      color: var(--ink-secondary);
+      line-height: 1.65;
+    }
+
+    .cv-meta a {
+      color: var(--ink);
       text-decoration: none;
-      font-weight: 600;
+      border-bottom: 1px solid var(--border);
     }
-    .contacts-bar a:hover {
-      text-decoration: underline;
-    }
+    .cv-meta a:hover { border-bottom-color: var(--ink); }
 
-    /* Section styling */
-    section {
-      margin-bottom: 11px;
-    }
-    h2.section-title {
-      font-size: 10pt;
-      font-weight: 800;
+    section { margin-bottom: 18px; }
+    section:last-child { margin-bottom: 0; }
+
+    h2 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8.2pt;
+      font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 0.6px;
-      color: var(--primary);
-      border-bottom: 1.5px solid var(--border);
-      padding-bottom: 3px;
-      margin-bottom: 6px;
+      letter-spacing: 0.1em;
+      color: var(--ink-muted);
+      padding-bottom: 5px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 10px;
     }
 
-    .summary-text {
-      color: var(--text);
-      text-align: justify;
+    .summary {
+      font-size: 9.3pt;
+      color: var(--ink-secondary);
+      line-height: 1.55;
+    }
+
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 22px;
+    }
+
+    .stack-item h3 {
       font-size: 9pt;
-      line-height: 1.38;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 2px;
     }
 
-    /* Skills */
-    .skills-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      font-size: 8.8pt;
-    }
-    .skill-row {
-      display: flex;
-      gap: 8px;
-      line-height: 1.32;
-    }
-    .skill-label {
-      font-weight: 700;
-      color: var(--primary);
-      min-width: 170px;
-      flex-shrink: 0;
-    }
-    .skill-content {
-      color: var(--text);
+    .stack-item p {
+      font-size: 8.6pt;
+      color: var(--ink-secondary);
+      line-height: 1.45;
     }
 
-    /* Projects */
-    .project-card {
-      margin-bottom: 9px;
-      break-inside: avoid;
+    .project {
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--border);
+      page-break-inside: avoid;
     }
-    .project-header {
+    .project:first-of-type { padding-top: 0; }
+    .project:last-of-type { border-bottom: none; padding-bottom: 0; }
+
+    .proj-head {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 2px;
-    }
-    .project-title {
-      font-size: 9.5pt;
-      font-weight: 700;
-      color: var(--primary);
-    }
-    .project-meta {
-      font-size: 8.3pt;
-      font-weight: 600;
-      color: var(--accent);
-    }
-    .project-meta a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    .project-meta a:hover {
-      text-decoration: underline;
-    }
-    .project-tech {
-      font-size: 8.4pt;
-      font-weight: 600;
-      color: var(--text-light);
+      gap: 12px;
       margin-bottom: 3px;
     }
-    .project-bullets {
-      list-style: none;
-      padding-left: 0;
-    }
-    .project-bullets li {
-      position: relative;
-      padding-left: 14px;
-      margin-bottom: 2px;
-      font-size: 8.7pt;
-      color: var(--text);
-      line-height: 1.32;
-    }
-    .project-bullets li::before {
-      content: "•";
-      position: absolute;
-      left: 2px;
-      color: var(--accent);
-      font-weight: bold;
-      font-size: 11pt;
-      line-height: 1;
-      top: 0;
-    }
-    .project-bullets li strong {
-      color: var(--primary);
+
+    .proj-title {
+      font-size: 9.6pt;
       font-weight: 600;
+      color: var(--ink);
     }
 
-    /* Experience */
-    .exp-item {
-      margin-bottom: 7px;
-      break-inside: avoid;
-    }
-    .exp-header {
-      display: flex;
-      justify-content: space-between;
-      font-size: 9.2pt;
-      font-weight: 700;
-      color: var(--primary);
-    }
-    .exp-sub {
-      display: flex;
-      justify-content: space-between;
-      font-size: 8.4pt;
-      color: var(--muted);
-      margin-bottom: 2px;
-      font-weight: 500;
-    }
-    .exp-bullets {
-      list-style: none;
-      padding-left: 0;
-    }
-    .exp-bullets li {
-      position: relative;
-      padding-left: 14px;
-      margin-bottom: 2px;
-      font-size: 8.7pt;
-      color: var(--text);
-      line-height: 1.32;
-    }
-    .exp-bullets li::before {
-      content: "•";
-      position: absolute;
-      left: 2px;
-      color: var(--accent);
-      font-weight: bold;
+    .proj-year {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8pt;
+      color: var(--ink-muted);
+      white-space: nowrap;
     }
 
-    /* Education */
-    .edu-grid {
+    .proj-desc {
+      font-size: 8.8pt;
+      color: var(--ink-secondary);
+      margin-bottom: 5px;
+      line-height: 1.48;
+    }
+
+    .tags {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
       gap: 4px;
     }
-    .edu-item {
-      display: flex;
-      justify-content: space-between;
-      font-size: 8.8pt;
-      line-height: 1.3;
-    }
-    .edu-title {
-      font-weight: 600;
-      color: var(--primary);
-    }
-    .edu-inst {
-      color: var(--text-light);
-    }
-    .edu-year {
-      font-weight: 600;
-      color: var(--muted);
-      flex-shrink: 0;
+
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7.5pt;
+      color: var(--ink-secondary);
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      padding: 1px 6px;
+      border-radius: 4px;
     }
 
-    /* Languages */
-    .lang-row {
-      display: flex;
-      gap: 16px;
-      font-size: 8.7pt;
-      flex-wrap: wrap;
-    }
-    .lang-item {
-      color: var(--text);
-    }
-    .lang-item strong {
-      color: var(--primary);
+    .row {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      gap: 14px;
+      padding: 6px 0;
+      align-items: baseline;
+      page-break-inside: avoid;
     }
 
-    /* STRICT PRINT MEDIA FOR 2-PAGE FIT */
+    .row-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8.1pt;
+      color: var(--ink-muted);
+    }
+
+    .row-title {
+      font-size: 9.3pt;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .row-sub {
+      font-size: 8.6pt;
+      color: var(--ink-secondary);
+      margin-top: 2px;
+    }
+
+    @media (max-width: 680px) {
+      .sheet { margin: 12px; padding: 24px 20px; }
+      .cv-header { flex-direction: column; gap: 12px; }
+      .cv-meta { text-align: left; }
+      .stack-grid, .row { grid-template-columns: 1fr; gap: 4px; }
+    }
+
     @media print {
-      @page {
-        size: A4;
-        margin: 8mm 12mm 7mm 12mm;
-      }
-      body {
-        background: white;
-        font-size: 8.2pt;
-        line-height: 1.25;
-      }
-      .controls {
-        display: none !important;
-      }
+      @page { size: A4; margin: 11mm 12mm; }
+      body { background: #FFFFFF; }
+      .toolbar { display: none !important; }
       .sheet {
-        box-shadow: none;
-        padding: 0;
+        max-width: none;
         margin: 0;
-        max-width: 100%;
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
       }
-      header {
-        margin-bottom: 7px;
-        padding-bottom: 5px;
-      }
-      h1.name {
-        font-size: 16.5pt;
-      }
-      .target-title {
-        font-size: 9.3pt;
-        margin-top: 1px;
-      }
-      .contacts-bar {
-        margin-top: 4px;
-        font-size: 7.7pt;
-        gap: 3px 8px;
-      }
-      section {
-        margin-bottom: 6px;
-      }
-      h2.section-title {
-        font-size: 8.8pt;
-        padding-bottom: 2px;
-        margin-bottom: 3.5px;
-        margin-top: 0;
-      }
-      .summary-text {
-        font-size: 8pt;
-        line-height: 1.26;
-      }
-      .skills-grid {
-        gap: 2.2px;
-        font-size: 7.8pt;
-      }
-      .skill-row {
-        gap: 5px;
-        line-height: 1.2;
-      }
-      .skill-label {
-        min-width: 145px;
-      }
-      .project-card {
-        margin-bottom: 5.5px;
-      }
-      .project-title {
-        font-size: 8.6pt;
-      }
-      .project-meta {
-        font-size: 7.6pt;
-      }
-      .project-tech {
-        font-size: 7.7pt;
-        margin-bottom: 1.5px;
-      }
-      .project-bullets li {
-        font-size: 7.8pt;
-        line-height: 1.22;
-        margin-bottom: 1px;
-      }
-      .exp-item {
-        margin-bottom: 4.5px;
-      }
-      .exp-header {
-        font-size: 8.4pt;
-      }
-      .exp-sub {
-        font-size: 7.6pt;
-        margin-bottom: 1px;
-      }
-      .exp-bullets li {
-        font-size: 7.8pt;
-        line-height: 1.2;
-        margin-bottom: 1px;
-      }
-      .edu-grid {
-        gap: 2px;
-      }
-      .edu-item {
-        font-size: 7.8pt;
-        line-height: 1.2;
-      }
-      .lang-row {
-        font-size: 7.9pt;
-        gap: 10px;
-      }
-      .page-break {
-        page-break-before: always;
-        break-before: page;
-        padding-top: 2px;
-      }
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-      .contacts-bar a {
-        color: var(--primary);
-        font-weight: 600;
-      }
+      a { color: var(--ink) !important; text-decoration: none !important; border-bottom: none !important; }
     }
   </style>
 </head>
 <body>
-
-  <div class="controls">
-    <div class="title">
-      <span>📄 Євген Березанський — Резюме (UA)</span>
-      <span style="font-size: 11px; opacity: 0.75; font-weight: normal;">Готовий до друку 2-сторінковий формат А4</span>
+  <div class="toolbar">
+    <div class="toolbar-left">
+      <a href="../index.html">&larr; Портфоліо</a>
+      <span>/</span>
+      <span>CV (UA)</span>
     </div>
-    <div class="btn-group">
-      <a href="Resume_Yevhen_Berezanskyi_EN.html" class="btn btn-secondary">🇬🇧 English Version</a>
-      <button onclick="window.print()" class="btn">🖨️ Друк / Зберегти як PDF (Ctrl + P)</button>
+    <div class="toolbar-actions">
+      <a class="tb-btn" href="Resume_Yevhen_Berezanskyi_EN.html">EN</a>
+      <button class="tb-btn tb-btn-primary" type="button" onclick="window.print()">Зберегти PDF / Друк</button>
     </div>
   </div>
 
-  <div class="sheet">
-    <!-- PAGE 1 -->
-    <header>
-      <h1 class="name">ЄВГЕН БЕРЕЗАНСЬКИЙ</h1>
-      <div class="target-title">Systems Architect & Full-Stack Engineer (Rust / TypeScript / Web3)</div>
-      <div class="contacts-bar">
-        <span>📍 Одеса, Україна (Віддалена робота / Релокація)</span>
-        <span>📧 <a href="mailto:berezanskyi09@gmail.com">berezanskyi09@gmail.com</a></span>
-        <span>📱 <a href="https://wa.me/+40750266672">+40 750 266 672</a></span>
-        <span>💬 Telegram: <a href="https://t.me/eugene_br1zz" target="_blank">@eugene_br1zz</a></span>
-        <span>🌐 <a href="https://br1zz1713.github.io/my-portfolio/" target="_blank">Портфоліо</a></span>
-        <span>🔗 <a href="https://github.com/Br1zz1713" target="_blank">GitHub</a></span>
-        <span>💼 <a href="https://freelancehunt.com/freelancer/berezanskyi09.html" target="_blank">Freelancehunt (100% 5.0★)</a></span>
+  <main class="sheet">
+    <header class="cv-header">
+      <div>
+        <h1 class="cv-name">Євген Березанський</h1>
+        <div class="cv-role">Systems &amp; Full-Stack інженер</div>
+      </div>
+      <div class="cv-meta">
+        <div>Європа &bull; UTC+2</div>
+        <div><a href="mailto:berezanskyi09@gmail.com">berezanskyi09@gmail.com</a></div>
+        <div><a href="https://t.me/eugene_br1zz" target="_blank" rel="noopener">t.me/eugene_br1zz</a> &bull; <a href="https://github.com/Br1zz1713" target="_blank" rel="noopener">github.com/Br1zz1713</a></div>
+        <div><a href="https://br1zz1713.github.io/my-portfolio/" target="_blank" rel="noopener">br1zz1713.github.io/my-portfolio</a></div>
       </div>
     </header>
 
     <section>
-      <h2 class="section-title">Професійний Профіль (Summary)</h2>
-      <p class="summary-text">Архітектор високопродуктивних систем і Full-Stack інженер із практичним досвідом проектування низьколатентних розподілених систем на <strong>Rust</strong>, комерційних SaaS-платформ на <strong>TypeScript / Next.js</strong>, а також реверс-інжинірингу корпоративної мережевої інфраструктури. Доведений успішний досвід розробки критично важливих рішень: від ончейн <strong>DEX-арбітражного ядра для Arbitrum One</strong> з мікросекундним часом обробки тіків (<code>0–1 мкс</code>), до високонавантажених <strong>зворотних проксі-серверів мультисесійного доступу</strong> та масштабованих веб-сервісів. Прихильник архітектур із нульовим виділенням динамічної пам'яті (zero-allocation), детермінованих кінцевих автоматів, ізоляції процесів на рівні ядра ОС Linux та надійності, підтвердженої юніт-тестами.</p>
+      <h2>Профіль</h2>
+      <p class="summary">
+        Незалежний Systems та Full-Stack інженер. Спеціалізуюся на швидкісній торговій інфраструктурі на Rust, смарт-контрактах TON, відмовостійких платформах автоматизації бронювань та комерційних веб-продуктах. Понад 15 закритих комерційних контрактів (рейтинг 4.9/5) від проєктування архітектури та харденингу Linux-серверів до бойового деплою.
+      </p>
     </section>
 
     <section>
-      <h2 class="section-title">Технічні Навички (Tech Stack)</h2>
-      <div class="skills-grid">
-        
-      <div class="skill-row">
-        <div class="skill-label">Мови програмування:</div>
-        <div class="skill-content">Rust (Edition 2021), TypeScript, JavaScript (ES6+), Solidity (0.8.24), Python, SQL, HTML5, CSS3</div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-label">Системне програмування:</div>
-        <div class="skill-content">Tokio (Async Runtime), примітиви Alloy (U256, Address, B256), потокове декодування WebSocket, Zero-Heap Allocation гарячого циклу (hot path), арифметика з фіксованою комою (Q96), мікросекундна телеметрія (tracing)</div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-label">Web3 & Blockchain:</div>
-        <div class="skill-content">Arbitrum One (L2), синхронізація локальної ноди Arbitrum Nitro, Uniswap V3, Camelot V3 (Algebra), Flash Swaps, On-Chain Revert Guards, оптимізація пріоритетних комісій секвенсера (MEV), EVM, смарт-контракти</div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-label">Full-Stack & Backend:</div>
-        <div class="skill-content">Node.js (Express, Fastify), Next.js (App Router), React, Django REST Framework, PostgreSQL, Supabase (Auth, RLS), Prisma ORM, RESTful APIs</div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-label">DevOps, Безпека & ОС:</div>
-        <div class="skill-content">Linux (Ubuntu Server, сендбоксинг служб Systemd, захист UFW, Hetzner Bare-Metal), Docker / Docker Compose, Windows Server 2019, зворотні проксі (http-proxy-middleware), Git, GitHub Actions (CI/CD), Vercel</div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-label">Інтеграції та API:</div>
-        <div class="skill-content">Stripe API (білінг за використанням і вебхуки), Google Gemini API (інтеграція LLM), WebSockets, JWT-аутентифікація (HttpOnly Cookies)</div>
-      </div>
-    
+      <h2>Основний стек</h2>
+      <div class="stack-grid">
+        <div class="stack-item">
+          <h3>Системи та блокчейн</h3>
+          <p>Rust (Tokio, Alloy), Solidity 0.8, Tact 1.6 (TON / TVM), Arbitrum Nitro Node, Ubuntu Linux, systemd, Docker, UFW.</p>
+        </div>
+        <div class="stack-item">
+          <h3>Бекенд та автоматизація</h3>
+          <p>Python 3.12 (FastAPI, aiogram 3, Playwright, curl_cffi), Node.js (Express, реверс-проксі), PostgreSQL, Redis, SQLite.</p>
+        </div>
+        <div class="stack-item">
+          <h3>Фронтенд та SaaS</h3>
+          <p>TypeScript, Next.js, React, Tailwind CSS, Vanilla JS/CSS, Supabase, Stripe billing, Vercel.</p>
+        </div>
+        <div class="stack-item">
+          <h3>Інтеграції та AI</h3>
+          <p>Telegram Bot API &amp; MTProto (Telethon), XML/JSON e-commerce фіди, Horoshop, Monobank Market, Gemini &amp; Claude API.</p>
+        </div>
       </div>
     </section>
 
     <section>
-      <h2 class="section-title">Ключові Комерційні Проєкти</h2>
-      
-      <div class="project-card">
-        <div class="project-header">
-          <span class="project-title">Arbitrum One Cross-DEX Arbitrage Engine & Nitro Node</span>
-          <span class="project-meta">Комерційний контракт | 48 000 грн (Freelancehunt)</span>
-        </div>
-        <div class="project-tech">Стек: Rust (Tokio, Alloy), Solidity, Docker, Systemd, Arbitrum Nitro, Hetzner Dedicated (Ubuntu 24.04)</div>
-        <ul class="project-bullets">
-          <li><strong>Високочастотне ядро:</strong> Спроектував систему міжбіржового арбітражу з ультранизькою затримкою в мережі Arbitrum One, що відстежує пули концентрованої ліквідності <strong>Uniswap V3</strong> та <strong>Camelot V3</strong> (Algebra) для пар USDT/USDC.</li>
-          <li><strong>Мікросекундна Latency (0–1 мкс):</strong> Реалізував гарячий цикл із нульовими аллокаціями в купі на базі стекових структур <code>alloy::primitives</code> (U256, Address, B256) та кільцевих буферів Tokio (mpsc), забезпечивши обробку за <strong>0–1 мікросекунду</strong>.</li>
-          <li><strong>Fixed-Point точність та смарт-контракт:</strong> Задіяв цілочисельну Q96 арифметику (0% похибки). Розробив контракт <code>ArbitrageExecutor.sol</code> (Flash Swaps, Sequencer Priority Fee, атомарний <strong>On-Chain Revert Guard</strong> від збитків при прослизанні).</li>
-          <li><strong>Інфраструктура ноди та ізоляція:</strong> Синхронізував ноду Arbitrum Nitro в Docker на NVMe RAID0. Ізолював службу в Systemd на рівні ядра Linux (<code>ProtectSystem=full</code>, <code>PrivateTmp</code>, <code>NoNewPrivileges</code>, UFW). Здано 5 етапів (10/10), 38/38 тестів.</li>
-        </ul>
-      </div>
-    
-      
-      <div class="project-card">
-        <div class="project-header">
-          <span class="project-title">Корпоративний реверс-проксі мультисесійного доступу</span>
-          <span class="project-meta">Enterprise Infrastructure Solution</span>
-        </div>
-        <div class="project-tech">Стек: Node.js, Express, http-proxy-middleware, Windows Server 2019, PowerShell</div>
-        <ul class="project-bullets">
-          <li><strong>Архітектура зворотного проксі:</strong> Створив внутрішній тунелюючий проксі для одночасної багатокористувацької роботи з захищеним односесійним SPA-каталогом з нормалізацією кукі, User-Agent і заголовків через локальний HTTP.</li>
-          <li><strong>Двостороння синхронізація та вирішення конфліктів:</strong> Забезпечив синхронізацію <code>localStorage</code>, <code>sessionStorage</code> та Envoy-токенів у реальному часі. Усунув безкінечні редиректи (<code>/portal-ui</code>) через звірку timestamp.</li>
-          <li><strong>Відмовостійкість:</strong> Розгорнув як авто-відновлювану службу Windows Server 2019 з дебаунсингом запису на диск (1000 мс), перехопленням помилок сокетів та самовідновленням при кодах 401/403.</li>
-        </ul>
-      </div>
-    
-    </section>
+      <h2>Ключові комерційні проєкти</h2>
 
-    <!-- STRICT 2-PAGE BREAK -->
-    <div class="page-break"></div>
+      <article class="project">
+        <div class="proj-head">
+          <span class="proj-title">Арбітражний двигун Arbitrum DEX та Solidity Guard</span>
+          <span class="proj-year">2026</span>
+        </div>
+        <p class="proj-desc">Крос-DEX арбітраж на Rust (Tokio + Alloy) для Uniswap V3 та Camelot V3 через WebSocket поруч із локальною нодою Arbitrum Nitro. У парі з Solidity 0.8.24 flash-swap контрактом (атомарний відкат при прослизанні) та повним харденингом сервера на Hetzner (systemd sandbox + UFW).</p>
+        <div class="tags">
+          <span class="tag">Rust</span><span class="tag">Solidity 0.8</span><span class="tag">Arbitrum Nitro</span><span class="tag">Uniswap V3</span><span class="tag">Linux</span>
+        </div>
+      </article>
 
-    <section>
-      
-      <div class="project-card">
-        <div class="project-header">
-          <span class="project-title">PropText.ai — Мультиорендна AI SaaS-платформа для нерухомості</span>
-          <span class="project-meta"><a href="https://prop-text-ai.vercel.app" target="_blank">prop-text-ai.vercel.app</a></span>
+      <article class="project">
+        <div class="proj-head">
+          <span class="proj-title">TON DeFi Jetton та автоматизація Ston.fi v2</span>
+          <span class="proj-year">2026</span>
         </div>
-        <div class="project-tech">Стек: Next.js (App Router), TypeScript, Supabase (PostgreSQL, Auth, RLS), Stripe API, Google Gemini API, Tailwind CSS</div>
-        <ul class="project-bullets">
-          <li><strong>Архітектура SaaS-рішення:</strong> Спроєктував та розгорнув хмарну платформу для агентств нерухомості, що автоматизує генерацію висококонверсійних описів об'єктів за допомогою штучного інтелекту.</li>
-          <li><strong>Білінгова інфраструктура:</strong> Інтегрував платежі Stripe та обробку вебхуків для гібридної моделі монетизації (підписки + поштучна покупка кредитів) з атомарним перерахунком балансу та захистом від шахрайства.</li>
-          <li><strong>Конвеєр взаємодії з LLM:</strong> Налаштував роботу з Google Gemini API з динамічною ротацією ключів, захистом від лімітів частоти запитів (rate-limiting) та контекстно оптимізованими промптами.</li>
-          <li><strong>Генерація документів & Безпека:</strong> Розробив клієнтський генератор PDF-презентацій з підтримкою Unicode. Захистив доступ через Supabase Auth з політиками PostgreSQL RLS та валідацією Zod.</li>
-        </ul>
-      </div>
-    
-      
-      <div class="project-card">
-        <div class="project-header">
-          <span class="project-title">Commercial E-Shop — Високопродуктивний інтернет-магазин</span>
-          <span class="project-meta"><a href="https://ecoshop-alpha.vercel.app" target="_blank">ecoshop-alpha.vercel.app</a></span>
+        <p class="proj-desc">Смарт-контракти TEP-74 на Tact 1.6 із податками 2%/5% на Ston.fi v2 (0% P2P), 5-рівневим Anti-Whale, Time-Lock до 2030 року, Burn-контрактом та Ubuntu cron-дистриб'ютором через Highload Wallet до 200 виплат за транзакцію.</p>
+        <div class="tags">
+          <span class="tag">Tact 1.6</span><span class="tag">TON / TVM</span><span class="tag">Ston.fi v2</span><span class="tag">TypeScript</span>
         </div>
-        <div class="project-tech">Стек: React (Vite), Django REST Framework, PostgreSQL, Tailwind CSS, JWT</div>
-        <ul class="project-bullets">
-          <li><strong>Full-Stack реалізація:</strong> Розробив комерційну платформу електронної комерції з динамічною фільтрацією товарів (за категоріями, ціною, наявністю), кошиком покупок у реальному часі та оформленням замовлень.</li>
-          <li><strong>Захищена автентифікація:</strong> Впровадив авторизацію на базі JWT із використанням HttpOnly, SameSite-strict cookies для надійного захисту від атак XSS та CSRF.</li>
-          <li><strong>Оптимізація бази даних:</strong> Спроєктував реляційну схему PostgreSQL з оптимізованими Django querysets, індексами та серіалізацією REST, досягнувши часу відповіді API до 50 мс.</li>
-        </ul>
-      </div>
-    
+      </article>
+
+      <article class="project">
+        <div class="proj-head">
+          <span class="proj-title">Платформа бронювання SlotBooker</span>
+          <span class="proj-year">2026</span>
+        </div>
+        <p class="proj-desc">Модульна платформа на FastAPI + PostgreSQL + Redis із ротацією ISP-проксі, моніторингом черг у реальному часі, адмінкою суперакаунтів RBAC, динамічним керуванням тарифами та Telegram-кабінетом клієнта.</p>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">aiogram 3</span>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="proj-head">
+          <span class="proj-title">Автобронювання RSA (Ірландія)</span>
+          <span class="proj-year">2026</span>
+        </div>
+        <p class="proj-desc">Автономний headless-демон бронювання іспитів у Ірландії. Утримує 2-годинну сесію MyGovID через автоматичний keepalive та TOTP 2FA повторну авторизацію, перехоплює слоти за частки секунди.</p>
+        <div class="tags">
+          <span class="tag">Python 3.12</span><span class="tag">Playwright</span><span class="tag">TOTP 2FA</span><span class="tag">systemd</span>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="proj-head">
+          <span class="proj-title">Фіди Horoshop &amp; Monobank Market / PropText.ai SaaS / Partslink24 Proxy</span>
+          <span class="proj-year">2025 - 2026</span>
+        </div>
+        <p class="proj-desc">Python ETL-пайплайн на 620+ характеристик для XML/JSON-фідів на Vercel CDN (активна підтримка); комерційний SaaS на Next.js + Supabase + Stripe + Gemini (proptext.online); Node.js реверс-проксі під Windows Server для спільної роботи кількох операторів в одній JWT-сесії.</p>
+        <div class="tags">
+          <span class="tag">Next.js</span><span class="tag">Supabase</span><span class="tag">Stripe</span><span class="tag">Node.js</span><span class="tag">Vercel</span>
+        </div>
+      </article>
     </section>
 
     <section>
-      <h2 class="section-title">Професійний Досвід</h2>
-      
-      <div class="exp-item">
-        <div class="exp-header">
-          <span>Systems & Full-Stack Freelance Engineer</span>
-          <span>2023 — Теперішній час</span>
-        </div>
-        <div class="exp-sub">
-          <span>Freelancehunt / Прямі комерційні контракти</span>
-          <span>Віддалено / Контракт</span>
-        </div>
-        <ul class="exp-bullets">
-          <li>Проєктування та розгортання високопродуктивних бекенд-демонів, Web3-арбітражних систем із низькою затримкою та корпоративних проксі-серверів для клієнтів в Україні та Європі.</li>
-          <li>Досяг <strong>100% 5-зіркового рейтингу</strong> за всіма безпечними угодами на Freelancehunt, включаючи багатоетапні проєкти із загальним бюджетом понад 48 000 грн.</li>
-          <li>Тісна співпраця із замовниками щодо формування детальних технічних завдань (ТЗ), впровадження детермінованих тестів та адміністрування виділених серверів (Ubuntu 24.04, Hetzner, Windows Server).</li>
-        </ul>
-      </div>
-      <div class="exp-item">
-        <div class="exp-header">
-          <span>Web Developer (Стажування)</span>
-          <span>2024 (6 місяців)</span>
-        </div>
-        <div class="exp-sub">
-          <span>Marine Plast Center / IT-стажування</span>
-          <span>Одеса, Україна</span>
-        </div>
-        <ul class="exp-bullets">
-          <li>Розробка реактивних компонентів інтерфейсу на React, Tailwind CSS та сучасному JavaScript, оптимізація швидкості завантаження сторінок та чуйності UI.</li>
-          <li>Участь у щоденних мітингах за методологією Agile/Scrum, автоматизованому регресійному тестуванні, код-рев'ю та Git flow.</li>
-        </ul>
-      </div>
-    
-    </section>
-
-    <section>
-      <h2 class="section-title">Освіта</h2>
-      <div class="edu-grid">
-        
-      <div class="edu-item">
+      <h2>Досвід роботи</h2>
+      <div class="row">
+        <div class="row-date">2023 - Дотепер</div>
         <div>
-          <span class="edu-title">Магістр комп'ютерних наук / Інформаційні технології</span> — 
-          <span class="edu-inst">Одеський національний університет імені І. І. Мечникова</span>
+          <div class="row-title">Незалежний Systems &amp; Full-Stack інженер</div>
+          <div class="row-sub">Розробка під ключ для Web3, e-commerce та європейських сервісів автоматизації. 15+ закритих угод у Сейфі з рейтингом 4.9/5.</div>
         </div>
-        <div class="edu-year">2023 — 2024</div>
       </div>
-      <div class="edu-item">
+      <div class="row">
+        <div class="row-date">2023 - 2024</div>
         <div>
-          <span class="edu-title">Бакалавр прикладної комп'ютеризованої екології та ІТ</span> — 
-          <span class="edu-inst">Одеський державний екологічний університет</span>
+          <div class="row-title">Стажування Full-Stack / Web Systems</div>
+          <div class="row-sub">КП «Marine Plast Center» та Time Pro. Внутрішні інструменти автоматизації, REST API, оптимізація баз даних та фронтенд.</div>
         </div>
-        <div class="edu-year">2021 — 2023</div>
-      </div>
-      <div class="edu-item">
-        <div>
-          <span class="edu-title">Молодший спеціаліст з інженерії програмного забезпечення (Технік-програміст)</span> — 
-          <span class="edu-inst">Фаховий коледж комп'ютерних технологій ОДЕКУ</span>
-        </div>
-        <div class="edu-year">2017 — 2021</div>
-      </div>
-    
       </div>
     </section>
 
     <section>
-      <h2 class="section-title">Мови</h2>
-      <div class="lang-row">
-        
-      <div class="lang-item"><strong>Українська:</strong> Рідна (Native).</div>
-      <div class="lang-item"><strong>Англійська:</strong> Upper-Intermediate / Technical (B1/B2) — вільне читання документації, рев'ю коду, ділове листування та спілкування.</div>
-      <div class="lang-item"><strong>Російська:</strong> Вільно.</div>
-    
+      <h2>Освіта</h2>
+      <div class="row">
+        <div class="row-date">2023 - 2024</div>
+        <div>
+          <div class="row-title">Одеський національний університет ім. І. І. Мечникова</div>
+          <div class="row-sub">Інформаційні технології та програмні системи. Алгоритми, розподілені обчислення та верифікація ПЗ.</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row-date">2021 - 2023</div>
+        <div>
+          <div class="row-title">Одеський державний екологічний університет (ОДЕКУ)</div>
+          <div class="row-sub">Комп'ютерні науки та інформаційні технології. Теорія баз даних, комп'ютерні системи та обчислювальні методи.</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row-date">2017 - 2021</div>
+        <div>
+          <div class="row-title">Одеський фаховий коледж комп'ютерних технологій</div>
+          <div class="row-sub">Комп'ютерна інженерія, мережі та апаратна архітектура. Адміністрування LAN, маршрутизація та діагностика заліза.</div>
+        </div>
       </div>
     </section>
-  </div>
-
+  </main>
 </body>
 </html>

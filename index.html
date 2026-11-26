@@ -436,6 +436,12 @@
       color: var(--text-primary);
     }
 
+    .footer-links-inline {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
     /* Right Scrollable Column */
     .content {
       padding: 44px 0 96px;
@@ -1106,7 +1112,10 @@
         </button>
         <div class="footer-meta">
           <span>&copy; 2026 Yevhen Berezanskyi</span>
-          <a href="https://freelancehunt.com/freelancer/berezanskyi09.html" target="_blank" rel="noopener">Freelancehunt &nearr;</a>
+          <span class="footer-links-inline">
+            <a class="cv-link" href="resume/Resume_Yevhen_Berezanskyi_EN.html" target="_blank" rel="noopener">CV &nearr;</a>
+            <a href="https://freelancehunt.com/freelancer/berezanskyi09.html" target="_blank" rel="noopener">Freelancehunt &nearr;</a>
+          </span>
         </div>
       </div>
     </aside>
@@ -1217,6 +1226,7 @@
         <div class="mobile-footer-links">
           <a class="btn-primary" href="https://t.me/eugene_br1zz" target="_blank" rel="noopener" data-i18n="cta_tg">Telegram</a>
           <a class="btn-secondary" href="https://github.com/Br1zz1713" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn-secondary cv-link" href="resume/Resume_Yevhen_Berezanskyi_EN.html" target="_blank" rel="noopener">CV &nearr;</a>
           <a class="btn-secondary" href="https://freelancehunt.com/freelancer/berezanskyi09.html" target="_blank" rel="noopener">Freelancehunt &nearr;</a>
         </div>
         <button class="footer-email copy-email" type="button" data-email="berezanskyi09@gmail.com">
@@ -1558,6 +1568,10 @@
         if (dict[key]) el.textContent = dict[key];
       });
       document.getElementById('langToggle').textContent = currentLang === 'en' ? 'UA' : 'EN';
+      const cvHref = currentLang === 'ua'
+        ? 'resume/Resume_Yevhen_Berezanskyi_UA.html'
+        : 'resume/Resume_Yevhen_Berezanskyi_EN.html';
+      document.querySelectorAll('.cv-link').forEach(a => a.setAttribute('href', cvHref));
       renderCases();
     }
 
