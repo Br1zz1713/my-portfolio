@@ -130,10 +130,44 @@
     }
 
     .top-bar {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: 164px 1fr;
+      gap: 20px;
+      align-items: stretch;
       margin-bottom: 24px;
+    }
+
+    .top-right-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .side-metrics {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      transition: border-color 0.4s var(--ease-soft);
+    }
+
+    .side-metric-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .side-metric-row .metric-val {
+      font-size: 13.5px;
+    }
+
+    .side-metric-row .metric-lbl {
+      font-size: 11px;
+      margin-top: 0;
     }
 
     /* Clean Portrait Frame */
@@ -977,9 +1011,25 @@
           <div class="avatar-wrap" id="avatarTrigger" title="Yevhen Berezanskyi">
             <img class="avatar-img" src="images/yevhen-pro-studio.jpg" alt="Yevhen Berezanskyi" />
           </div>
-          <div class="controls">
-            <button class="pill-btn" id="langToggle" type="button">UA</button>
-            <button class="pill-btn" id="themeToggle" type="button">Light</button>
+          <div class="top-right-col">
+            <div class="controls">
+              <button class="pill-btn" id="langToggle" type="button">UA</button>
+              <button class="pill-btn" id="themeToggle" type="button">Light</button>
+            </div>
+            <div class="side-metrics">
+              <div class="side-metric-row">
+                <span class="metric-lbl" data-i18n="m_1">Contracts</span>
+                <span class="metric-val">15+</span>
+              </div>
+              <div class="side-metric-row">
+                <span class="metric-lbl" data-i18n="m_2">Client Rating</span>
+                <span class="metric-val">4.9 / 5</span>
+              </div>
+              <div class="side-metric-row">
+                <span class="metric-lbl" data-i18n="m_3">Europe</span>
+                <span class="metric-val">UTC+2</span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -995,21 +1045,6 @@
           <a class="btn-primary" href="https://t.me/eugene_br1zz" target="_blank" rel="noopener" data-i18n="cta_tg">Telegram</a>
           <button class="btn-secondary copy-email" type="button" data-email="berezanskyi09@gmail.com" data-i18n="cta_email">Email</button>
           <a class="btn-secondary" href="https://github.com/Br1zz1713" target="_blank" rel="noopener">GitHub</a>
-        </div>
-
-        <div class="metrics anim-enter delay-3">
-          <div>
-            <div class="metric-val">15+</div>
-            <div class="metric-lbl" data-i18n="m_1">Contracts</div>
-          </div>
-          <div>
-            <div class="metric-val">4.9 / 5</div>
-            <div class="metric-lbl" data-i18n="m_2">Client Rating</div>
-          </div>
-          <div>
-            <div class="metric-val">UTC+2</div>
-            <div class="metric-lbl" data-i18n="m_3">Europe</div>
-          </div>
         </div>
 
         <nav class="side-nav anim-enter delay-4">
