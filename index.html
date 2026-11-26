@@ -1,1076 +1,1562 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Yevhen Berezanskyi — Systems Architect & Full-Stack Engineer. High-throughput Rust Arbitrum Nitro engines, enterprise reverse engineering, session proxies, and production SaaS platforms.">
-    <meta name="author" content="Yevhen Berezanskyi">
-    <title>Yevhen Berezanskyi // Systems Architect & Full-Stack Engineer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.min.css?v=3.6.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Yevhen Berezanskyi | Systems & Full-Stack Engineer. Rust low-latency trading engines, TON smart contracts, booking automation platforms, and commercial web apps." />
+  <meta name="author" content="Yevhen Berezanskyi" />
+  <meta property="og:title" content="Yevhen Berezanskyi | Systems & Full-Stack Engineer" />
+  <meta property="og:description" content="Rust trading engines, TON smart contracts, booking automation platforms, and commercial web apps." />
+  <meta property="og:image" content="images/yevhen-pro-studio.jpg" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230B0C0E'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' fill='%23F3F4F6' font-family='sans-serif' font-size='14' font-weight='600'%3EYB%3C/text%3E%3C/svg%3E" />
+  <title>Yevhen Berezanskyi | Systems &amp; Full-Stack Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0B0C0E;
+      --bg-glow: radial-gradient(900px 500px at 75% -10%, rgba(255, 255, 255, 0.035), transparent 70%);
+      --surface: #121419;
+      --surface-hover: #171A21;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.17);
+      --text-primary: #F3F4F6;
+      --text-secondary: #9CA3AF;
+      --text-muted: #646B78;
+      --accent: #E5E7EB;
+      --tag-bg: rgba(255, 255, 255, 0.04);
+      --card-shadow: 0 12px 30px -16px rgba(0, 0, 0, 0.65);
+      --avatar-shadow: 0 10px 26px -10px rgba(0, 0, 0, 0.7);
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+      --ease-soft: cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    [data-theme="light"] {
+      --bg: #FAF9F6;
+      --bg-glow: radial-gradient(900px 500px at 75% -10%, rgba(15, 23, 42, 0.03), transparent 70%);
+      --surface: #FFFFFF;
+      --surface-hover: #F5F4F0;
+      --border: rgba(15, 23, 42, 0.09);
+      --border-strong: rgba(15, 23, 42, 0.19);
+      --text-primary: #111318;
+      --text-secondary: #4B5563;
+      --text-muted: #848C99;
+      --accent: #1F242D;
+      --tag-bg: rgba(15, 23, 42, 0.04);
+      --card-shadow: 0 14px 32px -18px rgba(15, 23, 42, 0.14);
+      --avatar-shadow: 0 12px 24px -10px rgba(15, 23, 42, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background: var(--bg);
+      background-image: var(--bg-glow);
+      background-attachment: fixed;
+      color: var(--text-primary);
+      transition: background-color 0.4s var(--ease-soft), color 0.4s var(--ease-soft);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Keyframes for soft entrance & filter glide */
+    @keyframes softRise {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .anim-enter {
+      opacity: 0;
+      animation: softRise 0.65s var(--ease-out) forwards;
+    }
+
+    .delay-1 { animation-delay: 0.05s; }
+    .delay-2 { animation-delay: 0.12s; }
+    .delay-3 { animation-delay: 0.19s; }
+    .delay-4 { animation-delay: 0.26s; }
+
+    /* Scroll reveal for sections below the fold */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.65s var(--ease-out), transform 0.65s var(--ease-out);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Full-width balanced split layout (1240px) */
+    .shell {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 36px;
+      display: grid;
+      grid-template-columns: 380px minmax(0, 1fr);
+      gap: 72px;
+      align-items: start;
+    }
+
+    /* Left Sticky Sidebar (Photo + Identity + Nav + Stats + Contact) */
+    .sidebar {
+      position: sticky;
+      top: 0;
+      min-height: 100vh;
+      padding: 44px 0 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    /* Clean Portrait Frame */
+    .avatar-wrap {
+      width: 82px;
+      height: 82px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      box-shadow: var(--avatar-shadow);
+      background: var(--surface);
+      transition: transform 0.45s var(--ease-out), border-color 0.35s var(--ease-soft), box-shadow 0.45s var(--ease-out);
+      cursor: pointer;
+    }
+
+    .avatar-wrap:hover {
+      transform: translateY(-2px) scale(1.025);
+      border-color: var(--accent);
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 14%;
+      display: block;
+      transition: transform 0.6s var(--ease-out);
+    }
+
+    .avatar-wrap:hover .avatar-img {
+      transform: scale(1.04);
+    }
+
+    .controls {
+      display: flex;
+      gap: 6px;
+      padding-top: 2px;
+    }
+
+    .pill-btn {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      color: var(--text-secondary);
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 5px 10px;
+      cursor: pointer;
+      transition: color 0.25s var(--ease-soft), border-color 0.25s var(--ease-soft), background-color 0.25s var(--ease-soft), transform 0.2s var(--ease-out);
+    }
+
+    .pill-btn:hover {
+      color: var(--text-primary);
+      border-color: var(--border-strong);
+      background: var(--surface);
+    }
+
+    .pill-btn:active {
+      transform: scale(0.96);
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .role {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 14px;
+      opacity: 0.88;
+    }
+
+    .subtitle {
+      font-size: 14.5px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 26px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--text-primary);
+      color: var(--bg);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 9px 16px;
+      border-radius: 8px;
+      transition: opacity 0.28s var(--ease-soft), transform 0.28s var(--ease-out), background-color 0.35s var(--ease-soft), color 0.35s var(--ease-soft);
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0) scale(0.98);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 9px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.28s var(--ease-soft), border-color 0.28s var(--ease-soft), transform 0.28s var(--ease-out);
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface);
+      border-color: var(--border-strong);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary:active {
+      transform: translateY(0) scale(0.98);
+    }
+
+    /* Compact key numbers */
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      padding: 16px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 22px;
+      transition: border-color 0.4s var(--ease-soft);
+    }
+
+    .metric-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .metric-lbl {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Vertical anchor nav with scroll-spy */
+    .side-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .side-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 5px 0;
+      transition: color 0.3s var(--ease-soft);
+    }
+
+    .side-nav a::before {
+      content: "";
+      width: 16px;
+      height: 1px;
+      background: var(--border-strong);
+      transition: width 0.38s var(--ease-out), background-color 0.3s var(--ease-soft);
+    }
+
+    .side-nav a:hover,
+    .side-nav a.active {
+      color: var(--text-primary);
+    }
+
+    .side-nav a:hover::before,
+    .side-nav a.active::before {
+      width: 30px;
+      background: var(--text-primary);
+    }
+
+    .sidebar-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      transition: border-color 0.4s var(--ease-soft);
+    }
+
+    .footer-email {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      cursor: pointer;
+      transition: border-color 0.25s var(--ease-soft), color 0.25s var(--ease-soft), background-color 0.25s var(--ease-soft);
+    }
+
+    .footer-email:hover {
+      color: var(--text-primary);
+      border-color: var(--border-strong);
+      background: var(--surface-hover);
+    }
+
+    .footer-email svg {
+      opacity: 0.55;
+      flex-shrink: 0;
+      transition: opacity 0.25s var(--ease-soft);
+    }
+
+    .footer-email:hover svg {
+      opacity: 1;
+    }
+
+    .footer-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    .footer-meta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.25s var(--ease-soft);
+    }
+
+    .footer-meta a:hover {
+      color: var(--text-primary);
+    }
+
+    /* Right Scrollable Column */
+    .content {
+      padding: 44px 0 96px;
+    }
+
+    section {
+      padding-bottom: 56px;
+      margin-bottom: 56px;
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.4s var(--ease-soft);
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+
+    /* Filter tabs */
+    .filters {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 7px;
+      padding: 5px 11px;
+      cursor: pointer;
+      transition: color 0.25s var(--ease-soft), background-color 0.25s var(--ease-soft), border-color 0.25s var(--ease-soft), transform 0.2s var(--ease-out);
+    }
+
+    .filter-btn:hover {
+      color: var(--text-primary);
+    }
+
+    .filter-btn:active {
+      transform: scale(0.97);
+    }
+
+    .filter-btn.active {
+      color: var(--text-primary);
+      background: var(--surface);
+      border-color: var(--border);
+    }
+
+    /* Clean 2-column Case Grid on Desktop */
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      align-items: start;
+    }
+
+    .case-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+      opacity: 0;
+      animation: softRise 0.5s var(--ease-out) forwards;
+      transition: transform 0.35s var(--ease-out), border-color 0.3s var(--ease-soft), background-color 0.3s var(--ease-soft), box-shadow 0.35s var(--ease-out);
+    }
+
+    .case-card.has-review {
+      cursor: pointer;
+    }
+
+    .case-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-strong);
+      background: var(--surface-hover);
+      box-shadow: var(--card-shadow);
+    }
+
+    .case-card.featured {
+      grid-column: span 2;
+    }
+
+    .case-top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .case-title {
+      font-size: 15.5px;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+    }
+
+    .case-result {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .case-desc {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .case-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      transition: border-color 0.4s var(--ease-soft);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-secondary);
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      padding: 2px 7px;
+      border-radius: 5px;
+      transition: border-color 0.3s var(--ease-soft), background-color 0.3s var(--ease-soft);
+    }
+
+    .case-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 1px;
+      transition: color 0.25s var(--ease-soft), border-color 0.25s var(--ease-soft);
+    }
+
+    .case-link:hover {
+      color: var(--text-primary);
+      border-bottom-color: var(--border-strong);
+    }
+
+    .case-link .arrow {
+      display: inline-block;
+      transition: transform 0.3s var(--ease-out);
+    }
+
+    .case-link:hover .arrow {
+      transform: translate(2px, -2px);
+    }
+
+    .case-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-left: auto;
+    }
+
+    .review-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: transparent;
+      border: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 0;
+      transition: color 0.25s var(--ease-soft);
+    }
+
+    .case-card:hover .review-toggle,
+    .case-card.open .review-toggle {
+      color: var(--text-primary);
+    }
+
+    .review-toggle svg {
+      transition: transform 0.38s var(--ease-out);
+    }
+
+    .case-card.open .review-toggle svg {
+      transform: rotate(180deg);
+    }
+
+    .case-review-collapse {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.42s var(--ease-out);
+    }
+
+    .case-card.open .case-review-collapse {
+      grid-template-rows: 1fr;
+    }
+
+    .case-review-inner {
+      overflow: hidden;
+    }
+
+    .case-review-box {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-left: 2px solid var(--border-strong);
+      background: var(--tag-bg);
+      border-radius: 0 8px 8px 0;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: opacity 0.35s var(--ease-out) 0.05s, transform 0.38s var(--ease-out) 0.05s;
+    }
+
+    .case-card.open .case-review-box {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .review-quote {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+
+    .review-author {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* Stack 2x2 Cards */
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .stack-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+      transition: transform 0.35s var(--ease-out), border-color 0.3s var(--ease-soft), background-color 0.3s var(--ease-soft), box-shadow 0.35s var(--ease-out);
+    }
+
+    .stack-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-strong);
+      background: var(--surface-hover);
+      box-shadow: var(--card-shadow);
+    }
+
+    .stack-card h3 {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    .stack-card p {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Experience Timeline */
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: 135px 1fr;
+      gap: 18px;
+      padding: 16px 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      align-items: baseline;
+      transition: transform 0.35s var(--ease-out), border-color 0.3s var(--ease-soft), background-color 0.3s var(--ease-soft), box-shadow 0.35s var(--ease-out);
+    }
+
+    .exp-item:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-strong);
+      background: var(--surface-hover);
+      box-shadow: var(--card-shadow);
+    }
+
+    .exp-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .exp-role {
+      font-size: 14.5px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .exp-desc {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+    }
+
+    /* Expandable Education Accordion */
+    .exp-accordion {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      transition: transform 0.35s var(--ease-out), border-color 0.3s var(--ease-soft), background-color 0.3s var(--ease-soft), box-shadow 0.35s var(--ease-out);
+      overflow: hidden;
+    }
+
+    .exp-accordion:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-strong);
+      background: var(--surface-hover);
+      box-shadow: var(--card-shadow);
+    }
+
+    .exp-accordion-trigger {
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: 135px 1fr auto;
+      gap: 18px;
+      padding: 16px 18px;
+      align-items: baseline;
+    }
+
+    .exp-chevron {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      transition: transform 0.4s var(--ease-out), color 0.25s var(--ease-soft);
+      align-self: center;
+    }
+
+    .exp-accordion:hover .exp-chevron {
+      color: var(--text-primary);
+    }
+
+    .exp-accordion.open .exp-chevron {
+      transform: rotate(180deg);
+      color: var(--text-primary);
+    }
+
+    .exp-collapse {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.45s var(--ease-out);
+    }
+
+    .exp-accordion.open .exp-collapse {
+      grid-template-rows: 1fr;
+    }
+
+    .exp-collapse-inner {
+      overflow: hidden;
+    }
+
+    .edu-timeline {
+      padding: 4px 18px 18px;
+      margin-top: 2px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: opacity 0.35s var(--ease-out) 0.06s, transform 0.4s var(--ease-out) 0.06s;
+    }
+
+    .exp-accordion.open .edu-timeline {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .edu-row {
+      display: grid;
+      grid-template-columns: 135px 1fr;
+      gap: 18px;
+      padding-top: 12px;
+      align-items: baseline;
+    }
+
+    .edu-row:not(:first-child) {
+      border-top: 1px dashed var(--border);
+    }
+
+    .edu-year {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      color: var(--text-secondary);
+    }
+
+    .edu-school {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 3px;
+    }
+
+    .edu-detail {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    /* Subtle Photo Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 9, 12, 0.78);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s var(--ease-out);
+    }
+
+    .lightbox.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox img {
+      max-width: min(440px, 88vw);
+      max-height: 82vh;
+      border-radius: 18px;
+      border: 1px solid var(--border-strong);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+      transform: scale(0.94);
+      transition: transform 0.4s var(--ease-out);
+    }
+
+    .lightbox.open img {
+      transform: scale(1);
+    }
+
+    /* Soft Copy Toast */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(14px);
+      background: var(--text-primary);
+      color: var(--bg);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 120;
+      transition: opacity 0.3s var(--ease-out), transform 0.35s var(--ease-out);
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (max-width: 1024px) {
+      .shell {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 0 24px;
+      }
+      .sidebar {
+        position: static;
+        min-height: auto;
+        padding: 28px 0 24px;
+        border-bottom: 1px solid var(--border);
+      }
+      .side-nav {
+        display: none;
+      }
+      .content {
+        padding: 12px 0 64px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .cases-grid,
+      .stack-grid,
+      .exp-item,
+      .edu-row {
+        grid-template-columns: 1fr;
+      }
+      .exp-accordion-trigger {
+        grid-template-columns: 1fr auto;
+      }
+      .exp-accordion-trigger .exp-date {
+        grid-column: span 2;
+      }
+      .case-card.featured {
+        grid-column: span 1;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <!-- HEADER -->
-    <header class="main-header">
-        <div class="header-content-wrapper">
-            <div class="logo">
-                <a href="#hero-section">
-                    <img src="images/yevhen-pro-street.jpg" alt="Yevhen Avatar" class="logo-avatar">
-                    <div class="logo-text-group">
-                        <span class="logo-name">BEREZANSKYI</span>
-                        <span class="logo-tag">// SYSTEMS ARCHITECT</span>
-                    </div>
-                </a>
-            </div>
+  <div class="shell">
+    <!-- Left Sticky Column -->
+    <aside class="sidebar">
+      <div>
+        <div class="top-bar anim-enter">
+          <div class="avatar-wrap" id="avatarTrigger" title="Yevhen Berezanskyi">
+            <img class="avatar-img" src="images/yevhen-pro-studio.jpg" alt="Yevhen Berezanskyi" />
+          </div>
+          <div class="controls">
+            <button class="pill-btn" id="langToggle" type="button">UA</button>
+            <button class="pill-btn" id="themeToggle" type="button">Light</button>
+          </div>
+        </div>
 
-            <div class="header-controls">
-                <button class="hamburger-menu" aria-label="Open Navigation">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
+        <div class="anim-enter delay-1">
+          <h1 data-i18n="name">Yevhen Berezanskyi</h1>
+          <div class="role" data-i18n="role">Systems &amp; Full-Stack Engineer</div>
+          <p class="subtitle" data-i18n="lead">
+            I build low-latency Rust trading engines, TON smart contracts, booking automation platforms, and commercial web apps. Focused on clean architecture and reliable production deploys.
+          </p>
+        </div>
+
+        <div class="hero-actions anim-enter delay-2">
+          <a class="btn-primary" href="https://t.me/eugene_br1zz" target="_blank" rel="noopener" data-i18n="cta_tg">Telegram</a>
+          <button class="btn-secondary copy-email" type="button" data-email="berezanskyi09@gmail.com" data-i18n="cta_email">Email</button>
+          <a class="btn-secondary" href="https://github.com/Br1zz1713" target="_blank" rel="noopener">GitHub</a>
+        </div>
+
+        <div class="metrics anim-enter delay-3">
+          <div>
+            <div class="metric-val">15+</div>
+            <div class="metric-lbl" data-i18n="m_1">Contracts</div>
+          </div>
+          <div>
+            <div class="metric-val">4.9 / 5</div>
+            <div class="metric-lbl" data-i18n="m_2">Client Rating</div>
+          </div>
+          <div>
+            <div class="metric-val">UTC+2</div>
+            <div class="metric-lbl" data-i18n="m_3">Europe</div>
+          </div>
+        </div>
+
+        <nav class="side-nav anim-enter delay-4">
+          <a href="#work" class="active" data-section="work" data-i18n="nav_work">Selected Work</a>
+          <a href="#stack" data-section="stack" data-i18n="nav_stack">Core Stack</a>
+          <a href="#experience" data-section="experience" data-i18n="nav_exp">Experience &amp; Education</a>
+        </nav>
+      </div>
+
+      <div class="sidebar-footer anim-enter delay-4">
+        <button class="footer-email copy-email" type="button" data-email="berezanskyi09@gmail.com">
+          <span>berezanskyi09@gmail.com</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+        </button>
+        <div class="footer-meta">
+          <span>&copy; 2026 Yevhen Berezanskyi</span>
+          <a href="https://freelancehunt.com/freelancer/berezanskyi09.html" target="_blank" rel="noopener">Freelancehunt &nearr;</a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Right Scrollable Content -->
+    <main class="content">
+      <section id="work">
+        <div class="section-head anim-enter">
+          <span class="section-label" data-i18n="sec_work">Selected Work</span>
+          <div class="filters">
+            <button class="filter-btn active" data-filter="all" data-i18n="f_all">All</button>
+            <button class="filter-btn" data-filter="web3">Web3</button>
+            <button class="filter-btn" data-filter="automation" data-i18n="f_auto">Automation</button>
+            <button class="filter-btn" data-filter="web">Web &amp; SaaS</button>
+          </div>
+        </div>
+
+        <div class="cases-grid" id="casesGrid"></div>
+      </section>
+
+      <section id="stack" class="reveal">
+        <div class="section-head">
+          <span class="section-label" data-i18n="sec_stack">Core Stack</span>
+        </div>
+        <div class="stack-grid">
+          <div class="stack-card">
+            <h3 data-i18n="st_1_t">Systems &amp; Blockchain</h3>
+            <p>Rust (Tokio, Alloy), Solidity 0.8, Tact 1.6 (TON / TVM), Arbitrum Nitro Node, Ubuntu Linux, systemd, Docker, UFW.</p>
+          </div>
+          <div class="stack-card">
+            <h3 data-i18n="st_2_t">Backend &amp; Automation</h3>
+            <p>Python 3.12 (FastAPI, aiogram 3, Playwright, curl_cffi), Node.js (Express, reverse proxies), PostgreSQL, Redis, SQLite.</p>
+          </div>
+          <div class="stack-card">
+            <h3 data-i18n="st_3_t">Frontend &amp; SaaS</h3>
+            <p>TypeScript, Next.js, React, Tailwind CSS, Vanilla JS/CSS, Supabase, Stripe billing, Vercel.</p>
+          </div>
+          <div class="stack-card">
+            <h3 data-i18n="st_4_t">Integrations &amp; AI</h3>
+            <p>Telegram Bot API &amp; MTProto (Telethon), XML/JSON e-commerce feeds, Horoshop, Monobank Market, Gemini &amp; Claude APIs.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="reveal">
+        <div class="section-head">
+          <span class="section-label" data-i18n="sec_exp">Experience &amp; Education</span>
+        </div>
+        <div class="exp-list">
+          <div class="exp-item">
+            <div class="exp-date">2023 - Present</div>
+            <div>
+              <div class="exp-role" data-i18n="exp_1_r">Independent Systems &amp; Full-Stack Engineer</div>
+              <div class="exp-desc" data-i18n="exp_1_d">End-to-end delivery for Web3, e-commerce, and European booking automation clients. 15+ closed Safe milestones.</div>
+            </div>
+          </div>
+          <div class="exp-item">
+            <div class="exp-date">2023 - 2024</div>
+            <div>
+              <div class="exp-role" data-i18n="exp_2_r">Full-Stack &amp; Web Systems Internships</div>
+              <div class="exp-desc" data-i18n="exp_2_d">ME "Marine Plast Center" and Time Pro. Internal tools, REST API endpoints, database queries, and frontend delivery.</div>
+            </div>
+          </div>
+          <div class="exp-accordion" id="eduAccordion">
+            <button class="exp-accordion-trigger" id="eduTrigger" type="button" aria-expanded="false">
+              <div class="exp-date">2017 - 2024</div>
+              <div>
+                <div class="exp-role" data-i18n="exp_3_r">Computer Science &amp; Networking Education</div>
+                <div class="exp-desc" data-i18n="exp_3_d">Odesa National University (Mechnikov), Odesa State Ecological University, and College of Computer Technologies.</div>
+              </div>
+              <span class="exp-chevron" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </button>
+            <div class="exp-collapse">
+              <div class="exp-collapse-inner">
+                <div class="edu-timeline">
+                  <div class="edu-row">
+                    <div class="edu-year">2023 - 2024</div>
+                    <div>
+                      <div class="edu-school" data-i18n="edu_1_s">Odesa National University named after I. I. Mechnikov</div>
+                      <div class="edu-detail" data-i18n="edu_1_d">Information Technologies &amp; Software Systems. Algorithms, distributed computing, and software verification.</div>
+                    </div>
+                  </div>
+                  <div class="edu-row">
+                    <div class="edu-year">2021 - 2023</div>
+                    <div>
+                      <div class="edu-school" data-i18n="edu_2_s">Odesa State Ecological University</div>
+                      <div class="edu-detail" data-i18n="edu_2_d">Computer Science &amp; Information Technology. Database theory, computer systems, and computational methods.</div>
+                    </div>
+                  </div>
+                  <div class="edu-row">
+                    <div class="edu-year">2017 - 2021</div>
+                    <div>
+                      <div class="edu-school" data-i18n="edu_3_s">Odesa Professional College of Computer Technologies</div>
+                      <div class="edu-detail" data-i18n="edu_3_d">Computer Engineering, Networks &amp; Hardware Architecture. LAN administration, packet routing, and hardware diagnostics.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Photo Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <img src="images/yevhen-pro-studio.jpg" alt="Yevhen Berezanskyi" />
+  </div>
+
+  <!-- Copy Email Toast -->
+  <div class="toast" id="copyToast" role="status" aria-live="polite"></div>
+
+  <script>
+    const CASES = [
+      {
+        id: 'arbitrum',
+        cat: 'web3',
+        featured: true,
+        result: { en: '2026', ua: '2026' },
+        title: {
+          en: 'Arbitrum DEX Arbitrage Engine & Solidity Guard',
+          ua: 'Арбітражний двигун Arbitrum DEX та Solidity Guard'
+        },
+        desc: {
+          en: 'Cross-DEX arbitrage engine in Rust (Tokio + Alloy) reading live Uniswap V3 and Camelot V3 pool ticks over WebSocket next to a dedicated Arbitrum Nitro full node. Paired with a Solidity 0.8.24 flash-swap contract enforcing atomic revert on slippage, plus full Hetzner Linux hardening (systemd sandbox + UFW).',
+          ua: 'Крос-DEX арбітраж на Rust (Tokio + Alloy) для Uniswap V3 та Camelot V3 через WebSocket поруч із локальною нодою Arbitrum Nitro. У парі з Solidity 0.8.24 flash-swap контрактом (атомарний відкат при прослизанні) та повним харденингом сервера на Hetzner.'
+        },
+        review: {
+          author: { en: 'Vadym Melnykov • Client', ua: 'Вадим Мельников • Замовник' },
+          text: {
+            en: '“Delivered on a high engineering level and strictly within scope. Yevhen provided full transparency across every stage. Responsible and reliable engineer, recommended.”',
+            ua: '«Работа выполнена качественно, строго в рамках поставленной задачи и на высоком инженерном уровне. В процессе сотрудничества Евгений предоставил полную прозрачность по всем этапам. Ответственный и надежный специалист, рекомендую к сотрудничеству!»'
+          }
+        },
+        tags: ['Rust', 'Solidity', 'Arbitrum Nitro', 'Uniswap V3', 'Linux'],
+        url: 'https://freelancehunt.com/project/azrabotka-shaga-v-mev-zaschita-nonce-menedzher/1656257.html',
+        linkText: 'Freelancehunt'
+      },
+      {
+        id: 'ton',
+        cat: 'web3',
+        result: { en: '2026', ua: '2026' },
+        title: {
+          en: 'TON DeFi Jetton & Ston.fi v2',
+          ua: 'TON DeFi Jetton та Ston.fi v2'
+        },
+        desc: {
+          en: 'TEP-74 smart contracts in Tact 1.6 with 2%/5% DEX swap taxes (0% P2P), 5-tier Anti-Whale, 2030 Time-Lock, and an Ubuntu cron Highload Wallet distributor batching 200 payouts per tx.',
+          ua: 'Смарт-контракти TEP-74 на Tact 1.6 із податками 2%/5% на Ston.fi v2 (0% P2P), 5-рівневим Anti-Whale, Time-Lock до 2030 року та кроном виплат через Highload Wallet.'
+        },
+        review: {
+          author: { en: 'Mykhailo Yanchyk • Client', ua: 'Михайло Янчик • Замовник' },
+          text: {
+            en: '“Delivered strictly per spec (Anti-Whale, Time-Lock, Burn contract). When mainnet explorer filter nuances appeared, Yevhen immediately found the root cause, performed a clean redeploy free of charge, and brought the project to an ideal result.”',
+            ua: '«Задоволений! Євген — справжній професіонал у розробці смарт-контрактів на TON. Робота виконана суворо за ТЗ (Anti-Whale, Time-Lock, Burn-контракт). Коли в Mainnet виникли нюанси з фільтрами оглядача, миттєво знайшов першопричину, безкоштовно зробив чистий повторний деплой та довів проєкт до ідеального результату.»'
+          }
+        },
+        tags: ['Tact 1.6', 'TON', 'Ston.fi v2', 'TypeScript'],
+        url: 'https://freelancehunt.com/project/rozrobka-smart-kontraktu-jetton-merezhi-ton/1663296.html',
+        linkText: 'Freelancehunt'
+      },
+      {
+        id: 'econsul',
+        cat: 'automation',
+        result: { en: '2026', ua: '2026' },
+        title: {
+          en: 'SlotBooker Booking Platform',
+          ua: 'Платформа бронювання SlotBooker'
+        },
+        desc: {
+          en: 'Modular FastAPI + PostgreSQL + Redis booking system with ISP proxy rotation, real-time queue polling, operator RBAC dashboard, and a Telegram client cabinet.',
+          ua: 'Модульна платформа на FastAPI + PostgreSQL + Redis із ротацією ISP-проксі, моніторингом черг у реальному часі, адмінкою з RBAC та Telegram-кабінетом.'
+        },
+        review: {
+          author: { en: 'Yehor Samoilov • Client', ua: 'Єгор Самойлов • Замовник' },
+          text: {
+            en: '“A pleasure to collaborate with. Everything was delivered quickly and with high quality.”',
+            ua: '«Было очень приятно сотрудничать. Все сделано быстро и качественно.»'
+          }
+        },
+        tags: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'aiogram 3'],
+        url: 'https://freelancehunt.com/project/razrabotka-veb-platformyi/1665056.html',
+        linkText: 'Freelancehunt'
+      },
+      {
+        id: 'rsa',
+        cat: 'automation',
+        result: { en: '2026', ua: '2026' },
+        title: {
+          en: 'Ireland RSA Auto-Booker',
+          ua: 'Автобронювання RSA (Ірландія)'
+        },
+        desc: {
+          en: 'Headless reservation daemon for Irish driving tests. Keeps 2-hour MyGovID sessions alive automatically with TOTP 2FA re-auth and sub-second slot capture.',
+          ua: 'Автономний демон бронювання іспитів у Ірландії. Утримує 2-годинну сесію MyGovID через keepalive + TOTP 2FA та ловить слоти за частки секунди.'
+        },
+        review: {
+          author: { en: 'Yehor Samoilov • Client', ua: 'Єгор Самойлов • Замовник' },
+          text: {
+            en: '“Completely satisfied with the work. Everything was done quickly and without issues.”',
+            ua: '«Целиком и полностью доволен работой. Все было сделано быстро и без проблем.»'
+          }
+        },
+        tags: ['Python 3.12', 'Playwright', 'TOTP 2FA', 'systemd'],
+        url: 'https://freelancehunt.com/project/rozrobka-bota-skripta-dlya-avtobronyuvannya-slotiv-driving/1659484.html',
+        linkText: 'Freelancehunt'
+      },
+      {
+        id: 'grillland',
+        cat: 'automation',
+        result: { en: '2026 • Retainer', ua: '2026 • Підтримка' },
+        title: {
+          en: 'Horoshop & Monobank Feeds',
+          ua: 'Фіди Horoshop та Monobank Market'
+        },
+        desc: {
+          en: 'Automated Python ETL extracting 620+ product attributes into compliant XML/JSON feeds for 170+ catalog items with Pay-in-Parts rules and Vercel CDN delivery.',
+          ua: 'Python ETL-пайплайн, що витягує 620+ характеристик і щоденно збирає валідні XML/JSON-фіди для 170+ товарів із правилами Оплати частинами на Vercel CDN.'
+        },
+        review: {
+          author: { en: 'Oleksandra Anisimova • Client', ua: 'Олександра Анісімова • Замовник' },
+          text: {
+            en: '“Very high quality and fast delivery. Recommended.”',
+            ua: '«Все дуже якісно і швидко. Рекомендую.»'
+          }
+        },
+        tags: ['Python', 'XML/JSON', 'Horoshop', 'Vercel'],
+        url: 'https://freelancehunt.com/project/zrobi-vivantazhennya-na-monobank-market/1657508.html',
+        linkText: 'Freelancehunt'
+      },
+      {
+        id: 'proptext',
+        cat: 'web',
+        result: { en: 'Own SaaS', ua: 'Власний SaaS' },
+        title: {
+          en: 'PropText.ai',
+          ua: 'PropText.ai'
+        },
+        desc: {
+          en: 'Commercial Next.js SaaS for real estate listings using Supabase Auth, PostgreSQL credit ledger, Stripe Checkout webhooks, and Google Gemini API.',
+          ua: 'Комерційний SaaS на Next.js для генерації описів нерухомості із Supabase Auth, обліком кредитів, вебхуками Stripe та Google Gemini API.'
+        },
+        tags: ['Next.js', 'Supabase', 'Stripe', 'Gemini API'],
+        url: 'https://proptext.online',
+        linkText: 'proptext.online'
+      },
+      {
+        id: 'partslink',
+        cat: 'automation',
+        result: { en: '2025', ua: '2025' },
+        title: {
+          en: 'Partslink24 Session Proxy',
+          ua: 'Реверс-проксі Partslink24'
+        },
+        desc: {
+          en: 'Node.js reverse proxy for Windows Server sharing a single authenticated JWT/Envoy session across multiple workstations with timestamp conflict resolution.',
+          ua: 'Node.js реверс-проксі під Windows Server для спільної роботи кількох операторів в одній JWT-сесії із синхронізацією cookie та LocalStorage.'
+        },
+        review: {
+          author: { en: 'Yurii Potapenko • Client', ua: 'Юрій Потапенко • Замовник' },
+          text: {
+            en: '“Work delivered well, exactly as promised.”',
+            ua: '«Роботу виконано добре! Все як і обіцяв.»'
+          }
+        },
+        tags: ['Node.js', 'Express', 'Reverse Proxy', 'Windows'],
+        url: 'https://freelancehunt.com/project/imitatsiya-koristuvannya-saytom-odnogo-komp-yutera/1643915.html',
+        linkText: 'Freelancehunt'
+      },
+      {
+        id: 'subwerk',
+        cat: 'web',
+        result: { en: 'Prototype', ua: 'Прототип' },
+        title: {
+          en: 'Subwerk CRM (Sweden)',
+          ua: 'Subwerk CRM (Швеція)'
+        },
+        desc: {
+          en: 'Zero-framework HTML/CSS/JS interactive CRM prototype for Stockholm moving and cleaning teams with live RUT-avdrag tax calculation and Bankgiro preview.',
+          ua: 'Інтерактивний прототип CRM без фреймворків для шведського клінінгу з живим калькулятором податку RUT-avdrag та прев’ю Bankgiro.'
+        },
+        tags: ['HTML5', 'CSS', 'Vanilla JS', 'Vercel'],
+        url: 'https://subwerk-landing.vercel.app',
+        linkText: 'subwerk-landing.vercel.app'
+      }
+    ];
+
+    const I18N = {
+      en: {
+        name: 'Yevhen Berezanskyi',
+        role: 'Systems & Full-Stack Engineer',
+        lead: 'I build low-latency Rust trading engines, TON smart contracts, booking automation platforms, and commercial web apps. Focused on clean architecture and reliable production deploys.',
+        cta_tg: 'Telegram',
+        m_1: 'Contracts',
+        m_2: 'Client Rating',
+        m_3: 'Europe',
+        nav_work: 'Selected Work',
+        nav_stack: 'Core Stack',
+        nav_exp: 'Experience & Education',
+        sec_work: 'Selected Work',
+        f_all: 'All',
+        f_auto: 'Automation',
+        sec_stack: 'Core Stack',
+        st_1_t: 'Systems & Blockchain',
+        st_2_t: 'Backend & Automation',
+        st_3_t: 'Frontend & SaaS',
+        st_4_t: 'Integrations & AI',
+        sec_exp: 'Experience & Education',
+        exp_1_r: 'Independent Systems & Full-Stack Engineer',
+        exp_1_d: 'End-to-end delivery for Web3, e-commerce, and European booking automation clients. 15+ closed Safe milestones.',
+        exp_2_r: 'Full-Stack & Web Systems Internships',
+        exp_2_d: 'ME "Marine Plast Center" and Time Pro. Internal tools, REST API endpoints, database queries, and frontend delivery.',
+        exp_3_r: 'Computer Science & Networking Education',
+        exp_3_d: 'Click to expand institutions and years (3 degrees / programs).',
+        edu_1_s: 'Odesa National University named after I. I. Mechnikov',
+        edu_1_d: 'Information Technologies & Software Systems. Algorithms, distributed computing, and software verification.',
+        edu_2_s: 'Odesa State Ecological University',
+        edu_2_d: 'Computer Science & Information Technology. Database theory, computer systems, and computational methods.',
+        edu_3_s: 'Odesa Professional College of Computer Technologies',
+        edu_3_d: 'Computer Engineering, Networks & Hardware Architecture. LAN administration, packet routing, and hardware diagnostics.'
+      },
+      ua: {
+        name: 'Євген Березанський',
+        role: 'Systems & Full-Stack інженер',
+        lead: 'Розробляю швидкісні торгові системи на Rust, смарт-контракти TON, платформи автоматизації бронювань та комерційні веб-продукти. Фокус на чистій архітектурі та надійному деплої.',
+        cta_tg: 'Telegram',
+        m_1: 'Контрактів',
+        m_2: 'Рейтинг',
+        m_3: 'Європа',
+        nav_work: 'Вибрані кейси',
+        nav_stack: 'Основний стек',
+        nav_exp: 'Досвід та освіта',
+        sec_work: 'Вибрані кейси',
+        f_all: 'Усі',
+        f_auto: 'Автоматизація',
+        sec_stack: 'Основний стек',
+        st_1_t: 'Системи та блокчейн',
+        st_2_t: 'Бекенд та автоматизація',
+        st_3_t: 'Фронтенд та SaaS',
+        st_4_t: 'Інтеграції та AI',
+        sec_exp: 'Досвід та освіта',
+        exp_1_r: 'Незалежний Systems & Full-Stack інженер',
+        exp_1_d: 'Розробка під ключ для Web3, e-commerce та європейських сервісів автоматизації. 15+ закритих угод у Сейфі.',
+        exp_2_r: 'Стажування Full-Stack / Web Systems',
+        exp_2_d: 'КП "Marine Plast Center" та Time Pro. Внутрішні інструменти, REST API, оптимізація баз даних та фронтенд.',
+        exp_3_r: 'Профільна освіта (CS & Мережі)',
+        exp_3_d: 'Натисніть, щоб розгорнути навчальні заклади та роки навчання.',
+        edu_1_s: 'Одеський національний університет ім. І. І. Мечникова',
+        edu_1_d: 'Інформаційні технології та програмні системи. Алгоритми, розподілені обчислення та верифікація ПЗ.',
+        edu_2_s: 'Одеський державний екологічний університет (ОДЕКУ)',
+        edu_2_d: 'Комп’ютерні науки та інформаційні технології. Теорія баз даних, комп’ютерні системи та обчислювальні методи.',
+        edu_3_s: 'Одеський фаховий коледж комп’ютерних технологій',
+        edu_3_d: 'Комп’ютерна інженерія, мережі та апаратна архітектура. Адміністрування LAN, маршрутизація та діагностика заліза.'
+      }
+    };
+
+    let currentLang = 'en';
+    let currentFilter = 'all';
+
+    function renderCases() {
+      const grid = document.getElementById('casesGrid');
+      grid.innerHTML = '';
+      const visible = CASES.filter(c => currentFilter === 'all' || c.cat === currentFilter);
+      const reviewLabel = currentLang === 'en' ? 'Client review' : 'Відгук';
+      visible.forEach((c, idx) => {
+        const card = document.createElement('article');
+        card.className = `case-card${c.featured && currentFilter === 'all' ? ' featured' : ''}${c.review ? ' has-review' : ''}`;
+        card.style.animationDelay = `${idx * 45}ms`;
+        card.innerHTML = `
+          <div>
+            <div class="case-top">
+              <h3 class="case-title">${c.title[currentLang]}</h3>
+              <span class="case-result">${c.result[currentLang]}</span>
+            </div>
+            <p class="case-desc">${c.desc[currentLang]}</p>
+            ${c.review ? `
+              <div class="case-review-collapse">
+                <div class="case-review-inner">
+                  <div class="case-review-box">
+                    <p class="review-quote">${c.review.text[currentLang]}</p>
+                    <div class="review-author">${c.review.author[currentLang]}</div>
+                  </div>
+                </div>
+              </div>
+            ` : ''}
+          </div>
+          <div class="case-bottom">
+            <div class="tags">${c.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+            <div class="case-actions">
+              ${c.review ? `
+                <button class="review-toggle" type="button" aria-expanded="false">
+                  <span>${reviewLabel}</span>
+                  <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+                    <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
                 </button>
+              ` : ''}
+              ${c.url ? `<a class="case-link" href="${c.url}" target="_blank" rel="noopener">${c.linkText} <span class="arrow">&nearr;</span></a>` : ''}
             </div>
-
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#about"><span class="nav-idx">[01]</span> ABOUT</a></li>
-                    <li><a href="#skills"><span class="nav-idx">[02]</span> STACK</a></li>
-                    <li><a href="#projects"><span class="nav-idx">[03]</span> DOSSIER</a></li>
-                    <li><a href="#contact"><span class="nav-idx">[04]</span> COMMS</a></li>
-                    <li><a href="resume/Resume_Yevhen_Berezanskyi_EN.html" target="_blank"><span class="nav-idx">[05]</span> RESUME</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- HERO SECTION -->
-    <section id="hero-section">
-        
-        
-        <div class="hero-editorial-container">
-            <!-- LEFT COLUMN: EDITORIAL CONTENT -->
-            <div class="hero-editorial-content">
-                <div class="hero-top-status-bar">
-                    <span class="pulse-dot"></span>
-                    <span class="status-code">[STATUS: AVAILABLE FOR HIGH-LOAD CONTRACTS & SYSTEMS ARCHITECTURE]</span>
-                </div>
-
-                <h1 class="hero-glitch-title">
-                    <span class="title-first">YEVHEN</span>
-                    <span class="title-last">BEREZANSKYI</span>
-                </h1>
-
-                <div class="hero-badge-tagline">
-                    <span class="hud-slash">//</span> SYSTEMS ARCHITECT &bull; FULL-STACK ENGINEER &bull; RUST L2
-                </div>
-
-                <p class="hero-manifesto-text">
-                    Engineering microsecond-sensitive cross-DEX arbitrage pipelines in Rust, reverse-engineering protected enterprise web portals, and shipping production SaaS architectures with metered Stripe billing. Zero corporate bloat. Pure engineering.
-                </p>
-
-                <!-- SPECS HUD TABLE -->
-                <div class="hero-specs-dossier">
-                    <div class="spec-row">
-                        <span class="spec-key">CORE_RUNTIME</span>
-                        <span class="spec-val">Rust (Tokio / Alloy) &bull; Node.js &bull; TypeScript &bull; Next.js</span>
-                    </div>
-                    <div class="spec-row">
-                        <span class="spec-key">SYSTEMS_INFRA</span>
-                        <span class="spec-val">Arbitrum Nitro L2 &bull; Docker &bull; Linux Systemd &bull; Windows Svc</span>
-                    </div>
-                    <div class="spec-row">
-                        <span class="spec-key">SPECIALTIES</span>
-                        <span class="spec-val">High-Frequency Web3 &bull; Reverse Engineering &bull; Metered SaaS</span>
-                    </div>
-                </div>
-
-                <!-- CTA GROUP -->
-                <div class="hero-actions-group">
-                    <a href="#projects" class="btn btn-tactical-primary">
-                        <span>[EXPLORE DOSSIER // CASES]</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="resume/Resume_Yevhen_Berezanskyi_EN.html" target="_blank" class="btn btn-tactical-secondary">
-                        <span>[VIEW RESUME // CV]</span>
-                        <i class="fas fa-file-alt"></i>
-                    </a>
-                    <a href="#contact" class="btn btn-tactical-secondary">
-                        <span>[INITIATE COMMS]</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- RIGHT COLUMN: EDITORIAL INDUSTRIAL PORTRAIT -->
-            <div class="hero-poster-frame">
-                
-                
-                
-                
-                
-                <div class="hud-meta-header">
-                    <span class="meta-stamp">CALLSIGN: 0xBR1ZZ</span>
-                    <span class="meta-coords">46.4825° N, 30.7233° E // ODESA</span>
-                </div>
-
-                <div class="poster-image-wrapper">
-                    <img src="images/yevhen-pro-street.jpg" alt="Yevhen Berezanskyi - Systems Architect & Full-Stack Engineer" class="poster-character-img" id="hero-poster-img" width="560" height="560">
-                    <div class="poster-gradient-fade"></div>
-                    <div class="poster-tag-sticker">
-                        <span class="sticker-dot"></span>
-                        <span class="sticker-text">VERIFIED ENGINEER // STREETWEAR TECH</span>
-                    </div>
-                </div>
-
-                <div class="hud-meta-footer">
-                    <span>SECURITY_CLEARANCE: LEVEL_4 // ROOT</span>
-                    <span>ENV: BARE_METAL &bull; NITRO L2</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ABOUT SECTION -->
-    <section id="about" class="content-section">
-        <div class="tactical-section-header">
-            <span class="section-tag">[01] // DOSSIER & RECORD</span>
-            <h2>BACKGROUND & OPERATIONAL PROFILE</h2>
-            <div class="tactical-line"></div>
-        </div>
-
-        <div class="about-grid">
-            <div class="about-card summary-card tactical-box">
-                <div class="box-header">
-                    <span class="box-title"><i class="fas fa-terminal"></i> OPERATIONAL PHILOSOPHY</span>
-                    <span class="box-badge">VERIFIED</span>
-                </div>
-                <p>
-                    I build reliable, high-performance software across the technical spectrum. My core focus sits where low-latency backend engines meet resilient web architectures and automated infrastructure.
-                </p>
-                <p>
-                    From writing microsecond-sensitive cross-DEX arbitrage pipelines in Rust with local Arbitrum Nitro full node synchronization, to reverse-engineering protected enterprise web portals and shipping turnkey SaaS platforms with automated Stripe billing — I engineer systems for determinism, high concurrency, and zero downtime.
-                </p>
-                <p>
-                    I value verifiable metrics: sub-millisecond execution times, resilient auto-restarting daemons under systemd, and zero-maintenance automation pipelines.
-                </p>
-
-                <div class="summary-specs-grid">
-                    <div class="spec-chip">
-                        <span class="chip-label">BASE_LOCATION</span>
-                        <span class="chip-value">Odesa, Ukraine (UTC+2/UTC+3)</span>
-                    </div>
-                    <div class="spec-chip">
-                        <span class="chip-label">ENGAGEMENT</span>
-                        <span class="chip-value">Remote &bull; Contract &bull; Full-Time</span>
-                    </div>
-                    <div class="spec-chip">
-                        <span class="chip-label">SYSTEM_PHILOSOPHY</span>
-                        <span class="chip-value">Zero Bloat &bull; Hardened Code &bull; Speed</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- IDENTITY CARD // VERIFIED DOSSIER -->
-            <div class="about-card identity-card tactical-box">
-                <div class="box-header">
-                    <span class="box-title"><i class="fas fa-id-badge"></i> FIELD IDENTITY // VERIFIED HUMAN</span>
-                    <span class="box-badge status-open">VERIFIED</span>
-                </div>
-                <div class="identity-content-wrapper">
-                    <div class="identity-photo-frame">
-                        <img src="images/yevhen-pro-studio.jpg" alt="Yevhen Berezanskyi - Verified Developer" class="identity-irl-photo">
-                        <div class="identity-photo-stamp">[ODESA // UA]</div>
-                    </div>
-                    <div class="identity-details">
-                        <div class="identity-row">
-                            <span class="id-key">CALLSIGN</span>
-                            <span class="id-val">0xBR1ZZ // Yevhen Berezanskyi</span>
-                        </div>
-                        <div class="identity-row">
-                            <span class="id-key">COORDINATES</span>
-                            <span class="id-val">Odesa, Ukraine [46.48° N, 30.72° E]</span>
-                        </div>
-                        <div class="identity-row">
-                            <span class="id-key">CORE_COMPETENCY</span>
-                            <span class="id-val">Low-Latency Systems (Rust) &bull; High-Load Web3</span>
-                        </div>
-                        <div class="identity-row">
-                            <span class="id-key">DELIVERY_TRACK</span>
-                            <span class="id-val">Arbitrum DEX (48k UAH) &bull; TON Jettons (8.9k UAH) &bull; Reverse Proxies</span>
-                        </div>
-                        <div class="identity-row">
-                            <span class="id-key">VERIFIED_CHANNELS</span>
-                            <span class="id-val">Freelancehunt Top-Rated &bull; GitHub Commits</span>
-                        </div>
-                        <div class="identity-badges">
-                            <span class="tape-badge">[PURE_ENGINEERING]</span>
-                            <span class="tape-badge">[NO_AI_SLOP]</span>
-                            <span class="tape-badge">[RUST_NITRO]</span>
-                            <span class="tape-badge">[VERIFIED_CONTRACTS]</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="summary-specs-grid identity-specs-grid">
-                    <div class="spec-chip">
-                        <span class="chip-label">CODE_COMPLIANCE</span>
-                        <span class="chip-value">100% Deterministic</span>
-                    </div>
-                    <div class="spec-chip">
-                        <span class="chip-label">UPTIME_TARGET</span>
-                        <span class="chip-value">99.99% Daemons</span>
-                    </div>
-                    <div class="spec-chip">
-                        <span class="chip-label">LATENCY_SLA</span>
-                        <span class="chip-value">Sub-Millisecond</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="about-card experience-card tactical-box">
-                <div class="box-header">
-                    <span class="box-title"><i class="fas fa-code-branch"></i> FIELD DEPLOYMENTS & MILESTONES</span>
-                    <span class="box-badge">2021 &mdash; 2026</span>
-                </div>
-                <ul class="timeline-list">
-                    <li>
-                        <span class="timeline-date">[2023 &mdash; PRESENT]</span>
-                        <h4>Systems & Full-Stack Engineer // Freelance & Contract</h4>
-                        <p class="detail-text">
-                            <strong>Key deliverables:</strong>
-                        </p>
-                        <ul class="tactical-bullets">
-                            <li>Designed and delivered a Rust high-frequency cross-DEX arbitrage engine on Arbitrum One (Uniswap V3 / Camelot V3) with local Nitro node sync and microsecond tick decoding.</li>
-                            <li>Engineered an enterprise session-sharing reverse proxy on Node.js/Windows Server with real-time bidirectional storage synchronization and auto-healing daemons.</li>
-                            <li>Shipped PropText.ai — a production real estate SaaS with automated Stripe billing and Google Gemini API integration.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        <span class="timeline-date">[JUN 2024 &mdash; SEP 2024]</span>
-                        <h4>Web Systems Intern // ME "Marine Plast Center"</h4>
-                        <p class="detail-text">Automation of IT systems, internal tools, and enterprise network infrastructure.</p>
-                    </li>
-                    <li>
-                        <span class="timeline-date">[JAN 2024 &mdash; JUN 2024]</span>
-                        <h4>Full-Stack Intern // Web Developer</h4>
-                        <p class="detail-text">Frontend interfaces, REST API integration, and Agile/Scrum cross-functional delivery.</p>
-                    </li>
-                    <li>
-                        <span class="timeline-date">[FEB 2023 &mdash; APR 2023]</span>
-                        <h4>Full-Stack Intern // Time Pro</h4>
-                        <p class="detail-text">API endpoints development, database querying, and client-side optimization.</p>
-                    </li>
-                    <li>
-                        <span class="timeline-date">[JAN 2021 &mdash; MAY 2021]</span>
-                        <h4>Junior Technician // Odesa College</h4>
-                        <p class="detail-text">LAN administration, hardware diagnostics, and Linux/Windows maintenance.</p>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="about-card education-card tactical-box">
-                <div class="box-header">
-                    <span class="box-title"><i class="fas fa-graduation-cap"></i> ACADEMIC FOUNDATIONS & COMPETENCIES</span>
-                    <span class="box-badge">CS & IT</span>
-                </div>
-                <ul class="timeline-list">
-                    <li>
-                        <span class="timeline-date">[2023 &mdash; 2024]</span>
-                        <h4>Odessa National University named after I. I. Mechnikov</h4>
-                        <p class="detail-text">Information Technologies & Software Systems &mdash; Advanced algorithms, distributed computing, and software verification.</p>
-                    </li>
-                    <li>
-                        <span class="timeline-date">[2021 &mdash; 2023]</span>
-                        <h4>Odessa State Ecological University</h4>
-                        <p class="detail-text">Computer Science & Information Technology &mdash; Database theory, computer systems, and computational methods.</p>
-                    </li>
-                    <li>
-                        <span class="timeline-date">[2017 &mdash; 2021]</span>
-                        <h4>Odessa Faculty College of Computer Technologies</h4>
-                        <p class="detail-text">Computer Engineering, Networks & Hardware Architecture &mdash; LAN administration, packet routing, and hardware diagnostics.</p>
-                    </li>
-                </ul>
-
-                <div class="academic-foundations-block">
-                    <h5 class="foundations-title"><i class="fas fa-atom"></i> CORE ENGINEERING SPECIALTIES:</h5>
-                    <div class="foundations-grid">
-                        <div class="foundation-item">
-                            <span class="f-bullet">//</span>
-                            <span class="f-text"><strong>Low-Level Systems:</strong> Tokio async runtime, non-blocking I/O, cache-friendly data structures, zero-copy serialization.</span>
-                        </div>
-                        <div class="foundation-item">
-                            <span class="f-bullet">//</span>
-                            <span class="f-text"><strong>Network Architecture:</strong> Full-duplex WebSocket streams, TLS session proxies, HTTP/2 multiplexing, anti-bot mitigation.</span>
-                        </div>
-                        <div class="foundation-item">
-                            <span class="f-bullet">//</span>
-                            <span class="f-text"><strong>Web3 Engineering:</strong> EVM transaction decoding, Arbitrum Nitro state machine, microsecond mempool synchronization.</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SKILLS SECTION -->
-    <section id="skills" class="content-section">
-        <div class="tactical-section-header">
-            <span class="section-tag">[02] // ARSENAL & TOOLCHAIN</span>
-            <h2>TECHNICAL STACK & CAPABILITIES</h2>
-            <div class="tactical-line"></div>
-        </div>
-
-        <div class="skills-grid">
-            <div class="skill-group-card tactical-box">
-                <div class="box-header">
-                    <span class="box-title"><i class="fas fa-microchip"></i> 01 // HIGH-PERFORMANCE & SYSTEMS</span>
-                    <span class="tech-tag-status">HARDCORE</span>
-                </div>
-                <div class="skills-tags">
-                    <span class="skill-tag">Rust (2021)</span>
-                    <span class="skill-tag">TON / Tact 1.6+</span>
-                    <span class="skill-tag">@ton/blueprint</span>
-                    <span class="skill-tag">TVM Contracts</span>
-                    <span class="skill-tag">Tokio Async</span>
-                    <span class="skill-tag">Alloy Primitives</span>
-                    <span class="skill-tag">Arbitrum Nitro Node</span>
-                    <span class="skill-tag">Linux / Ubuntu 24.04</span>
-                    <span class="skill-tag">Systemd Supervision</span>
-                    <span class="skill-tag">Docker</span>
-                    <span class="skill-tag">Socket Programming</span>
-                    <span class="skill-tag">Reverse Engineering</span>
-                    <span class="skill-tag">U256 Fixed-Point Math</span>
-                </div>
-            </div>
-
-            <div class="skill-group-card tactical-box">
-                <div class="box-header">
-                    <span class="box-title"><i class="fas fa-layer-group"></i> 02 // FULL-STACK & WEB ENGINES</span>
-                    <span class="tech-tag-status">PRODUCTION</span>
-                </div>
-                <div class="skills-tags">
-                    <span class="skill-tag">TypeScript</span>
-                    <span class="skill-tag">Next.js (App Router)</span>
-                    <span class="skill-tag">React</span>
-                    <span class="skill-tag">Node.js (Express)</span>
-                    <span class="skill-tag">Django REST</span>
-                    <span class="skill-tag">PostgreSQL</span>
-                    <span class="skill-tag">Prisma ORM</span>
-                    <span class="skill-tag">Supabase</span>
-                    <span class="skill-tag">Tailwind CSS</span>
-                    <span class="skill-tag">Vercel</span>
-                </div>
-            </div>
-
-            <div class="skill-group-card tactical-box">
-                <div class="box-header">
-                    <span class="box-title"><i class="fas fa-brain"></i> 03 // REVERSE ENGINEERING & AI AGENTS</span>
-                    <span class="tech-tag-status">INFRA</span>
-                </div>
-                <div class="skills-tags">
-                    <span class="skill-tag">Autonomous Agents</span>
-                    <span class="skill-tag">VM Sandbox Isolation</span>
-                    <span class="skill-tag">Puppeteer Core</span>
-                    <span class="skill-tag">Anti-Bot Persistence</span>
-                    <span class="skill-tag">Gemini / Claude API</span>
-                    <span class="skill-tag">5-Key Rotation Pool</span>
-                    <span class="skill-tag">Prompt Engineering</span>
-                    <span class="skill-tag">RAG Architecture</span>
-                    <span class="skill-tag">Telegram Bot API</span>
-                </div>
-            </div>
-
-            <div class="skill-group-card tactical-box">
-                <div class="box-header">
-                    <span class="box-title"><i class="fas fa-shield-alt"></i> 04 // SECURITY, BILLING & OPERATIONS</span>
-                    <span class="tech-tag-status">DEPLOY</span>
-                </div>
-                <div class="skills-tags">
-                    <span class="skill-tag">JWT Authentication</span>
-                    <span class="skill-tag">Session Sync & Conflict Res.</span>
-                    <span class="skill-tag">Stripe Subscriptions</span>
-                    <span class="skill-tag">Metered Billing</span>
-                    <span class="skill-tag">Zod Validation</span>
-                    <span class="skill-tag">GitHub Actions CI/CD</span>
-                    <span class="skill-tag">Nginx & SSL</span>
-                    <span class="skill-tag">Git</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROJECTS SECTION -->
-    <section id="projects" class="content-section">
-        <div class="tactical-section-header">
-            <span class="section-tag">[03] // PRODUCTION CASES</span>
-            <h2>SYSTEMS DOSSIER & DELIVERABLES</h2>
-            <div class="tactical-line"></div>
-        </div>
-
-        <div class="project-filters">
-            <button class="filter-btn active" data-filter="all">[ALL CASES]</button>
-            <button class="filter-btn" data-filter="web3">[WEB3 & LOW-LATENCY]</button>
-            <button class="filter-btn" data-filter="saas">[SAAS & PLATFORMS]</button>
-            <button class="filter-btn" data-filter="systems">[SYSTEMS & REVERSE]</button>
-        </div>
-
-        <!-- TIER 1: FLAGSHIP DOSSIER -->
-        <div class="featured-projects-grid">
-
-            <!-- PROJECT 1: Arbitrum DEX Engine -->
-            <article class="project-card featured tactical-box" data-category="systems web3">
-                <div class="project-dossier-top">
-                    <div class="dossier-case-number">CASE // 01</div>
-                    <div class="dossier-stamp stamp-green">[STATUS: DELIVERED &amp; PAID]</div>
-                </div>
-
-                <div class="project-card-header">
-                    <div class="project-badge system-badge">
-                        <i class="fas fa-bolt"></i> HIGH-FREQUENCY TRADING &bull; RUST L2
-                    </div>
-                </div>
-
-                <h3>Arbitrum DEX Arbitrage & Nitro Node Engine</h3>
-                
-                <p class="project-description">
-                    High-performance cross-DEX arbitrage execution system designed for Uniswap V3 and Camelot V3 (Algebra) on Arbitrum One L2. Decodes live pool tick events over WebSocket streams with microsecond latency, tracks tick-level liquidity in an in-memory state machine, and evaluates round-trip arbitrage paths factoring L2 gas costs and fixed-point U256 math. Deployed alongside a dedicated Arbitrum Nitro full node on Hetzner Linux with systemd supervision.
-                </p>
-
-                <div class="dossier-telemetry-grid">
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">TICK_DECODER</span>
-                        <span class="telemetry-val">Microsecond WebSocket Stream</span>
-                    </div>
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">NODE_SYNC</span>
-                        <span class="telemetry-val">Arbitrum Nitro Dedicated Node</span>
-                    </div>
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">ARITHMETIC</span>
-                        <span class="telemetry-val">U256 Fixed-Point (Alloy)</span>
-                    </div>
-                </div>
-
-                <div class="project-tech-tags">
-                    <span>Rust (2021)</span>
-                    <span>Alloy Primitives</span>
-                    <span>Tokio</span>
-                    <span>Docker</span>
-                    <span>Systemd</span>
-                    <span>Uniswap V3</span>
-                    <span>Camelot V3</span>
-                </div>
-
-                <div class="project-footer">
-                    <span class="dossier-signoff">// 48 000 UAH MILESTONE &bull; 5/5 STAGES VERIFIED</span>
-                </div>
-            </article>
-
-            <!-- PROJECT 2: Atomic Solidity Contract & Revert Guard -->
-            <article class="project-card featured tactical-box" data-category="systems web3">
-                <div class="project-dossier-top">
-                    <div class="dossier-case-number">CASE // 02</div>
-                    <div class="dossier-stamp stamp-cyan">[STATUS: AUDITED &amp; DEPLOYED]</div>
-                </div>
-
-                <div class="project-card-header">
-                    <div class="project-badge system-badge">
-                        <i class="fas fa-shield-halved"></i> DEFI SECURITY &bull; SOLIDITY ARBITRUM L2
-                    </div>
-                </div>
-
-                <h3>Atomic Solidity Arbitrage &amp; On-Chain Revert Guard</h3>
-                
-                <p class="project-description">
-                    Production-grade direct execution smart contract engineered for atomic multi-DEX arbitrage between Uniswap V3 and Camelot V3 (Algebra) on Arbitrum One. Implements flash swap callbacks with zero locked collateral requirements and guarantees <strong>Zero Capital Loss</strong> through strict on-chain validation: <code class="inline-code">require(finalBalance &gt;= initialBalance + minProfit)</code>. Any slippage inversion or frontrunning MEV attempts trigger an instantaneous atomic revert.
-                </p>
-
-                <div class="dossier-telemetry-grid">
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">CAPITAL_GUARD</span>
-                        <span class="telemetry-val">Zero Capital Loss (Revert Guard)</span>
-                    </div>
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">EXECUTION_MODEL</span>
-                        <span class="telemetry-val">Atomic Flash Swaps (Uni V3 + Cam)</span>
-                    </div>
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">ASSET_MATRIX</span>
-                        <span class="telemetry-val">USDC (6d), WETH (18d), WBTC (8d)</span>
-                    </div>
-                </div>
-
-                <div class="project-tech-tags">
-                    <span>Solidity 0.8.24</span>
-                    <span>Arbitrum One</span>
-                    <span>Uniswap V3</span>
-                    <span>Camelot V3</span>
-                    <span>Flash Callbacks</span>
-                    <span>MEV Defense</span>
-                    <span>Custom Errors</span>
-                </div>
-
-                <div class="project-footer">
-                    <span class="dossier-signoff">// 35 000 UAH MILESTONE &bull; 100% REVERT GUARANTEE</span>
-                </div>
-            </article>
-
-            <!-- PROJECT 3: DevSecOps Linux Hardening -->
-            <article class="project-card featured tactical-box" data-category="systems web3">
-                <div class="project-dossier-top">
-                    <div class="dossier-case-number">CASE // 03</div>
-                    <div class="dossier-stamp stamp-purple">[STATUS: 22+ DAYS ZERO-INCIDENT UPTIME]</div>
-                </div>
-
-                <div class="project-card-header">
-                    <div class="project-badge security-badge">
-                        <i class="fas fa-lock"></i> DEVSECOPS &bull; HETZNER BARE-METAL HARDENING
-                    </div>
-                </div>
-
-                <h3>DevSecOps Linux Hardening &amp; Systemd Sandbox</h3>
-                
-                <p class="project-description">
-                    Comprehensive bare-metal infrastructure hardening for a dedicated Hetzner server hosting an Arbitrum Nitro full node and high-frequency trading engine. Features emergency Hetzner Rescue recovery (RAID md2 remount, unauthorized SSH key purge, macOS ssh.socket configuration), 8-tier kernel-level Systemd daemon sandboxing (ProtectSystem=full, PrivateTmp=true), and a zero-trust UFW firewall eliminating WAN exposure to internal RPC ports.
-                </p>
-
-                <div class="dossier-telemetry-grid">
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">KERNEL_SANDBOX</span>
-                        <span class="telemetry-val">8 Systemd Flags (ProtectSystem=full)</span>
-                    </div>
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">PERIMETER_DEFENSE</span>
-                        <span class="telemetry-val">UFW Default Deny &bull; Zero WAN RPC</span>
-                    </div>
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">UPTIME_STABILITY</span>
-                        <span class="telemetry-val">22+ Days Live Without Memory Leaks</span>
-                    </div>
-                </div>
-
-                <div class="project-tech-tags">
-                    <span>Linux / Ubuntu 24.04</span>
-                    <span>Hetzner Dedicated</span>
-                    <span>Systemd Sandbox</span>
-                    <span>UFW Firewall</span>
-                    <span>RAID mdadm</span>
-                    <span>Ed25519 Crypto</span>
-                    <span>Nitro Node</span>
-                </div>
-
-                <div class="project-footer">
-                    <span class="dossier-signoff">// 20 000 UAH MILESTONE &bull; ZERO EXPLOIT EXPOSURE</span>
-                </div>
-            </article>
-
-            <!-- PROJECT 4: PropText.ai -->
-            <article class="project-card featured tactical-box" data-category="saas automation">
-                <div class="project-dossier-top">
-                    <div class="dossier-case-number">CASE // 04</div>
-                    <div class="dossier-stamp stamp-cyan">[STATUS: LIVE IN PRODUCTION]</div>
-                </div>
-
-                <div class="project-card-header">
-                    <div class="project-badge saas-badge">
-                        <i class="fas fa-cube"></i> PRODUCTION SAAS &bull; ACTIVE USERS
-                    </div>
-                </div>
-
-                <h3>PropText.ai &mdash; Real Estate Listing Generator</h3>
-
-                <p class="project-description">
-                    Commercial SaaS application for generating structured, high-converting real estate listing descriptions. Built with Next.js App Router and deployed on Vercel. Features Supabase authentication, automated credit-based metered billing with Stripe checkout and webhook processing, and Google Gemini API integration for localized text generation.
-                </p>
-
-                <div class="dossier-telemetry-grid">
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">BILLING_MODEL</span>
-                        <span class="telemetry-val">Credit-Based Metered Stripe</span>
-                    </div>
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">AUTH_STORAGE</span>
-                        <span class="telemetry-val">Supabase Auth & PostgreSQL</span>
-                    </div>
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">DEPLOYMENT</span>
-                        <span class="telemetry-val">Production Vercel Cloud</span>
-                    </div>
-                </div>
-
-                <div class="project-tech-tags">
-                    <span>Next.js</span>
-                    <span>TypeScript</span>
-                    <span>Stripe API</span>
-                    <span>Google Gemini API</span>
-                    <span>Supabase</span>
-                    <span>Tailwind CSS</span>
-                </div>
-
-                <div class="project-links">
-                    <a href="https://proptext.online" target="_blank" rel="noopener noreferrer" class="btn btn-dossier-action">
-                        <span>VIEW LIVE PLATFORM</span> <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-            </article>
-
-            <!-- PROJECT 5: Subwerk CRM -->
-            <article class="project-card featured tactical-box" data-category="saas systems">
-                <div class="project-dossier-top">
-                    <div class="dossier-case-number">CASE // 05</div>
-                    <div class="dossier-stamp stamp-amber">[CLIENT SHOWCASE // SWEDEN]</div>
-                </div>
-
-                <div class="project-card-header">
-                    <div class="project-badge client-badge">
-                        <i class="fas fa-briefcase"></i> ENTERPRISE PROTOTYPE &bull; SWEDISH ECOSYSTEM
-                    </div>
-                </div>
-
-                <h3>Subwerk CRM &mdash; Prototype & Custom Design System</h3>
-
-                <p class="project-description">
-                    Interactive web prototype and custom design system engineered for a Swedish CRM platform serving moving and cleaning enterprises. Built with zero runtime frameworks for 60 FPS performance. Implements live CRM dashboards, Stockholm market RUT-avdrag tax deduction calculations, Bankgiro invoicing simulation, and full responsive mobile adaptation.
-                </p>
-
-                <div class="dossier-telemetry-grid">
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">TAX_CALCULATION</span>
-                        <span class="telemetry-val">Swedish RUT-avdrag Engine</span>
-                    </div>
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">RUNTIME_OVERHEAD</span>
-                        <span class="telemetry-val">Zero Framework &bull; 60 FPS</span>
-                    </div>
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">RESPONSIVE_BREAKS</span>
-                        <span class="telemetry-val">5 Distinct Breakpoints</span>
-                    </div>
-                </div>
-
-                <div class="project-tech-tags">
-                    <span>HTML5</span>
-                    <span>Custom CSS Design System</span>
-                    <span>Vanilla JavaScript</span>
-                    <span>Lucide Icons</span>
-                    <span>Vercel</span>
-                </div>
-
-                <div class="project-links">
-                    <a href="https://subwerk-landing.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-dossier-action">
-                        <span>VIEW LIVE PROTOTYPE</span> <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-            </article>
-
-            <!-- PROJECT 6: Partslink24 Proxy -->
-            <article class="project-card featured tactical-box" data-category="systems automation">
-                <div class="project-dossier-top">
-                    <div class="dossier-case-number">CASE // 06</div>
-                    <div class="dossier-stamp stamp-green">[REVERSE ENGINEERED // DEPLOYED]</div>
-                </div>
-
-                <div class="project-card-header">
-                    <div class="project-badge system-badge">
-                        <i class="fas fa-network-wired"></i> REVERSE PROXY &bull; ENTERPRISE PORTAL
-                    </div>
-                </div>
-
-                <h3>Partslink24 Multi-User Session Sharing Reverse Proxy</h3>
-
-                <p class="project-description">
-                    Specialized Node.js reverse proxy engine designed to bypass single-session restrictions on protected enterprise web portals with Envoy proxy and React JWT auth. Features real-time bidirectional cookie & LocalStorage state synchronization (<code class="inline-code">/__sync_storage</code>), millisecond timestamp conflict resolution to prevent race conditions, header sanitization, and automated Windows Server daemon self-healing via scheduled tasks.
-                </p>
-
-                <div class="dossier-telemetry-grid">
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">STATE_SYNC</span>
-                        <span class="telemetry-val">Bidirectional Cookie / LocalStorage</span>
-                    </div>
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">RACE_CONDITION_FIX</span>
-                        <span class="telemetry-val">Timestamp Conflict Resolution</span>
-                    </div>
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">HEADLESS_DAEMON</span>
-                        <span class="telemetry-val">Windows Server Self-Healing</span>
-                    </div>
-                </div>
-
-                <div class="project-tech-tags">
-                    <span>Node.js</span>
-                    <span>Express</span>
-                    <span>Http-Proxy-Middleware</span>
-                    <span>Windows Server 2019</span>
-                    <span>PowerShell</span>
-                </div>
-
-                <div class="project-links">
-                    <a href="https://github.com/Br1zz1713/partslink-proxy" target="_blank" rel="noopener noreferrer" class="btn btn-dossier-action">
-                        <span>VIEW REPOSITORY</span> <i class="fab fa-github"></i>
-                    </a>
-                </div>
-            </article>
-
-            <!-- PROJECT 7: OpenClaw Framework -->
-            <article class="project-card featured tactical-box" data-category="automation systems">
-                <div class="project-dossier-top">
-                    <div class="dossier-case-number">CASE // 07</div>
-                    <div class="dossier-stamp stamp-cyan">[INFRASTRUCTURE // ACTIVE ORCHESTRATION]</div>
-                </div>
-
-                <div class="project-card-header">
-                    <div class="project-badge ai-badge">
-                        <i class="fas fa-shield-virus"></i> AGENT INFRASTRUCTURE &bull; VM SANDBOX
-                    </div>
-                </div>
-
-                <h3>OpenClaw &mdash; Autonomous AI Agent Orchestrator</h3>
-
-                <p class="project-description">
-                    Automation infrastructure framework for running autonomous AI agent sessions in isolated VM sandboxes. Implements automated pooling and rotation across 5 Google Gemini API keys to bypass rate limits, persistent anti-detection browser profile binding, structured Winston logging, and a standalone React/TypeScript telemetry dashboard with live tool execution tracking.
-                </p>
-
-                <div class="dossier-telemetry-grid">
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">KEY_ROTATION</span>
-                        <span class="telemetry-val">5-Key Gemini API Pool</span>
-                    </div>
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">SECURITY_MODEL</span>
-                        <span class="telemetry-val">Isolated VM Sandbox</span>
-                    </div>
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">OBSERVABILITY</span>
-                        <span class="telemetry-val">React Telemetry Dashboard</span>
-                    </div>
-                </div>
-
-                <div class="project-tech-tags">
-                    <span>Node.js</span>
-                    <span>TypeScript</span>
-                    <span>Puppeteer Core</span>
-                    <span>React (Vite)</span>
-                    <span>Winston</span>
-                    <span>Gemini API</span>
-                </div>
-
-                <div class="project-links">
-                    <a href="https://github.com/Br1zz1713/openclaw" target="_blank" rel="noopener noreferrer" class="btn btn-dossier-action">
-                        <span>VIEW REPOSITORY</span> <i class="fab fa-github"></i>
-                    </a>
-                </div>
-            </article>
-
-            <!-- PROJECT 8: RSA Driving Test Auto-Booker & Session Keepalive Engine -->
-            <article class="project-card featured tactical-box" data-category="systems">
-                <div class="project-dossier-top">
-                    <div class="dossier-case-number">CASE // 08</div>
-                    <div class="dossier-stamp stamp-green">[STATUS: DELIVERED &amp; PAID &bull; 10/10]</div>
-                </div>
-
-                <div class="project-card-header">
-                    <div class="project-badge system-badge">
-                        <i class="fas fa-gauge-high"></i> HIGH-CONCURRENCY BOT &bull; IRELAND MYGOVID
-                    </div>
-                </div>
-
-                <h3>RSA Driving Test Auto-Booker &amp; Session Keepalive Engine</h3>
-
-                <p class="project-description">
-                    Autonomous high-speed slot reservation daemon for the Irish Road Safety Authority (RSA) driving test booking portal through MyGovID authentication. Resolves strict 2-hour session timeouts with an automated Safety Fuse keepalive loop, integrates TOTP authenticator key generation for 100% headless re-authentication, continuously monitors appointment availability across national test centers, and executes instant sub-second slot reservation with multi-channel Telegram alerts.
-                </p>
-
-                <div class="dossier-telemetry-grid">
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">SESSION_FUSE</span>
-                        <span class="telemetry-val">2-Hour Keepalive &amp; TOTP Re-Auth</span>
-                    </div>
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">SLOT_LATENCY</span>
-                        <span class="telemetry-val">Sub-Second Detection Loop</span>
-                    </div>
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">DEPLOYMENT</span>
-                        <span class="telemetry-val">Ubuntu 24.04 VPS &bull; Systemd Daemon</span>
-                    </div>
-                </div>
-
-                <div class="project-tech-tags">
-                    <span>Python 3.12</span>
-                    <span>Playwright Async</span>
-                    <span>TOTP 2FA</span>
-                    <span>Telegram API</span>
-                    <span>Linux VPS</span>
-                    <span>Systemd</span>
-                </div>
-
-                <div class="project-footer">
-                    <span class="dossier-signoff">// 7 000 UAH SAFE &bull; 10/10 VERIFIED CLIENT RATING</span>
-                </div>
-            </article>
-
-            <!-- PROJECT 9: Horoshop & Monobank Market Automated Catalog & Feed Engine -->
-            <article class="project-card featured tactical-box" data-category="systems saas">
-                <div class="project-dossier-top">
-                    <div class="dossier-case-number">CASE // 09</div>
-                    <div class="dossier-stamp stamp-cyan">[STATUS: PRODUCTION RETAINER &bull; 5.0★]</div>
-                </div>
-
-                <div class="project-card-header">
-                    <div class="project-badge client-badge">
-                        <i class="fas fa-boxes-packing"></i> E-COMMERCE SYNC &bull; HOROSHOP &amp; MONOBANK
-                    </div>
-                </div>
-
-                <h3>Horoshop &amp; Monobank Market Automated Feed &amp; Catalog Engine</h3>
-
-                <p class="project-description">
-                    Production e-commerce data pipeline bridging Horoshop retail infrastructure with Monobank Market (<code class="inline-code">seller.monomarket.ua</code>). Overcomes platform limitations by dynamically generating compliant XML product feeds with over 620 technical parameters extracted directly from store catalogs, along with strict JSON price/stock lists supporting Pay-in-Parts (<code class="inline-code">max_pay_in_parts</code>) and multi-warehouse routing. Powered by automated scrapers and deployed on Vercel CDN.
-                </p>
-
-                <div class="dossier-telemetry-grid">
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">FEED_FORMATS</span>
-                        <span class="telemetry-val">Compliant XML &amp; Monomarket JSON</span>
-                    </div>
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">SYNC_VOLUME</span>
-                        <span class="telemetry-val">Automated Daily Catalog &amp; Pricing</span>
-                    </div>
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">INFRASTRUCTURE</span>
-                        <span class="telemetry-val">Vercel CDN Edge &bull; Instant Cache Flush</span>
-                    </div>
-                </div>
-
-                <div class="project-tech-tags">
-                    <span>Python</span>
-                    <span>Horoshop Platform</span>
-                    <span>XML / JSON ETL</span>
-                    <span>Vercel Edge</span>
-                    <span>BeautifulSoup4</span>
-                    <span>E-Commerce API</span>
-                </div>
-
-                <div class="project-footer">
-                    <span class="dossier-signoff">// 6 500 UAH/MO ACTIVE RETAINER &bull; 5.0★ VERIFIED</span>
-                </div>
-            </article>
-
-            <!-- PROJECT 10: TON DeFi Jetton Suite: Taxes, Anti-Whale, Ston.fi v2 & Cron -->
-            <article class="project-card featured tactical-box" data-category="web3 systems">
-                <div class="project-dossier-top">
-                    <div class="dossier-case-number">CASE // 10</div>
-                    <div class="dossier-stamp stamp-green">[STATUS: MAINNET LIVE &bull; 5.0★]</div>
-                </div>
-
-                <div class="project-card-header">
-                    <div class="project-badge system-badge">
-                        <i class="fas fa-coins"></i> TON BLOCKCHAIN &bull; TACT 1.6+ &bull; DEFI SUITE
-                    </div>
-                </div>
-
-                <h3>TON DeFi Jetton: On-Chain Taxes, Anti-Whale, Ston.fi v2 &amp; Cron</h3>
-
-                <p class="project-description">
-                    Production-grade turnkey DeFi Jetton protocol (TEP-74 / TEP-64) engineered in Tact 1.6+ and deployed to TON Mainnet. Features custom on-chain DEX taxes on Ston.fi v2 (2% Buy Tax, 5% Sell Tax with automated split to Reward Pool and marketing; 0% on regular P2P transfers) with secure withdrawal logic. Integrates an on-chain 5-tier cascading Anti-Whale FSM calibrated from launch timestamp <code class="inline-code">T₀</code>, immutable Hard-Cap mint revocation (<code class="inline-code">revoke_mint</code>), a 2030 Time-Lock vault, and an off-chain automated dividend distribution engine (TypeScript/Node.js on hardened Ubuntu VPS, TonAPI v2, Highload Wallet batching up to 200 holders per tx, weekly cron).
-                </p>
-
-                <div class="dossier-telemetry-grid">
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">DEX_TAX_ENGINE</span>
-                        <span class="telemetry-val">2% Buy / 5% Sell Split &bull; 0% P2P</span>
-                    </div>
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">ANTI_WHALE_FSM</span>
-                        <span class="telemetry-val">5 Cascading Tiers from T₀</span>
-                    </div>
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">AUTOMATION_CRON</span>
-                        <span class="telemetry-val">Highload Wallet Batching &bull; TonAPI v2</span>
-                    </div>
-                    <div class="telemetry-item">
-                        <span class="telemetry-label">TVM_VERIFICATION</span>
-                        <span class="telemetry-val">11/11 Sandbox Tests &bull; 100% Mainnet Clean</span>
-                    </div>
-                </div>
-
-                <div class="project-tech-tags">
-                    <span>Tact 1.6+</span>
-                    <span>Ston.fi v2</span>
-                    <span>Highload Wallet</span>
-                    <span>TonAPI v2</span>
-                    <span>TON Blueprint</span>
-                    <span>@ton/sandbox</span>
-                    <span>TypeScript</span>
-                    <span>TEP-74</span>
-                    <span>Linux Hardening</span>
-                </div>
-
-                <div class="project-footer">
-                    <span class="dossier-signoff">// 23 900 UAH TOTAL &bull; 5.0★ VERIFIED &bull; EXPERT BADGE</span>
-                </div>
-            </article>
-
-
-        </div>
-
-        <!-- TIER 2: SECONDARY SYSTEMS GRID -->
-        <div class="secondary-dossier-header">
-            <span class="hud-slash">//</span> COMPACT SYSTEMS, SCRAPERS & UTILITIES
-        </div>
-
-        <div class="secondary-projects-grid">
-
-            <article class="project-card compact tactical-box" data-category="automation systems">
-                <div class="compact-case-num">CASE // 12</div>
-                <h4>Freelance Intelligence Scrapers</h4>
-                <p>Automated scraping suite monitoring Freelancehunt and Djinni job boards with Puppeteer and Cheerio. Evaluates project match scores, drafts customized outreach proposals via Gemini API, and dispatches real-time Telegram push alerts.</p>
-                <div class="compact-tech">Node.js &bull; Puppeteer &bull; Cheerio &bull; Telegram API &bull; Gemini API</div>
-                <div class="compact-link">
-                    <a href="https://github.com/Br1zz1713/freelance-scrapers" target="_blank" rel="noopener noreferrer">
-                        <span>[VIEW REPOSITORY]</span> <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </article>
-
-            <article class="project-card compact tactical-box" data-category="saas">
-                <div class="compact-case-num">CASE // 13</div>
-                <h4>Commercial E-Shop Platform</h4>
-                <p>Full-stack e-commerce system with decoupled React frontend and Django REST backend. Features secure JWT authentication, relational product filtering, shopping cart state management, and PostgreSQL persistence.</p>
-                <div class="compact-tech">React &bull; Django REST &bull; PostgreSQL &bull; Tailwind CSS</div>
-                <div class="compact-link">
-                    <a href="https://ecoshop-alpha.vercel.app" target="_blank" rel="noopener noreferrer">
-                        <span>[VIEW LIVE DEMO]</span> <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </article>
-
-            <article class="project-card compact tactical-box" data-category="automation saas">
-                <div class="compact-case-num">CASE // 14</div>
-                <h4>Invoice Processing System</h4>
-                <p>Document intelligence application extracting structured financial data from PDF invoices and receipts via Google Gemini API in background workers, featuring a context-aware document chat assistant.</p>
-                <div class="compact-tech">React &bull; Express.js &bull; Prisma ORM &bull; SQLite &bull; Gemini API</div>
-                <div class="compact-link">
-                    <a href="https://github.com/Br1zz1713/invoice-processing-system" target="_blank" rel="noopener noreferrer">
-                        <span>[VIEW REPOSITORY]</span> <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </article>
-
-            <article class="project-card compact tactical-box" data-category="systems saas">
-                <div class="compact-case-num">CASE // 15</div>
-                <h4>Bank Statement Analyzer</h4>
-                <p>Interactive web application for parsing and auditing CSV bank statements. Features drag-and-drop ingestion, transaction search, strict Zod schema validation, balance calculations, and Vitest unit testing.</p>
-                <div class="compact-tech">Next.js &bull; PapaParse &bull; Zod &bull; Vitest &bull; Tailwind CSS</div>
-                <div class="compact-link">
-                    <a href="https://github.com/Br1zz1713/Junior-Fullstack-2-" target="_blank" rel="noopener noreferrer">
-                        <span>[VIEW REPOSITORY]</span> <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </article>
-
-        </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="content-section">
-        <div class="tactical-section-header">
-            <span class="section-tag">[04] // DIRECT COMMS CHANNEL</span>
-            <h2>INITIATE TECHNICAL COMMS</h2>
-            <div class="tactical-line"></div>
-        </div>
-
-                <div class="contact-container">
-            <div class="contact-card tactical-box">
-                <div class="box-header">
-                    <span class="box-title"><i class="fas fa-satellite-dish"></i> SECURE COMMS RELAY</span>
-                    <span class="box-badge status-open">CHANNEL: OPEN</span>
-                </div>
-
-                <p class="contact-lead-text">
-                    Available for high-throughput backend architecture, high-frequency Web3/DEX engines, turnkey SaaS platforms, and resilient automation infrastructure. Reach out directly:
-                </p>
-
-                <div class="messenger-links">
-                    <a href="https://t.me/eugene_br1zz" target="_blank" rel="noopener noreferrer" class="contact-link telegram">
-                        <i class="fab fa-telegram-plane"></i>
-                        <div class="link-label-group">
-                            <span class="link-protocol">TELEGRAM</span>
-                            <span class="link-handle">@eugene_br1zz</span>
-                        </div>
-                    </a>
-                    <a href="https://wa.me/+40750266672" target="_blank" rel="noopener noreferrer" class="contact-link whatsapp">
-                        <i class="fab fa-whatsapp"></i>
-                        <div class="link-label-group">
-                            <span class="link-protocol">WHATSAPP</span>
-                            <span class="link-handle">+40 750 266 672</span>
-                        </div>
-                    </a>
-                    <a href="mailto:berezanskyi09@gmail.com" class="contact-link email">
-                        <i class="fas fa-envelope"></i>
-                        <div class="link-label-group">
-                            <span class="link-protocol">DIRECT_MAIL</span>
-                            <span class="link-handle">berezanskyi09@gmail.com</span>
-                        </div>
-                    </a>
-                    <a href="https://github.com/Br1zz1713" target="_blank" rel="noopener noreferrer" class="contact-link github">
-                        <i class="fab fa-github"></i>
-                        <div class="link-label-group">
-                            <span class="link-protocol">GITHUB</span>
-                            <span class="link-handle">github.com/Br1zz1713</span>
-                        </div>
-                    </a>
-                    <a href="resume/Resume_Yevhen_Berezanskyi_EN.html" target="_blank" rel="noopener noreferrer" class="contact-link resume" title="View Yevhen Berezanskyi Resume (EN & UA)">
-                        <i class="fas fa-file-alt"></i>
-                        <div class="link-label-group">
-                            <span class="link-protocol">CURRICULUM_VITAE</span>
-                            <span class="link-handle">View Resume // EN &amp; UA</span>
-                        </div>
-                    </a>
-                    <a href="https://freelancehunt.com/freelancer/berezanskyi09.html" target="_blank" rel="noopener noreferrer" class="contact-link freelancehunt">
-                        <i class="fas fa-briefcase"></i>
-                        <div class="link-label-group">
-                            <span class="link-protocol">FREELANCEHUNT</span>
-                            <span class="link-handle">berezanskyi09 // Top Rated</span>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- SUBTLE NYAVOCHKA EASTER EGG PILL -->
-                <div class="nyavochka-subtle-pill" id="cat-avatar-trigger" title="🐾 Nyavochka: Click for code review">
-                    <div class="pill-daemon-tag">
-                        <span class="pulse-dot"></span>
-                        <span>nyavochka-daemon:</span>
-                    </div>
-                    <span class="pill-quote" id="cat-quote-text">"All comms encrypted. 0 lost ticks in mempool. Ready for production deploys."</span>
-                    <span class="pill-badge" id="cat-quote-counter">[01/07] 🐾</span>
-                </div>
-
-                <div class="contact-meta-info">
-                    <span><i class="fas fa-crosshairs"></i> ODESA, UKRAINE [UTC+2 / UTC+3]</span>
-                    <span><i class="fas fa-phone-alt"></i> +40 750 266 672</span>
-                    <span><i class="fas fa-globe"></i> REMOTE WORLDWIDE</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="main-footer">
-        <div class="footer-content">
-            <p>&copy; 2026 Yevhen Berezanskyi // 0xSYS &bull; Engineered for performance and reliability.</p>
-            <p class="footer-subtext">STREETWEAR TECH &bull; ZERO CORPORATE BLOAT &bull; BRUTALIST PRECISION</p>
-        </div>
-    </footer>
-
-    <script src="script.min.js?v=3.5.0" defer></script>
+          </div>
+        `;
+        if (c.review) {
+          card.addEventListener('click', (e) => {
+            if (e.target.closest('a')) return;
+            const isOpen = card.classList.toggle('open');
+            const btn = card.querySelector('.review-toggle');
+            if (btn) btn.setAttribute('aria-expanded', String(isOpen));
+          });
+        }
+        grid.appendChild(card);
+      });
+    }
+
+    function applyLang() {
+      const dict = I18N[currentLang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) el.textContent = dict[key];
+      });
+      document.getElementById('langToggle').textContent = currentLang === 'en' ? 'UA' : 'EN';
+      renderCases();
+    }
+
+    document.getElementById('langToggle').addEventListener('click', () => {
+      currentLang = currentLang === 'en' ? 'ua' : 'en';
+      applyLang();
+    });
+
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const html = document.documentElement;
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      document.getElementById('themeToggle').textContent = next === 'dark' ? 'Light' : 'Dark';
+    });
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.getAttribute('data-filter');
+        renderCases();
+      });
+    });
+
+    // Soft scroll reveal for lower sections
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    // Smooth Scroll-Spy for sidebar navigation
+    const navLinks = document.querySelectorAll('.side-nav a');
+    const sections = document.querySelectorAll('main section[id]');
+    const spyObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('data-section') === id);
+          });
+        }
+      });
+    }, { rootMargin: '-25% 0px -60% 0px' });
+    sections.forEach(sec => spyObs.observe(sec));
+
+    // Subtle photo lightbox
+    const lightbox = document.getElementById('lightbox');
+    document.getElementById('avatarTrigger').addEventListener('click', () => {
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+    });
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    // Copy email to clipboard (avoids Windows Outlook mailto hijack)
+    const copyToast = document.getElementById('copyToast');
+    let toastTimer;
+    document.querySelectorAll('.copy-email').forEach(el => {
+      el.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const email = el.getAttribute('data-email');
+        try {
+          await navigator.clipboard.writeText(email);
+        } catch {
+          const tmp = document.createElement('input');
+          tmp.value = email;
+          document.body.appendChild(tmp);
+          tmp.select();
+          document.execCommand('copy');
+          document.body.removeChild(tmp);
+        }
+        copyToast.textContent = currentLang === 'en'
+          ? `${email} copied ✓`
+          : `${email} скопійовано ✓`;
+        copyToast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => copyToast.classList.remove('show'), 2200);
+      });
+    });
+
+    // Education smooth accordion
+    const eduAccordion = document.getElementById('eduAccordion');
+    const eduTrigger = document.getElementById('eduTrigger');
+    eduTrigger.addEventListener('click', () => {
+      const isOpen = eduAccordion.classList.toggle('open');
+      eduTrigger.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    applyLang();
+  </script>
 </body>
-
 </html>
