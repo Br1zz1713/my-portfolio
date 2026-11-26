@@ -989,6 +989,25 @@
       }
     }
 
+    @media (max-width: 480px) {
+      .top-bar {
+        grid-template-columns: 116px 1fr;
+        gap: 14px;
+      }
+      .avatar-wrap {
+        width: 116px;
+        height: 116px;
+        border-radius: 18px;
+      }
+      .side-metrics {
+        gap: 5px;
+        padding-top: 8px;
+      }
+      .side-metric-row .metric-val {
+        font-size: 12.5px;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -1379,11 +1398,11 @@
         st_4_t: 'Integrations & AI',
         sec_exp: 'Experience & Education',
         exp_1_r: 'Independent Systems & Full-Stack Engineer',
-        exp_1_d: 'End-to-end delivery for Web3, e-commerce, and European booking automation clients. 15+ closed Safe milestones.',
+        exp_1_d: 'End-to-end delivery for Web3, e-commerce, and European booking automation clients. 15+ delivered client contracts.',
         exp_2_r: 'Full-Stack & Web Systems Internships',
         exp_2_d: 'ME "Marine Plast Center" and Time Pro. Internal tools, REST API endpoints, database queries, and frontend delivery.',
         exp_3_r: 'Computer Science & Networking Education',
-        exp_3_d: 'Click to expand institutions and years (3 degrees / programs).',
+        exp_3_d: 'Odesa National University (Mechnikov), Odesa State Ecological University, and College of Computer Technologies.',
         edu_1_s: 'Odesa National University named after I. I. Mechnikov',
         edu_1_d: 'Information Technologies & Software Systems. Algorithms, distributed computing, and software verification.',
         edu_2_s: 'Odesa State Ecological University',
@@ -1416,7 +1435,7 @@
         exp_2_r: 'Стажування Full-Stack / Web Systems',
         exp_2_d: 'КП "Marine Plast Center" та Time Pro. Внутрішні інструменти, REST API, оптимізація баз даних та фронтенд.',
         exp_3_r: 'Профільна освіта (CS & Мережі)',
-        exp_3_d: 'Натисніть, щоб розгорнути навчальні заклади та роки навчання.',
+        exp_3_d: 'ОНУ ім. І. І. Мечникова, ОДЕКУ та Одеський фаховий коледж комп’ютерних технологій.',
         edu_1_s: 'Одеський національний університет ім. І. І. Мечникова',
         edu_1_d: 'Інформаційні технології та програмні системи. Алгоритми, розподілені обчислення та верифікація ПЗ.',
         edu_2_s: 'Одеський державний екологічний університет (ОДЕКУ)',
@@ -1426,8 +1445,15 @@
       }
     };
 
-    let currentLang = 'en';
+    let currentLang = localStorage.getItem('yb_lang') || 'en';
     let currentFilter = 'all';
+
+    // Restore saved theme
+    const savedTheme = localStorage.getItem('yb_theme');
+    if (savedTheme === 'light' || savedTheme === 'dark') {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      document.getElementById('themeToggle').textContent = savedTheme === 'dark' ? 'Light' : 'Dark';
+    }
 
     function renderCases() {
       const grid = document.getElementById('casesGrid');
@@ -1495,6 +1521,7 @@
 
     document.getElementById('langToggle').addEventListener('click', () => {
       currentLang = currentLang === 'en' ? 'ua' : 'en';
+      localStorage.setItem('yb_lang', currentLang);
       applyLang();
     });
 
@@ -1502,6 +1529,7 @@
       const html = document.documentElement;
       const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       html.setAttribute('data-theme', next);
+      localStorage.setItem('yb_theme', next);
       document.getElementById('themeToggle').textContent = next === 'dark' ? 'Light' : 'Dark';
     });
 
